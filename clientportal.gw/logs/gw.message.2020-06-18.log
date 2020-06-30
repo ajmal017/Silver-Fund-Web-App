@@ -1,0 +1,386 @@
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /stylesheet/web/ib-common.css
+-> GET /stylesheet/web/login.css
+-> GET /sso/Templates/otp-responsive.css?1592506931121
+-> GET /stylesheet/web/bootstrap.v3.3.6.css
+-> GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /stylesheet/web/font-awesome.v4.7.0.css
+<- 200 GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /stylesheet/web/switchery.min.css
+<- 200 GET /stylesheet/web/font-awesome.v4.7.0.css
+-> GET /scripts/common/js/2015/jquery.min.js
+<- 200 GET /sso/Templates/otp-responsive.css?1592506931121
+-> GET /scripts/common/js/jquery-ui-1.12.1.min.js
+<- 200 GET /stylesheet/web/switchery.min.css
+-> GET /scripts/common/js/2015/bootstrap.min.js
+<- 200 GET /stylesheet/web/ib-common.css
+<- 200 GET /stylesheet/web/bootstrap.v3.3.6.css
+<- 200 GET /stylesheet/web/login.css
+<- 200 GET /scripts/common/js/2015/jquery.min.js
+<- 200 GET /scripts/common/js/jquery-ui-1.12.1.min.js
+-> GET /scripts/common/js/2015/bootstrap-switch.min.js
+<- 200 GET /scripts/common/js/2015/bootstrap.min.js
+-> GET /scripts/common/js/switchery.min.js
+<- 200 GET /scripts/common/js/2015/bootstrap-switch.min.js
+-> GET /sso/CombineFiles
+<- 200 GET /scripts/common/js/switchery.min.js
+<- 200 GET /sso/CombineFiles
+-> GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-google.png
+-> GET /images/2015/btn-app-tws.png
+-> GET /images/2015/button_discover_apis.png
+-> GET /images/2015/template/logo-ib-ibkr-txtwht.svg
+<- 200 GET /images/2015/btn-app-apple.png
+<- 200 GET /images/2015/btn-app-google.png
+<- 200 GET /images/2015/btn-app-tws.png
+-> GET /images/2015/template/logo-ib-ibkr-txtblk.svg
+<- 200 GET /images/2015/template/logo-ib-ibkr-txtwht.svg
+-> GET /fonts/Proxima-Nova-Light.woff2
+-> GET /fonts/fontawesome-webfont.woff2?v=4.6.1
+-> GET /fonts/Proxima-Nova-Semibold.woff2
+-> GET /fonts/Proxima-Nova-Regular.woff2
+<- 200 GET /images/2015/template/logo-ib-ibkr-txtblk.svg
+<- 200 GET /fonts/Proxima-Nova-Light.woff2
+<- 200 GET /fonts/fontawesome-webfont.woff2?v=4.6.1
+<- 200 GET /fonts/Proxima-Nova-Semibold.woff2
+<- 200 GET /fonts/Proxima-Nova-Regular.woff2
+<- 200 GET /images/2015/button_discover_apis.png
+-> GET /images/2015/template/home-screen-icon-128x128.png
+<- 200 GET /images/2015/template/home-screen-icon-128x128.png
+-> POST /sso/Authenticator;jsessionid=97EF294B6CD00278CFE86D92877372A0.ny5wwwdamsso1?41992
+uri /sso/Authenticator;jsessionid=97EF294B6CD00278CFE86D92877372A0.ny5wwwdamsso1?41992 failed
+io.vertx.core.VertxException: Connection was closed
+	at io.vertx.core.http.impl.ClientConnection.handleClosed(ClientConnection.java:406) ~[vertx-core-3.5.0.jar:na]
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$2(ContextImpl.java:342) ~[vertx-core-3.5.0.jar:na]
+	at io.vertx.core.impl.ContextImpl.executeFromIO(ContextImpl.java:200) ~[vertx-core-3.5.0.jar:na]
+	at io.vertx.core.net.impl.VertxHandler.channelInactive(VertxHandler.java:134) ~[vertx-core-3.5.0.jar:na]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:224) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelInactive(CombinedChannelDuplexHandler.java:420) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:377) ~[netty-codec-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:342) ~[netty-codec-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.codec.http.HttpClientCodec$Decoder.channelInactive(HttpClientCodec.java:281) ~[netty-codec-http-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelInactive(CombinedChannelDuplexHandler.java:223) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:224) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:377) ~[netty-codec-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:342) ~[netty-codec-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.ssl.SslHandler.channelInactive(SslHandler.java:978) ~[netty-handler-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:224) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1354) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:917) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$7.run(AbstractChannel.java:763) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163) ~[netty-common-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:403) ~[netty-common-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:463) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858) ~[netty-common-4.1.15.Final.jar:4.1.15.Final]
+	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_131]
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /stylesheet/web/bootstrap.v3.3.6.css
+-> GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /stylesheet/web/font-awesome.v4.7.0.css
+-> GET /stylesheet/web/switchery.min.css
+-> GET /stylesheet/web/ib-common.css
+-> GET /stylesheet/web/login.css
+<- 200 GET /stylesheet/web/bootstrap.v3.3.6.css
+<- 200 GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /sso/Templates/otp-responsive.css?1592506994831
+<- 200 GET /stylesheet/web/ib-common.css
+<- 200 GET /stylesheet/web/switchery.min.css
+-> GET /sso/CombineFiles
+<- 200 GET /stylesheet/web/login.css
+<- 200 GET /stylesheet/web/font-awesome.v4.7.0.css
+<- 200 GET /sso/Templates/otp-responsive.css?1592506994831
+<- 200 GET /sso/CombineFiles
+-> GET /images/2015/template/home-screen-icon-128x128.png
+<- 200 GET /images/2015/template/home-screen-icon-128x128.png
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /stylesheet/web/ib-common.css
+-> GET /stylesheet/web/login.css
+-> GET /sso/Templates/otp-responsive.css?1592508330694
+-> GET /stylesheet/web/bootstrap.v3.3.6.css
+-> GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /stylesheet/web/font-awesome.v4.7.0.css
+<- 200 GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /stylesheet/web/switchery.min.css
+<- 200 GET /stylesheet/web/font-awesome.v4.7.0.css
+-> GET /scripts/common/js/2015/jquery.min.js
+<- 200 GET /stylesheet/web/switchery.min.css
+-> GET /scripts/common/js/jquery-ui-1.12.1.min.js
+<- 200 GET /scripts/common/js/2015/jquery.min.js
+<- 200 GET /sso/Templates/otp-responsive.css?1592508330694
+<- 200 GET /stylesheet/web/ib-common.css
+-> GET /scripts/common/js/2015/bootstrap.min.js
+-> GET /scripts/common/js/2015/bootstrap-switch.min.js
+<- 200 GET /stylesheet/web/login.css
+<- 200 GET /stylesheet/web/bootstrap.v3.3.6.css
+<- 200 GET /scripts/common/js/jquery-ui-1.12.1.min.js
+-> GET /scripts/common/js/switchery.min.js
+<- 200 GET /scripts/common/js/2015/bootstrap-switch.min.js
+-> GET /sso/CombineFiles
+<- 200 GET /sso/CombineFiles
+<- 200 GET /scripts/common/js/switchery.min.js
+<- 200 GET /scripts/common/js/2015/bootstrap.min.js
+-> GET /images/2015/btn-app-apple.png
+<- 200 GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-google.png
+-> GET /images/2015/btn-app-tws.png
+-> GET /images/2015/button_discover_apis.png
+-> GET /images/2015/template/logo-ib-ibkr-txtwht.svg
+-> GET /images/2015/template/logo-ib-ibkr-txtblk.svg
+-> GET /fonts/Proxima-Nova-Light.woff2
+<- 200 GET /images/2015/button_discover_apis.png
+-> GET /fonts/fontawesome-webfont.woff2?v=4.6.1
+<- 200 GET /images/2015/template/logo-ib-ibkr-txtwht.svg
+-> GET /fonts/Proxima-Nova-Semibold.woff2
+<- 200 GET /fonts/Proxima-Nova-Light.woff2
+-> GET /fonts/Proxima-Nova-Regular.woff2
+<- 200 GET /fonts/fontawesome-webfont.woff2?v=4.6.1
+<- 200 GET /images/2015/template/logo-ib-ibkr-txtblk.svg
+<- 200 GET /images/2015/btn-app-google.png
+<- 200 GET /fonts/Proxima-Nova-Semibold.woff2
+<- 200 GET /fonts/Proxima-Nova-Regular.woff2
+-> POST /sso/Authenticator?61454
+<- 200 POST /sso/Authenticator?61454
+-> POST /sso/Authenticator?15089
+uri /sso/Authenticator?15089 failed
+io.vertx.core.VertxException: Connection was closed
+	at io.vertx.core.http.impl.ClientConnection.handleClosed(ClientConnection.java:406) ~[vertx-core-3.5.0.jar:na]
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$2(ContextImpl.java:342) ~[vertx-core-3.5.0.jar:na]
+	at io.vertx.core.impl.ContextImpl.executeFromIO(ContextImpl.java:200) ~[vertx-core-3.5.0.jar:na]
+	at io.vertx.core.net.impl.VertxHandler.channelInactive(VertxHandler.java:134) ~[vertx-core-3.5.0.jar:na]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:224) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelInactive(CombinedChannelDuplexHandler.java:420) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:377) ~[netty-codec-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:342) ~[netty-codec-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.codec.http.HttpClientCodec$Decoder.channelInactive(HttpClientCodec.java:281) ~[netty-codec-http-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelInactive(CombinedChannelDuplexHandler.java:223) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:224) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:377) ~[netty-codec-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:342) ~[netty-codec-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.ssl.SslHandler.channelInactive(SslHandler.java:978) ~[netty-handler-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:224) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1354) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:917) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$7.run(AbstractChannel.java:763) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163) ~[netty-common-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:403) ~[netty-common-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:463) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858) ~[netty-common-4.1.15.Final.jar:4.1.15.Final]
+	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_131]
+uri /images/2015/btn-app-tws.png failed
+java.io.IOException: Connection reset by peer
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method) ~[na:1.8.0_131]
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39) ~[na:1.8.0_131]
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[na:1.8.0_131]
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[na:1.8.0_131]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380) ~[na:1.8.0_131]
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288) ~[netty-buffer-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1106) ~[netty-buffer-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:373) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:123) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:645) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:580) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:497) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:459) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858) ~[netty-common-4.1.15.Final.jar:4.1.15.Final]
+	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_131]
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /stylesheet/web/ib-common.css
+-> GET /stylesheet/web/login.css
+-> GET /sso/Templates/otp-responsive.css?1592508450828
+-> GET /stylesheet/web/bootstrap.v3.3.6.css
+-> GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+<- 200 GET /sso/Templates/otp-responsive.css?1592508450828
+-> GET /stylesheet/web/font-awesome.v4.7.0.css
+<- 200 GET /stylesheet/web/bootstrap.v3.3.6.css
+<- 200 GET /stylesheet/web/ib-common.css
+<- 200 GET /stylesheet/web/login.css
+<- 200 GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /stylesheet/web/switchery.min.css
+-> GET /scripts/common/js/2015/jquery.min.js
+<- 200 GET /stylesheet/web/switchery.min.css
+-> GET /scripts/common/js/jquery-ui-1.12.1.min.js
+<- 200 GET /stylesheet/web/font-awesome.v4.7.0.css
+<- 200 GET /scripts/common/js/2015/jquery.min.js
+-> GET /scripts/common/js/2015/bootstrap.min.js
+-> GET /scripts/common/js/2015/bootstrap-switch.min.js
+<- 200 GET /scripts/common/js/jquery-ui-1.12.1.min.js
+<- 200 GET /scripts/common/js/2015/bootstrap.min.js
+-> GET /scripts/common/js/switchery.min.js
+<- 200 GET /scripts/common/js/2015/bootstrap-switch.min.js
+-> GET /sso/CombineFiles
+<- 200 GET /scripts/common/js/switchery.min.js
+<- 200 GET /sso/CombineFiles
+-> GET /images/2015/template/logo-ib-ibkr-txtwht.svg
+<- 200 GET /images/2015/template/logo-ib-ibkr-txtwht.svg
+-> GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-google.png
+-> GET /images/2015/btn-app-tws.png
+-> GET /images/2015/button_discover_apis.png
+-> GET /fonts/Proxima-Nova-Semibold.woff2
+-> GET /fonts/Proxima-Nova-Light.woff2
+<- 200 GET /images/2015/btn-app-apple.png
+<- 200 GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/button_discover_apis.png
+-> GET /fonts/fontawesome-webfont.woff2?v=4.6.1
+<- 200 GET /images/2015/btn-app-google.png
+-> GET /fonts/Proxima-Nova-Regular.woff2
+-> GET /images/2015/template/logo-ib-ibkr-txtblk.svg
+<- 200 GET /fonts/Proxima-Nova-Light.woff2
+<- 200 GET /fonts/fontawesome-webfont.woff2?v=4.6.1
+<- 200 GET /fonts/Proxima-Nova-Regular.woff2
+<- 200 GET /fonts/Proxima-Nova-Semibold.woff2
+<- 200 GET /images/2015/template/logo-ib-ibkr-txtblk.svg
+-> GET /images/2015/template/home-screen-icon-128x128.png
+<- 200 GET /images/2015/template/home-screen-icon-128x128.png
+-> POST /sso/Authenticator;jsessionid=2CFDBFD42CA9A825393945099004FA50.ny5wwwdamsso1?95507
+uri /sso/Authenticator;jsessionid=2CFDBFD42CA9A825393945099004FA50.ny5wwwdamsso1?95507 failed
+io.vertx.core.VertxException: Connection was closed
+	at io.vertx.core.http.impl.ClientConnection.handleClosed(ClientConnection.java:406) ~[vertx-core-3.5.0.jar:na]
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$2(ContextImpl.java:342) ~[vertx-core-3.5.0.jar:na]
+	at io.vertx.core.impl.ContextImpl.executeFromIO(ContextImpl.java:200) ~[vertx-core-3.5.0.jar:na]
+	at io.vertx.core.net.impl.VertxHandler.channelInactive(VertxHandler.java:134) ~[vertx-core-3.5.0.jar:na]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:224) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelInactive(CombinedChannelDuplexHandler.java:420) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:377) ~[netty-codec-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:342) ~[netty-codec-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.codec.http.HttpClientCodec$Decoder.channelInactive(HttpClientCodec.java:281) ~[netty-codec-http-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelInactive(CombinedChannelDuplexHandler.java:223) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:224) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:377) ~[netty-codec-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:342) ~[netty-codec-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.handler.ssl.SslHandler.channelInactive(SslHandler.java:978) ~[netty-handler-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:224) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1354) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:917) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$7.run(AbstractChannel.java:763) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163) ~[netty-common-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:403) ~[netty-common-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:463) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858) ~[netty-common-4.1.15.Final.jar:4.1.15.Final]
+	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_131]
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+uri /sso/Login?forwardTo=22&RL=1&ip2loc=US failed
+java.io.IOException: Connection reset by peer
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method) ~[na:1.8.0_131]
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39) ~[na:1.8.0_131]
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[na:1.8.0_131]
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[na:1.8.0_131]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380) ~[na:1.8.0_131]
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288) ~[netty-buffer-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1106) ~[netty-buffer-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:373) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:123) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:645) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:580) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:497) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:459) ~[netty-transport-4.1.15.Final.jar:4.1.15.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858) ~[netty-common-4.1.15.Final.jar:4.1.15.Final]
+	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_131]
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /stylesheet/web/ib-common.css
+-> GET /sso/Templates/otp-responsive.css?1592508821042
+-> GET /stylesheet/web/login.css
+-> GET /stylesheet/web/bootstrap.v3.3.6.css
+-> GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /stylesheet/web/font-awesome.v4.7.0.css
+<- 200 GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /stylesheet/web/switchery.min.css
+<- 200 GET /stylesheet/web/font-awesome.v4.7.0.css
+<- 200 GET /stylesheet/web/bootstrap.v3.3.6.css
+<- 200 GET /sso/Templates/otp-responsive.css?1592508821042
+-> GET /scripts/common/js/2015/jquery.min.js
+<- 200 GET /stylesheet/web/ib-common.css
+-> GET /scripts/common/js/jquery-ui-1.12.1.min.js
+<- 200 GET /stylesheet/web/switchery.min.css
+-> GET /scripts/common/js/2015/bootstrap.min.js
+<- 200 GET /stylesheet/web/login.css
+<- 200 GET /scripts/common/js/2015/jquery.min.js
+<- 200 GET /scripts/common/js/jquery-ui-1.12.1.min.js
+-> GET /scripts/common/js/2015/bootstrap-switch.min.js
+<- 200 GET /scripts/common/js/2015/bootstrap.min.js
+-> GET /scripts/common/js/switchery.min.js
+<- 200 GET /scripts/common/js/2015/bootstrap-switch.min.js
+-> GET /sso/CombineFiles
+<- 200 GET /scripts/common/js/switchery.min.js
+<- 200 GET /sso/CombineFiles
+-> GET /images/2015/btn-app-apple.png
+<- 200 GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-google.png
+-> GET /images/2015/btn-app-tws.png
+-> GET /images/2015/button_discover_apis.png
+-> GET /images/2015/template/logo-ib-ibkr-txtwht.svg
+<- 200 GET /images/2015/btn-app-tws.png
+-> GET /images/2015/template/logo-ib-ibkr-txtblk.svg
+<- 200 GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/template/logo-ib-ibkr-txtwht.svg
+<- 200 GET /images/2015/btn-app-google.png
+-> GET /fonts/Proxima-Nova-Light.woff2
+-> GET /fonts/fontawesome-webfont.woff2?v=4.6.1
+-> GET /fonts/Proxima-Nova-Semibold.woff2
+-> GET /fonts/Proxima-Nova-Regular.woff2
+<- 200 GET /images/2015/template/logo-ib-ibkr-txtblk.svg
+<- 200 GET /fonts/Proxima-Nova-Light.woff2
+<- 200 GET /fonts/Proxima-Nova-Semibold.woff2
+<- 200 GET /fonts/Proxima-Nova-Regular.woff2
+<- 200 GET /fonts/fontawesome-webfont.woff2?v=4.6.1
+-> POST /sso/Authenticator;jsessionid=6F013E94C8D541C98EFEB9FB74CB9D54.ny5wwwdamsso1?58648
+<- 200 POST /sso/Authenticator;jsessionid=6F013E94C8D541C98EFEB9FB74CB9D54.ny5wwwdamsso1?58648
+-> POST /sso/Authenticator;jsessionid=6F013E94C8D541C98EFEB9FB74CB9D54.ny5wwwdamsso1?49438
+<- 200 POST /sso/Authenticator;jsessionid=6F013E94C8D541C98EFEB9FB74CB9D54.ny5wwwdamsso1?49438
+-> POST /sso/Dispatcher;jsessionid=6F013E94C8D541C98EFEB9FB74CB9D54.ny5wwwdamsso1
+<- 302 POST /sso/Dispatcher;jsessionid=6F013E94C8D541C98EFEB9FB74CB9D54.ny5wwwdamsso1
+-> request: /v1/api/sso/validate?gw=1
+-> request: /AccountManagement/OneBarAuthentication?json=1
+-> GET /AccountManagement/OneBarAuthentication?json=1,404|462ms
+-> GET /v1/api/sso/validate?gw=1,200|498ms
+-> request: /v1/api/one/user
+-> request: /sso/AuthenticateSSODH?ACTION=INIT
+-> sso GET https://api.ibkr.com/sso/AuthenticateSSODH?ACTION=INIT
+-> GET /v1/api/one/user,200|94ms
+-> request: /sso/AuthenticateSSODH?ACTION=COMPLETE&B=29d8bdbad665f84364b7ef2545af97e909019d8e9f175fe690527f7177dd73b7a03d941e0cd3e734505049ace5e1f9196036bd7b9bf3584e1797f38f7bae724b&CHRESPONSE=9b35209800c71bec42518811dbda9de485d5423d
+-> sso GET https://api.ibkr.com/sso/AuthenticateSSODH?ACTION=COMPLETE&B=29d8bdbad665f84364b7ef2545af97e909019d8e9f175fe690527f7177dd73b7a03d941e0cd3e734505049ace5e1f9196036bd7b9bf3584e1797f38f7bae724b&CHRESPONSE=9b35209800c71bec42518811dbda9de485d5423d
+-> request: /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status,200|92ms
+-> request: /v1/api/iserver/auth/ssodh/init
+-> POST https://api.ibkr.com/v1/api/iserver/auth/ssodh/init,503|10093ms
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> request: /sso/ping
+-> GET /sso/ping,200|353ms
+-> request: /sso/ping
+-> GET /sso/ping,200|397ms
+-> request: /sso/ping
+-> GET /sso/ping,200|355ms
+-> request: /sso/ping
+-> GET /sso/ping,200|356ms

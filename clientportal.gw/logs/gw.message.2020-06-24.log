@@ -1,0 +1,552 @@
+-> request: /sso/ping
+-> GET /sso/ping,200|562ms
+-> request: /sso/ping
+-> GET /sso/ping,200|361ms
+-> request: /sso/ping
+-> GET /sso/ping,200|903ms
+-> request: /sso/ping
+-> GET /sso/ping,200|349ms
+-> request: /sso/ping
+-> GET /sso/ping,200|796ms
+-> request: /sso/ping
+-> GET /sso/ping,200|352ms
+-> request: /sso/ping
+-> GET /sso/ping,200|1090ms
+-> request: /sso/ping
+-> GET /sso/ping,200|911ms
+-> request: /sso/ping
+-> GET /sso/ping,200|354ms
+-> request: /sso/ping
+-> GET /sso/ping,200|355ms
+-> request: /sso/ping
+-> GET /sso/ping,200|352ms
+-> request: /sso/ping
+-> GET /sso/ping,200|352ms
+-> request: /sso/ping
+-> GET /sso/ping,200|356ms
+-> request: /sso/ping
+-> GET /sso/ping,200|549ms
+-> request: /sso/ping
+-> GET /sso/ping,200|421ms
+-> request: /sso/ping
+-> GET /sso/ping,200|352ms
+-> request: /sso/ping
+-> GET /sso/ping,200|376ms
+-> request: /sso/ping
+-> GET /sso/ping,200|466ms
+-> request: /sso/ping
+-> GET /sso/ping,200|666ms
+-> request: /sso/ping
+-> GET /sso/ping,200|383ms
+-> request: /sso/ping
+-> GET /sso/ping,200|360ms
+-> request: /sso/ping
+-> GET /sso/ping,200|365ms
+-> request: /sso/ping
+-> GET /sso/ping,200|388ms
+-> request: /sso/ping
+-> GET /sso/ping,200|353ms
+-> request: /sso/ping
+-> GET /sso/ping,200|353ms
+-> request: /sso/ping
+-> GET /sso/ping,200|350ms
+-> request: /sso/ping
+-> GET /sso/ping,200|429ms
+-> request: /sso/ping
+-> GET /sso/ping,200|365ms
+-> request: /sso/ping
+-> GET /sso/ping,200|365ms
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /stylesheet/web/switchery.min.css
+-> GET /stylesheet/web/ib-common.css
+-> GET /stylesheet/web/login.css
+-> GET /stylesheet/web/bootstrap.v3.3.6.css
+-> GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+<- 200 GET /stylesheet/web/bootstrap.v3.3.6.css
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /stylesheet/web/switchery.min.css
+-> GET /stylesheet/web/font-awesome.v4.7.0.css
+<- 200 GET /stylesheet/web/ib-common.css
+<- 200 GET /stylesheet/web/login.css
+<- 200 GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /stylesheet/web/bootstrap.v3.3.6.css
+-> GET /stylesheet/web/switchery.min.css
+-> GET /sso/Templates/otp-responsive.css?1593010218313
+<- 200 GET /stylesheet/web/font-awesome.v4.7.0.css
+-> GET /stylesheet/web/ib-common.css
+-> GET /stylesheet/web/login.css
+<- 200 GET /stylesheet/web/bootstrap.v3.3.6.css
+<- 200 GET /stylesheet/web/switchery.min.css
+-> GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+<- 200 GET /sso/Templates/otp-responsive.css?1593010218313
+-> GET /stylesheet/web/font-awesome.v4.7.0.css
+<- 200 GET /stylesheet/web/ib-common.css
+-> GET /scripts/common/js/2015/jquery.min.js
+<- 200 GET /stylesheet/web/login.css
+<- 200 GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /scripts/common/js/jquery-ui-1.12.1.min.js
+-> GET /scripts/common/js/2015/bootstrap.min.js
+<- 200 GET /stylesheet/web/font-awesome.v4.7.0.css
+-> GET /scripts/common/js/2015/bootstrap-switch.min.js
+-> GET /scripts/common/js/switchery.min.js
+<- 200 GET /scripts/common/js/2015/jquery.min.js
+-> GET /sso/CombineFiles
+<- 200 GET /scripts/common/js/jquery-ui-1.12.1.min.js
+<- 200 GET /scripts/common/js/2015/bootstrap.min.js
+-> GET /sso/Templates/otp-responsive.css?1593010217993
+<- 200 GET /scripts/common/js/2015/bootstrap-switch.min.js
+-> GET /scripts/common/js/2015/jquery.min.js
+-> GET /scripts/common/js/jquery-ui-1.12.1.min.js
+<- 200 GET /scripts/common/js/switchery.min.js
+-> GET /scripts/common/js/2015/bootstrap.min.js
+<- 200 GET /sso/CombineFiles
+<- 200 GET /sso/Templates/otp-responsive.css?1593010217993
+<- 200 GET /scripts/common/js/2015/jquery.min.js
+-> GET /scripts/common/js/2015/bootstrap-switch.min.js
+<- 200 GET /scripts/common/js/jquery-ui-1.12.1.min.js
+<- 200 GET /scripts/common/js/2015/bootstrap.min.js
+-> GET /scripts/common/js/switchery.min.js
+-> GET /sso/CombineFiles
+-> GET /images/2015/btn-app-apple.png
+<- 200 GET /scripts/common/js/2015/bootstrap-switch.min.js
+-> GET /images/2015/btn-app-google.png
+<- 200 GET /scripts/common/js/switchery.min.js
+-> GET /images/2015/btn-app-tws.png
+<- 200 GET /sso/CombineFiles
+<- 200 GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-apple.png
+<- 200 GET /images/2015/btn-app-google.png
+-> GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-google.png
+<- 200 GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/btn-app-google.png
+-> GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/btn-app-tws.png
+-> GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/button_discover_apis.png
+-> GET /images/2015/template/logo-ib-ibkr-txtwht.svg
+-> GET /images/2015/template/logo-ib-ibkr-txtblk.svg
+-> GET /fonts/Proxima-Nova-Light.woff2
+-> GET /fonts/fontawesome-webfont.woff2?v=4.6.1
+-> GET /fonts/Proxima-Nova-Semibold.woff2
+-> GET /fonts/Proxima-Nova-Regular.woff2
+<- 200 GET /images/2015/template/logo-ib-ibkr-txtwht.svg
+<- 200 GET /images/2015/template/logo-ib-ibkr-txtblk.svg
+<- 200 GET /fonts/Proxima-Nova-Light.woff2
+<- 200 GET /fonts/Proxima-Nova-Semibold.woff2
+<- 200 GET /fonts/fontawesome-webfont.woff2?v=4.6.1
+<- 200 GET /fonts/Proxima-Nova-Regular.woff2
+-> POST /sso/Authenticator?3897
+<- 200 POST /sso/Authenticator?3897
+-> POST /sso/Authenticator?94938
+<- 200 POST /sso/Authenticator?94938
+-> POST /sso/Dispatcher
+<- 302 POST /sso/Dispatcher
+-> request: /v1/api/sso/validate?gw=1
+-> request: /AccountManagement/OneBarAuthentication?json=1
+-> GET /AccountManagement/OneBarAuthentication?json=1,404|636ms
+-> GET /v1/api/sso/validate?gw=1,200|638ms
+-> request: /v1/api/one/user
+-> request: /sso/AuthenticateSSODH?ACTION=INIT
+-> sso GET https://api.ibkr.com/sso/AuthenticateSSODH?ACTION=INIT
+-> GET /v1/api/one/user,200|172ms
+-> request: /sso/AuthenticateSSODH?ACTION=COMPLETE&B=9a5cc68e1f357d06d0d226278e7adf6388a8004943fbe030a46ffa1f5890ee5cbdc207d1496e2f84d6105f49806d851b20afe591b2e56bcdb0c0b474f54206e7&CHRESPONSE=b0356b30077274e32872990c17ccfcb38fbb89bf
+-> sso GET https://api.ibkr.com/sso/AuthenticateSSODH?ACTION=COMPLETE&B=9a5cc68e1f357d06d0d226278e7adf6388a8004943fbe030a46ffa1f5890ee5cbdc207d1496e2f84d6105f49806d851b20afe591b2e56bcdb0c0b474f54206e7&CHRESPONSE=b0356b30077274e32872990c17ccfcb38fbb89bf
+-> request: /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status,200|91ms
+-> request: /v1/api/iserver/auth/ssodh/init
+-> POST https://api.ibkr.com/v1/api/iserver/auth/ssodh/init,503|10116ms
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> request: /sso/ping
+-> GET /sso/ping,200|350ms
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> request: /sso/ping
+-> GET /sso/ping,200|355ms
+-> request: /sso/ping
+-> GET /sso/ping,200|358ms
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> request: /sso/ping
+-> GET /sso/ping,200|357ms
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> request: /sso/ping
+-> GET /sso/ping,200|359ms
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> request: /sso/ping
+-> GET /sso/ping,200|415ms
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> request: /sso/ping
+-> GET /sso/ping,200|820ms
+-> request: /sso/ping
+-> GET /sso/ping,200|631ms
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> request: /sso/ping
+-> GET /sso/ping,200|975ms
+-> request: /sso/ping
+-> GET /sso/ping,200|383ms
+-> request: /sso/ping
+-> GET /sso/ping,200|355ms
+-> request: /sso/ping
+-> GET /sso/ping,200|356ms
+-> request: /sso/ping
+-> GET /sso/ping,200|363ms
+-> request: /sso/ping
+-> GET /sso/ping,200|351ms
+-> request: /sso/ping
+-> GET /sso/ping,200|359ms
+-> request: /sso/ping
+-> GET /sso/ping,200|566ms
+-> request: /sso/ping
+-> GET /sso/ping,200|394ms
+-> request: /sso/ping
+-> GET /sso/ping,200|392ms
+-> request: /sso/ping
+-> GET /sso/ping,200|355ms
+-> request: /sso/ping
+-> GET /sso/ping,200|618ms
+-> request: /sso/ping
+-> GET /sso/ping,200|360ms
+-> request: /sso/ping
+-> GET /sso/ping,200|358ms
+-> request: /sso/ping
+-> GET /sso/ping,200|382ms
+-> request: /sso/ping
+-> GET /sso/ping,200|361ms
+-> request: /sso/ping
+-> GET /sso/ping,200|726ms
+-> request: /sso/ping
+-> GET /sso/ping,200|362ms
+-> request: /sso/ping
+-> GET /sso/ping,200|519ms
+-> request: /sso/ping
+-> GET /sso/ping,200|359ms
+-> request: /sso/ping
+-> GET /sso/ping,200|351ms
+-> request: /sso/ping
+-> GET /sso/ping,200|599ms
+-> request: /sso/ping
+-> GET /sso/ping,200|378ms
+-> request: /sso/ping
+-> GET /sso/ping,200|272ms
+-> request: /sso/ping
+-> GET /sso/ping,200|289ms
+-> request: /sso/ping
+-> GET /sso/ping,200|376ms
+-> request: /sso/ping
+-> GET /sso/ping,200|4968ms
+-> request: /sso/ping
+-> request: /sso/ping
+-> GET /sso/ping,200|755ms
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /stylesheet/web/font-awesome.v4.7.0.css
+-> GET /stylesheet/web/bootstrap.v3.3.6.css
+-> GET /stylesheet/web/switchery.min.css
+-> GET /stylesheet/web/ib-common.css
+<- 200 GET /stylesheet/web/switchery.min.css
+-> GET /stylesheet/web/login.css
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /sso/Templates/otp-responsive.css?1593037049309
+<- 200 GET /stylesheet/web/font-awesome.v4.7.0.css
+-> GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+<- 200 GET /sso/Templates/otp-responsive.css?1593037049309
+-> GET /stylesheet/web/switchery.min.css
+-> GET /sso/Templates/otp-responsive.css?1593037049589
+<- 200 GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /stylesheet/web/font-awesome.v4.7.0.css
+<- 200 GET /stylesheet/web/ib-common.css
+<- 200 GET /stylesheet/web/login.css
+<- 200 GET /sso/Templates/otp-responsive.css?1593037049589
+-> GET /stylesheet/web/ib-common.css
+<- 200 GET /stylesheet/web/bootstrap.v3.3.6.css
+-> GET /stylesheet/web/login.css
+<- 200 GET /stylesheet/web/font-awesome.v4.7.0.css
+-> GET /stylesheet/web/bootstrap.v3.3.6.css
+-> GET /scripts/common/js/jquery-ui-1.12.1.min.js
+<- 200 GET /stylesheet/web/ib-common.css
+<- 200 GET /stylesheet/web/login.css
+-> GET /scripts/common/js/2015/bootstrap.min.js
+<- 200 GET /stylesheet/web/bootstrap.v3.3.6.css
+<- 200 GET /scripts/common/js/jquery-ui-1.12.1.min.js
+-> GET /scripts/common/js/2015/bootstrap-switch.min.js
+-> GET /scripts/common/js/switchery.min.js
+-> GET /sso/CombineFiles
+<- 200 GET /scripts/common/js/2015/bootstrap.min.js
+-> GET /scripts/common/js/2015/jquery.min.js
+<- 200 GET /scripts/common/js/2015/bootstrap-switch.min.js
+-> GET /scripts/common/js/jquery-ui-1.12.1.min.js
+<- 200 GET /sso/CombineFiles
+<- 200 GET /scripts/common/js/2015/jquery.min.js
+-> GET /scripts/common/js/2015/jquery.min.js
+<- 200 GET /stylesheet/web/switchery.min.css
+-> GET /scripts/common/js/2015/bootstrap.min.js
+-> GET /scripts/common/js/2015/bootstrap-switch.min.js
+<- 200 GET /scripts/common/js/switchery.min.js
+-> GET /sso/CombineFiles
+<- 200 GET /scripts/common/js/jquery-ui-1.12.1.min.js
+<- 200 GET /scripts/common/js/2015/jquery.min.js
+-> GET /images/2015/btn-app-apple.png
+<- 200 GET /scripts/common/js/2015/bootstrap.min.js
+-> GET /scripts/common/js/switchery.min.js
+<- 200 GET /sso/CombineFiles
+<- 200 GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-google.png
+<- 200 GET /scripts/common/js/switchery.min.js
+-> GET /images/2015/btn-app-tws.png
+<- 200 GET /scripts/common/js/2015/bootstrap-switch.min.js
+-> GET /images/2015/button_discover_apis.png
+-> GET /images/2015/template/logo-ib-ibkr-txtwht.svg
+<- 200 GET /images/2015/btn-app-apple.png
+<- 200 GET /images/2015/btn-app-google.png
+-> GET /images/2015/btn-app-google.png
+<- 200 GET /images/2015/btn-app-tws.png
+-> GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/button_discover_apis.png
+-> GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/template/logo-ib-ibkr-txtwht.svg
+-> GET /images/2015/template/logo-ib-ibkr-txtblk.svg
+<- 200 GET /images/2015/btn-app-google.png
+-> GET /fonts/Proxima-Nova-Light.woff2
+<- 200 GET /images/2015/btn-app-tws.png
+-> GET /fonts/fontawesome-webfont.woff2?v=4.6.1
+-> GET /fonts/Proxima-Nova-Semibold.woff2
+-> GET /fonts/Proxima-Nova-Regular.woff2
+<- 200 GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/template/logo-ib-ibkr-txtblk.svg
+<- 200 GET /fonts/Proxima-Nova-Semibold.woff2
+<- 200 GET /fonts/Proxima-Nova-Regular.woff2
+<- 200 GET /fonts/fontawesome-webfont.woff2?v=4.6.1
+<- 200 GET /fonts/Proxima-Nova-Light.woff2
+-> POST /sso/Authenticator?28663
+<- 200 POST /sso/Authenticator?28663
+-> POST /sso/Authenticator?33963
+<- 200 POST /sso/Authenticator?33963
+-> POST /sso/Dispatcher
+<- 302 POST /sso/Dispatcher
+-> request: /v1/api/sso/validate?gw=1
+-> request: /AccountManagement/OneBarAuthentication?json=1
+-> GET /AccountManagement/OneBarAuthentication?json=1,404|373ms
+-> GET /v1/api/sso/validate?gw=1,200|374ms
+-> request: /v1/api/one/user
+-> request: /sso/AuthenticateSSODH?ACTION=INIT
+-> sso GET https://api.ibkr.com/sso/AuthenticateSSODH?ACTION=INIT
+-> request: /sso/AuthenticateSSODH?ACTION=COMPLETE&B=13f22f52c7fea48781f04c469d0dd0bec68b456070c2a90d18529c6a7428fec8a910ccc9627a0db695b390b9249dee45f9f91200e5ac6766bbbaa90afc19c075&CHRESPONSE=c1eb31976e7055e1a9f45030fc27633ac44219bb
+-> sso GET https://api.ibkr.com/sso/AuthenticateSSODH?ACTION=COMPLETE&B=13f22f52c7fea48781f04c469d0dd0bec68b456070c2a90d18529c6a7428fec8a910ccc9627a0db695b390b9249dee45f9f91200e5ac6766bbbaa90afc19c075&CHRESPONSE=c1eb31976e7055e1a9f45030fc27633ac44219bb
+-> GET /v1/api/one/user,200|235ms
+-> request: /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status,200|170ms
+-> request: /v1/api/iserver/auth/ssodh/init
+-> POST https://api.ibkr.com/v1/api/iserver/auth/ssodh/init,503|10342ms
+-> GET /v1/portal/portfolio/accounts
+<- 200 GET /v1/portal/portfolio/accounts
+-> GET /v1/portal/portfolio/DU2388114/positions/0
+<- 200 GET /v1/portal/portfolio/DU2388114/positions/0
+-> request: /sso/ping
+-> GET /sso/ping,200|391ms
+-> request: /sso/ping
+-> GET /sso/ping,200|353ms
+-> request: /sso/ping
+-> GET /sso/ping,200|356ms
+-> request: /sso/ping
+-> request: /sso/ping
+-> GET /sso/ping,200|3264ms
+-> request: /sso/ping
+-> GET /sso/ping,200|356ms
+-> request: /sso/ping
+-> GET /sso/ping,200|547ms
+-> request: /sso/ping
+-> GET /sso/ping,200|351ms
+-> request: /sso/ping
+-> GET /sso/ping,200|353ms
+-> request: /sso/ping
+-> GET /sso/ping,200|378ms
+-> request: /sso/ping
+-> GET /sso/ping,200|358ms
+-> request: /sso/ping
+-> GET /sso/ping,200|366ms
+-> request: /sso/ping
+-> GET /sso/ping,200|355ms
+-> request: /sso/ping
+-> GET /sso/ping,200|352ms
+-> request: /sso/ping
+-> GET /sso/ping,200|351ms
+-> request: /sso/ping
+-> GET /sso/ping,200|349ms
+-> request: /sso/ping
+-> GET /sso/ping,200|3574ms
+-> request: /sso/ping
+-> GET /sso/ping,200|3432ms
+-> request: /sso/ping
+-> GET /sso/ping,200|356ms
+-> request: /sso/ping
+-> GET /sso/ping,200|3454ms
+-> request: /sso/ping
+-> GET /sso/ping,200|3450ms
+-> request: /sso/ping
+-> GET /sso/ping,200|352ms
+-> request: /sso/ping
+-> GET /sso/ping,200|382ms
+-> request: /sso/ping
+-> GET /sso/ping,200|263ms
+-> request: /sso/ping
+-> request: /sso/ping
+-> GET /sso/ping,200|264ms
+-> request: /sso/ping
+-> request: /sso/ping
+-> GET /sso/ping,200|267ms
+-> request: /sso/ping
+-> GET /sso/ping,200|356ms
+-> request: /sso/ping
+-> GET /sso/ping,200|354ms
+-> request: /sso/ping
+-> GET /sso/ping,200|689ms
+-> request: /sso/ping
+-> GET /sso/ping,200|1365ms
+-> request: /sso/ping
+-> GET /sso/ping,200|356ms
+-> request: /sso/ping
+-> GET /sso/ping,200|359ms
+-> request: /sso/ping
+-> GET /sso/ping,200|355ms
+-> request: /sso/ping
+-> GET /sso/ping,200|3286ms
+-> request: /sso/ping
+-> GET /sso/ping,200|353ms
+-> request: /sso/ping
+-> GET /sso/ping,200|351ms
+-> request: /sso/ping
+-> request: /sso/ping
+-> GET /sso/ping,200|353ms
+-> request: /sso/ping
+-> request: /sso/ping
+-> GET /sso/ping,200|769ms
+-> request: /sso/ping
+-> GET /sso/ping,200|349ms
+-> request: /sso/ping
+-> GET /sso/ping,200|352ms
+-> request: /sso/ping
+-> GET /sso/ping,200|353ms
