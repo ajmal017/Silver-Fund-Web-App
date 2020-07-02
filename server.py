@@ -7,7 +7,9 @@ class Server:
     #Starts server
     def start_session(self):
 
-        subprocess.call(['gnome-terminal', '--'])
+        cmd_line = "echo Hello!"
+
+        p = subprocess.Popen(cmd_line, stdout=subprocess.PIPE, stderr = subprocess.STDOUT)
  
         print("session started")
         
