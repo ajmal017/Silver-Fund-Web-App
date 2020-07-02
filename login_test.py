@@ -11,11 +11,11 @@ password = "Sis4samuel"
 
 
 
-os.system('cmd /k "Your Command Prompt Command"')
+#os.system('cmd /k "Your Command Prompt Command"')
 
 
 
-driver = webdriver.Chrome("./chromedriver", options=options)
+driver = webdriver.Chrome("../chromium-latest-linux/run.shs", options=options)
 driver.get("https://localhost:5000")
 
 
