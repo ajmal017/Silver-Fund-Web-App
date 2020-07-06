@@ -1,0 +1,78 @@
+-> GET /v1/portal/tickle
+<- 200 GET /v1/portal/tickle
+-> GET /v1/portal/tickle
+<- 200 GET /v1/portal/tickle
+-> GET /v1/portal/tickle
+<- 200 GET /v1/portal/tickle
+-> GET /v1/portal/tickle
+<- 200 GET /v1/portal/tickle
+-> GET /v1/portal/tickle
+<- 200 GET /v1/portal/tickle
+-> POST /v1/portal/tickle
+<- 200 POST /v1/portal/tickle
+-> POST /v1/portal/tickle
+<- 200 POST /v1/portal/tickle
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /stylesheet/web/ib-common.css
+-> GET /stylesheet/web/login.css
+-> GET /sso/Templates/otp-responsive.css?1594048883304
+-> GET /stylesheet/web/bootstrap.v3.3.6.css
+-> GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /stylesheet/web/font-awesome.v4.7.0.css
+<- 200 GET /stylesheet/web/bootstrap-switch.v3.3.2.min.css
+-> GET /stylesheet/web/switchery.min.css
+<- 200 GET /stylesheet/web/font-awesome.v4.7.0.css
+<- 200 GET /stylesheet/web/login.css
+<- 200 GET /sso/Templates/otp-responsive.css?1594048883304
+-> GET /scripts/common/js/2015/jquery.min.js
+-> GET /scripts/common/js/jquery-ui-1.12.1.min.js
+<- 200 GET /stylesheet/web/ib-common.css
+<- 200 GET /stylesheet/web/bootstrap.v3.3.6.css
+<- 200 GET /stylesheet/web/switchery.min.css
+-> GET /scripts/common/js/2015/bootstrap.min.js
+-> GET /scripts/common/js/2015/bootstrap-switch.min.js
+<- 200 GET /scripts/common/js/2015/jquery.min.js
+<- 200 GET /scripts/common/js/jquery-ui-1.12.1.min.js
+<- 200 GET /scripts/common/js/2015/bootstrap.min.js
+-> GET /scripts/common/js/switchery.min.js
+-> GET /sso/CombineFiles
+<- 200 GET /scripts/common/js/2015/bootstrap-switch.min.js
+<- 200 GET /scripts/common/js/switchery.min.js
+<- 200 GET /sso/CombineFiles
+-> GET /images/2015/btn-app-apple.png
+<- 200 GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-google.png
+<- 200 GET /images/2015/btn-app-google.png
+-> GET /images/2015/btn-app-tws.png
+-> GET /images/2015/button_discover_apis.png
+-> GET /images/2015/template/logo-ib-ibkr-txtwht.svg
+<- 200 GET /images/2015/btn-app-tws.png
+-> GET /images/2015/template/logo-ib-ibkr-txtblk.svg
+<- 200 GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/template/logo-ib-ibkr-txtwht.svg
+-> GET /fonts/Proxima-Nova-Light.woff2
+-> GET /fonts/fontawesome-webfont.woff2?v=4.6.1
+-> GET /fonts/Proxima-Nova-Semibold.woff2
+-> GET /fonts/Proxima-Nova-Regular.woff2
+<- 200 GET /images/2015/template/logo-ib-ibkr-txtblk.svg
+<- 200 GET /fonts/Proxima-Nova-Regular.woff2
+<- 200 GET /fonts/Proxima-Nova-Light.woff2
+<- 200 GET /fonts/Proxima-Nova-Semibold.woff2
+<- 200 GET /fonts/fontawesome-webfont.woff2?v=4.6.1
+-> GET /images/2015/template/home-screen-icon-128x128.png
+<- 200 GET /images/2015/template/home-screen-icon-128x128.png
+-> POST /sso/Authenticator;jsessionid=D729DDCE0D0DDB520552F4A271D8EF64.ny5wwwdamsso1?49798
+<- 200 POST /sso/Authenticator;jsessionid=D729DDCE0D0DDB520552F4A271D8EF64.ny5wwwdamsso1?49798
+-> POST /sso/Authenticator;jsessionid=D729DDCE0D0DDB520552F4A271D8EF64.ny5wwwdamsso1?63117
+<- 200 POST /sso/Authenticator;jsessionid=D729DDCE0D0DDB520552F4A271D8EF64.ny5wwwdamsso1?63117
+-> POST /sso/Authenticator;jsessionid=D729DDCE0D0DDB520552F4A271D8EF64.ny5wwwdamsso1?14309
+<- 200 POST /sso/Authenticator;jsessionid=D729DDCE0D0DDB520552F4A271D8EF64.ny5wwwdamsso1?14309
+-> POST /sso/Authenticator;jsessionid=D729DDCE0D0DDB520552F4A271D8EF64.ny5wwwdamsso1?21570
+<- 200 POST /sso/Authenticator;jsessionid=D729DDCE0D0DDB520552F4A271D8EF64.ny5wwwdamsso1?21570
+-> POST /sso/Authenticator;jsessionid=D729DDCE0D0DDB520552F4A271D8EF64.ny5wwwdamsso1?28887
+<- 200 POST /sso/Authenticator;jsessionid=D729DDCE0D0DDB520552F4A271D8EF64.ny5wwwdamsso1?28887
+-> POST /sso/Authenticator;jsessionid=D729DDCE0D0DDB520552F4A271D8EF64.ny5wwwdamsso1?2534
+<- 200 POST /sso/Authenticator;jsessionid=D729DDCE0D0DDB520552F4A271D8EF64.ny5wwwdamsso1?2534
+-> POST /sso/Authenticator;jsessionid=D729DDCE0D0DDB520552F4A271D8EF64.ny5wwwdamsso1?65279
+<- 200 POST /sso/Authenticator;jsessionid=D729DDCE0D0DDB520552F4A271D8EF64.ny5wwwdamsso1?65279

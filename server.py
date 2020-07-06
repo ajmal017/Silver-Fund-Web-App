@@ -2,12 +2,14 @@ import subprocess
 import os
 import sys
 import time
-import signal
+import requests
+import json
 
 class Server:
     def __init__(self):
         self.active = False
-        self.gateway_path = "./clientportal.gw"
+        self.gateway_path = './clientportal.gw'
+        self.port_host = 'https://localhost:5000/v1/'
         self.process = None
 
     #Starts server
@@ -15,17 +17,27 @@ class Server:
 
         strt_cmd = [r'gnome-terminal', '--', r'bin/run.sh', r'root/conf.yaml']
         self.process = subprocess.Popen(args = strt_cmd, cwd = self.gateway_path)
-        print("session started")
-        time.sleep(3)
-        self.__kill_server()
+        #print("session started")
+        #time.sleep(3)
+        #self.__kill_server()
 
-    #Submitts https object and returns response
+    #Submits https object and returns response
     def __submit(self):
         pass
 
     #Checks server state given it is access
-    def __check_status(self):
-        pass
+    def check_status(self):
+        resp = requests.post(self.port_host + "portal/tickle", verify = False)
+        if(resp.status_code != 200):
+            print('error')
+
+        resp = requests.get(self.port_host + "sso/validate", verify = False)
+        if(resp.status_code != 200):
+            print('error')
+
+        resp = requests.post(self.port_host + "iserver/auth/server", verify = False)
+        if(resp.status_code != 200):
+            print('error')
 
     #Shuts server down
     def __kill_server(self):
@@ -46,6 +58,6 @@ class Server:
     
 
 server = Server()
-server.start_session()
+server.check_status()
 
 
