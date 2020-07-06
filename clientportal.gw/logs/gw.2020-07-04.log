@@ -1,0 +1,374 @@
+10:18:02.051 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+10:18:02.352 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+10:18:02.367 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+10:18:02.367 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+10:21:04.101 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+10:21:04.240 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+10:21:04.253 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+10:21:04.253 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+10:22:57.132 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+10:22:57.267 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+10:22:57.279 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+10:22:57.279 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+10:23:12.874 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+10:23:13.004 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+10:23:13.016 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+10:23:13.016 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+10:23:25.616 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+10:23:25.744 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+10:23:25.756 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+10:23:25.756 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+10:24:25.367 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+10:24:25.493 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+10:24:25.504 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+10:24:25.505 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+10:24:40.037 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+10:24:40.161 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+10:24:40.173 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+10:24:40.173 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+10:35:17.736 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+10:35:17.882 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+10:35:17.894 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+10:35:17.894 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+10:38:21.239 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+10:38:21.378 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+10:38:21.391 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+10:38:21.391 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+10:43:30.596 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+10:43:30.722 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+10:43:30.734 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+10:43:30.734 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+10:44:06.984 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+10:44:07.117 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+10:44:07.130 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+10:44:07.130 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+10:47:11.600 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+10:47:11.729 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+10:47:11.741 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+10:47:11.741 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+10:48:47.059 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+10:48:47.191 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+10:48:47.204 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+10:48:47.204 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+12:39:20.206 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+12:39:20.336 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+12:39:20.349 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+12:39:20.349 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+12:43:43.640 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+12:43:43.768 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+12:43:43.780 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+12:43:43.781 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+12:44:20.280 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+12:44:20.409 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+12:44:20.422 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+12:44:20.422 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222
+12:50:10.916 INFO  main GatewayStart         : config conf.yaml !!ibgroup.web.core.clientportal.gw.Config
+authDelay: 3000
+cors: {origin.allowed: '*', allowCredentials: false}
+ip2loc: US
+ips:
+  allow: [192.*, 131.216.*, 127.0.0.1]
+  deny: [212.90.324.10]
+listenPort: 5000
+listenSsl: true
+portalBaseURL: ''
+proxyRemoteHost: https://api.ibkr.com
+proxyRemoteSsl: true
+sslCert: vertx.jks
+sslPwd: mywebapi
+ssoPing: 5
+svcEnvironment: v1
+webApps:
+- {cache: true, index: index.html, listing: false, name: demo, proxy: ''}
+
+12:50:11.049 INFO  vert.x-eventloop-thread-0 GatewayHttpProxy     :  -> mount demo on /demo
+12:50:11.061 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : version: 47d42bed8f3a0a15453dcd10d9accceaf5ece3c1 Fri, 9 Nov 2018 13:23:18 -0500
+12:50:11.061 INFO  vert.x-eventloop-thread-0 GatewayVerticle      : Java Version: 1.8.0_222

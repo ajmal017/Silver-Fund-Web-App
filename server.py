@@ -1,5 +1,6 @@
 import subprocess
 import os
+import sys
 import time
 import signal
 
@@ -15,6 +16,8 @@ class Server:
         strt_cmd = [r'gnome-terminal', '--', r'bin/run.sh', r'root/conf.yaml']
         self.process = subprocess.Popen(args = strt_cmd, cwd = self.gateway_path)
         print("session started")
+        time.sleep(3)
+        self.__kill_server()
 
     #Submitts https object and returns response
     def __submit(self):
@@ -26,9 +29,13 @@ class Server:
 
     #Shuts server down
     def __kill_server(self):
+
+        pid = self.process.pid
+        for id in pid(recursive=True):
+            id.kill()
+        pid.kill()
+
         
-        os.kill(os.getpgid(self.process.pid), signal.SIGTERM)
-        pass
 
     #Automates login process
     def __login(self):
@@ -37,8 +44,6 @@ class Server:
 
 
     
-    
-
 
 server = Server()
 server.start_session()
