@@ -4,6 +4,7 @@ import sys
 import time
 import requests
 import json
+from selenium import webdriver
 from secrets import IB_USERNAME, IB_PASSWORD
 
 #Disable insecure request warnings from verify = False in requests
