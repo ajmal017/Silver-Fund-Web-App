@@ -4,6 +4,7 @@ import sys
 import time
 import requests
 import json
+from secrets import IB_USERNAME, IB_PASSWORD
 
 #Disable insecure request warnings from verify = False in requests
 import urllib3
@@ -69,10 +70,14 @@ class Server:
         pid.kill()
 
         
-
     #Automates login process
     def __login(self):
-        pass
+        # FIXME - change extension for Linux
+        self.driver = webdriver.Chrome('C:\\Coding\SilverFund\selenium_testing\chromedriver', options=options)
+        self.driver.get('https://localhost:5000')
+        userName = self.driver.find_element_by_id('user_name').send_keys(IB_USERNAME)
+        password = self.driver.find_element_by_id('password').send_keys(IB_PASSWORD)
+        loginButton = self.driver.find_element_by_id('submitForm').click()
 
 
 
