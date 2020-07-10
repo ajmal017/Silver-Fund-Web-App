@@ -5,7 +5,6 @@ import time
 import requests
 import json
 from selenium import webdriver
-from secrets import IB_USERNAME, IB_PASSWORD
 
 #Disable insecure request warnings from verify = False in requests
 import urllib3
@@ -18,6 +17,9 @@ class Server:
         self.port_host = 'https://localhost:5000/v1/'
         self.process = None
         self.auth = False
+
+        self.PAPER_USERNAME = 'byusf3215'
+        self.PAPER_PASSWORD = 'paper1234'
 
     #Starts server
     def start_session(self):
@@ -76,8 +78,8 @@ class Server:
         # FIXME - change extension for Linux
         self.driver = webdriver.Chrome('C:\\Coding\SilverFund\selenium_testing\chromedriver', options=options)
         self.driver.get('https://localhost:5000')
-        userName = self.driver.find_element_by_id('user_name').send_keys(IB_USERNAME)
-        password = self.driver.find_element_by_id('password').send_keys(IB_PASSWORD)
+        userName = self.driver.find_element_by_id('user_name').send_keys(self.PAPER_USERNAME)
+        password = self.driver.find_element_by_id('password').send_keys(self.PAPER_PASSWORD)
         loginButton = self.driver.find_element_by_id('submitForm').click()
 
 
