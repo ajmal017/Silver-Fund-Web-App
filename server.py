@@ -81,6 +81,9 @@ class Server:
         userName = self.driver.find_element_by_id('user_name').send_keys(self.PAPER_USERNAME)
         password = self.driver.find_element_by_id('password').send_keys(self.PAPER_PASSWORD)
         loginButton = self.driver.find_element_by_id('submitForm').click()
+        # FIXME - do we want to close the selenium driver at this point?
+        # time.sleep(4)
+        # self.driver.close()
 
 
 
