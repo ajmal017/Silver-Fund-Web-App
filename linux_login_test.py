@@ -13,8 +13,8 @@ driver.get('google.com')
 # driver.get("https://localhost:5000")
 
 '''
-# username = "samsv1875"
-# password = "Sis4samuel"
+# username = ""
+# password = ""
 username_textbox = driver.find_element_by_id("user_name")
 username_textbox.send_keys(username)
 password_textbox = driver.find_element_by_id("password")
