@@ -1,10 +1,9 @@
-import random
 import json
-
 
 class Order():
     def __init__(self, acctId="", conid=0, secType="", orderType="", listingEchange="", outsideRTH=True, price=0, side="",
                     ticker="", tif="", referrer="QuickTrade", quantity=0, useAdaptive=True):
+
         self.acctId = acctId
         self.conid  = conid
         self.secType = secType
@@ -29,6 +28,9 @@ class Order():
     def gencOID(self):
         return hash(self)
 
+    def getOrder(self):
+        return self.order()
+
     def show(self):
         print(json.dumps(self.order, indent = 4))
 
@@ -38,8 +40,7 @@ class Order():
 
 
 
-order = Order(conid="123")
-order.show()
+
 
 
 
