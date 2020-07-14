@@ -14,7 +14,8 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 class Server:
     def __init__(self):
         self.active = False
-        self.gateway_path = './clientportal.gw'
+        # Apparently beta is stabler and is recommended by IBKR.
+        self.gateway_path = './clientportal.beta.gw'
         self.port_host = 'https://localhost:5000/v1/'
         self.process = None
         self.auth = False
