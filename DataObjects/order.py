@@ -6,7 +6,7 @@ class Order():
 
         self.acctId = acctId
         self.conid  = conid
-        self.secType = secType
+        self.secType = str(conid) + ":" + secType
         self.orderType = orderType
         self.listingExchange = listingEchange
         self.outsideRTH = outsideRTH
@@ -20,19 +20,19 @@ class Order():
         self.cOID = self.gencOID()
         self.parentId = self.cOID
 
-        self.order = {'acctId': self.acctId, 'conid': self.conid, 'secType': self.secType, 'cOID': self.cOID, 'parentId': self.parentId,
+        self.order = {'acctId': self.acctId, 'conid': int(self.conid), 'secType': self.secType, 'cOID': str(self.cOID), 'parentId': str(self.parentId),
         'orderType': self.orderType, 'listingExchange': self.listingExchange, 'outsideRTH': self.outsideRTH, 'price': self.price,
         'side': self.side, 'ticker': self.ticker, 'tif': self.tif, 'referrer': self.referrer, 'quantity': self.quantity, 'useAdaptive': self.useAdaptive}
 
 
     def gencOID(self):
-        return hash(self)
+        return abs(hash(self))
 
     def getOrder(self):
         return self.order()
 
     def show(self):
-        print(json.dumps(self.order, indent = 4))
+        print(json.dumps(self.order, indent = 3))
 
 
 
