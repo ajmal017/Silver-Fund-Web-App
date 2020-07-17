@@ -1,0 +1,5 @@
+current_bid
+current_ask
+last_dividend_date
+value
+num_of_floats
