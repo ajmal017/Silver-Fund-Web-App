@@ -47,7 +47,7 @@ class Position:
         self.undConid = undConid
         self.model = model
 
-        self.order = {
+        self.position = {
             "acctId": self.acctId,
             "conid": int(self.conid),
             "contractDesc": self.contractDesc,
@@ -78,6 +78,7 @@ class Position:
 
 
 #   Example Output:
+#   https://localhost:5000/v1/portal/portfolio/DU2206403/positions/0
 # {
 #     "acctId": "DU2206403",
 #     "conid": 76792991,
@@ -103,20 +104,20 @@ class Position:
 
 # --------------------------------------------------------------- #
 # Maybe add these later?  They're in the docs but weren't returned in JSON
-# # "conExchMap": [],
-# # "baseMktValue": 0,
-# # "baseMktPrice": 0,
-# # "baseAvgCost": 0,
-# # "baseAvgPrice": 0,
-# # "baseRealizedPnl": 0,
-# # "baseUnrealizedPnl": 0,
-# # "name": "string",
-# # "lastTradingDay": "string",
-# # "group": "string",
-# # "sector": "string",
-# # "sectorGroup": "string",
-# # "ticker": "string",
-# # "undComp": "string",
-# # "undSym": "string",
-# # "fullName": "string",
-# # "pageSize": 0,
+# "conExchMap": [],
+# "baseMktValue": 0,
+# "baseMktPrice": 0,
+# "baseAvgCost": 0,
+# "baseAvgPrice": 0,
+# "baseRealizedPnl": 0,
+# "baseUnrealizedPnl": 0,
+# "name": "string",
+# "lastTradingDay": "string",
+# "group": "string",
+# "sector": "string",
+# "sectorGroup": "string",
+# "ticker": "string",
+# "undComp": "string",
+# "undSym": "string",
+# "fullName": "string",
+# "pageSize": 0,
