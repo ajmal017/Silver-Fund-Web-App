@@ -100,6 +100,7 @@ DROP TABLE IF EXISTS `position`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `position` (
   `asset_id` VARCHAR(15) NOT NULL,
+  `date_` DATETIME NOT NULL,
   `ticker` VARCHAR(6) NOT NULL,
   `num_of_shares` INT(11) NOT NULL,
   `pos_type` VARCHAR(10) NOT NULL,
@@ -116,7 +117,7 @@ CREATE TABLE `position` (
 
 LOCK TABLES `position` WRITE;
 /*!40000 ALTER TABLE `position` DISABLE KEYS */;
-INSERT INTO `position` VALUES ('0001','AAPL',100,'stock',120.96,12096);
+INSERT INTO `position` VALUES ('0001', '20200704', 'AAPL',100,'stock',120.96,12096);
 /*!40000 ALTER TABLE `position` ENABLE KEYS */;
 UNLOCK TABLES;
 
