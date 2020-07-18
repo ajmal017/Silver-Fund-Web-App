@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ib_client module &#8212; I2B_Client 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="mycode module" href="mycode.html" />
+    <link rel="prev" title="IB_Client" href="modules.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mycode.html" title="mycode module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="IB_Client"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">I2B_Client 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">IB_Client</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ib_client module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-ib_client">
+<span id="ib-client-module"></span><h1>ib_client module<a class="headerlink" href="#module-ib_client" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="ib_client.IB_Client">
+<em class="property">class </em><code class="sig-prename descclassname">ib_client.</code><code class="sig-name descname">IB_Client</code><a class="headerlink" href="#ib_client.IB_Client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ib_client.IB_Client.get_assets" title="ib_client.IB_Client.get_assets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_assets</span></code></a>(self, look_up_array)</p></td>
+<td><p>Looks up info for given assets and returns them in an array of assets.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ib_client.IB_Client.get_assets_on" title="ib_client.IB_Client.get_assets_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_assets_on</span></code></a>(self, day, month, year, …)</p></td>
+<td><p>Looks up info for given assets on given date and returns them in an array of assets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ib_client.IB_Client.get_cash_balance" title="ib_client.IB_Client.get_cash_balance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cash_balance</span></code></a>(self, account_num)</p></td>
+<td><p>Returns present cash balance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ib_client.IB_Client.get_margin_cash" title="ib_client.IB_Client.get_margin_cash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_margin_cash</span></code></a>(self, account_num)</p></td>
+<td><p>Returns current cash margin</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ib_client.IB_Client.get_margin_portfolio" title="ib_client.IB_Client.get_margin_portfolio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_margin_portfolio</span></code></a>(self, account_num)</p></td>
+<td><p>Returns current portfolio margin</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ib_client.IB_Client.get_positions_cur" title="ib_client.IB_Client.get_positions_cur"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_positions_cur</span></code></a>(self, account_num)</p></td>
+<td><p>Returns all positions for the given account.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ib_client.IB_Client.get_positions_on" title="ib_client.IB_Client.get_positions_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_positions_on</span></code></a>(self, year, month, day)</p></td>
+<td><p>Returns all postions for a given date.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ib_client.IB_Client.get_short_callbacks" title="ib_client.IB_Client.get_short_callbacks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_short_callbacks</span></code></a>(self, account_num)</p></td>
+<td><p>Returns all shorts that are being called back today.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ib_client.IB_Client.get_trades_on" title="ib_client.IB_Client.get_trades_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_trades_on</span></code></a>(self, year, month, day)</p></td>
+<td><p>Returns all trades for a given date.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ib_client.IB_Client.get_trades_unsettled" title="ib_client.IB_Client.get_trades_unsettled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_trades_unsettled</span></code></a>(self, account_num)</p></td>
+<td><p>Returns all trades we are still waiting on to settle (including number shares, mkt value, and date of trade).</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="ib_client.IB_Client.get_assets">
+<code class="sig-name descname">get_assets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">look_up_array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ib_client.IB_Client.get_assets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Looks up info for given assets and returns them in an array of assets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>look_up_array</strong><span class="classifier">string []</span></dt><dd><p>An array of tickers, cusips, or conids?</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>asset[]</dt><dd><p>Returns an array of requested assets.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ib_client.IB_Client.get_assets_on">
+<code class="sig-name descname">get_assets_on</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">day</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">look_up_array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ib_client.IB_Client.get_assets_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Looks up info for given assets on given date and returns them in an array of assets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>year</strong><span class="classifier">int</span></dt><dd><p>Four diget representing the year. example: 2021.</p>
+</dd>
+<dt><strong>month</strong><span class="classifier">int</span></dt><dd><p>Two digets representing the month. example: 03 for the month of March.</p>
+</dd>
+<dt><strong>day</strong><span class="classifier">int</span></dt><dd><p>Two digets representing the day. example: 08 for the 8th.</p>
+</dd>
+<dt><strong>look_up_array</strong><span class="classifier">string []</span></dt><dd><p>An array of tickers, cusips, or conids?</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>type</dt><dd><p>Description of returned object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ib_client.IB_Client.get_cash_balance">
+<code class="sig-name descname">get_cash_balance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">account_num</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ib_client.IB_Client.get_cash_balance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns present cash balance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>account_num</strong><span class="classifier">int</span></dt><dd><p>The account id associated with the given interactive brokers account</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>double</dt><dd><p>The current cash balance in USD</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ib_client.IB_Client.get_margin_cash">
+<code class="sig-name descname">get_margin_cash</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">account_num</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ib_client.IB_Client.get_margin_cash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns current cash margin</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>account_num</strong><span class="classifier">int</span></dt><dd><p>The account id associated with the given interactive brokers account</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>double</dt><dd><p>cash margin in USD</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ib_client.IB_Client.get_margin_portfolio">
+<code class="sig-name descname">get_margin_portfolio</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">account_num</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ib_client.IB_Client.get_margin_portfolio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns current portfolio margin</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>account_num</strong><span class="classifier">int</span></dt><dd><p>The account id associated with the given interactive brokers account</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>double</dt><dd><p>portfolio margin in USD</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ib_client.IB_Client.get_positions_cur">
+<code class="sig-name descname">get_positions_cur</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">account_num</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ib_client.IB_Client.get_positions_cur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all positions for the given account. Uses the /portfolio/{accountId}/positions/{pageId}
+endpoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>account_num</strong><span class="classifier">int</span></dt><dd><p>The account id associated with the given interactive brokers account</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>[position]</dt><dd><p>An array containing instances of the class position</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ib_client.IB_Client.get_positions_on">
+<code class="sig-name descname">get_positions_on</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">day</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ib_client.IB_Client.get_positions_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all postions for a given date. Looks up data from the SilverFund database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>year</strong><span class="classifier">int</span></dt><dd><p>Four diget representing the year. example: 2021.</p>
+</dd>
+<dt><strong>month</strong><span class="classifier">int</span></dt><dd><p>Two digets representing the month. example: 03 for the month of March.</p>
+</dd>
+<dt><strong>day</strong><span class="classifier">int</span></dt><dd><p>Two digets representing the day. example: 08 for the 8th.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>[position]</dt><dd><p>An array containing instances of the class position</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ib_client.IB_Client.get_short_callbacks">
+<code class="sig-name descname">get_short_callbacks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">account_num</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ib_client.IB_Client.get_short_callbacks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all shorts that are being called back today.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>account_num</strong><span class="classifier">int</span></dt><dd><p>The account id associated with the given interactive brokers account</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>[position]</dt><dd><p>all positions being called back today</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ib_client.IB_Client.get_trades_on">
+<code class="sig-name descname">get_trades_on</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">day</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ib_client.IB_Client.get_trades_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all trades for a given date. Looks up data from the SilverFund database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>year</strong><span class="classifier">int</span></dt><dd><p>Four diget representing the year. example: 2021.</p>
+</dd>
+<dt><strong>month</strong><span class="classifier">int</span></dt><dd><p>Two digets representing the month. example: 03 for the month of March.</p>
+</dd>
+<dt><strong>day</strong><span class="classifier">int</span></dt><dd><p>Two digets representing the day. example: 08 for the 8th.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>[trade]</dt><dd><p>An array containing instances of the class trade</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ib_client.IB_Client.get_trades_unsettled">
+<code class="sig-name descname">get_trades_unsettled</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">account_num</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ib_client.IB_Client.get_trades_unsettled" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Returns all trades we are still waiting on to settle (including number shares, mkt value, and date of trade).</dt><dd><p>Uses the /iserver/account/orders endpoint.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>account_num</strong><span class="classifier">int</span></dt><dd><p>The account id associated with the given interactive brokers account</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>[trade]</dt><dd><p>An array containing instances of the class trade</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="modules.html"
+                        title="previous chapter">IB_Client</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mycode.html"
+                        title="next chapter">mycode module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ib_client.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mycode.html" title="mycode module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="IB_Client"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">I2B_Client 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >IB_Client</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ib_client module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Sam, Brigham, Haoran.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+  </body>
+</html>
