@@ -5,4 +5,3 @@ IB_Client
    :maxdepth: 4
 
    ib_client
-   mycode

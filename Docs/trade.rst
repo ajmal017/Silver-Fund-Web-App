@@ -1,7 +1,7 @@
-mycode module
-=============
+trade module
+============
 
-.. automodule:: mycode
+.. automodule:: trade
    :members:
    :undoc-members:
    :show-inheritance:
