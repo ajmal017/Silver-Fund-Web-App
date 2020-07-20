@@ -122,7 +122,7 @@ class IB_Client():
         """
         return None
 
-    def get_short_intrest(self,look_up_array)):
+    def get_short_intrest(self,look_up_array):
         """Returns shor intrests for the given assets.
 
         Parameters
