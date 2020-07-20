@@ -1,7 +1,7 @@
 ib\_client module
 =================
 
-.. automodule:: ib_client
+.. automodule:: IB_Client.ib_client
    :members:
    :undoc-members:
    :show-inheritance:
