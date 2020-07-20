@@ -122,6 +122,20 @@ class IB_Client():
         """
         return None
 
+    def get_short_intrest(self,look_up_array)):
+        """Returns shor intrests for the given assets.
+
+        Parameters
+        ----------
+        look_up_array : string[]
+            An array of tickers, cusips, or conids?
+
+        Returns
+        -------
+        dict[]
+            An array of dicts that have key ticker and value intrest.
+        """
+        return None
 
     def get_assets(self, look_up_array):
         """Looks up info for given assets and returns them in an array of assets.
