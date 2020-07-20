@@ -1,13 +1,19 @@
 class IB_Client():
-    def __init__(self, username, password):
+    def __init__(self, username = None, password = None):
         """Constructs the IB_Clinet class with a username and password. Takes care of starting up and authenticating the server.
 
         Parameters
         ----------
         username : string
             The username for the ib account you would like to do work on.
-        password : string
+        password : type
             The password for the ib account you would like to do work on.
+
+        Returns
+        -------
+        type
+            Description of returned object.
+
         """
         self.username = username
         self.password = password
@@ -17,7 +23,7 @@ class IB_Client():
 
 
     def _get_account_id(self):
-        #Gets the account id
+
 
         return None
 
@@ -27,9 +33,10 @@ class IB_Client():
 
         Returns
         -------
-        position []
-            An array containing instances of the class position.
+        [position]
+            An array containing instances of the class position
         """
+
         return None
 
     def get_positions_on(self, year, month, day):
@@ -46,8 +53,8 @@ class IB_Client():
 
         Returns
         -------
-        position []
-            An array containing instances of the class position.
+        [position]
+            An array containing instances of the class position
         """
         return None
 
@@ -65,8 +72,8 @@ class IB_Client():
 
         Returns
         -------
-        trade[]
-            An array containing instances of the class trade.
+        [trade]
+            An array containing instances of the class trade
         """
         return None
 
@@ -76,8 +83,8 @@ class IB_Client():
 
         Returns
         -------
-        trade[]
-            An array containing instances of the class trade.
+        [trade]
+            An array containing instances of the class trade
 
         """
         return None
@@ -88,7 +95,8 @@ class IB_Client():
         Returns
         -------
         double
-            The current cash balance in USD.
+            The current cash balance in USD
+
         """
         return None
 
@@ -98,17 +106,19 @@ class IB_Client():
         Returns
         -------
         double
-            cash margin in USD.
+            cash margin in USD
+
         """
         return None
 
     def get_margin_portfolio(self):
-        """Returns current portfolio margin.
+        """Returns current portfolio margin
 
         Returns
         -------
         double
-            portfolio margin in USD.
+            portfolio margin in USD
+
         """
         return None
 
@@ -117,8 +127,9 @@ class IB_Client():
 
         Returns
         -------
-        position[]
-            An array of all positions being called back today.
+        [position]
+            all positions being called back today
+
         """
         return None
 
@@ -128,13 +139,14 @@ class IB_Client():
 
         Parameters
         ----------
-        look_up_array : string[]
+        look_up_array : string []
             An array of tickers, cusips, or conids?
 
         Returns
         -------
         asset[]
             Returns an array of requested assets.
+
         """
         return None
 
@@ -154,37 +166,8 @@ class IB_Client():
 
         Returns
         -------
-        asset[]
-            Returns an array of requested assets.
-        """
-        return None
+        type
+            Description of returned object.
 
-    def update_positions(self):
-        """Pulls current position data from interactive brokers and updates the positions table in the database.
-
-        Returns
-        -------
-        bool
-            True if successful and false if not.
-        """
-        return None
-
-    def update_trades(self):
-        """Pulls todays trade data from interactive brokers and updates the trades table in the database.
-
-        Returns
-        -------
-        bool
-            True if successful and false if not.
-        """
-        return None
-
-    def update_marketdata(self):
-        """Pulls todays market data from interactive brokers and updates the market data table in the database.
-
-        Returns
-        -------
-        bool
-            True if successful and false if not.
         """
         return None
