@@ -38,11 +38,11 @@ class IB_Client():
         Parameters
         ----------
         year : int
-            Four diget representing the year. example: 2021.
+            Four digit representing the year. example: 2021.
         month : int
-            Two digets representing the month. example: 03 for the month of March.
+            Two digits representing the month. example: 03 for the month of March.
         day : int
-            Two digets representing the day. example: 08 for the 8th.
+            Two digits representing the day. example: 08 for the 8th.
 
         Returns
         -------
@@ -57,11 +57,11 @@ class IB_Client():
         Parameters
         ----------
         year : int
-            Four diget representing the year. example: 2021.
+            Four digit representing the year. example: 2021.
         month : int
-            Two digets representing the month. example: 03 for the month of March.
+            Two digits representing the month. example: 03 for the month of March.
         day : int
-            Two digets representing the day. example: 08 for the 8th.
+            Two digits representing the day. example: 08 for the 8th.
 
         Returns
         -------
@@ -158,11 +158,11 @@ class IB_Client():
         Parameters
         ----------
         year : int
-            Four diget representing the year. example: 2021.
+            Four digit representing the year. example: 2021.
         month : int
-            Two digets representing the month. example: 03 for the month of March.
+            Two digits representing the month. example: 03 for the month of March.
         day : int
-            Two digets representing the day. example: 08 for the 8th.
+            Two digits representing the day. example: 08 for the 8th.
         look_up_array : string []
             An array of tickers, cusips, or conids?
 
