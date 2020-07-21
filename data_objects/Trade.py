@@ -76,7 +76,7 @@ class Trade:
             "clearing_name": self.clearing_name,
         }
 
-    def getTrade(self):
+    def get_trade(self):
         return self.trade()
 
     def show(self):

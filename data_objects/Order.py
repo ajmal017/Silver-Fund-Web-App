@@ -32,7 +32,7 @@ class Order:
         self.referrer = referrer
         self.quantity = quantity
         self.useAdaptive = useAdaptive
-        self.cOID = self.gencOID()
+        self.cOID = self.gen_cOID()
         self.parentId = self.cOID
 
         self.order = {
@@ -53,10 +53,10 @@ class Order:
             "useAdaptive": self.useAdaptive,
         }
 
-    def gencOID(self):
+    def gen_cOID(self):
         return abs(hash(self))
 
-    def getOrder(self):
+    def get_order(self):
         return self.order()
 
     def show(self):

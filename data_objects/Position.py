@@ -70,7 +70,7 @@ class Position:
             "model": self.model,
         }
 
-    def getPosition(self):
+    def get_position(self):
         return self.position()
 
     def show(self):
