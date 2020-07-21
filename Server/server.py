@@ -8,6 +8,7 @@ from selenium import webdriver
 
 # Disable insecure request warnings from verify = False in requests
 import urllib3
+
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
@@ -15,20 +16,20 @@ class Server:
     def __init__(self):
         self.active = False
         # Apparently beta is stabler and is recommended by IBKR.
-        self.gateway_path = './clientportal.beta.gw'
-        self.port_host = 'https://localhost:5000/v1/'
+        self.gateway_path = "./clientportal.beta.gw"
+        self.port_host = "https://localhost:5000/v1/"
         self.process = None
         self.auth = False
 
-        self.PAPER_USERNAME = 'byusf3215'
-        self.PAPER_PASSWORD = 'paper1234'
+        self.PAPER_USERNAME = "byusf3215"
+        self.PAPER_PASSWORD = "paper1234"
 
     # Starts server
     def start_session(self):
 
-        strt_cmd = [r'gnome-terminal', '--', r'bin/run.sh', r'root/conf.yaml']
+        strt_cmd = [r"gnome-terminal", "--", r"bin/run.sh", r"root/conf.yaml"]
         self.process = subprocess.Popen(args=strt_cmd, cwd=self.gateway_path)
-        #print("session started")
+        # print("session started")
         # time.sleep(3)
         # self.__kill_server()
 
@@ -40,28 +41,28 @@ class Server:
     def check_status(self):
         # Confirm server is active
         resp = requests.post(self.port_host + "portal/tickle", verify=False)
-        if(resp.status_code != 200):
-            print('tickle error')
-        if(resp.json()['iserver']['authStatus']['connected']):
-            print('connected')
+        if resp.status_code != 200:
+            print("tickle error")
+        if resp.json()["iserver"]["authStatus"]["connected"]:
+            print("connected")
             self.active = True
         else:
-            print('not connected')
+            print("not connected")
             self.active = False
 
         # Check validation
-        resp = requests.get(
-            self.port_host + "portal/sso/validate", verify=False)
-        if(resp.status_code != 200):
-            print('validate error')
+        resp = requests.get(self.port_host + "portal/sso/validate", verify=False)
+        if resp.status_code != 200:
+            print("validate error")
 
         # Check authentication status
         resp = requests.post(
-            self.port_host + "portal/iserver/auth/status", verify=False)
-        if(resp.status_code != 200):
-            print('auth error...restarting server')
+            self.port_host + "portal/iserver/auth/status", verify=False
+        )
+        if resp.status_code != 200:
+            print("auth error...restarting server")
             self.start_session()
-        if(resp.json()["authenticated"]):
+        if resp.json()["authenticated"]:
             self.auth = True
             print("authenticaed")
         else:
@@ -80,14 +81,15 @@ class Server:
 
     def __login(self):
         # FIXME - change extension for Linux
-        self.driver = webdriver.Chrome(
-            'C:\\Coding\SilverFund\selenium_testing\chromedriver', options=options)
-        self.driver.get('https://localhost:5000')
-        userName = self.driver.find_element_by_id(
-            'user_name').send_keys(self.PAPER_USERNAME)
-        password = self.driver.find_element_by_id(
-            'password').send_keys(self.PAPER_PASSWORD)
-        loginButton = self.driver.find_element_by_id('submitForm').click()
+        self.driver = webdriver.Chrome("FIXME ChromeDriver Location", options=options)
+        self.driver.get("https://localhost:5000")
+        userName = self.driver.find_element_by_id("user_name").send_keys(
+            self.PAPER_USERNAME
+        )
+        password = self.driver.find_element_by_id("password").send_keys(
+            self.PAPER_PASSWORD
+        )
+        loginButton = self.driver.find_element_by_id("submitForm").click()
         # FIXME - do we want to quit out of the selenium driver at this point?
         # time.sleep(4)
         # self.driver.quit()

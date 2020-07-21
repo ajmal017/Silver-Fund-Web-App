@@ -1,6 +1,6 @@
-class IB_Client():
+class IB_Client:
     def __init__(self, username, password):
-        """Constructs the IB_Clinet class with a username and password. Takes care of starting up and authenticating the server.
+        """Constructs the IB_Client class with a username and password. Takes care of starting up and authenticating the server.
 
         Parameters
         ----------
@@ -15,9 +15,8 @@ class IB_Client():
 
         return None
 
-
     def _get_account_id(self):
-        #Gets the account id
+        # Gets the account id
 
         return None
 
@@ -31,7 +30,7 @@ class IB_Client():
             An array containing instances of the class position.
         """
 
-        #Call positionsservice->getcurrent()
+        # Call positionsservice->getcurrent()
 
         return None
 
@@ -53,7 +52,6 @@ class IB_Client():
             An array containing instances of the class position.
         """
         return None
-
 
     def get_trades_today(self):
         """Returns all trades made today.
@@ -136,7 +134,7 @@ class IB_Client():
         """
         return None
 
-    def get_short_intrest(self,look_up_array):
+    def get_short_intrest(self, look_up_array):
         """Returns shor intrests for the given assets.
 
         Parameters
