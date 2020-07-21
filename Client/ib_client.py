@@ -20,7 +20,7 @@ class IB_Client:
 
         return None
 
-    def get_positions_cur(self):
+    def get_positions_current(self):
         """Returns all positions for the given account. Uses the /portfolio/{accountId}/positions/{pageId}
         endpoint.
 
@@ -30,7 +30,7 @@ class IB_Client:
             An array containing instances of the class position.
         """
 
-        # Call positionsservice->getcurrent()
+        # Call positionsservice->get_current()
 
         return None
 
