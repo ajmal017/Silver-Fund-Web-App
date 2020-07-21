@@ -51,6 +51,17 @@ class IB_Client():
         """
         return None
 
+
+    def get_trades_today(self):
+        """Returns all trades made today.
+
+        Returns
+        -------
+        trade[]
+            An array containing instances of the class trade.
+        """
+        return None
+
     def get_trades_on(self, year, month, day):
         """Returns all trades for a given date. Looks up data from the SilverFund database.
 
@@ -134,6 +145,57 @@ class IB_Client():
         -------
         dict[]
             An array of dicts that have key ticker and value intrest.
+        """
+        return None
+
+    def get_bids(self, look_up_array):
+        """Looks up info for given assets and returns them in an array of assets.
+
+        Parameters
+        ----------
+        look_up_array : string[]
+            An array of tickers, cusips, or conids?
+
+        Returns
+        -------
+        asset[]
+            Returns a dict with key of ticker and value of bid.
+        """
+        return None
+
+    def get_asks(self, look_up_array):
+        """Looks up info for given assets and returns them in an array of assets.
+
+        Parameters
+        ----------
+        look_up_array : string[]
+            An array of tickers, cusips, or conids?
+
+        Returns
+        -------
+        asset[]
+            Returns a dict with key of ticker and value of ask.
+        """
+        return None
+
+    def get_close_on(self, day, month, year, look_up_array):
+        """Looks up info for given assets on given date and returns them in an array of assets.
+
+        Parameters
+        ----------
+        year : int
+            Four digit representing the year. example: 2021.
+        month : int
+            Two digits representing the month. example: 03 for the month of March.
+        day : int
+            Two digits representing the day. example: 08 for the 8th.
+        look_up_array : string []
+            An array of tickers, cusips, or conids?
+
+        Returns
+        -------
+        asset[]
+            Returns a dict with key of ticker and value of close price.
         """
         return None
 

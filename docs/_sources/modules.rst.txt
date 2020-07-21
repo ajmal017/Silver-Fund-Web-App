@@ -1,5 +1,5 @@
-IB_Client
-=========
+Client
+======
 
 .. toctree::
    :maxdepth: 4
