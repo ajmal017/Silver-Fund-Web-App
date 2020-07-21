@@ -2,13 +2,12 @@ import json
 import requests
 
 
-class CurrentPositionsHandler:
+class TradesUnsettledHandler:
     def __init__(self, account_id):
 
         # calls server->tickle()
         # checks server is still up
-        # runs /portfolio/{accountId}/positions/{pageId}
-        # may run multiple time to get all pages
+        # runs /iserver/account/orders
 
         return None
 
@@ -16,6 +15,6 @@ class CurrentPositionsHandler:
 
         return None
 
-    def get_positions():
+    def get_trades_unsettled():
 
         return None

@@ -21,8 +21,7 @@ class IB_Client:
         return None
 
     def get_positions_current(self):
-        """Returns all positions for the given account. Uses the /portfolio/{accountId}/positions/{pageId}
-        endpoint.
+        """Returns all positions for the given account. Uses the /portfolio/{accountId}/positions/{pageId} endpoint.
 
         Returns
         -------
@@ -30,7 +29,7 @@ class IB_Client:
             An array containing instances of the class position.
         """
 
-        # Call positionsservice->get_current()
+        # Call positions_service->get_current()
 
         return None
 
@@ -84,7 +83,7 @@ class IB_Client:
 
     def get_trades_unsettled(self):
         """Returns all trades we are still waiting on to settle (including number shares, mkt value, and date of trade).
-            Uses the /iserver/account/orders endpoint.
+        Uses the /iserver/account/orders endpoint.
 
         Returns
         -------
@@ -134,8 +133,8 @@ class IB_Client:
         """
         return None
 
-    def get_short_intrest(self, look_up_array):
-        """Returns shor intrests for the given assets.
+    def get_short_interest(self, look_up_array):
+        """Returns short interests for the given assets.
 
         Parameters
         ----------
@@ -145,7 +144,7 @@ class IB_Client:
         Returns
         -------
         dict[]
-            An array of dicts that have key ticker and value intrest.
+            An array of dicts that have key ticker and value interest.
         """
         return None
 
@@ -237,7 +236,7 @@ class IB_Client:
         return None
 
     def update_positions(self):
-        """Pulls current position data from interactive brokers and updates the positions table in the database.
+        """Pulls current position data from Interactive Brokers and updates the positions table in the database.
 
         Returns
         -------
@@ -247,7 +246,7 @@ class IB_Client:
         return None
 
     def update_trades(self):
-        """Pulls todays trade data from interactive brokers and updates the trades table in the database.
+        """Pulls todays trade data from Interactive Brokers and updates the trades table in the database.
 
         Returns
         -------
@@ -257,7 +256,7 @@ class IB_Client:
         return None
 
     def update_marketdata(self):
-        """Pulls todays market data from interactive brokers and updates the market data table in the database.
+        """Pulls todays market data from Interactive Brokers and updates the market data table in the database.
 
         Returns
         -------
