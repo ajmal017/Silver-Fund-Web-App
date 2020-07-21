@@ -30,6 +30,9 @@ class IB_Client():
         position []
             An array containing instances of the class position.
         """
+
+        #Call positionsservice->getcurrent()
+
         return None
 
     def get_positions_on(self, year, month, day):
