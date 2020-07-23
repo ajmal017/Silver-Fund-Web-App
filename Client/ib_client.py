@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 listclass IB_Client():
+=======
+class IB_Client:
+>>>>>>> b5c7040c5455c5b7a5cd72a69d92c1007c01fb55
     def __init__(self, username, password):
-        """Constructs the IB_Clinet class with a username and password. Takes care of starting up and authenticating the server.
+        """Constructs the IB_Client class with a username and password. Takes care of starting up and authenticating the server.
 
         Parameters
         ----------
@@ -15,15 +19,13 @@ listclass IB_Client():
 
         return None
 
-
     def _get_account_id(self):
-        #Gets the account id
+        # Gets the account id
 
         return None
 
-    def get_positions_cur(self):
-        """Returns all positions for the given account. Uses the /portfolio/{accountId}/positions/{pageId}
-        endpoint.
+    def get_positions_current(self):
+        """Returns all positions for the given account. Uses the /portfolio/{accountId}/positions/{pageId} endpoint.
 
         Returns
         -------
@@ -31,7 +33,7 @@ listclass IB_Client():
             An list containing instances of the class position.
         """
 
-        #Call positionsservice->getcurrent()
+        # Call positions_service->get_current()
 
         return None
 
@@ -56,7 +58,6 @@ listclass IB_Client():
         #Call positionsservice->get_on()
 
         return None
-
 
     def get_trades_today(self):
         """Returns all trades made today.
@@ -89,7 +90,7 @@ listclass IB_Client():
 
     def get_trades_unsettled(self):
         """Returns all trades we are still waiting on to settle (including number shares, mkt value, and date of trade).
-            Uses the /iserver/account/orders endpoint.
+        Uses the /iserver/account/orders endpoint.
 
         Returns
         -------
@@ -139,8 +140,13 @@ listclass IB_Client():
         """
         return None
 
+<<<<<<< HEAD
     def get_short_intrest(self,look_up_list):
         """Returns shor intrests for the given assets.
+=======
+    def get_short_interest(self, look_up_array):
+        """Returns short interests for the given assets.
+>>>>>>> b5c7040c5455c5b7a5cd72a69d92c1007c01fb55
 
         Parameters
         ----------
@@ -150,7 +156,11 @@ listclass IB_Client():
         Returns
         -------
         dict[]
+<<<<<<< HEAD
             An list of dicts that have key ticker and value intrest.
+=======
+            An array of dicts that have key ticker and value interest.
+>>>>>>> b5c7040c5455c5b7a5cd72a69d92c1007c01fb55
         """
         return None
 
@@ -242,7 +252,7 @@ listclass IB_Client():
         return None
 
     def update_positions(self):
-        """Pulls current position data from interactive brokers and updates the positions table in the database.
+        """Pulls current position data from Interactive Brokers and updates the positions table in the database.
 
         Returns
         -------
@@ -252,7 +262,7 @@ listclass IB_Client():
         return None
 
     def update_trades(self):
-        """Pulls todays trade data from interactive brokers and updates the trades table in the database.
+        """Pulls todays trade data from Interactive Brokers and updates the trades table in the database.
 
         Returns
         -------
@@ -262,7 +272,7 @@ listclass IB_Client():
         return None
 
     def update_marketdata(self):
-        """Pulls todays market data from interactive brokers and updates the market data table in the database.
+        """Pulls todays market data from Interactive Brokers and updates the market data table in the database.
 
         Returns
         -------

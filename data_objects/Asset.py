@@ -26,7 +26,7 @@ class Asset:
             "num_of_floats": self.num_of_floats,
         }
 
-        def getAsset(self):
+        def get_asset(self):
             return self.asset()
 
         def show(self):
