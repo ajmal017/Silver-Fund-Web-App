@@ -15,10 +15,12 @@ resp = requests.get(body+val, verify = False)
 resp = requests.get(body + acounts,  verify = False)
 accountId = resp.json()[0]['accountId']
 
+#Must make this call before you can make trades
 resp = requests.get(body + brok_accounts, verify = False)
-#print(resp.json())
 
 header1 = {'accept': 'application/json', 'Content-Type': 'application/json'}
+
+
 
 trade_body = {
   "acctId": "DU2206403",
@@ -29,7 +31,7 @@ trade_body = {
   "orderType": "LMT",
   "listingExchange": "SMART",
   "outsideRTH": True,
-  "price": 369.06,
+  "price": 369.73,
   "side": "SELL",
   "ticker": "AAPL",
   "tif": "DAY",
