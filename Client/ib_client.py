@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+listclass IB_Client():
+=======
 class IB_Client:
+>>>>>>> b5c7040c5455c5b7a5cd72a69d92c1007c01fb55
     def __init__(self, username, password):
         """Constructs the IB_Client class with a username and password. Takes care of starting up and authenticating the server.
 
@@ -26,7 +30,7 @@ class IB_Client:
         Returns
         -------
         position []
-            An array containing instances of the class position.
+            An list containing instances of the class position.
         """
 
         # Call positions_service->get_current()
@@ -48,8 +52,11 @@ class IB_Client:
         Returns
         -------
         position []
-            An array containing instances of the class position.
+            An list containing instances of the class position.
         """
+
+        #Call positionsservice->get_on()
+
         return None
 
     def get_trades_today(self):
@@ -58,7 +65,7 @@ class IB_Client:
         Returns
         -------
         trade[]
-            An array containing instances of the class trade.
+            An list containing instances of the class trade.
         """
         return None
 
@@ -77,7 +84,7 @@ class IB_Client:
         Returns
         -------
         trade[]
-            An array containing instances of the class trade.
+            An list containing instances of the class trade.
         """
         return None
 
@@ -88,7 +95,7 @@ class IB_Client:
         Returns
         -------
         trade[]
-            An array containing instances of the class trade.
+            An list containing instances of the class trade.
 
         """
         return None
@@ -129,32 +136,41 @@ class IB_Client:
         Returns
         -------
         position[]
-            An array of all positions being called back today.
+            An list of all positions being called back today.
         """
         return None
 
+<<<<<<< HEAD
+    def get_short_intrest(self,look_up_list):
+        """Returns shor intrests for the given assets.
+=======
     def get_short_interest(self, look_up_array):
         """Returns short interests for the given assets.
+>>>>>>> b5c7040c5455c5b7a5cd72a69d92c1007c01fb55
 
         Parameters
         ----------
-        look_up_array : string[]
-            An array of tickers, cusips, or conids?
+        look_up_list : string[]
+            An list of tickers, cusips, or conids?
 
         Returns
         -------
         dict[]
+<<<<<<< HEAD
+            An list of dicts that have key ticker and value intrest.
+=======
             An array of dicts that have key ticker and value interest.
+>>>>>>> b5c7040c5455c5b7a5cd72a69d92c1007c01fb55
         """
         return None
 
-    def get_bids(self, look_up_array):
-        """Looks up info for given assets and returns them in an array of assets.
+    def get_bids(self, look_up_list):
+        """Looks up info for given assets and returns them in an list of assets.
 
         Parameters
         ----------
-        look_up_array : string[]
-            An array of tickers, cusips, or conids?
+        look_up_list : string[]
+            An list of tickers, cusips, or conids?
 
         Returns
         -------
@@ -163,13 +179,13 @@ class IB_Client:
         """
         return None
 
-    def get_asks(self, look_up_array):
-        """Looks up info for given assets and returns them in an array of assets.
+    def get_asks(self, look_up_list):
+        """Looks up info for given assets and returns them in an list of assets.
 
         Parameters
         ----------
-        look_up_array : string[]
-            An array of tickers, cusips, or conids?
+        look_up_list : string[]
+            An list of tickers, cusips, or conids?
 
         Returns
         -------
@@ -178,8 +194,8 @@ class IB_Client:
         """
         return None
 
-    def get_close_on(self, day, month, year, look_up_array):
-        """Looks up info for given assets on given date and returns them in an array of assets.
+    def get_close_on(self, day, month, year, look_up_list):
+        """Looks up info for given assets on given date and returns them in an list of assets.
 
         Parameters
         ----------
@@ -189,8 +205,8 @@ class IB_Client:
             Two digits representing the month. example: 03 for the month of March.
         day : int
             Two digits representing the day. example: 08 for the 8th.
-        look_up_array : string []
-            An array of tickers, cusips, or conids?
+        look_up_list : string []
+            An list of tickers, cusips, or conids?
 
         Returns
         -------
@@ -199,23 +215,23 @@ class IB_Client:
         """
         return None
 
-    def get_assets(self, look_up_array):
-        """Looks up info for given assets and returns them in an array of assets.
+    def get_assets(self, look_up_list):
+        """Looks up info for given assets and returns them in an list of assets.
 
         Parameters
         ----------
-        look_up_array : string[]
-            An array of tickers, cusips, or conids?
+        look_up_list : string[]
+            An list of tickers, cusips, or conids?
 
         Returns
         -------
         asset[]
-            Returns an array of requested assets.
+            Returns an list of requested assets.
         """
         return None
 
-    def get_assets_on(self, day, month, year, look_up_array):
-        """Looks up info for given assets on given date and returns them in an array of assets.
+    def get_assets_on(self, day, month, year, look_up_list):
+        """Looks up info for given assets on given date and returns them in an list of assets.
 
         Parameters
         ----------
@@ -225,13 +241,13 @@ class IB_Client:
             Two digits representing the month. example: 03 for the month of March.
         day : int
             Two digits representing the day. example: 08 for the 8th.
-        look_up_array : string []
-            An array of tickers, cusips, or conids?
+        look_up_list : string []
+            An list of tickers, cusips, or conids?
 
         Returns
         -------
         asset[]
-            Returns an array of requested assets.
+            Returns an list of requested assets.
         """
         return None
 
