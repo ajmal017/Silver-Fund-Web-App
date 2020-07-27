@@ -154,13 +154,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-Client.ib_client">
-<span id="ib-client-module"></span><h1>ib_client module<a class="headerlink" href="#module-Client.ib_client" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-client.ib_client">
+<span id="ib-client-module"></span><h1>ib_client module<a class="headerlink" href="#module-client.ib_client" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt id="Client.ib_client.IB_Client">
-<em class="property">class </em><code class="sig-prename descclassname">Client.ib_client.</code><code class="sig-name descname">IB_Client</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">password</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client" title="Permalink to this definition">¶</a></dt>
+<dt id="client.ib_client.IB_Client">
+<em class="property">class </em><code class="sig-prename descclassname">client.ib_client.</code><code class="sig-name descname">IB_Client</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">password</span></em><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Constructs the IB_Clinet class with a username and password. Takes care of starting up and authenticating the server.</p>
+<p>Constructs the IB_Client class with a username and password. Takes care of starting up and authenticating the server.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -178,65 +178,65 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.get_asks" title="Client.ib_client.IB_Client.get_asks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_asks</span></code></a>(self, look_up_array)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.get_asks" title="client.ib_client.IB_Client.get_asks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_asks</span></code></a>(look_up_array)</p></td>
 <td><p>Looks up info for given assets and returns them in an array of assets.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.get_assets" title="Client.ib_client.IB_Client.get_assets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_assets</span></code></a>(self, look_up_array)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.get_assets" title="client.ib_client.IB_Client.get_assets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_assets</span></code></a>(look_up_array)</p></td>
 <td><p>Looks up info for given assets and returns them in an array of assets.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.get_assets_on" title="Client.ib_client.IB_Client.get_assets_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_assets_on</span></code></a>(self, day, month, year, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.get_assets_on" title="client.ib_client.IB_Client.get_assets_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_assets_on</span></code></a>(day, month, year, look_up_array)</p></td>
 <td><p>Looks up info for given assets on given date and returns them in an array of assets.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.get_bids" title="Client.ib_client.IB_Client.get_bids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bids</span></code></a>(self, look_up_array)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.get_bids" title="client.ib_client.IB_Client.get_bids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bids</span></code></a>(look_up_array)</p></td>
 <td><p>Looks up info for given assets and returns them in an array of assets.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.get_cash_balance" title="Client.ib_client.IB_Client.get_cash_balance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cash_balance</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.get_cash_balance" title="client.ib_client.IB_Client.get_cash_balance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cash_balance</span></code></a>()</p></td>
 <td><p>Returns present cash balance.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.get_close_on" title="Client.ib_client.IB_Client.get_close_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_close_on</span></code></a>(self, day, month, year, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.get_close_on" title="client.ib_client.IB_Client.get_close_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_close_on</span></code></a>(day, month, year, look_up_array)</p></td>
 <td><p>Looks up info for given assets on given date and returns them in an array of assets.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.get_margin_cash" title="Client.ib_client.IB_Client.get_margin_cash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_margin_cash</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.get_margin_cash" title="client.ib_client.IB_Client.get_margin_cash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_margin_cash</span></code></a>()</p></td>
 <td><p>Returns current cash margin</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.get_margin_portfolio" title="Client.ib_client.IB_Client.get_margin_portfolio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_margin_portfolio</span></code></a>(self)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.get_margin_portfolio" title="client.ib_client.IB_Client.get_margin_portfolio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_margin_portfolio</span></code></a>()</p></td>
 <td><p>Returns current portfolio margin.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.get_positions_cur" title="Client.ib_client.IB_Client.get_positions_cur"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_positions_cur</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.get_positions_current" title="client.ib_client.IB_Client.get_positions_current"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_positions_current</span></code></a>()</p></td>
 <td><p>Returns all positions for the given account.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.get_positions_on" title="Client.ib_client.IB_Client.get_positions_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_positions_on</span></code></a>(self, year, month, day)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.get_positions_on" title="client.ib_client.IB_Client.get_positions_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_positions_on</span></code></a>(year, month, day)</p></td>
 <td><p>Returns all postions for a given date.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.get_short_callbacks" title="Client.ib_client.IB_Client.get_short_callbacks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_short_callbacks</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.get_short_callbacks" title="client.ib_client.IB_Client.get_short_callbacks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_short_callbacks</span></code></a>()</p></td>
 <td><p>Returns all shorts that are being called back today.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.get_short_intrest" title="Client.ib_client.IB_Client.get_short_intrest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_short_intrest</span></code></a>(self, look_up_array)</p></td>
-<td><p>Returns shor intrests for the given assets.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.get_short_interest" title="client.ib_client.IB_Client.get_short_interest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_short_interest</span></code></a>(look_up_array)</p></td>
+<td><p>Returns short interests for the given assets.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.get_trades_on" title="Client.ib_client.IB_Client.get_trades_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_trades_on</span></code></a>(self, year, month, day)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.get_trades_on" title="client.ib_client.IB_Client.get_trades_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_trades_on</span></code></a>(year, month, day)</p></td>
 <td><p>Returns all trades for a given date.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.get_trades_today" title="Client.ib_client.IB_Client.get_trades_today"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_trades_today</span></code></a>(self)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.get_trades_today" title="client.ib_client.IB_Client.get_trades_today"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_trades_today</span></code></a>()</p></td>
 <td><p>Returns all trades made today.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.get_trades_unsettled" title="Client.ib_client.IB_Client.get_trades_unsettled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_trades_unsettled</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.get_trades_unsettled" title="client.ib_client.IB_Client.get_trades_unsettled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_trades_unsettled</span></code></a>()</p></td>
 <td><p>Returns all trades we are still waiting on to settle (including number shares, mkt value, and date of trade).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.update_marketdata" title="Client.ib_client.IB_Client.update_marketdata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_marketdata</span></code></a>(self)</p></td>
-<td><p>Pulls todays market data from interactive brokers and updates the market data table in the database.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.update_marketdata" title="client.ib_client.IB_Client.update_marketdata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_marketdata</span></code></a>()</p></td>
+<td><p>Pulls todays market data from Interactive Brokers and updates the market data table in the database.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.update_positions" title="Client.ib_client.IB_Client.update_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_positions</span></code></a>(self)</p></td>
-<td><p>Pulls current position data from interactive brokers and updates the positions table in the database.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.update_positions" title="client.ib_client.IB_Client.update_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_positions</span></code></a>()</p></td>
+<td><p>Pulls current position data from Interactive Brokers and updates the positions table in the database.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Client.ib_client.IB_Client.update_trades" title="Client.ib_client.IB_Client.update_trades"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_trades</span></code></a>(self)</p></td>
-<td><p>Pulls todays trade data from interactive brokers and updates the trades table in the database.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#client.ib_client.IB_Client.update_trades" title="client.ib_client.IB_Client.update_trades"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_trades</span></code></a>()</p></td>
+<td><p>Pulls todays trade data from Interactive Brokers and updates the trades table in the database.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.get_asks">
-<code class="sig-name descname">get_asks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">look_up_array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.get_asks" title="Permalink to this definition">¶</a></dt>
+<dt id="client.ib_client.IB_Client.get_asks">
+<code class="sig-name descname">get_asks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">look_up_array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.get_asks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Looks up info for given assets and returns them in an array of assets.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -255,8 +255,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.get_assets">
-<code class="sig-name descname">get_assets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">look_up_array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.get_assets" title="Permalink to this definition">¶</a></dt>
+<dt id="client.ib_client.IB_Client.get_assets">
+<code class="sig-name descname">get_assets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">look_up_array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.get_assets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Looks up info for given assets and returns them in an array of assets.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -275,8 +275,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.get_assets_on">
-<code class="sig-name descname">get_assets_on</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">day</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">look_up_array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.get_assets_on" title="Permalink to this definition">¶</a></dt>
+<dt id="client.ib_client.IB_Client.get_assets_on">
+<code class="sig-name descname">get_assets_on</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">day</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">look_up_array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.get_assets_on" title="Permalink to this definition">¶</a></dt>
 <dd><p>Looks up info for given assets on given date and returns them in an array of assets.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -301,8 +301,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.get_bids">
-<code class="sig-name descname">get_bids</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">look_up_array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.get_bids" title="Permalink to this definition">¶</a></dt>
+<dt id="client.ib_client.IB_Client.get_bids">
+<code class="sig-name descname">get_bids</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">look_up_array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.get_bids" title="Permalink to this definition">¶</a></dt>
 <dd><p>Looks up info for given assets and returns them in an array of assets.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -321,8 +321,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.get_cash_balance">
-<code class="sig-name descname">get_cash_balance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.get_cash_balance" title="Permalink to this definition">¶</a></dt>
+<dt id="client.ib_client.IB_Client.get_cash_balance">
+<code class="sig-name descname">get_cash_balance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.get_cash_balance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns present cash balance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -335,8 +335,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.get_close_on">
-<code class="sig-name descname">get_close_on</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">day</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">look_up_array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.get_close_on" title="Permalink to this definition">¶</a></dt>
+<dt id="client.ib_client.IB_Client.get_close_on">
+<code class="sig-name descname">get_close_on</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">day</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">look_up_array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.get_close_on" title="Permalink to this definition">¶</a></dt>
 <dd><p>Looks up info for given assets on given date and returns them in an array of assets.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -361,8 +361,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.get_margin_cash">
-<code class="sig-name descname">get_margin_cash</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.get_margin_cash" title="Permalink to this definition">¶</a></dt>
+<dt id="client.ib_client.IB_Client.get_margin_cash">
+<code class="sig-name descname">get_margin_cash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.get_margin_cash" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns current cash margin</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -375,8 +375,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.get_margin_portfolio">
-<code class="sig-name descname">get_margin_portfolio</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.get_margin_portfolio" title="Permalink to this definition">¶</a></dt>
+<dt id="client.ib_client.IB_Client.get_margin_portfolio">
+<code class="sig-name descname">get_margin_portfolio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.get_margin_portfolio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns current portfolio margin.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -389,10 +389,9 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.get_positions_cur">
-<code class="sig-name descname">get_positions_cur</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.get_positions_cur" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns all positions for the given account. Uses the /portfolio/{accountId}/positions/{pageId}
-endpoint.</p>
+<dt id="client.ib_client.IB_Client.get_positions_current">
+<code class="sig-name descname">get_positions_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.get_positions_current" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all positions for the given account. Uses the /portfolio/{accountId}/positions/{pageId} endpoint.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl class="simple">
@@ -404,8 +403,8 @@ endpoint.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.get_positions_on">
-<code class="sig-name descname">get_positions_on</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">day</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.get_positions_on" title="Permalink to this definition">¶</a></dt>
+<dt id="client.ib_client.IB_Client.get_positions_on">
+<code class="sig-name descname">get_positions_on</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">day</span></em><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.get_positions_on" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns all postions for a given date. Looks up data from the SilverFund database.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -428,8 +427,8 @@ endpoint.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.get_short_callbacks">
-<code class="sig-name descname">get_short_callbacks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.get_short_callbacks" title="Permalink to this definition">¶</a></dt>
+<dt id="client.ib_client.IB_Client.get_short_callbacks">
+<code class="sig-name descname">get_short_callbacks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.get_short_callbacks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns all shorts that are being called back today.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -442,9 +441,9 @@ endpoint.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.get_short_intrest">
-<code class="sig-name descname">get_short_intrest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">look_up_array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.get_short_intrest" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns shor intrests for the given assets.</p>
+<dt id="client.ib_client.IB_Client.get_short_interest">
+<code class="sig-name descname">get_short_interest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">look_up_array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.get_short_interest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns short interests for the given assets.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -454,7 +453,7 @@ endpoint.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>dict[]</dt><dd><p>An array of dicts that have key ticker and value intrest.</p>
+<dt>dict[]</dt><dd><p>An array of dicts that have key ticker and value interest.</p>
 </dd>
 </dl>
 </dd>
@@ -462,8 +461,8 @@ endpoint.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.get_trades_on">
-<code class="sig-name descname">get_trades_on</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">day</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.get_trades_on" title="Permalink to this definition">¶</a></dt>
+<dt id="client.ib_client.IB_Client.get_trades_on">
+<code class="sig-name descname">get_trades_on</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">day</span></em><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.get_trades_on" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns all trades for a given date. Looks up data from the SilverFund database.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -486,8 +485,8 @@ endpoint.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.get_trades_today">
-<code class="sig-name descname">get_trades_today</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.get_trades_today" title="Permalink to this definition">¶</a></dt>
+<dt id="client.ib_client.IB_Client.get_trades_today">
+<code class="sig-name descname">get_trades_today</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.get_trades_today" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns all trades made today.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -500,12 +499,10 @@ endpoint.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.get_trades_unsettled">
-<code class="sig-name descname">get_trades_unsettled</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.get_trades_unsettled" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="simple">
-<dt>Returns all trades we are still waiting on to settle (including number shares, mkt value, and date of trade).</dt><dd><p>Uses the /iserver/account/orders endpoint.</p>
-</dd>
-</dl>
+<dt id="client.ib_client.IB_Client.get_trades_unsettled">
+<code class="sig-name descname">get_trades_unsettled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.get_trades_unsettled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all trades we are still waiting on to settle (including number shares, mkt value, and date of trade).
+Uses the /iserver/account/orders endpoint.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl class="simple">
@@ -517,9 +514,9 @@ endpoint.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.update_marketdata">
-<code class="sig-name descname">update_marketdata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.update_marketdata" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pulls todays market data from interactive brokers and updates the market data table in the database.</p>
+<dt id="client.ib_client.IB_Client.update_marketdata">
+<code class="sig-name descname">update_marketdata</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.update_marketdata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pulls todays market data from Interactive Brokers and updates the market data table in the database.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl class="simple">
@@ -531,9 +528,9 @@ endpoint.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.update_positions">
-<code class="sig-name descname">update_positions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.update_positions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pulls current position data from interactive brokers and updates the positions table in the database.</p>
+<dt id="client.ib_client.IB_Client.update_positions">
+<code class="sig-name descname">update_positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.update_positions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pulls current position data from Interactive Brokers and updates the positions table in the database.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl class="simple">
@@ -545,9 +542,9 @@ endpoint.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Client.ib_client.IB_Client.update_trades">
-<code class="sig-name descname">update_trades</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Client.ib_client.IB_Client.update_trades" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pulls todays trade data from interactive brokers and updates the trades table in the database.</p>
+<dt id="client.ib_client.IB_Client.update_trades">
+<code class="sig-name descname">update_trades</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#client.ib_client.IB_Client.update_trades" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pulls todays trade data from Interactive Brokers and updates the trades table in the database.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl class="simple">
