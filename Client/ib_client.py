@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-listclass IB_Client():
-=======
 class IB_Client:
->>>>>>> b5c7040c5455c5b7a5cd72a69d92c1007c01fb55
     def __init__(self, username, password):
         """Constructs the IB_Client class with a username and password. Takes care of starting up and authenticating the server.
 
