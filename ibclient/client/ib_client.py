@@ -1,5 +1,5 @@
-#we need to be able to import everything here
-class IB_Client:
+from ibclient.services.positions_service import PositionsService as ps
+class IBClient:
     def __init__(self, username, password):
         """Constructs the IB_Client class with a username and password. Takes care of starting up and authenticating the server.
 
@@ -12,7 +12,7 @@ class IB_Client:
         """
         self.username = username
         self.password = password
-        self.account_id = self.get_account_id()
+        self.account_id = self._get_account_id()
 
         return None
 
@@ -22,6 +22,9 @@ class IB_Client:
         return None
 
     def get_positions_current(self):
+        print("getting positions current in client")
+        servicer = ps()
+        servicer.get_current(1234)
         """Returns all positions for the given account. Uses the /portfolio/{accountId}/positions/{pageId} endpoint.
 
         Returns

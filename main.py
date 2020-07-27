@@ -1,5 +1,7 @@
-from client.IB_Client import *
+import ibclient.client.ib_client as client
 
 
 
-client = IB_Client("sam", "password")
+
+cli = client.IBClient("sam", "earnest")
+cli.get_positions_current()

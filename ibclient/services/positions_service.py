@@ -9,6 +9,7 @@ class PositionsService():
         return None
 
     def get_current(self, account_id):
+        print("getting current service")
         #call CurrentPositionsHandler and get's response
         #check if response is valid (each field in position is filled)
         return None
