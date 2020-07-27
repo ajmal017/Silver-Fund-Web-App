@@ -1,3 +1,4 @@
+#we need to be able to import everything here
 class IB_Client:
     def __init__(self, username, password):
         """Constructs the IB_Client class with a username and password. Takes care of starting up and authenticating the server.
@@ -136,13 +137,8 @@ class IB_Client:
         """
         return None
 
-<<<<<<< HEAD
-    def get_short_intrest(self,look_up_list):
-        """Returns shor intrests for the given assets.
-=======
     def get_short_interest(self, look_up_array):
         """Returns short interests for the given assets.
->>>>>>> b5c7040c5455c5b7a5cd72a69d92c1007c01fb55
 
         Parameters
         ----------
@@ -152,11 +148,7 @@ class IB_Client:
         Returns
         -------
         dict[]
-<<<<<<< HEAD
-            An list of dicts that have key ticker and value intrest.
-=======
             An array of dicts that have key ticker and value interest.
->>>>>>> b5c7040c5455c5b7a5cd72a69d92c1007c01fb55
         """
         return None
 
