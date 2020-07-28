@@ -77,7 +77,7 @@ class Trade:
         }
 
     def get_trade(self):
-        return self.trade()
+        return self.trade
 
     def show(self):
         print(json.dumps(self.trade, indent=3))

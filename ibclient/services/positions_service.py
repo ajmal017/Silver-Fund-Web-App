@@ -1,5 +1,5 @@
 from ibclient.handlers.current_positions_handler import CurrentPositionsHandler
-import requests
+from ibclient.dataobjects.position import Position
 import json
 
 class PositionsService():
@@ -8,12 +8,21 @@ class PositionsService():
         return None
 
     def get_current(self, account_id):
-        print("service")
+        """Returns all positions for the given account. Uses the /portfolio/{accountId}/positions/{pageId} endpoint.
+        Parameters
+        ----------
+        account_id : int
+            Id for the account through which the call will be made.
+        Returns
+        -------
+        position []
+            An list containing instances of the class position.
+        """
+
         handler = CurrentPositionsHandler(account_id)
-        handler.get_positions()
-        #call CurrentPositionsHandler and get's response
-        #check if response is valid (each field in position is filled)
-        return None
+        positions_json = handler.get_positions()
+        
+        return positions_json
 
     def get_on(self, year, month, day):
         #creates DAO to pull data from database

@@ -4,7 +4,7 @@ import sys
 import time
 import requests
 import json
-from selenium import webdriver
+#from selenium import webdriver
 
 # Disable insecure request warnings from verify = False in requests
 import urllib3
@@ -36,6 +36,12 @@ class Server:
     # Submits https object and returns response
     def __submit(self):
         pass
+
+
+
+    def get_account_id(self):
+        resp = requests.get(self.port_host + "portal/portfolio/accounts", verify=False)
+        return str(resp.json()[0]['id'])
 
     # Checks server state given it is access
     def check_status(self):
@@ -92,8 +98,27 @@ class Server:
         loginButton = self.driver.find_element_by_id("submitForm").click()
         # FIXME - do we want to quit out of the selenium driver at this point?
         # time.sleep(4)
-        # self.driver.quit()
+        # self.driver.quit()()
 
 
-server = Server()
-server.check_status()
+
+    def check_auth(self):
+        auth = 'iserver/auth/status'
+        
+        try:
+            response = requests.post(self.port_host+auth, verify = False)
+            response.raise_for_status()
+        except requests.exceptions.HTTPError as errh:
+            return "An Http Error occured:" + repr(errh)
+        except requests.exceptions.ConnectionError as errc:
+            return "An Error Connecting to the API occurred:" + repr(errc)
+        except requests.exceptions.Timeout as errt:
+            return "A Timeout Error occurred:" + repr(errt)
+        except requests.exceptions.RequestException as err:
+            return "An Unknown Error occurred" + repr(err)
+        
+        return response.json()['authenticated']
+        
+        
+
+

@@ -2,10 +2,12 @@ from ibclient.services.positions_service import PositionsService
 from ibclient.services.assets_service import AssetsService
 from ibclient.services.trades_service import TradesService
 
-from dataobjects.asset import Asset
-from dataobjects.order import Order
-from dataobjects.position import Position
-from dataobjects.trade import Trade
+from ibclient.ibserver.server import Server
+
+from ibclient.dataobjects.asset import Asset
+from ibclient.dataobjects.order import Order
+from ibclient.dataobjects.position import Position
+from ibclient.dataobjects.trade import Trade
 
 
 class IBClient:
@@ -23,26 +25,21 @@ class IBClient:
         self.password = password
         self.account_id = self._get_account_id()
 
-        return None
-
     def _get_account_id(self):
-        # Gets the account id
-
-        return None
+        server = Server()
+        server.check_status()
+        return server.get_account_id()
 
     def get_positions_current(self):
-        print("client")
-        servicer = PositionsService()
-        servicer.get_current(1234)
         """Returns all positions for the given account. Uses the /portfolio/{accountId}/positions/{pageId} endpoint.
-
         Returns
         -------
         position []
             An list containing instances of the class position.
         """
-
-        return None
+        servicer = PositionsService()
+        positions = servicer.get_current(self.account_id)
+        return positions
 
     def get_positions_on(self, year, month, day):
         """Returns all postions for a given date. Looks up data from the SilverFund database.
