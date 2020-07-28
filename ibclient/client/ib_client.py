@@ -1,4 +1,13 @@
-from ibclient.services.positions_service import PositionsService as ps
+from ibclient.services.positions_service import PositionsService 
+from ibclient.services.assets_service import AssetsService
+from ibclient.services.trades_service import TradesService
+
+from dataobjects.asset import Asset
+from dataobjects.order import Order
+from dataobjects.position import Position
+from dataobjects.trade import Trade
+
+
 class IBClient:
     def __init__(self, username, password):
         """Constructs the IB_Client class with a username and password. Takes care of starting up and authenticating the server.
@@ -22,8 +31,8 @@ class IBClient:
         return None
 
     def get_positions_current(self):
-        print("getting positions current in client")
-        servicer = ps()
+        print("client")
+        servicer = PositionsService()
         servicer.get_current(1234)
         """Returns all positions for the given account. Uses the /portfolio/{accountId}/positions/{pageId} endpoint.
 
@@ -32,8 +41,6 @@ class IBClient:
         position []
             An list containing instances of the class position.
         """
-
-        # Call positions_service->get_current()
 
         return None
 

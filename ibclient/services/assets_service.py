@@ -2,7 +2,7 @@ import json
 
 class AssetsService():
 
-    def __init__():
+    def __init__(self):
         return None
 
     def get_assets(self, look_up_list):
@@ -12,4 +12,5 @@ class AssetsService():
         #compile each returned asset into a list of assets and return the list
         return None
 
-    def get_asset(self, )
+    def get_asset(self):
+        return None

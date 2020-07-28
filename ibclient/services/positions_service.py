@@ -1,7 +1,6 @@
+from ibclient.handlers.current_positions_handler import CurrentPositionsHandler
 import requests
 import json
-
-print("services")
 
 class PositionsService():
 
@@ -9,7 +8,9 @@ class PositionsService():
         return None
 
     def get_current(self, account_id):
-        print("getting current service")
+        print("service")
+        handler = CurrentPositionsHandler(account_id)
+        handler.get_positions()
         #call CurrentPositionsHandler and get's response
         #check if response is valid (each field in position is filled)
         return None

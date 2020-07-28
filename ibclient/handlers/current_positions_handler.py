@@ -12,10 +12,12 @@ class CurrentPositionsHandler:
 
         return None
 
-    def check_server_status():
+    def check_server_status(self):
 
         return None
 
-    def get_positions():
+    def get_positions(self):
+
+        print("handler")
 
         return None
