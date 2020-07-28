@@ -1,5 +1,5 @@
-from ibclient.handlers.current_positions_handler import CurrentPositionsHandler
-from ibclient.dataobjects.position import Position
+from sfserver.handlers.current_positions_handler import CurrentPositionsHandler
+from sfserver.dataobjects.position import Position
 import json
 
 class PositionsService():

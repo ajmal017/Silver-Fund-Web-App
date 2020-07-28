@@ -1,16 +1,16 @@
-from ibclient.services.positions_service import PositionsService 
-from ibclient.services.assets_service import AssetsService
-from ibclient.services.trades_service import TradesService
+from sfserver.services.positions_service import PositionsService 
+from sfserver.services.assets_service import AssetsService
+from sfserver.services.trades_service import TradesService
 
-from ibclient.ibserver.server import Server
+from sfserver.ibserver.server import Server
 
-from ibclient.dataobjects.asset import Asset
-from ibclient.dataobjects.order import Order
-from ibclient.dataobjects.position import Position
-from ibclient.dataobjects.trade import Trade
+from sfserver.dataobjects.asset import Asset
+from sfserver.dataobjects.order import Order
+from sfserver.dataobjects.position import Position
+from sfserver.dataobjects.trade import Trade
 
 
-class IBClient:
+class SFRoutes:
     def __init__(self, username, password):
         """Constructs the IB_Client class with a username and password. Takes care of starting up and authenticating the server.
 
