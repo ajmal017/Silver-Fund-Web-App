@@ -5,7 +5,8 @@ import json
 
 class PositionsService():
 
-    def __init__(self):
+    def __init__(self, ib_ipaddress):
+        self.ib_ipaddress = ib_ipaddress
         return None
 
     def get_current(self, account_id):
@@ -20,13 +21,13 @@ class PositionsService():
             An list containing instances of the class position.
         """
 
-        server = Server()
+        server = Server(self.ib_ipaddress)
         server.check_status()
 
         #FIXME we'll need to make sure if we have more than 30 positions we call for each page
         positions = 'portal/portfolio/{accountId}/positions/0'
         endpoint =  positions.replace('{accountId}', account_id)
-        resp = submit_request(endpoint, 'GET', None)
+        resp = submit_request(self.ib_ipaddress, endpoint, 'GET', None)
         return resp
 
     def get_on(self, year, month, day):

@@ -1,7 +1,7 @@
 import sfserver.calls.sf_calls as calls
 import json
 
-server = calls.SFCalls("sam", "earnest")
+# server = calls.SFCalls("sam", "earnest", '44.228.77.60')
 
 
 ######Current Positions######
@@ -16,9 +16,13 @@ server = calls.SFCalls("sam", "earnest")
 # trades_unsettled = server.get_trades_unsettled()
 # print(json.dumps(trades_unsettled, indent=4))
 
-######Cash Balance######
+# ######Cash Balance######
 # cashbalance = server.get_cash_balance()
 # print(json.dumps(cashbalance, indent=4))
+
+
+
+
 
 
 

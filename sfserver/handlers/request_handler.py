@@ -1,8 +1,8 @@
 import requests
 
-def submit_request(endpoint, req_type, params = None):
+def submit_request(ipaddress, endpoint, req_type, params = None):
 
-    body = "https://localhost:5000/v1/"
+    body = 'https://' + ipaddress + ':5000/v1/'
     response = None
     
     if req_type =='GET' and params is not None:

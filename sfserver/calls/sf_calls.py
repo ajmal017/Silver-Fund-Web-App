@@ -12,7 +12,7 @@ from sfserver.dataobjects.trade import Trade
 
 
 class SFCalls:
-    def __init__(self, username, password):
+    def __init__(self, username, password, ib_ipaddress):
         """Constructs the IB_Client class with a username and password. Takes care of starting up and authenticating the server.
 
         Parameters
@@ -24,10 +24,11 @@ class SFCalls:
         """
         self.username = username
         self.password = password
+        self.ib_ipaddress = ib_ipaddress
         self.account_id = self._get_account_id()
 
     def _get_account_id(self):
-        server = Server()
+        server = Server(self.ib_ipaddress)
         server.check_status()
         return server.get_account_id()
 
@@ -38,7 +39,7 @@ class SFCalls:
         position []
             An list containing instances of the class position.
         """
-        servicer = PositionsService()
+        servicer = PositionsService(self.ib_ipaddress)
         positions = servicer.get_current(self.account_id)
         return positions
 
@@ -73,7 +74,7 @@ class SFCalls:
             An list containing instances of the class trade.
         """
 
-        servicer = TradesService()
+        servicer = TradesService(self.ib_ipaddress)
         trades = servicer.get_current()
         return trades
 
@@ -107,7 +108,7 @@ class SFCalls:
 
         """
 
-        service = TradesService()
+        service = TradesService(self.ib_ipaddress)
         resp = service.get_unsettled()
         return resp
 
@@ -120,7 +121,7 @@ class SFCalls:
             The current cash balance in USD.
         """
 
-        service = AccountsService(self.account_id)
+        service = AccountsService(self.account_id, self.ib_ipaddress)
         resp = service.get_cash_balance()
         return resp
 

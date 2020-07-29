@@ -14,13 +14,15 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 class Server:
-    def __init__(self):
+    def __init__(self, ib_ipaddress):
         self.active = False
         # Apparently beta is stabler and is recommended by IBKR.
         self.gateway_path = "./clientportal.beta.gw"
         self.port_host = "https://localhost:5000/v1/"
         self.process = None
         self.auth = False
+
+        self.ib_ipaddress = ib_ipaddress
 
         self.PAPER_USERNAME = "byusf3215"
         self.PAPER_PASSWORD = "paper1234"
@@ -42,12 +44,12 @@ class Server:
 
     def get_account_id(self):
         #resp = requests.get(self.port_host + "portal/portfolio/accounts", verify=False)
-        resp = submit_request('portal/portfolio/accounts', 'GET', None)
+        resp = submit_request(self.ib_ipaddress, 'portal/portfolio/accounts', 'GET', None)
         return str(resp[0]['id'])
 
     # Checks server state given it is access
     def check_status(self):
-        resp = submit_request('portal/tickle', 'POST', None)
+        resp = submit_request(self.ib_ipaddress, 'portal/tickle', 'POST', None)
         if resp["iserver"]["authStatus"]["connected"]:
             print("connected")
             self.active = True
@@ -55,8 +57,8 @@ class Server:
             print("not connected")
             self.active = False
 
-        submit_request('portal/sso/validate', 'GET', None)
-        resp = submit_request('portal/iserver/auth/status', 'POST', None)
+        submit_request(self.ib_ipaddress, 'portal/sso/validate', 'GET', None)
+        resp = submit_request(self.ib_ipaddress, 'portal/iserver/auth/status', 'POST', None)
         if resp["authenticated"]:
             self.auth = True
             print("authenticaed")

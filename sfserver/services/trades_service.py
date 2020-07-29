@@ -5,17 +5,18 @@ from sfserver.ibserver.server import Server
 
 class TradesService():
 
-    def __init__(self):
+    def __init__(self, ib_ipaddress):
+        self.ib_ipaddress = ib_ipaddress
         return None
 
     def get_current(self):
 
-        server = Server()
+        server = Server(self.ib_ipaddress)
         server.check_status()
 
         #FIXME check how this datetime library works with time zones.
         date_today = datetime.today().strftime('%Y%m%d')
-        resp = submit_request('portal/iserver/account/trades', 'GET', None)
+        resp = submit_request(self.ib_ipaddress, 'portal/iserver/account/trades', 'GET', None)
         trades =[]
         #Parse for only today's trades
         for trade in resp:
@@ -33,11 +34,11 @@ class TradesService():
         #calls trade handler to pull from API
         #checks for valid reply
 
-        server = Server()
+        server = Server(self.ib_ipaddress)
         server.check_status()
 
         #FIXME sometimes this returns an empty list, but if you try again it ususally gives the correct data, we need to account for this
-        resp = submit_request('portal/iserver/account/orders', 'GET', None)
+        resp = submit_request(self.ib_ipaddress, 'portal/iserver/account/orders', 'GET', None)
 
         orders = []
         #Get only unsettled or pending orders
