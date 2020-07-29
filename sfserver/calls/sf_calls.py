@@ -1,6 +1,7 @@
 from sfserver.services.positions_service import PositionsService 
 from sfserver.services.assets_service import AssetsService
 from sfserver.services.trades_service import TradesService
+from sfserver.services.accounts_service import AccountsService
 
 from sfserver.ibserver.server import Server
 
@@ -74,7 +75,6 @@ class SFCalls:
 
         servicer = TradesService()
         trades = servicer.get_current()
-
         return trades
 
     def get_trades_on(self, year, month, day):
@@ -106,7 +106,10 @@ class SFCalls:
             An list containing instances of the class trade.
 
         """
-        return None
+
+        service = TradesService()
+        resp = service.get_unsettled()
+        return resp
 
     def get_cash_balance(self):
         """Returns present cash balance.
@@ -116,7 +119,10 @@ class SFCalls:
         double
             The current cash balance in USD.
         """
-        return None
+
+        service = AccountsService(self.account_id)
+        resp = service.get_cash_balance()
+        return resp
 
     def get_margin_cash(self):
         """Returns current cash margin

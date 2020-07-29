@@ -31,12 +31,12 @@ trade_body = {
   "orderType": "LMT",
   "listingExchange": "SMART",
   "outsideRTH": True,
-  "price": 369.73,
+  "price": 376.93,
   "side": "SELL",
   "ticker": "AAPL",
   "tif": "DAY",
   "referrer": "QuickTrade",
-  "quantity": 100,
+  "quantity": 10,
   "useAdaptive": True
 }
 

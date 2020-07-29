@@ -23,14 +23,10 @@ class PositionsService():
         server = Server()
         server.check_status()
 
+        #FIXME we'll need to make sure if we have more than 30 positions we call for each page
         positions = 'portal/portfolio/{accountId}/positions/0'
         endpoint =  positions.replace('{accountId}', account_id)
         resp = submit_request(endpoint, 'GET', None)
-
-
-        #handler = CurrentPositionsHandler(account_id)
-        #positions_json = handler.get_positions()
-        
         return resp
 
     def get_on(self, year, month, day):
