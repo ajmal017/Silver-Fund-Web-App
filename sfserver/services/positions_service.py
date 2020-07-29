@@ -1,4 +1,5 @@
-from sfserver.handlers.current_positions_handler import CurrentPositionsHandler
+from sfserver.handlers.request_handler import submit_request
+from sfserver.ibserver.server import Server
 from sfserver.dataobjects.position import Position
 import json
 
@@ -19,10 +20,18 @@ class PositionsService():
             An list containing instances of the class position.
         """
 
-        handler = CurrentPositionsHandler(account_id)
-        positions_json = handler.get_positions()
+        server = Server()
+        server.check_status()
+
+        positions = 'portal/portfolio/{accountId}/positions/0'
+        endpoint =  positions.replace('{accountId}', account_id)
+        resp = submit_request(endpoint, 'GET', None)
+
+
+        #handler = CurrentPositionsHandler(account_id)
+        #positions_json = handler.get_positions()
         
-        return positions_json
+        return resp
 
     def get_on(self, year, month, day):
         #creates DAO to pull data from database

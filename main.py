@@ -1,7 +1,7 @@
 import sfserver.calls.sf_calls as calls
-
-
-
+import json
 
 cli = calls.SFCalls("sam", "earnest")
-print(cli.get_positions_current())
+
+pos = cli.get_positions_current()
+print(json.dumps(pos, indent=4))

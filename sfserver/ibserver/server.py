@@ -4,6 +4,7 @@ import sys
 import time
 import requests
 import json
+from sfserver.handlers.request_handler import submit_request
 #from selenium import webdriver
 
 # Disable insecure request warnings from verify = False in requests
@@ -40,42 +41,29 @@ class Server:
 
 
     def get_account_id(self):
-        resp = requests.get(self.port_host + "portal/portfolio/accounts", verify=False)
-        return str(resp.json()[0]['id'])
+        #resp = requests.get(self.port_host + "portal/portfolio/accounts", verify=False)
+        resp = submit_request('portal/portfolio/accounts', 'GET', None)
+        return str(resp[0]['id'])
 
     # Checks server state given it is access
     def check_status(self):
-        # Confirm server is active
-        resp = requests.post(self.port_host + "portal/tickle", verify=False)
-        if resp.status_code != 200:
-            print("tickle error")
-        if resp.json()["iserver"]["authStatus"]["connected"]:
+        resp = submit_request('portal/tickle', 'POST', None)
+        if resp["iserver"]["authStatus"]["connected"]:
             print("connected")
             self.active = True
         else:
             print("not connected")
             self.active = False
 
-        # Check validation
-        resp = requests.get(self.port_host + "portal/sso/validate", verify=False)
-        if resp.status_code != 200:
-            print("validate error")
-
-        # Check authentication status
-        resp = requests.post(
-            self.port_host + "portal/iserver/auth/status", verify=False
-        )
-        if resp.status_code != 200:
-            print("auth error...restarting server")
-            self.start_session()
-        if resp.json()["authenticated"]:
+        submit_request('portal/sso/validate', 'GET', None)
+        resp = submit_request('portal/iserver/auth/status', 'POST', None)
+        if resp["authenticated"]:
             self.auth = True
             print("authenticaed")
         else:
             print("need to re-authenticate")
 
     # Shuts server down
-
     def __kill_server(self):
 
         pid = self.process.pid

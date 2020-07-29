@@ -71,7 +71,11 @@ class SFCalls:
         trade[]
             An list containing instances of the class trade.
         """
-        return None
+
+        servicer = TradesService()
+        trades = servicer.get_current()
+
+        return trades
 
     def get_trades_on(self, year, month, day):
         """Returns all trades for a given date. Looks up data from the SilverFund database.
