@@ -1,7 +1,8 @@
 import sfserver.calls.sf_calls as calls
 import json
 
-# server = calls.SFCalls("sam", "earnest", '44.228.77.60')
+ipaddress = input("Enter IB ipaddress: ")
+server = calls.SFCalls("sam", "earnest", ipaddress)
 
 
 ######Current Positions######
@@ -19,7 +20,6 @@ import json
 # ######Cash Balance######
 # cashbalance = server.get_cash_balance()
 # print(json.dumps(cashbalance, indent=4))
-
 
 
 

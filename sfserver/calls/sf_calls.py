@@ -21,6 +21,8 @@ class SFCalls:
             The username for the ib account you would like to do work on.
         password : string
             The password for the ib account you would like to do work on.
+        ib_ipaddress : string
+            The ip address where the ib gateway is being hosted.
         """
         self.username = username
         self.password = password
