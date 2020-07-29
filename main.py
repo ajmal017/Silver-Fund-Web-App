@@ -1,7 +1,7 @@
-import sfserver.routes.sf_routes as client
+import sfserver.calls.sf_calls as calls
 
 
 
 
-cli = client.SFRoutes("sam", "earnest")
+cli = calls.SFCalls("sam", "earnest")
 print(cli.get_positions_current())
