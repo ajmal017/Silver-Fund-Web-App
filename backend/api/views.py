@@ -3,7 +3,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
 from api.serializers import UserSerializer, GroupSerializer, PositionsSerializer
-from api.models import Positions
+#from api.models import Positions
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -33,13 +33,13 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 
-class PositionsViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = Positions.objects.all()
-    serializer_class = PositionsSerializer
-    permission_classes = [permissions.IsAuthenticated]
+# class PositionsViewSet(viewsets.ModelViewSet):
+#     """
+#     API endpoint that allows groups to be viewed or edited.
+#     """
+#     queryset = Positions.objects.all()
+#     serializer_class = PositionsSerializer
+#     permission_classes = [permissions.IsAuthenticated]
 
 
 @api_view(["GET"])
@@ -57,6 +57,13 @@ def get_cur_trades(request):
     cur_trades = service.get_current()
     return Response(cur_trades)
 
+
+@api_view(["GET"])
+def get_unsettled_trades(request):
+
+    service = IBTradesService("localhost")
+    un_trades = service.get_unsettled()
+    return Response(un_trades)
 
 
 

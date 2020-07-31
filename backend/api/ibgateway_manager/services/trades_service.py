@@ -34,11 +34,14 @@ class IBTradesService():
         #calls trade handler to pull from API
         #checks for valid reply
 
-        server = Server(self.ib_ipaddress)
+        server = IBServer(self.ib_ipaddress)
         server.check_status()
 
-        #FIXME sometimes this returns an empty list, but if you try again it ususally gives the correct data, we need to account for this
+        
         resp = submit_request(self.ib_ipaddress, 'portal/iserver/account/orders', 'GET', None)
+        #FIXME sometimes this returns an empty list, but if you try again it ususally gives the correct data, we need to account for this
+        if not resp:
+            submit_request(self.ib_ipaddress, 'portal/iserver/account/orders', 'GET', None)
 
         orders = []
         #Get only unsettled or pending orders

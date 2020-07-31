@@ -66,29 +66,29 @@ class IBServer:
             print("need to re-authenticate")
 
     # Shuts server down
-    def __kill_server(self):
+    # def __kill_server(self):
 
-        pid = self.process.pid
-        for id in pid(recursive=True):
-            id.kill()
-        pid.kill()
+    #     pid = self.process.pid
+    #     for id in pid(recursive=True):
+    #         id.kill()
+    #     pid.kill()
 
     # Automates login process
 
-    def __login(self):
-        # FIXME - change extension for Linux
-        self.driver = webdriver.Chrome("FIXME ChromeDriver Location", options=options)
-        self.driver.get("https://localhost:5000")
-        userName = self.driver.find_element_by_id("user_name").send_keys(
-            self.PAPER_USERNAME
-        )
-        password = self.driver.find_element_by_id("password").send_keys(
-            self.PAPER_PASSWORD
-        )
-        loginButton = self.driver.find_element_by_id("submitForm").click()
-        # FIXME - do we want to quit out of the selenium driver at this point?
-        # time.sleep(4)
-        # self.driver.quit()()
+    # def __login(self):
+    #     # FIXME - change extension for Linux
+    #     self.driver = webdriver.Chrome("FIXME ChromeDriver Location", options=options)
+    #     self.driver.get("https://localhost:5000")
+    #     userName = self.driver.find_element_by_id("user_name").send_keys(
+    #         self.PAPER_USERNAME
+    #     )
+    #     password = self.driver.find_element_by_id("password").send_keys(
+    #         self.PAPER_PASSWORD
+    #     )
+    #     loginButton = self.driver.find_element_by_id("submitForm").click()
+    #     # FIXME - do we want to quit out of the selenium driver at this point?
+    #     # time.sleep(4)
+    #     # self.driver.quit()()
 
 
 

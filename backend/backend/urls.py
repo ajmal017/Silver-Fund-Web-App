@@ -25,7 +25,7 @@ from django.contrib import admin
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
-router.register(r'postions', views.PositionsViewSet)
+#router.register(r'postions', views.PositionsViewSet)
 
 
 # Wire up our API using automatic URL routing.
@@ -36,4 +36,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/postitions/current", views.get_cur_positions),
     path("api/trades/current", views.get_cur_trades),
+    path("api/trades/unsettled", views.get_unsettled_trades),
 ]
