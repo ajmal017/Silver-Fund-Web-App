@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from api.serializers import UserSerializer, GroupSerializer, PositionsSerializer
-#from api.models import Positions
+from api.serializers import UserSerializer, GroupSerializer, PositionSerializer
+from api.models import Position
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -34,13 +34,13 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 
-# class PositionsViewSet(viewsets.ModelViewSet):
-#     """
-#     API endpoint that allows groups to be viewed or edited.
-#     """
-#     queryset = Positions.objects.all()
-#     serializer_class = PositionsSerializer
-#     permission_classes = [permissions.IsAuthenticated]
+class PositionViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Position.objects.all()
+    serializer_class = PositionSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 @api_view(["GET"])

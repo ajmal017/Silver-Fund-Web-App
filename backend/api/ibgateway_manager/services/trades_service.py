@@ -16,6 +16,7 @@ class IBTradesService():
 
         #FIXME check how this datetime library works with time zones.
         date_today = datetime.today().strftime('%Y%m%d')
+        resp = submit_request(self.ib_ipaddress, 'portal/iserver/accounts', 'GET', None)
         resp = submit_request(self.ib_ipaddress, 'portal/iserver/account/trades', 'GET', None)
         # trades =[]
         # #Parse for only today's trades
