@@ -1,6 +1,5 @@
 import React from "react";
 
-import "../style.css";
 import tradingImg from "../images/trading-trans-white.png";
 
 function Home() {

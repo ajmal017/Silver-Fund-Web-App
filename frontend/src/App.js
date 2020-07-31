@@ -3,7 +3,6 @@ import { BrowserRouter } from "react-router-dom";
 
 import Layout from "./components/Layout";
 import BaseRouter from "./Routes";
-// import "./style.css";
 
 class App extends React.Component {
   render() {

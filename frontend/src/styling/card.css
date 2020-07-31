@@ -1,0 +1,17 @@
+.card {
+  color: black;
+  max-width: 450px;
+  padding: 20px;
+}
+
+.card-title {
+  color: black;
+}
+
+a {
+  color: lightslategray;
+}
+
+a:hover {
+  color: slategray;
+}
