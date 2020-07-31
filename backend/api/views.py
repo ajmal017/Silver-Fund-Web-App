@@ -7,6 +7,12 @@ from api.models import Positions
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from sfserver.calls.sf_calls import SFCalls
+import json
+
+# from snippets.models import Snippet
+# from snippets.serializers import SnippetSerializer
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -35,18 +41,17 @@ class PositionsViewSet(viewsets.ModelViewSet):
     serializer_class = PositionsSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+
 @api_view(["GET"])
 def get_cur_positions(request):
-    """
-    Gets an appointment list at a given time based on preferences then randomly picks one appointment and populates it with the mentor's name (queries specific fields by primary key).
-    URL example:  api/booking/?library=1&language=1&hsm=1
-    """
-    # library_params = request.query_params.get("library")
-    # language_params = request.query_params.get("language")
-    # hsm_params = request.query_params.get("hsm")
 
-    return Response(
-        {
-            "success": "false",
-            "message": "No available app",
-        })
+    caller = SFCalls("sam", "earnest", "44.228.77.60")
+    resp = caller.get_positions_current
+
+    serializer = PositionsSerializer(resp[0])
+
+    #snippets = Snippet.objects.all()
+    #serializer = SnippetSerializer(snippets, resp.data)
+    #print(json.dumps(resp, indent=4))
+   
+    return Response(serializer.data)

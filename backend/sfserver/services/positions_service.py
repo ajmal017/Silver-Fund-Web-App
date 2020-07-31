@@ -28,7 +28,18 @@ class PositionsService():
         positions = 'portal/portfolio/{accountId}/positions/0'
         endpoint =  positions.replace('{accountId}', account_id)
         resp = submit_request(self.ib_ipaddress, endpoint, 'GET', None)
-        return resp
+        cur_positions = []
+        for position in resp:
+            new_position = {
+                "asset_id": position["conid"], 
+                "ticker": position["ticker"],
+                "num_of_shares": position["position"],
+                "pos_type": position["assetClass"],
+                "price": position["avgPrice"],
+                "position_value": position["mktValue"]
+                }
+            cur_positions.append(new_position)
+        return cur_positions
 
     def get_on(self, year, month, day):
         #creates DAO to pull data from database
