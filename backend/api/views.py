@@ -7,8 +7,8 @@ from api.models import Positions
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from sfserver.calls.sf_calls import SFCalls
-import json
+from api.ibgateway_manager.services.positions_service import IBPositionsService
+from api.ibgateway_manager.services.trades_service import IBTradesService
 
 # from snippets.models import Snippet
 # from snippets.serializers import SnippetSerializer
@@ -45,13 +45,22 @@ class PositionsViewSet(viewsets.ModelViewSet):
 @api_view(["GET"])
 def get_cur_positions(request):
 
-    caller = SFCalls("sam", "earnest", "44.228.77.60")
-    resp = caller.get_positions_current
+    service = IBPositionsService("localhost")
+    cur_positions = service.get_current("DU2206403")
+    return Response(cur_positions)
 
-    serializer = PositionsSerializer(resp[0])
 
-    #snippets = Snippet.objects.all()
-    #serializer = SnippetSerializer(snippets, resp.data)
-    #print(json.dumps(resp, indent=4))
-   
-    return Response(serializer.data)
+@api_view(["GET"])
+def get_cur_trades(request):
+
+    service = IBTradesService("localhost")
+    cur_trades = service.get_current()
+    return Response(cur_trades)
+
+
+
+
+
+
+
+
