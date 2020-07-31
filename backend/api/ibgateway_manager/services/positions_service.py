@@ -1,9 +1,8 @@
-from sfserver.handlers.request_handler import submit_request
-from sfserver.ibserver.server import Server
-from sfserver.dataobjects.position import Position
+from api.ibgateway_manager.handlers.request_handler import submit_request
+from api.ibgateway_manager.ibserver.server import IBServer
 import json
 
-class PositionsService():
+class IBPositionsService():
 
     def __init__(self, ib_ipaddress):
         self.ib_ipaddress = ib_ipaddress
@@ -21,7 +20,7 @@ class PositionsService():
             An list containing instances of the class position.
         """
 
-        server = Server(self.ib_ipaddress)
+        server = IBServer(self.ib_ipaddress)
         server.check_status()
 
         #FIXME we'll need to make sure if we have more than 30 positions we call for each page

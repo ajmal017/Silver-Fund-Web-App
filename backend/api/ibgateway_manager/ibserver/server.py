@@ -4,7 +4,7 @@ import sys
 import time
 import requests
 import json
-from sfserver.handlers.request_handler import submit_request
+from api.ibgateway_manager.handlers.request_handler import submit_request
 #from selenium import webdriver
 
 # Disable insecure request warnings from verify = False in requests
@@ -13,7 +13,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-class Server:
+class IBServer:
     def __init__(self, ib_ipaddress):
         self.active = False
         # Apparently beta is stabler and is recommended by IBKR.

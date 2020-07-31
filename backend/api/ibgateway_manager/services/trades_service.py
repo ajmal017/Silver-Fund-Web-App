@@ -1,9 +1,9 @@
 import json
 from datetime import datetime
-from sfserver.handlers.request_handler import submit_request
-from sfserver.ibserver.server import Server
+from api.ibgateway_manager.handlers.request_handler import submit_request
+from api.ibgateway_manager.ibserver.server import IBServer
 
-class TradesService():
+class IBTradesService():
 
     def __init__(self, ib_ipaddress):
         self.ib_ipaddress = ib_ipaddress
@@ -11,7 +11,7 @@ class TradesService():
 
     def get_current(self):
 
-        server = Server(self.ib_ipaddress)
+        server = IBServer(self.ib_ipaddress)
         server.check_status()
 
         #FIXME check how this datetime library works with time zones.
