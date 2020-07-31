@@ -14,7 +14,12 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'name']
         
 
-class PositionsSerializer(serializers.HyperlinkedModelSerializer):
+# class PositionsSerializer(serializers.HyperlinkedModelSerializer):
+#     class Meta:
+#         model = Positions
+#         fields = ['ticker', 'value']
+
+class PositionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Positions
-        fields = ['ticker', 'value']
+        fields = ['asset_id', 'ticker', 'num_of_shares', 'pos_type', 'price', 'position_value']

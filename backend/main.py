@@ -1,13 +1,13 @@
 import sfserver.calls.sf_calls as calls
 import json
 
-ipaddress = input("Enter IB ipaddress: ")
-server = calls.SFCalls("sam", "earnest", ipaddress)
+#ipaddress = input("Enter IB ipaddress: ")
+server = calls.SFCalls("sam", "earnest", "44.228.77.60")
 
 
 ######Current Positions######
-# pos_cur = server.get_positions_current()
-# print(json.dumps(pos_cur, indent=4))
+pos_cur = server.get_positions_current()
+print(json.dumps(pos_cur, indent=4))
 
 ######Today's Trades######
 # trades_today = server.get_trades_today()
