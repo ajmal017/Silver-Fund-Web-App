@@ -34,7 +34,9 @@ urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('admin/', admin.site.urls),
+    
     path("api/postitions/current", views.get_cur_positions),
     path("api/trades/current", views.get_cur_trades),
     path("api/trades/unsettled", views.get_unsettled_trades),
+    path("api/ibaccount/cashbalance", views.get_cashbalance),
 ]

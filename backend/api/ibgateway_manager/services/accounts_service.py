@@ -1,20 +1,20 @@
 import json
-from sfserver.ibserver.server import Server
-from sfserver.handlers.request_handler import submit_request
+from api.ibgateway_manager.ibserver.server import IBServer
+from api.ibgateway_manager.handlers.request_handler import submit_request
 
-class AccountsService:
+class IBAccountsService:
     
-    def __init__(self, account_id, ib_ipaddress):
-        self.account_id = account_id
+    def __init__(self, ib_ipaddress):
         self.ib_ipaddress = ib_ipaddress
     
     def get_cash_balance(self):
         
-        server = Server(self.ib_ipaddress)
+        server = IBServer(self.ib_ipaddress)
         server.check_status
+        account_id = server.get_account_id()
 
         ledger = 'portal/portfolio/{accountId}/ledger'
-        endpoint =  ledger.replace('{accountId}', self.account_id)
+        endpoint =  ledger.replace('{accountId}', account_id)
         resp = submit_request(self.ib_ipaddress, endpoint, 'GET', None)
 
         return resp['BASE']['cashbalance']

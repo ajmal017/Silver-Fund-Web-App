@@ -9,6 +9,7 @@ from rest_framework.response import Response
 
 from api.ibgateway_manager.services.positions_service import IBPositionsService
 from api.ibgateway_manager.services.trades_service import IBTradesService
+from api.ibgateway_manager.services.accounts_service import IBAccountsService
 
 # from snippets.models import Snippet
 # from snippets.serializers import SnippetSerializer
@@ -46,7 +47,7 @@ class GroupViewSet(viewsets.ModelViewSet):
 def get_cur_positions(request):
 
     service = IBPositionsService("localhost")
-    cur_positions = service.get_current("DU2206403")
+    cur_positions = service.get_current()
     return Response(cur_positions)
 
 
@@ -64,6 +65,14 @@ def get_unsettled_trades(request):
     service = IBTradesService("localhost")
     un_trades = service.get_unsettled()
     return Response(un_trades)
+
+@api_view(["GET"])
+def get_cashbalance(request):
+
+    service = IBAccountsService("localhost")
+    cashbalance = service.get_cash_balance()
+    return Response(cashbalance)
+
 
 
 

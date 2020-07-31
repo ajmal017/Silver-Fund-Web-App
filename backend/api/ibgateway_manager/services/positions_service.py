@@ -8,7 +8,7 @@ class IBPositionsService():
         self.ib_ipaddress = ib_ipaddress
         return None
 
-    def get_current(self, account_id):
+    def get_current(self):
         """Returns all positions for the given account. Uses the /portfolio/{accountId}/positions/{pageId} endpoint.
         Parameters
         ----------
@@ -22,6 +22,7 @@ class IBPositionsService():
 
         server = IBServer(self.ib_ipaddress)
         server.check_status()
+        account_id = server.get_account_id()
 
         #FIXME we'll need to make sure if we have more than 30 positions we call for each page
         positions = 'portal/portfolio/{accountId}/positions/0'

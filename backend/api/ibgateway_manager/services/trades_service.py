@@ -17,11 +17,13 @@ class IBTradesService():
         #FIXME check how this datetime library works with time zones.
         date_today = datetime.today().strftime('%Y%m%d')
         resp = submit_request(self.ib_ipaddress, 'portal/iserver/account/trades', 'GET', None)
-        trades =[]
-        #Parse for only today's trades
-        for trade in resp:
-            if str(date_today) in trade['trade_time']:
-                trades.append(trade)
+        # trades =[]
+        # #Parse for only today's trades
+        # for trade in resp:
+        #     if str(date_today) in trade['trade_time']:
+        #         trades.append(trade)
+    
+        trades = self.format_trade_data(resp)
 
         return trades
 
@@ -51,6 +53,25 @@ class IBTradesService():
                 orders.append(order)
         
         return orders
+
+    def format_trade_data(self, trades):
+        formated_trades = []
+        for trade in trades:
+            new_trade = {
+                "trade_id": trade["execution_id"], 
+                "asset_id": trade["contract_description_1"],
+                "trade_type": trade["sec_type"],
+                "num_of_shares": trade["size"],
+                "price": trade["price"],
+                "tot_price": trade["net_amount"],
+                "trade_status": "complete", 
+                "trade_time": trade["trade_time"]
+                }
+            formated_trades.append(new_trade)
+
+        return formated_trades
+
+
 
     def update(self):
         #calls trade handler to pull from API
