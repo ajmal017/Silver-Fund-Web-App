@@ -8,7 +8,7 @@ function Home() {
       {/* LEFT SIDE / BTM - HOME */}
       <div className="sf-learn-more">
         <img src={tradingImg} alt="" className="sf-img" />
-        <h1 className="cover-heading">Silver Fund Web App</h1>
+        <h1 className="sf-name">Silver Fund Web App</h1>
         <p className="sf-info">
           An institutional-quality web app created for use by Silver Fund, The
           Marriott Business School's student-run investment fund. This app aims
@@ -26,7 +26,7 @@ function Home() {
       </div>
       {/* RIGHT SIDE / TOP - SIGN-IN BOX */}
       <div className="card" id="signin-box">
-        <h3 className="card-title">Sign In</h3>
+        <h3 className="card-title">Welcome Back!</h3>
         <form>
           {/* Username */}
           <div className="input-group mb-3">
@@ -56,13 +56,12 @@ function Home() {
             Sign In
           </button>
           <p className="forgot-password text-right">
-            Forgot <a href="#">password?</a>
+            <a href="#">Forgot password?</a>
           </p>
-          <p>
-            Don't have an account?
-            <br />
-            <a href="#"> Sign up here.</a>
-          </p>
+          <h5>Need an account?</h5>
+          <a class="btn btn-dark" href="#" role="button" id="signup-btn">
+            Sign Up
+          </a>
         </form>
       </div>
     </div>
