@@ -1,11 +1,11 @@
 import React from "react";
 import { Route } from "react-router-dom";
 
-import HomeSignIn from "./components/HomeSignIn";
+import HomeSignin from "./components/HomeSignin";
 
 const BaseRouter = () => (
   <div>
-    <Route exact path="/" component={HomeSignIn} />
+    <Route exact path="/" component={HomeSignin} />
   </div>
 );
 
