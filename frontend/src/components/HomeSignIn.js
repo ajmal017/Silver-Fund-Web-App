@@ -2,7 +2,7 @@ import React from "react";
 
 import tradingImg from "../images/trading-trans-white.png";
 
-function Home() {
+function HomeSignIn() {
   return (
     <div className="homepage-container">
       {/* LEFT SIDE / BTM - HOME */}
@@ -68,4 +68,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomeSignIn;

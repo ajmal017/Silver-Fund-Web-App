@@ -98,6 +98,10 @@ footer {
   padding-top: 20px;
 }
 
+.sf-name {
+  color: #002e5d;
+}
+
 .sf-info {
   text-align: justify;
   padding: 20px;
@@ -128,7 +132,7 @@ a {
 }
 
 a:hover {
-  color: slategray;
+  color: darkslategray;
 }
 
 #signin-btn,
