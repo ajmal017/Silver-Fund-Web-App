@@ -1,7 +1,5 @@
 import React from "react";
 
-import "../styling/card.css";
-
 function Home() {
   return (
     <div className="card">

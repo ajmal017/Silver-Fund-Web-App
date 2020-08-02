@@ -1,5 +1,5 @@
 import React from "react";
-import "../styling/main.css";
+import "../style.css";
 
 class Layout extends React.Component {
   render() {

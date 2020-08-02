@@ -1,23 +1,4 @@
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
-
-/* Custom default button */
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: 0.05rem solid #fff;
-}
-
-/*
- * Base structure
- */
+/* BASE STRUCTURE */
 html,
 body {
   height: 100%;
@@ -25,10 +6,7 @@ body {
   color: #fff;
 }
 
-/*
- * Header
- */
-
+/* HEADER */
 masthead {
   margin-bottom: 2000px;
 }
@@ -68,9 +46,7 @@ masthead {
   }
 }
 
-/*
- * Cover
- */
+/* COVER */
 .cover {
   padding: 0 1.5rem;
 }
@@ -82,30 +58,84 @@ masthead {
   max-width: 60em;
 }
 
+/* FOOTER */
+footer {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
 /*
- * Main
- */
-img {
+*
+*     CONTENT
+*
+*/
+
+/* CONTENT BACKGROUND */
+.content {
+  background-color: lightgray;
+}
+
+.btn {
+  background-color: #002e5d;
+  font-size: 20px;
+}
+
+/* HOMEPAGE CONTAINER */
+
+.homepage-container {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  /* background-color: lime; */
+  align-items: center;
+  justify-content: center;
+}
+
+/* LEARN MORE SECTION */
+
+.sf-learn-more {
+  margin: 5vw;
+  text-align: center;
+  max-width: 650px;
+}
+
+.sf-img {
   width: 30vh;
   padding-top: 20px;
 }
 
-main {
-  margin: auto;
-  text-align: center;
-  max-width: 700px;
-  min-height: calc(80vh);
-}
-
-.lead {
+.sf-info {
   text-align: justify;
   padding: 20px;
+  font-size: 20px;
+  color: black;
 }
 
-/*
- * Footer
- */
-footer {
+#learn-more-btn {
+  width: 150px;
+}
+
+/* SIGN-IN BOX */
+
+#signin-box {
+  color: black;
+  width: 300px;
+  padding: 20px;
+  margin: 5vw;
+}
+
+.card-title {
+  color: black;
   text-align: center;
-  color: rgba(255, 255, 255, 0.5);
+}
+
+a {
+  color: lightslategray;
+}
+
+a:hover {
+  color: slategray;
+}
+
+#signin-btn {
+  width: 260px;
 }
