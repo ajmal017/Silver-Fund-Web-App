@@ -1,5 +1,6 @@
 import React from "react";
 
+// import tradingImg from "../images/black.png";
 import tradingImg from "../images/trading-trans-white.png";
 
 function HomeSignIn() {
