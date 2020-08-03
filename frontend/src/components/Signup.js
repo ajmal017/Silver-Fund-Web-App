@@ -1,44 +1,73 @@
 import React from "react";
 
+import passwordIcon from "../images/lock.png";
+import usernameIcon from "../images/user.png";
+
 function Signup() {
   return (
     <div className="card" id="signup-box">
-      <h3 className="card-title">Welcome Back!</h3>
+      <h3 className="card-title">Sign Up Below!</h3>
       <form>
+        {/* First Name */}
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Enter first name"
+          id="firstname-field"
+        />
+        {/* Last Name */}
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Enter last name"
+          id="lastname-field"
+        />
+        {/* Email */}
+        <input
+          type="email"
+          className="form-control"
+          placeholder="Enter email"
+          id="email-field"
+        />
+        <br />
         {/* Username */}
         <div className="input-group mb-3">
           <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              @
-            </span>
+            <img
+              className="input-group-text"
+              src={usernameIcon}
+              alt=""
+              style={{ width: "50px" }}
+            />
           </div>
           <input
             type="text"
             className="form-control"
-            placeholder="Username"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-          ></input>
+            placeholder="Enter username"
+            id="username-field"
+          />
         </div>
-        {/* Password */}
-        <div className="form-group">
+        {/* PASSWORD */}
+        <div className="input-group mb-3">
+          <div className="input-group-prepend">
+            <img
+              className="input-group-text"
+              src={passwordIcon}
+              alt=""
+              style={{ width: "50px" }}
+            />
+          </div>
           <input
             type="password"
             className="form-control"
             placeholder="Enter password"
+            id="password-field"
           />
         </div>
-        {/* Sign In */}
-        <button type="submit" className="btn btn-dark" id="signin-btn">
-          Sign In
-        </button>
-        <p className="forgot-password text-right">
-          <a href="#">Forgot password?</a>
-        </p>
-        <h5>Need an account?</h5>
-        <a class="btn btn-dark" href="#" role="button" id="signup-btn">
+        {/* Sign Up */}
+        <button type="submit" className="btn btn-dark" id="signup-btn">
           Sign Up
-        </a>
+        </button>
       </form>
     </div>
   );

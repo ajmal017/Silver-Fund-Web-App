@@ -139,7 +139,7 @@ a:hover {
 }
 
 #signin-btn,
-#signup-btn {
+#signup-link-btn {
   width: 260px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -151,11 +151,26 @@ a:hover {
   color: black;
 }
 
-#signup-btn {
+#signup-link-btn {
   background-color: black;
 }
 
-#signup-btn:hover {
+#signup-link-btn:hover {
   background-color: #cfcfcf;
   color: black;
+}
+
+/* SIGNUP COMPONENT */
+
+#signup-box {
+  color: black;
+  width: 300px;
+  padding: 20px;
+  margin: auto;
+  top: 40px;
+}
+
+#firstname-field,
+#lastname-field {
+  margin-bottom: 10px;
 }
