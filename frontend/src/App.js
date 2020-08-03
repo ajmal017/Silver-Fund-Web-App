@@ -1,17 +1,19 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import Layout from "./components/Layout";
-import BaseRouter from "./routes";
+import Header from "./components/Header";
+import ContentRouter from "./routes";
+import Footer from "./components/Footer";
+import "./style.css";
 
 class App extends React.Component {
   render() {
     return (
       <>
         <BrowserRouter>
-          <Layout {...this.props}>
-            <BaseRouter />
-          </Layout>
+          <Header />
+          <ContentRouter />
+          <Footer />
         </BrowserRouter>
       </>
     );
