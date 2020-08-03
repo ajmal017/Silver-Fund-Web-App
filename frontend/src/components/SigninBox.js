@@ -36,7 +36,7 @@ function SigninBox() {
           <a href="#">Forgot password?</a>
         </p>
         <h5>Need an account?</h5>
-        <a class="btn btn-dark" href="#" role="button" id="signup-btn">
+        <a className="btn btn-secondary" href="#" role="button" id="signup-btn">
           Sign Up
         </a>
       </form>
