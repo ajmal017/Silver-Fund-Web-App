@@ -6,7 +6,8 @@ import usernameIcon from "../images/user.png";
 function Signup() {
   return (
     <div className="card" id="signup-box">
-      <h3 className="card-title">Sign Up Below!</h3>
+      <h4 className="card-title">Create Account</h4>
+      <p>Fill out the fields below</p>
       <form>
         {/* First Name */}
         <input
