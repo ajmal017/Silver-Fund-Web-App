@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import Header from "./components/Header";
-import ContentRouter from "./routes";
+import Routes from "./Routes";
 import Footer from "./components/Footer";
 import "./style.css";
 
@@ -12,7 +12,7 @@ class App extends React.Component {
       <>
         <BrowserRouter>
           <Header />
-          <ContentRouter />
+          <Routes />
           <Footer />
         </BrowserRouter>
       </>
