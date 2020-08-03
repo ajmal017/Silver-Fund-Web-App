@@ -32,7 +32,7 @@ class IBPositionsService():
         for position in resp:
             new_position = {
                 "asset_id": position["conid"], 
-                "ticker": position["ticker"],
+                "ticker": position["contractDesc"],
                 "num_of_shares": position["position"],
                 "pos_type": position["assetClass"],
                 "price": position["avgPrice"],

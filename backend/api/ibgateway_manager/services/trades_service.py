@@ -57,18 +57,19 @@ class IBTradesService():
 
     def format_trade_data(self, trades):
         formated_trades = []
-        for trade in trades:
-            new_trade = {
-                "trade_id": trade["execution_id"], 
-                "asset_id": trade["contract_description_1"],
-                "trade_type": trade["sec_type"],
-                "num_of_shares": trade["size"],
-                "price": trade["price"],
-                "tot_price": trade["net_amount"],
-                "trade_status": "complete", 
-                "trade_time": trade["trade_time"]
-                }
-            formated_trades.append(new_trade)
+        if trades:
+            for trade in trades:
+                new_trade = {
+                    "trade_id": trade["execution_id"], 
+                    "asset_id": trade["contract_description_1"],
+                    "trade_type": trade["sec_type"],
+                    "num_of_shares": trade["size"],
+                    "price": trade["price"],
+                    "tot_price": trade["net_amount"],
+                    "trade_status": "complete", 
+                    "trade_time": trade["trade_time"]
+                    }
+                formated_trades.append(new_trade)
 
         return formated_trades
 
