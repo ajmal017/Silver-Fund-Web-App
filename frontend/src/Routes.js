@@ -1,13 +1,13 @@
 import React from "react";
 import { Route } from "react-router-dom";
 
-import HomeSignin from "./components/HomeSignin";
+import HomeSignin from "./pages/HomeSignin";
 import Signup from "./components/Signup";
 
 const BaseRouter = () => (
   <div>
     <Route exact path="/" component={HomeSignin} />
-    <Route exact path="/" component={Signup} />
+    <Route exact path="/signup/" component={Signup} />
   </div>
 );
 

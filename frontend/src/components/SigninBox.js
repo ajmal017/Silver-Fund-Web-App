@@ -1,8 +1,8 @@
 import React from "react";
 
-function Signup() {
+function SigninBox() {
   return (
-    <div className="card" id="signup-box">
+    <div className="card" id="signin-box">
       <h3 className="card-title">Welcome Back!</h3>
       <form>
         {/* Username */}
@@ -44,4 +44,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default SigninBox;
