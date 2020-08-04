@@ -34,4 +34,5 @@ urlpatterns = [
     path("api/trades/current/", views.get_cur_trades),
     path("api/trades/unsettled/", views.get_unsettled_trades),
     path("api/ibaccount/cashbalance/", views.get_cashbalance),
+    path("api/update", views.update),
 ]
