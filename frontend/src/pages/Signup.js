@@ -70,6 +70,9 @@ function Signup() {
           Sign Up
         </button>
       </form>
+      <a href="/" id="signup-back-to-signin">
+        Back to Sign-in Page
+      </a>
     </div>
   );
 }

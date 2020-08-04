@@ -179,3 +179,7 @@ a:hover {
 #firstname-field {
   margin-top: -10px;
 }
+
+#signup-back-to-signin {
+  margin-top: 10px;
+}
