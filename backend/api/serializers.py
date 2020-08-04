@@ -18,3 +18,8 @@ class PositionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Position
         fields = ['asset_id', 'ticker', 'num_of_shares', 'pos_type', 'price', 'position_value']
+
+class TradeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Position
+        fields = ['trade_id', 'asset_id', 'trade_type', 'num_of_shares', 'price', 'tot_price', 'trade_time']

@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
+from django.http import HttpResponse
 from rest_framework import viewsets
 from rest_framework import permissions
-from api.serializers import UserSerializer, GroupSerializer, PositionSerializer
-from api.models import Position
+from api.serializers import UserSerializer, GroupSerializer, PositionSerializer, TradeSerializer
+from api.models import Position, Trade
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -75,16 +76,30 @@ def get_cashbalance(request):
 
 
 @api_view(["POST"])
-def update(request):
-
+def update_positions(request):
     service = IBPositionsService("localhost")
     cur_positions = service.get_current()
-    serializer = PositionSerializer(cur_positions)
 
-    if serializer.is_valid():
-        serializer.save()
-        
-    return Response(cur_positions)
+    for pos in cur_positions:
+        position = Position()
+        serializer = PositionSerializer(position, data=pos)
+        if serializer.is_valid():
+            serializer.save()
+     
+    return Response(serializer.data)
+
+@api_view(["POST"])
+def update_trades(request):
+    service = IBTradesService("localhost")
+    cur_trades = service.get_current()
+    
+    for order in cur_trades:
+        trade = Trade()
+        serializer = TradeSerializer(trade, data=order)
+        if serializer.is_valid():
+            serializer.save()
+    
+    return Response(serializer.data)
 
 
 
