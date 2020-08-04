@@ -74,6 +74,21 @@ def get_cashbalance(request):
     return Response(cashbalance)
 
 
+@api_view(["POST"])
+def update(request):
+
+    service = IBPositionsService("localhost")
+    cur_positions = service.get_current()
+    serializer = PositionSerializer(cur_positions)
+
+    if serializer.is_valid():
+        serializer.save()
+        
+    return Response(cur_positions)
+
+
+
+
 
 
 
