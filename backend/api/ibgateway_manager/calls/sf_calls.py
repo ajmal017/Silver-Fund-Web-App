@@ -1,14 +1,14 @@
-from sfserver.services.positions_service import PositionsService 
-from sfserver.services.assets_service import AssetsService
-from sfserver.services.trades_service import TradesService
-from sfserver.services.accounts_service import AccountsService
+from api.ibgateway_manager.services.positions_service import IBPositionsService 
+from api.ibgateway_manager.services.assets_service import IBAssetsService
+from api.ibgateway_manager.services.trades_service import IBTradesService
+from api.ibgateway_manager.services.accounts_service import IBAccountsService
 
-from sfserver.ibserver.server import Server
+from api.ibgateway_manager.ibserver.server import IBServer
 
-from sfserver.dataobjects.asset import Asset
-from sfserver.dataobjects.order import Order
-from sfserver.dataobjects.position import Position
-from sfserver.dataobjects.trade import Trade
+# from api.ibgateway_manager.dataobjects.asset import Asset
+# from api.ibgateway_manager.dataobjects.order import Order
+# from api.ibgateway_manager.dataobjects.position import Position
+# from api.ibgateway_manager.dataobjects.trade import Trade
 
 
 class SFCalls:
@@ -30,7 +30,7 @@ class SFCalls:
         self.account_id = self._get_account_id()
 
     def _get_account_id(self):
-        server = Server(self.ib_ipaddress)
+        server = IBServer(self.ib_ipaddress)
         server.check_status()
         return server.get_account_id()
 
@@ -41,8 +41,8 @@ class SFCalls:
         position []
             An list containing instances of the class position.
         """
-        servicer = PositionsService(self.ib_ipaddress)
-        positions = servicer.get_current(self.account_id)
+        servicer = IBPositionsService(self.ib_ipaddress)
+        positions = servicer.get_current()
         return positions
 
     def get_positions_on(self, year, month, day):
@@ -76,7 +76,7 @@ class SFCalls:
             An list containing instances of the class trade.
         """
 
-        servicer = TradesService(self.ib_ipaddress)
+        servicer = IBTradesService(self.ib_ipaddress)
         trades = servicer.get_current()
         return trades
 
@@ -110,7 +110,7 @@ class SFCalls:
 
         """
 
-        service = TradesService(self.ib_ipaddress)
+        service = IBTradesService(self.ib_ipaddress)
         resp = service.get_unsettled()
         return resp
 
@@ -123,7 +123,7 @@ class SFCalls:
             The current cash balance in USD.
         """
 
-        service = AccountsService(self.account_id, self.ib_ipaddress)
+        service = IBAccountsService(self.account_id)
         resp = service.get_cash_balance()
         return resp
 

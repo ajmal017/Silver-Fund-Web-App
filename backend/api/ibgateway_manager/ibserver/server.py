@@ -50,6 +50,7 @@ class IBServer:
     # Checks server state given it is access
     def check_status(self):
         resp = submit_request(self.ib_ipaddress, 'portal/tickle', 'POST', None)
+        print(resp)
         if resp["iserver"]["authStatus"]["connected"]:
             print("connected")
             self.active = True
