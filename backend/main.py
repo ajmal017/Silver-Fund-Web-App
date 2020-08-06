@@ -1,7 +1,8 @@
 import api.ibgateway_manager.calls.sf_calls as calls
 from api.ibgateway_manager.services.assets_service import IBAssetsService
 import json
-
+import logging
+logging.basicConfig(filename='marketdata.log')
 #ipaddress = input("Enter IB ipaddress: ")
 #server = calls.SFCalls("sam", "earnest", "localhost")
 
@@ -22,27 +23,31 @@ import json
 # cashbalance = server.get_cash_balance()
 # print(json.dumps(cashbalance, indent=4))
 
-######Market Data######
-# servicer = IBAssetsService("localhost")
-# mrktdata = servicer.get_market_data('107113386')
-# print(mrktdata)
+#####Market Data######
+servicer = IBAssetsService("localhost")
+mrktdata = servicer.get_market_data('107113386')
+#print(json.dumps(mrktdata, indent=4))
 
 import requests
 
-req = requests.get('https://localhost:5000/v1/portal/iserver/auth/status/', verify = False)
-req = requests.get('https://localhost:5000/v1/portal/sso/validate/', verify = False)
-req = requests.get('https://localhost:5000/v1/portal/iserver/accounts/', verify = False)
+req = requests.get('https://localhost:5000/v1/api/iserver/auth/status/', verify = False)
+req = requests.get('https://localhost:5000/v1/api/sso/validate/', verify = False)
+req = requests.get('https://localhost:5000/v1/api/iserver/accounts/', verify = False)
 
 params = {
-        'conids':'265598, 76792991',
+        'conids':'265598',
         'since':0,
-        'fields':'86,88,7280,7286'
+        'fields':'7295, 7296, 70, 71, 7286, 87, 7289'
     }
 
 header1 = {'accept': 'application/json', 'Content-Type': 'application/json'}
 
-req = requests.get('https://localhost:5000/v1/portal/iserver/marketdata/snapshot/', headers = header1, params = params, verify = False)
-print(json.dumps(req.json(), indent=4))
+i = 1
+while i < 6:
+    req = requests.get('https://localhost:5000/v1/api/iserver/accounts/', verify = False)
+    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = params, verify = False)
+    print(json.dumps(req.json(), indent=4))
+    logging.info(req.json())
 
 
 
