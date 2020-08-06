@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 
 import HomeSignin from "./pages/HomeSignin";
 import Signup from "./pages/Signup";
-import Test from "./pages/Test";
+import Positions from "./pages/Positions";
 import CPTable from "./components/CPTable";
 
 function Routes() {
@@ -11,8 +11,8 @@ function Routes() {
     <div className="content">
       <Route exact path="/" component={HomeSignin} />
       <Route exact path="/signup/" component={Signup} />
-      <Route exact path="/test/" component={Test} />
-      <Route exact path="/positions/" component={CPTable} />
+      <Route exact path="/dbpositions/" component={Positions} />
+      <Route exact path="/ibpositions/" component={CPTable} />
     </div>
   );
 }

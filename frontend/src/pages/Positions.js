@@ -1,14 +1,19 @@
 import React from "react";
 import axios from "axios";
 
-class CPTable extends React.Component {
+class Positions extends React.Component {
   state = {
     data: [],
   };
 
-  fetchData = () => {
+  fetchPositionsData = () => {
     axios
-      .get("http://localhost:8000/api/positions/current/")
+      .get("http://localhost:8000/positions/", {
+        auth: {
+          username: "su",
+          password: "su",
+        },
+      })
       .then((response) => {
         console.log(response);
         this.setState({
@@ -22,13 +27,13 @@ class CPTable extends React.Component {
   };
 
   componentDidMount() {
-    this.fetchData();
+    this.fetchPositionsData();
   }
 
   render() {
     return (
       <div>
-        <h3>Current Positions</h3>
+        <h3>Recent Positions</h3>
         <br />
         {this.state.data.length > 0 ? (
           <table>
@@ -65,4 +70,4 @@ class CPTable extends React.Component {
   }
 }
 
-export default CPTable;
+export default Positions;
