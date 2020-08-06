@@ -30,20 +30,20 @@ class CPTable extends React.Component {
       <div>
         <h3>Current Positions</h3>
         <br />
-        <table>
-          <thead>
-            <tr>
-              <th>Asset ID</th>
-              <th>Number of Shares</th>
-              <th>Position Type</th>
-              <th>Position Value</th>
-              <th>Item Price</th>
-              <th>Item Ticker</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.length > 0 ? (
-              this.state.data.map((item, index) => {
+        {this.state.data.length > 0 ? (
+          <table>
+            <thead>
+              <tr>
+                <th>Asset ID</th>
+                <th>Number of Shares</th>
+                <th>Position Type</th>
+                <th>Position Value</th>
+                <th>Item Price</th>
+                <th>Item Ticker</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data.map((item, index) => {
                 return (
                   <tr key={index}>
                     <td key={item.asset_id}>{item.asset_id}</td>
@@ -54,14 +54,12 @@ class CPTable extends React.Component {
                     <td key={item.ticker}>{item.ticker}</td>
                   </tr>
                 );
-              })
-            ) : (
-              <tr>
-                <td colSpan="5">Loading...</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+              })}
+            </tbody>
+          </table>
+        ) : (
+          <h4 style={{ color: "red" }}>Loading...</h4>
+        )}
       </div>
     );
   }
