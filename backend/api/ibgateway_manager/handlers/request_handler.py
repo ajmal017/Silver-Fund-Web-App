@@ -4,11 +4,13 @@ def submit_request(ipaddress, endpoint, req_type, params = None):
 
     body = 'https://' + ipaddress + ':5000/v1/'
     response = None
+
+    headers = {'Content-Type':'application/json'}
     
     if req_type =='GET' and params is not None:
-        response = requests.get(body + endpoint, json=params, verify=False)
+        response = requests.get(body + endpoint, headers= headers, params=params, verify=False)
     elif req_type =='GET' and params is None:
-        response = requests.get(body + endpoint, verify=False)
+        response = requests.get(body + endpoint, headers= headers, verify=False)
     elif req_type =='POST' and params is not None:
         response = requests.post(body + endpoint, json=params, verify=False)
     elif req_type =='POST' and params is None:
@@ -21,6 +23,7 @@ def submit_request(ipaddress, endpoint, req_type, params = None):
         return(response.json())
 
     else:
+        print(response.content)
         print("error code: " + str(response.status_code))
 
     

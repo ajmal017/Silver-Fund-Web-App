@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from api.models import Position
+from api.models import Position, Trade
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -21,5 +21,5 @@ class PositionSerializer(serializers.ModelSerializer):
 
 class TradeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Position
+        model = Trade
         fields = ['trade_id', 'asset_id', 'trade_type', 'num_of_shares', 'price', 'tot_price', 'trade_time']
