@@ -43,6 +43,14 @@ class PositionViewSet(viewsets.ModelViewSet):
     serializer_class = PositionSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+class TradeViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Trade.objects.all()
+    serializer_class = TradeSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
 
 @api_view(["GET"])
 def get_cur_positions(request):

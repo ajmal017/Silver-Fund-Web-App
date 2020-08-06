@@ -24,8 +24,8 @@ logging.basicConfig(filename='marketdata.log')
 # print(json.dumps(cashbalance, indent=4))
 
 #####Market Data######
-servicer = IBAssetsService("localhost")
-mrktdata = servicer.get_market_data('107113386')
+#servicer = IBAssetsService("localhost")
+#mrktdata = servicer.get_market_data('107113386')
 #print(json.dumps(mrktdata, indent=4))
 
 import requests
@@ -34,20 +34,59 @@ req = requests.get('https://localhost:5000/v1/api/iserver/auth/status/', verify 
 req = requests.get('https://localhost:5000/v1/api/sso/validate/', verify = False)
 req = requests.get('https://localhost:5000/v1/api/iserver/accounts/', verify = False)
 
-params = {
+
+param0 = {
+        'conids':'0',
+        'since':3600,
+        'fields':''
+    }
+
+param1 = {
         'conids':'265598',
-        'since':0,
-        'fields':'7295, 7296, 70, 71, 7286, 87, 7289'
+        'since':3600,
+        'fields':'84,85'
+    }
+
+param2 = {
+        'conids':'107113386',
+        'since':3600,
+        'fields':'70, 71'
     }
 
 header1 = {'accept': 'application/json', 'Content-Type': 'application/json'}
 
+print('start')
+
 i = 1
 while i < 6:
-    req = requests.get('https://localhost:5000/v1/api/iserver/accounts/', verify = False)
-    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = params, verify = False)
+    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param1, verify = False)
     print(json.dumps(req.json(), indent=4))
-    logging.info(req.json())
+    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param1, verify = False)
+    print(json.dumps(req.json(), indent=4))
+    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param1, verify = False)
+    print(json.dumps(req.json(), indent=4))
+
+    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param0, verify = False)
+    print(json.dumps(req.json(), indent=4))
+
+    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param2, verify = False)
+    print(json.dumps(req.json(), indent=4))
+    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param2, verify = False)
+    print(json.dumps(req.json(), indent=4))
+    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param2, verify = False)
+    print(json.dumps(req.json(), indent=4))
+
+    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param0, verify = False)
+    print(json.dumps(req.json(), indent=4))
+
+
+
+
+# 
+#     req = requests.get('https://localhost:5000/v1/api/iserver/accounts/', verify = False)
+#     req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = params, verify = False)
+#     print(json.dumps(req.json(), indent=4))
+#     logging.info(req.json())
 
 
 
