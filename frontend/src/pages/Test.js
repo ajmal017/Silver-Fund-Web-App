@@ -1,42 +1,28 @@
 import React from "react";
-import axios from "axios";
 
-class Test extends React.Component {
-  state = {
-    data: {},
-  };
-
-  fetchTestData = () => {
-    axios
-      .get("https://api.exchangeratesapi.io/latest")
-      .then((response) => {
-        console.log(response);
-        this.setState({
-          data: response.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-        alert("There was an error in retrieving the data.", error);
-      });
-  };
-
-  componentDidMount() {
-    this.fetchTestData();
-  }
-
-  render() {
-    return (
-      <div>
-        TESTING
-        <br />
-        {this.state.data.base}
-        <br />
-        {this.state.data.date}
-        <br />
-      </div>
-    );
-  }
+function Test() {
+  return (
+    <table>
+      <tr>
+        <th>Asset ID</th>
+        <th>Number of Shares</th>
+        <th>Position Type</th>
+        <th>Position Value</th>
+        <th>Item Price</th>
+        <th>Item Ticker</th>
+      </tr>
+      <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+      </tr>
+    </table>
+  );
 }
 
 export default Test;

@@ -184,3 +184,10 @@ a:hover {
 #signup-back-to-signin {
   margin-top: 10px;
 }
+
+table,
+th,
+td {
+  border: 1px solid black;
+  padding: 5px;
+}

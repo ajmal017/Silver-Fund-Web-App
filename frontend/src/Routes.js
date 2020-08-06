@@ -5,6 +5,7 @@ import HomeSignin from "./pages/HomeSignin";
 import Signup from "./pages/Signup";
 import Test from "./pages/Test";
 import IBTest from "./pages/IBTest";
+import CPTable from "./components/CPTable";
 
 function Routes() {
   return (
@@ -13,6 +14,7 @@ function Routes() {
       <Route exact path="/signup/" component={Signup} />
       <Route exact path="/test/" component={Test} />
       <Route exact path="/ibtest/" component={IBTest} />
+      <Route exact path="/positions/" component={CPTable} />
     </div>
   );
 }

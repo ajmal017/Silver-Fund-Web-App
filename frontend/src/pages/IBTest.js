@@ -31,18 +31,25 @@ class IBTest extends React.Component {
         <h3>My Positions</h3>
         {this.state.data.asset_id}
         <br />
-        {this.state.data.map((item) => (
-          <p>
-            asset id: {item.asset_id} <br />
-            number of shares: {item.num_of_shares} <br />
-            position type: {item.pos_type} <br />
-            position value: {item.position_value} <br />
-            item price: {item.price} <br />
-            item ticker: {item.ticker} <br />
-            <br />
-          </p>
-        ))}
-        <br />
+        <ul>
+          {this.state.data.map((item, index) => {
+            return (
+              <div key={index}>
+                <li key={item.asset_id}>asset id: {item.asset_id}</li>
+                <li key={item.num_of_shares}>
+                  number of shares: {item.num_of_shares}
+                </li>
+                <li key={item.pos_type}>position type: {item.pos_type}</li>
+                <li key={item.position_value}>
+                  position value: {item.position_value}
+                </li>
+                <li key={item.price}>item price: {item.price}</li>
+                <li key={item.ticker}>item ticker: {item.ticker}</li>
+                <br />
+              </div>
+            );
+          })}
+        </ul>
       </div>
     );
   }
