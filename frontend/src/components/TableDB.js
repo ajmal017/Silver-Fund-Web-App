@@ -2,14 +2,15 @@ import React from "react";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 
-class CPTableDB extends React.Component {
+class TableDB extends React.Component {
   state = {
     data: [],
   };
 
-  fetchCPTableDBData = () => {
+  fetchTableDBData = (url) => {
+    console.log(this.props.url);
     axios
-      .get("http://localhost:8000/positions/", {
+      .get(this.props.url, {
         auth: {
           username: "su",
           password: "su",
@@ -28,7 +29,7 @@ class CPTableDB extends React.Component {
   };
 
   componentDidMount() {
-    this.fetchCPTableDBData();
+    this.fetchTableDBData();
   }
 
   render() {
@@ -69,4 +70,4 @@ class CPTableDB extends React.Component {
   }
 }
 
-export default CPTableDB;
+export default TableDB;

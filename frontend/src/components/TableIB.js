@@ -2,12 +2,12 @@ import React from "react";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 
-class CPTableIB extends React.Component {
+class TableIB extends React.Component {
   state = {
     data: [],
   };
 
-  fetchData = () => {
+  fetchTableIBData = () => {
     axios
       .get("http://localhost:8000/api/positions/current/")
       .then((response) => {
@@ -23,7 +23,7 @@ class CPTableIB extends React.Component {
   };
 
   componentDidMount() {
-    this.fetchData();
+    this.fetchTableIBData();
   }
 
   render() {
@@ -64,4 +64,4 @@ class CPTableIB extends React.Component {
   }
 }
 
-export default CPTableIB;
+export default TableIB;

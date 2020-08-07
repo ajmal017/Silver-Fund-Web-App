@@ -1,8 +1,10 @@
 import React from "react";
-import CPTableDB from "../components/CPTableDB";
+import TableDB from "../components/TableDB";
 import testGraph from "../images/test-graph.png";
 
 function PositionHistory() {
+  const url = "http://localhost:8000/all_positions/";
+
   return (
     <div className="pane-split-container">
       <div className="left-col">
@@ -66,7 +68,7 @@ function PositionHistory() {
             </div>
           </div>
         </div>
-        <CPTableDB />
+        <TableDB url={url} />
       </div>
       <div className="right-col">
         <img src={testGraph} alt="/" className="positions-graph" />

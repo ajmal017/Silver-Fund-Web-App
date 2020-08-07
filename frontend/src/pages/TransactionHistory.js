@@ -1,7 +1,9 @@
 import React from "react";
-import CPTableDB from "../components/CPTableDB";
+import TableDB from "../components/TableDB";
 
 function TransactionHistory() {
+  const url = "http://localhost:8000/all_positions/"; // FIXME
+
   return (
     <div>
       <div className="pane-top">
@@ -25,7 +27,7 @@ function TransactionHistory() {
           </div>
         </div>
       </div>
-      <CPTableDB />
+      <TableDB url={url} />
     </div>
   );
 }
