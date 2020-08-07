@@ -29,55 +29,70 @@ logging.basicConfig(filename='marketdata.log')
 #print(json.dumps(mrktdata, indent=4))
 
 import requests
+import websockets
+import asyncio
 
 req = requests.get('https://localhost:5000/v1/api/iserver/auth/status/', verify = False)
 req = requests.get('https://localhost:5000/v1/api/sso/validate/', verify = False)
 req = requests.get('https://localhost:5000/v1/api/iserver/accounts/', verify = False)
 
 
-param0 = {
-        'conids':'0',
-        'since':3600,
-        'fields':''
-    }
+async def hello(websocket, path):
+    data = await websocket.recv()
+    print(f"<{data}")
 
-param1 = {
-        'conids':'265598',
-        'since':3600,
-        'fields':'84,85'
-    }
+    req = 'smd+265598+{"fields":["7295","7296", "70", "71", "7286", "87", "7289"]}'
+    await websocket.send(req)
+    print(f"<{req}")
 
-param2 = {
-        'conids':'107113386',
-        'since':3600,
-        'fields':'70, 71'
-    }
+start_server = websockets.serve(hello, "localhost", '5000')
 
-header1 = {'accept': 'application/json', 'Content-Type': 'application/json'}
+asyncio.get_event_loop().run_until_complete(start_server)
+asyncio.get_event_loop().run_forever()
 
-print('start')
+# param0 = {
+#         'conids':'0',
+#         'since':3600,
+#         'fields':''
+#     }
 
-i = 1
-while i < 6:
-    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param1, verify = False)
-    print(json.dumps(req.json(), indent=4))
-    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param1, verify = False)
-    print(json.dumps(req.json(), indent=4))
-    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param1, verify = False)
-    print(json.dumps(req.json(), indent=4))
+# param1 = {
+#         'conids':'265598',
+#         'since':3600,
+#         'fields':'84,85'
+#     }
 
-    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param0, verify = False)
-    print(json.dumps(req.json(), indent=4))
+# param2 = {
+#         'conids':'107113386',
+#         'since':3600,
+#         'fields':'70, 71'
+#     }
 
-    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param2, verify = False)
-    print(json.dumps(req.json(), indent=4))
-    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param2, verify = False)
-    print(json.dumps(req.json(), indent=4))
-    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param2, verify = False)
-    print(json.dumps(req.json(), indent=4))
+# header1 = {'accept': 'application/json', 'Content-Type': 'application/json'}
 
-    req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param0, verify = False)
-    print(json.dumps(req.json(), indent=4))
+# print('start')
+
+# i = 1
+# while i < 6:
+#     req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param1, verify = False)
+#     print(json.dumps(req.json(), indent=4))
+#     req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param1, verify = False)
+#     print(json.dumps(req.json(), indent=4))
+#     req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param1, verify = False)
+#     print(json.dumps(req.json(), indent=4))
+
+#     req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param0, verify = False)
+#     print(json.dumps(req.json(), indent=4))
+
+#     req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param2, verify = False)
+#     print(json.dumps(req.json(), indent=4))
+#     req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param2, verify = False)
+#     print(json.dumps(req.json(), indent=4))
+#     req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param2, verify = False)
+#     print(json.dumps(req.json(), indent=4))
+
+#     req = requests.get('https://localhost:5000/v1/api/iserver/marketdata/snapshot/', headers = header1, params = param0, verify = False)
+#     print(json.dumps(req.json(), indent=4))
 
 
 
