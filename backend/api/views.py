@@ -5,9 +5,10 @@ from django.http import HttpResponse
 from rest_framework import viewsets
 from rest_framework import permissions
 from api.serializers import *
-from api.models import Position, Trade
+from api.models import Position, Trade, Asset
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+import requests
 
 from api.ibgateway_manager.services.positions_service import IBPositionsService
 from api.ibgateway_manager.services.trades_service import IBTradesService
@@ -58,6 +59,18 @@ class TradeViewSet(viewsets.ModelViewSet):
     """
     queryset = Trade.objects.all()
     serializer_class = TradeSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class AssetViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    query = self.request.GET.get('conid')
+    if(query):
+        print(query)
+
+    queryset = Asset.objects.all()
+    serializer_class = AssetSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 
