@@ -190,14 +190,13 @@ a:hover {
 table,
 th,
 td {
-  border: 1px solid black;
+  border: 4px solid #cfcfcf;
   padding: 5px;
 }
 
 th {
   background-color: #002e5d;
   color: #fff;
-  border-color: #fff;
 }
 
 td {
