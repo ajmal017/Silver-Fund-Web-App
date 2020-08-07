@@ -23,7 +23,7 @@ router = routers.DefaultRouter()
 router.register(r"users", views.UserViewSet)
 router.register(r"groups", views.GroupViewSet)
 router.register(r"all_positions", views.AllPositions, basename='AllPostions')
-router.register(r"current_current", views.CurrentPositions, basename='CurrentPostions')
+router.register(r"current_positions", views.CurrentPositions, basename='CurrentPostions')
 router.register(r"trades", views.TradeViewSet)
 
 
