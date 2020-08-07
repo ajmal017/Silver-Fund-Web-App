@@ -65,9 +65,7 @@ class AssetViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
     """
-    query = self.request.GET.get('conid')
-    if(query):
-        print(query)
+    
 
     queryset = Asset.objects.all()
     serializer_class = AssetSerializer
