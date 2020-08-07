@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Spinner from "react-bootstrap/Spinner";
 
 class CurrentPositions extends React.Component {
   state = {
@@ -63,7 +64,7 @@ class CurrentPositions extends React.Component {
             </tbody>
           </table>
         ) : (
-          <h4 style={{ color: "red" }}>Loading...</h4>
+          <Spinner animation="border" variant="dark" />
         )}
       </div>
     );

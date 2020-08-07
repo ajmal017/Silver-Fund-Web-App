@@ -10,16 +10,10 @@ function Header() {
             Home
           </a>
           <a className="nav-link" href="/signup/">
-            Features
+            Sign Up
           </a>
-          <a className="nav-link" href="#">
-            Contact
-          </a>
-          <a className="nav-link" href="#">
-            Test1
-          </a>
-          <a className="nav-link" href="#">
-            Test2
+          <a className="nav-link" href="/documentation/">
+            Documentation
           </a>
         </nav>
       </header>

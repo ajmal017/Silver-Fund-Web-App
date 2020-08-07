@@ -47,7 +47,7 @@ function SigninBox() {
           Sign In
         </button>
         <p className="forgot-password text-right">
-          <a href="#">Forgot password?</a>
+          <a href="http://www.fixme.com/">Forgot password?</a>
         </p>
         <h5>Need an account?</h5>
         <a
