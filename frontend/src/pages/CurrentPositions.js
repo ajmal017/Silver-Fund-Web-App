@@ -1,74 +1,54 @@
 import React from "react";
-import axios from "axios";
-import Spinner from "react-bootstrap/Spinner";
+import CPTableDB from "../components/CPTableDB";
 
-class CurrentPositions extends React.Component {
-  state = {
-    data: [],
-  };
-
-  fetchCurrentPositionsData = () => {
-    axios
-      .get("http://localhost:8000/positions/", {
-        auth: {
-          username: "su",
-          password: "su",
-        },
-      })
-      .then((response) => {
-        console.log(response);
-        this.setState({
-          data: response.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-        alert("There was an error when retrieving the data.", error);
-      });
-  };
-
-  componentDidMount() {
-    this.fetchCurrentPositionsData();
-  }
-
-  render() {
-    return (
-      <div>
+function CurrentPositions() {
+  return (
+    <div className="cp-container">
+      <div className="left-col">
         <h3>Current Positions</h3>
-        <br />
-        {this.state.data.length > 0 ? (
-          <table>
-            <thead>
-              <tr>
-                <th>Asset ID</th>
-                <th>Number of Shares</th>
-                <th>Position Type</th>
-                <th>Position Value</th>
-                <th>Item Price</th>
-                <th>Item Ticker</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.data.map((item, index) => {
-                return (
-                  <tr key={index}>
-                    <td key={item.asset_id}>{item.asset_id}</td>
-                    <td key={item.num_of_shares}>{item.num_of_shares}</td>
-                    <td key={item.pos_type}>{item.pos_type}</td>
-                    <td key={item.position_value}>{item.position_value}</td>
-                    <td key={item.price}>{item.price}</td>
-                    <td key={item.ticker}>{item.ticker}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        ) : (
-          <Spinner animation="border" variant="dark" />
-        )}
+        <div className="dropdown">
+          <button
+            className="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+          >
+            View Type
+          </button>
+          <div className="dropdown-menu">
+            <a className="dropdown-item" href="http://www.fixme.com/">
+              $ Positions
+            </a>
+            <a className="dropdown-item" href="http://www.fixme.com/">
+              % Positions
+            </a>
+            <a className="dropdown-item" href="http://www.fixme.com/">
+              $ Positions vs. Benchmark
+            </a>
+            <a className="dropdown-item" href="http://www.fixme.com/">
+              % Positions vs. Benchmark
+            </a>
+            <a className="dropdown-item" href="http://www.fixme.com/">
+              $ Positions by Industry
+            </a>
+            <a className="dropdown-item" href="http://www.fixme.com/">
+              % Positions by Industry
+            </a>
+            <a className="dropdown-item" href="http://www.fixme.com/">
+              $ Positions vs. Benchmark by Industry
+            </a>
+            <a className="dropdown-item" href="http://www.fixme.com/">
+              % Positions vs. Benchmark by Industry
+            </a>
+          </div>
+        </div>
+        <CPTableDB />
       </div>
-    );
-  }
+      <div className="positions-graph left-col">
+        Graph of Current Positions (Based on View Type)
+      </div>
+    </div>
+  );
 }
 
 export default CurrentPositions;

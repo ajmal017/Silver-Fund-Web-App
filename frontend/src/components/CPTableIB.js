@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 
-class CPTable extends React.Component {
+class CPTableIB extends React.Component {
   state = {
     data: [],
   };
@@ -29,8 +29,6 @@ class CPTable extends React.Component {
   render() {
     return (
       <div>
-        <h3>Current Positions</h3>
-        <br />
         {this.state.data.length > 0 ? (
           <table>
             <thead>
@@ -66,4 +64,4 @@ class CPTable extends React.Component {
   }
 }
 
-export default CPTable;
+export default CPTableIB;
