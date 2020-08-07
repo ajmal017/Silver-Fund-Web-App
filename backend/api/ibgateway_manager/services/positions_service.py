@@ -36,9 +36,10 @@ class IBPositionsService():
                 "num_of_shares": position["position"],
                 "pos_type": position["assetClass"],
                 "price": position["avgPrice"],
-                "position_value": position["mktValue"]
+                "position_value": position["mktValue"],
                 }
             cur_positions.append(new_position)
+        
         return cur_positions
 
     def get_on(self, year, month, day):

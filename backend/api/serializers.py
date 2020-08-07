@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User, Group
-from rest_framework import serializers
+from rest_framework import serializers, fields
 from api.models import Position, Trade
+from django.db import models 
+from django.utils import timezone
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -16,6 +18,7 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         
 class PositionSerializer(serializers.ModelSerializer):
     class Meta:
+        # date = models.DateField(default=timezone.now)
         model = Position
         fields = ['asset_id', 'ticker', 'num_of_shares', 'pos_type', 'price', 'position_value']
 

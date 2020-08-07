@@ -28,27 +28,31 @@ logging.basicConfig(filename='marketdata.log')
 #mrktdata = servicer.get_market_data('107113386')
 #print(json.dumps(mrktdata, indent=4))
 
-import requests
-import websockets
-import asyncio
+# import requests
+# import websockets
+# import asyncio
 
-req = requests.get('https://localhost:5000/v1/api/iserver/auth/status/', verify = False)
-req = requests.get('https://localhost:5000/v1/api/sso/validate/', verify = False)
-req = requests.get('https://localhost:5000/v1/api/iserver/accounts/', verify = False)
+# req = requests.get('https://localhost:5000/v1/api/iserver/auth/status/', verify = False)
+# req = requests.get('https://localhost:5000/v1/api/sso/validate/', verify = False)
+# req = requests.get('https://localhost:5000/v1/api/iserver/accounts/', verify = False)
 
 
-async def hello(websocket, path):
-    data = await websocket.recv()
-    print(f"<{data}")
+# async def hello(websocket, path):
+#     data = await websocket.recv()
+#     print(f"<{data}")
 
-    req = 'smd+265598+{"fields":["7295","7296", "70", "71", "7286", "87", "7289"]}'
-    await websocket.send(req)
-    print(f"<{req}")
+#     req = 'smd+265598+{"fields":["7295","7296", "70", "71", "7286", "87", "7289"]}'
+#     await websocket.send(req)
+#     print(f"<{req}")
 
-start_server = websockets.serve(hello, "localhost", '5000')
+# start_server = websockets.serve(hello, "localhost", '5000')
 
-asyncio.get_event_loop().run_until_complete(start_server)
-asyncio.get_event_loop().run_forever()
+# asyncio.get_event_loop().run_until_complete(start_server)
+# asyncio.get_event_loop().run_forever()
+
+
+
+
 
 # param0 = {
 #         'conids':'0',
