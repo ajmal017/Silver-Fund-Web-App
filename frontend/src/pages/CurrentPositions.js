@@ -1,12 +1,12 @@
 import React from "react";
 import axios from "axios";
 
-class Positions extends React.Component {
+class CurrentPositions extends React.Component {
   state = {
     data: [],
   };
 
-  fetchPositionsData = () => {
+  fetchCurrentPositionsData = () => {
     axios
       .get("http://localhost:8000/positions/", {
         auth: {
@@ -27,13 +27,13 @@ class Positions extends React.Component {
   };
 
   componentDidMount() {
-    this.fetchPositionsData();
+    this.fetchCurrentPositionsData();
   }
 
   render() {
     return (
       <div>
-        <h3>Recent Positions</h3>
+        <h3>Current Positions</h3>
         <br />
         {this.state.data.length > 0 ? (
           <table>
@@ -70,4 +70,4 @@ class Positions extends React.Component {
   }
 }
 
-export default Positions;
+export default CurrentPositions;

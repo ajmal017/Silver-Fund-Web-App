@@ -185,9 +185,21 @@ a:hover {
   margin-top: 10px;
 }
 
+/* POSITIONS / TRADE TABLES */
+
 table,
 th,
 td {
   border: 1px solid black;
   padding: 5px;
+}
+
+th {
+  background-color: #002e5d;
+  color: #fff;
+  border-color: #fff;
+}
+
+td {
+  background-color: #fff;
 }

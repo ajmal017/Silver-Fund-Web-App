@@ -9,11 +9,17 @@ function Header() {
           <a className="nav-link active" href="/">
             Home
           </a>
-          <a className="nav-link" href="#">
+          <a className="nav-link" href="/signup/">
             Features
           </a>
           <a className="nav-link" href="#">
             Contact
+          </a>
+          <a className="nav-link" href="#">
+            Test1
+          </a>
+          <a className="nav-link" href="#">
+            Test2
           </a>
         </nav>
       </header>
