@@ -22,8 +22,10 @@ from django.contrib import admin
 router = routers.DefaultRouter()
 router.register(r"users", views.UserViewSet)
 router.register(r"groups", views.GroupViewSet)
-router.register(r"positions", views.PositionViewSet)
+router.register(r"all_positions", views.AllPositions, basename='AllPostions')
+router.register(r"current_current", views.CurrentPositions, basename='CurrentPostions')
 router.register(r"trades", views.TradeViewSet)
+
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
@@ -37,4 +39,6 @@ urlpatterns = [
     path("api/ibaccount/cashbalance/", views.get_cashbalance),
     path("api/update/positions/", views.update_positions),
     path("api/update/trades/", views.update_trades),
+    #path("api/current", views.PositionCurrentViewSet)
+    # 
 ]

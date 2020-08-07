@@ -3,6 +3,7 @@ from api.ibgateway_manager.services.assets_service import IBAssetsService
 import json
 import logging
 logging.basicConfig(filename='marketdata.log')
+
 #ipaddress = input("Enter IB ipaddress: ")
 #server = calls.SFCalls("sam", "earnest", "localhost")
 

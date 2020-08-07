@@ -1,9 +1,10 @@
+import datetime
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from django.http import HttpResponse
 from rest_framework import viewsets
 from rest_framework import permissions
-from api.serializers import UserSerializer, GroupSerializer, PositionSerializer, TradeSerializer
+from api.serializers import *
 from api.models import Position, Trade
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -34,11 +35,20 @@ class GroupViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class PositionViewSet(viewsets.ModelViewSet):
+class AllPositions(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
     """
     queryset = Position.objects.all()
+    serializer_class = PositionSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class CurrentPositions(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    current_date = datetime.date.today()
+    queryset = Position.objects.filter(date=current_date)
     serializer_class = PositionSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -89,7 +99,7 @@ def update_positions(request):
 
     for pos in cur_positions:
         position = Position()
-        serializer = PositionSerializer(position, data=pos)
+        serializer = PositionUpdateSerializer(position, data=pos)
         if serializer.is_valid():
             serializer.save()
      
