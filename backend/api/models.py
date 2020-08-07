@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import timezone
+
 
 # Create your models here.
 
@@ -9,7 +11,7 @@ class Position(models.Model):
     pos_type = models.CharField(verbose_name="pos_type", max_length=40, null=True, blank=True)
     price = models.FloatField(verbose_name="price", null=True, blank=True)
     position_value = models.FloatField(verbose_name="position_value", null=True, blank=True)
-    date = models.DateTimeField(verbose_name="date_", null=True, blank=True)
+    date = models.DateField(default=timezone.now)
    
     def __str__(self):
         return self.ticker 
