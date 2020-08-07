@@ -23,7 +23,7 @@ router = routers.DefaultRouter()
 router.register(r"users", views.UserViewSet)
 router.register(r"groups", views.GroupViewSet)
 router.register(r"positions", views.PositionViewSet)
-router.register(r"trades", views.TradeViewSet)
+router.register(r"trades", views.PositionViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
