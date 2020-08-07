@@ -20,6 +20,12 @@ class PositionSerializer(serializers.ModelSerializer):
     class Meta:
         # date = models.DateField(default=timezone.now)
         model = Position
+        fields = ['asset_id', 'ticker', 'num_of_shares', 'pos_type', 'price', 'position_value', 'date']
+
+class PositionUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        # date = models.DateField(default=timezone.now)
+        model = Position
         fields = ['asset_id', 'ticker', 'num_of_shares', 'pos_type', 'price', 'position_value']
 
 class TradeSerializer(serializers.ModelSerializer):
