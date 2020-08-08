@@ -1,38 +1,29 @@
 import React from "react";
 import TableDB from "../components/TableDB";
-import { Button } from "react-bootstrap";
 
 function Test() {
+  function alertMe() {
+    // <TableDB url={"http://localhost:8000/all_positions/"} />;
+    alert("Test");
+  }
+
+  function getTable() {
+    const url = "http://localhost:8000/all_positions/";
+
+    console.log(url);
+    // <TableDB url={url} />;
+    return <h1>GET TABLE</h1>;
+  }
+
   return (
-    <div className="dropdown">
-      <button
-        className="btn btn-secondary dropdown-toggle"
-        type="button"
-        id="dropdownMenuButton"
-        data-toggle="dropdown"
-      >
-        Positions Table Viewer
-      </button>
-      <div className="dropdown-menu dropdown-menu-right">
-        <a className="dropdown-item" href="http://www.fixme.com/">
-          Current Positions
-        </a>
-        <a className="dropdown-item" href="http://www.fixme.com/">
-          All Positions
-        </a>
-        <button onClick{() => {
-          <TableDB url={"http://localhost:8000/all_positions/"}
-        }}>
-          TEST
-        </button>
-      </div>
-    </div>
-    // <div>
-    //   All Positions
-    //   <TableDB url={"http://localhost:8000/all_positions/"} />
-    //   Current Positions
-    //   <TableDB url={"http://localhost:8000/current_positions/"} />
-    // </div>
+    <button
+      onClick={() => {
+        console.log("test");
+        return <TableDB url={"http://localhost:8000/all_positions/"} />;
+      }}
+    >
+      Test
+    </button>
   );
 }
 

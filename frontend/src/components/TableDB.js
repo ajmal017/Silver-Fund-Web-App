@@ -63,7 +63,13 @@ class TableDB extends React.Component {
             </tbody>
           </table>
         ) : (
-          <Spinner animation="border" variant="dark" />
+          <div>
+            <Spinner
+              animation="border"
+              variant="dark"
+              className="loading-spinner"
+            />
+          </div>
         )}
       </div>
     );
