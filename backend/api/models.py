@@ -23,8 +23,7 @@ class Trade(models.Model):
     num_of_shares = models.IntegerField(verbose_name="asset_id", null=True, blank=True)
     price = models.FloatField(verbose_name="price", null=True, blank=True)
     tot_price = models.FloatField(verbose_name="tot_price", null=True, blank=True)
-    trade_time = models.CharField(verbose_name="trade_time", max_length=40, null=True, blank=True )
-
+    trade_time = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return self.trade_id
 
@@ -58,6 +57,17 @@ class ForeignExchange(models.Model):
     twenty_year_rate = models.FloatField(verbose_name="twenty_year_rate", null=True, blank=True)
     thirty_year_rate = models.FloatField(verbose_name="thirty_year_rate", null=True, blank=True)
 
+class Asset(models.Model):
+    asset_id = models.CharField(verbose_name="asset_id", max_length=40, null=True, blank=True)
+    ticker = models.CharField(verbose_name="ticker", max_length=40, null=True, blank=True)
+    conid = models.CharField(verbose_name="conid", max_length=40, null=True, blank=True)
+    cusip = models.CharField(verbose_name="cusip", max_length=40, null=True, blank=True)
+    valid_date = models.DateField(default=timezone.now)
+    industry_code = models.CharField(verbose_name="industry_code", max_length=40, null=True, blank=True)
+    country_code = models.CharField(verbose_name="country_code", max_length=40, null=True, blank=True)
+    prim_exch = models.CharField(verbose_name="prim_exch", max_length=40, null=True, blank=True)
+    currency = models.CharField(verbose_name="currency", max_length=40, null=True, blank=True)
+    flag = models.CharField(verbose_name="flag", max_length=40, null=True, blank=True)
 
     
 

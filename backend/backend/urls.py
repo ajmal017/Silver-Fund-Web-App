@@ -25,6 +25,8 @@ router.register(r"groups", views.GroupViewSet)
 router.register(r"all_positions", views.AllPositions, basename='AllPostions')
 router.register(r"current_positions", views.CurrentPositions, basename='CurrentPostions')
 router.register(r"trades", views.TradeViewSet)
+router.register(r"assets", views.AssetViewSet)
+
 
 
 # Wire up our API using automatic URL routing.
