@@ -37,7 +37,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
 
     path("api/positions/current/", views.get_cur_positions),
-    path("api/postions/filter/date/", views.filter_positions_by_date),
+    path("api/positions/filter/date/", views.filter_positions_by_date),
 
     path("api/trades/current/", views.get_cur_trades),
     path("api/trades/unsettled/", views.get_unsettled_trades),
