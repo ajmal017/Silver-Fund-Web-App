@@ -42,7 +42,7 @@ class AllPositions(viewsets.ModelViewSet):
     """
     queryset = Position.objects.all()
     serializer_class = PositionSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 class CurrentPositions(viewsets.ModelViewSet):
     """
@@ -51,7 +51,7 @@ class CurrentPositions(viewsets.ModelViewSet):
     current_date = datetime.date.today()
     queryset = Position.objects.filter(date=current_date)
     serializer_class = PositionSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 class TradeViewSet(viewsets.ModelViewSet):
     """
@@ -59,17 +59,15 @@ class TradeViewSet(viewsets.ModelViewSet):
     """
     queryset = Trade.objects.all()
     serializer_class = TradeSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 class AssetViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
     """
-    
-
     queryset = Asset.objects.all()
     serializer_class = AssetSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 @api_view(["GET"])
