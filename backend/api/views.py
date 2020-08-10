@@ -8,7 +8,7 @@ from api.serializers import *
 from api.models import Position, Trade, Asset
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-import requests
+from django.http import JsonResponse
 
 from api.ibgateway_manager.services.positions_service import IBPositionsService
 from api.ibgateway_manager.services.trades_service import IBTradesService
@@ -69,6 +69,14 @@ class AssetViewSet(viewsets.ModelViewSet):
     serializer_class = AssetSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
+
+
+@api_view(["GET"])
+def filter_positions_by_date(request):
+    start_date = request.query_params.get("start")
+    end_date = request.query_params.get("end")
+    pos = Position.objects.filter(date__range=(start_date, end_date)).values()
+    return Response(list(pos))
 
 @api_view(["GET"])
 def get_cur_positions(request):
