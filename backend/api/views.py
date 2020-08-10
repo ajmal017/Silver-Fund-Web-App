@@ -14,8 +14,6 @@ from api.ibgateway_manager.services.positions_service import IBPositionsService
 from api.ibgateway_manager.services.trades_service import IBTradesService
 from api.ibgateway_manager.services.accounts_service import IBAccountsService
 
-# from snippets.models import Snippet
-# from snippets.serializers import SnippetSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
