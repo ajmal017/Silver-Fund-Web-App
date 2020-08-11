@@ -77,6 +77,14 @@ def filter_positions_by_date(request):
     return Response(list(pos))
 
 @api_view(["GET"])
+def filter_trades_by_date(request):
+    start_date = request.query_params.get("start")
+    end_date = request.query_params.get("end")
+    pos = Trade.objects.filter(trade_time__range=(start_date, end_date)).values()
+    return Response(list(pos))
+
+
+@api_view(["GET"])
 def get_cur_positions(request):
 
     service = IBPositionsService("localhost")

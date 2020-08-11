@@ -20,6 +20,7 @@ urlpatterns = [
     path("api/positions/filter/date/", views.filter_positions_by_date),
 
     path("api/trades/current/", views.get_cur_trades),
+    path("api/trades/filter/date/", views.filter_trades_by_date),
     path("api/trades/unsettled/", views.get_unsettled_trades),
 
     path("api/ibaccount/cashbalance/", views.get_cashbalance),
