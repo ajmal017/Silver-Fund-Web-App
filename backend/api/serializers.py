@@ -1,39 +1,78 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers, fields
 from api.models import Position, Trade, Asset
-from django.db import models 
+from django.db import models
 from django.utils import timezone
+
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'groups']
+        fields = ["url", "username", "email", "groups"]
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
-        fields = ['url', 'name']
-        
-        
+        fields = ["url", "name"]
+
+
 class PositionSerializer(serializers.ModelSerializer):
     class Meta:
         # date = models.DateField(default=timezone.now)
         model = Position
-        fields = ['asset_id', 'ticker', 'num_of_shares', 'pos_type', 'price', 'position_value', 'date']
+        fields = [
+            "asset_id",
+            "ticker",
+            "num_of_shares",
+            "asset_type",
+            "price",
+            "position_value",
+            "date",
+        ]
+
 
 class PositionUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         # date = models.DateField(default=timezone.now)
         model = Position
-        fields = ['asset_id', 'ticker', 'num_of_shares', 'pos_type', 'price', 'position_value']
+        fields = [
+            "asset_id",
+            "ticker",
+            "num_of_shares",
+            "asset_type",
+            "price",
+            "position_value",
+        ]
+
 
 class TradeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Trade
-        fields = ['trade_id', 'asset_id', 'trade_type', 'num_of_shares', 'price', 'tot_price', 'trade_time']
+        fields = [
+            "trade_id",
+            "asset_id",
+            "trade_type",
+            "num_of_shares",
+            "price",
+            "tot_price",
+            "trade_time",
+        ]
+
 
 class AssetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Asset
-        fields = ['asset_id', 'ticker', 'conid', 'cusip', 'valid_date', 'industry_code', 'country_code', 'prim_exch', 'currency', 'flag']
+        fields = [
+            "asset_id",
+            "ticker",
+            "conid",
+            "cusip",
+            "valid_date",
+            "industry_code",
+            "country_code",
+            "prim_exch",
+            "currency",
+            "flag",
+        ]
+
