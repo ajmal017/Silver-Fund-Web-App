@@ -83,7 +83,6 @@ def filter_trades_by_date(request):
     pos = Trade.objects.filter(trade_time__range=(start_date, end_date)).values()
     return Response(list(pos))
 
-
 @api_view(["GET"])
 def get_cur_positions(request):
 
@@ -91,14 +90,12 @@ def get_cur_positions(request):
     cur_positions = service.get_current()
     return Response(cur_positions)
 
-
 @api_view(["GET"])
 def get_cur_trades(request):
 
     service = IBTradesService("localhost")
     cur_trades = service.get_current()
     return Response(cur_trades)
-
 
 @api_view(["GET"])
 def get_unsettled_trades(request):
@@ -113,7 +110,6 @@ def get_cashbalance(request):
     service = IBAccountsService("localhost")
     cashbalance = service.get_cash_balance()
     return Response(cashbalance)
-
 
 @api_view(["POST"])
 def update_positions(request):
