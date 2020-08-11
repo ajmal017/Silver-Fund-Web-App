@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 
-class TableDB extends React.Component {
+class PositionsTable extends React.Component {
   state = {
     data: [],
   };
@@ -55,7 +55,7 @@ class TableDB extends React.Component {
                     <td key={item.asset_id}>{item.asset_id}</td>
                     <td key={item.ticker}>{item.ticker}</td>
                     <td key={item.num_of_shares}>{item.num_of_shares}</td>
-                    <td key={item.pos_type}>{item.pos_type}</td>
+                    <td key={item.asset_type}>{item.asset_type}</td>
                     <td key={item.price}>{item.price}</td>
                     <td key={item.position_value}>{item.position_value}</td>
                     <td key={item.date}>{item.date}</td>
@@ -78,4 +78,4 @@ class TableDB extends React.Component {
   }
 }
 
-export default TableDB;
+export default PositionsTable;

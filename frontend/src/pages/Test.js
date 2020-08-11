@@ -1,5 +1,5 @@
 import React from "react";
-import TableDB from "../components/TableDB";
+import PositionsTable from "../components/PositionsTable";
 
 class Test extends React.Component {
   state = {
@@ -40,11 +40,11 @@ class Test extends React.Component {
       <div>
         <button onClick={this.onClickCurrent}>Show Current Positions</button>
         {this.state.showCurrent ? (
-          <TableDB url="http://localhost:8000/current_positions/" />
+          <PositionsTable url="http://localhost:8000/current_positions/" />
         ) : null}
         <button onClick={this.onClickAll}>Show All Positions</button>
         {this.state.showAll ? (
-          <TableDB url="http://localhost:8000/all_positions/" />
+          <PositionsTable url="http://localhost:8000/all_positions/" />
         ) : null}
       </div>
     );

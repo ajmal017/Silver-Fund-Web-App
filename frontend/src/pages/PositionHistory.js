@@ -1,5 +1,5 @@
 import React from "react";
-import TableDB from "../components/TableDB";
+import PositionsTable from "../components/PositionsTable";
 import testGraph from "../images/test-graph.png";
 
 function PositionHistory() {
@@ -68,7 +68,7 @@ function PositionHistory() {
             </div>
           </div>
         </div>
-        <TableDB url={url} />
+        <PositionsTable url={url} />
       </div>
       <div className="right-col">
         <img src={testGraph} alt="/" className="positions-graph" />

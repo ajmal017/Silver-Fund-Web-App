@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 
 import HomeSignin from "./pages/HomeSignin";
 import Signup from "./pages/Signup";
-import TableDB from "./components/TableDB";
+import PositionsTable from "./components/PositionsTable";
 import Trades from "./pages/Trades";
 import CurrentPositions from "./pages/CurrentPositions";
 import PositionHistory from "./pages/PositionHistory";
@@ -15,7 +15,7 @@ function Routes() {
     <div className="content">
       <Route exact path="/" component={HomeSignin} />
       <Route exact path="/signup/" component={Signup} />
-      <Route exact path="/tabledb/" component={TableDB} />
+      <Route exact path="/positionstable/" component={PositionsTable} />
       <Route exact path="/dbtrades/" component={Trades} />
       <Route exact path="/currentpositions/" component={CurrentPositions} />
       <Route exact path="/positionhistory/" component={PositionHistory} />

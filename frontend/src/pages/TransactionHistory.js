@@ -1,5 +1,5 @@
 import React from "react";
-import TableDB from "../components/TableDB";
+import PositionsTable from "../components/PositionsTable";
 
 function TransactionHistory() {
   const url = "http://localhost:8000/all_positions/"; // FIXME
@@ -27,7 +27,7 @@ function TransactionHistory() {
           </div>
         </div>
       </div>
-      <TableDB url={url} />
+      <PositionsTable url={url} />
     </div>
   );
 }
