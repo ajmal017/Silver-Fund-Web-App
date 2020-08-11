@@ -40,11 +40,12 @@ class TableDB extends React.Component {
             <thead>
               <tr>
                 <th>Asset ID</th>
+                <th>Ticker</th>
                 <th>Number of Shares</th>
                 <th>Position Type</th>
+                <th>Price</th>
                 <th>Position Value</th>
-                <th>Item Price</th>
-                <th>Item Ticker</th>
+                <th>Date</th>
               </tr>
             </thead>
             <tbody>
@@ -52,11 +53,12 @@ class TableDB extends React.Component {
                 return (
                   <tr key={index}>
                     <td key={item.asset_id}>{item.asset_id}</td>
+                    <td key={item.ticker}>{item.ticker}</td>
                     <td key={item.num_of_shares}>{item.num_of_shares}</td>
                     <td key={item.pos_type}>{item.pos_type}</td>
-                    <td key={item.position_value}>{item.position_value}</td>
                     <td key={item.price}>{item.price}</td>
-                    <td key={item.ticker}>{item.ticker}</td>
+                    <td key={item.position_value}>{item.position_value}</td>
+                    <td key={item.date}>{item.date}</td>
                   </tr>
                 );
               })}

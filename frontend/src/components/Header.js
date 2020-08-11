@@ -12,7 +12,13 @@ function Header() {
           <a className="nav-link" href="/signup/">
             Sign Up
           </a>
-          <a className="nav-link" href="/documentation/">
+          <a
+            className="nav-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="http://www.fixme.com/"
+            // FIXME - Change href to internal wiki/SharePoint site that has all documentation
+          >
             Documentation
           </a>
         </nav>
