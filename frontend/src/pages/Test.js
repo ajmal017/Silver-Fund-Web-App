@@ -1,51 +1,27 @@
 import React from "react";
-import PositionsTable from "../components/PositionsTable";
 
 class Test extends React.Component {
   state = {
-    showCurrent: false,
-    currentCount: 0,
-    showAll: false,
-    allCount: 0,
+    positionViewType: 0,
   };
 
-  incrementCount() {
-    this.setState({ count: this.state.count + 1 });
-  }
-
-  onClickCurrent = () => {
-    this.setState({ currentCount: this.state.currentCount + 1 });
-
-    if (this.state.currentCount % 2) {
-      this.setState({ showCurrent: false });
-    } else {
-      this.setState({ showCurrent: true });
-    }
-    console.log(this.state.currentCount);
-  };
-
-  onClickAll = () => {
-    this.setState({ allCount: this.state.allCount + 1 });
-
-    if (this.state.allCount % 2) {
-      this.setState({ showAll: false });
-    } else {
-      this.setState({ showAll: true });
-    }
-    console.log(this.state.allCount);
+  onDropdownClick = (viewTypeNumber) => {
+    this.setState({ positionViewType: viewTypeNumber });
   };
 
   render() {
     return (
       <div>
-        <button onClick={this.onClickCurrent}>Show Current Positions</button>
-        {this.state.showCurrent ? (
-          <PositionsTable url="http://localhost:8000/current_positions/" />
-        ) : null}
-        <button onClick={this.onClickAll}>Show All Positions</button>
-        {this.state.showAll ? (
-          <PositionsTable url="http://localhost:8000/all_positions/" />
-        ) : null}
+        <h1 onClick={() => this.onDropdownClick(1)}>TEST 1</h1>
+        <h1 onClick={() => this.onDropdownClick(2)}>TEST 2</h1>
+        <hr />
+        {this.state.positionViewType === 1 ? (
+          <h1>OPTION 1</h1>
+        ) : this.state.positionViewType === 2 ? (
+          <h1>OPTION 2</h1>
+        ) : (
+          <h1>OTHER OPTION</h1>
+        )}
       </div>
     );
   }

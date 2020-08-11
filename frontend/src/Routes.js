@@ -9,6 +9,7 @@ import CurrentPositions from "./pages/CurrentPositions";
 import PositionHistory from "./pages/PositionHistory";
 import TransactionHistory from "./pages/TransactionHistory";
 import TableToggleBtns from "./pages/TableToggleBtns";
+import Test from "./pages/Test";
 
 function Routes() {
   return (
@@ -21,6 +22,8 @@ function Routes() {
       <Route exact path="/positionhistory/" component={PositionHistory} />
       <Route exact path="/transactionhistory/" component={TransactionHistory} />
       <Route exact path="/tabletogglebtns/" component={TableToggleBtns} />
+      <Route exact path="/tabletogglebtns/" component={TableToggleBtns} />
+      <Route exact path="/test/" component={Test} />
     </div>
   );
 }
