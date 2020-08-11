@@ -8,7 +8,7 @@ import Trades from "./pages/Trades";
 import CurrentPositions from "./pages/CurrentPositions";
 import PositionHistory from "./pages/PositionHistory";
 import TransactionHistory from "./pages/TransactionHistory";
-import Test from "./pages/Test";
+import TableToggleBtns from "./pages/TableToggleBtns";
 
 function Routes() {
   return (
@@ -20,7 +20,7 @@ function Routes() {
       <Route exact path="/currentpositions/" component={CurrentPositions} />
       <Route exact path="/positionhistory/" component={PositionHistory} />
       <Route exact path="/transactionhistory/" component={TransactionHistory} />
-      <Route exact path="/test/" component={Test} />
+      <Route exact path="/tabletogglebtns/" component={TableToggleBtns} />
     </div>
   );
 }
