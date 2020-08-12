@@ -149,7 +149,6 @@ class Positions extends React.Component {
             </div>
           </div>
           {/* <span onClick={() => this.getDateToday()}>Get Today's Date</span> */}
-          <hr />
           {/* EXPANDS FROM PRIMARY VIEW TYPE */}
           {this.state.primaryViewType === "by_date" && (
             <>
@@ -162,6 +161,8 @@ class Positions extends React.Component {
               </span>
             </>
           )}
+          <hr />
+
           {this.state.selectionMade && (
             <PositionsTable data={this.state.tableData} />
           )}
