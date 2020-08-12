@@ -2,12 +2,16 @@ import React from "react";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 
+var mybaby = true;
+
 class PositionsTable extends React.Component {
   state = {
     data: [],
+    loadedUrl: "",
   };
 
   fetchPositionsData(url) {
+    console.log("table url", this.props.url);
     if (this.props.url === undefined) {
       return alert("Please select a valid view type.");
     }
@@ -20,12 +24,25 @@ class PositionsTable extends React.Component {
       })
       .then((response) => {
         console.log(response);
-        this.setState({
-          data: response.data,
-        });
+        this.setState(
+          {
+            data: response.data,
+            loadedUrl: this.props.url,
+          },
+          () => {
+            console.log("url: ", this.state.loadedUrl);
+          }
+        );
+        // this.setState({
+        //   data: response.data,
+        //   loadedUrl: this.props.url,
+        // });
       })
       .catch((error) => {
         console.log(error);
+        this.setState({
+          loadedUrl: this.props.url,
+        });
         alert("There was an error when retrieving the data.", error);
       });
   }
@@ -64,13 +81,26 @@ class PositionsTable extends React.Component {
 
   componentDidMount() {
     this.fetchPositionsData();
+    console.log("outside table ", this.props.url);
     // this.fetchWithParams();
   }
 
+  componentWillUnmount() {
+    console.log("Now hiding a table");
+  }
+
   render() {
+    if (this.props.url != this.state.loadedUrl && mybaby) {
+      mybaby = false;
+      this.fetchPositionsData(this.props.url);
+      console.log("render table ", this.props.url);
+    } else {
+      mybaby = true;
+    }
+
     return (
       <div>
-        {/* <span onClick={() => this.doesThisWork()}>Does this work?</span> */}
+        {/* <h1>positions table</h1> */}
         {this.state.data.length > 0 ? (
           <table>
             <thead>

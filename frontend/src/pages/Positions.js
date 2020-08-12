@@ -9,6 +9,8 @@ class Positions extends React.Component {
     start: "",
     end: "",
     loadTableNow: false,
+    currentTable: "",
+    lastUrl: "",
   };
 
   choosePrimaryVT(selection) {
@@ -18,8 +20,6 @@ class Positions extends React.Component {
   }
 
   chooseTableData(callType) {
-    console.log("callType: ", callType);
-
     if (callType === "all") {
       this.setState({ url: "http://localhost:8000/all_positions/" }, () => {
         console.log("url: ", this.state.url);
@@ -35,10 +35,6 @@ class Positions extends React.Component {
         }
       );
     }
-
-    this.setState({ loadTableNow: true }, () => {
-      console.log("loadTableNow: ", this.state.loadTableNow);
-    });
   }
 
   getDateToday() {
@@ -127,11 +123,9 @@ class Positions extends React.Component {
             </div>
           </div>
           {/* <span onClick={() => this.getDateToday()}>Get Today's Date</span> */}
-          {/* <span onClick={() => this.onDropdownClick(1)}>
-            Show All Positions
-          </span> */}
           <hr />
-          {this.state.primaryViewType === "by_date" ? (
+          {/* EXPANDS FROM PRIMARY VIEW TYPE */}
+          {this.state.primaryViewType === "by_date" && (
             <>
               <span onClick={() => this.chooseTableData("all")}>
                 Show All Positions
@@ -141,10 +135,18 @@ class Positions extends React.Component {
                 Show Current Positions
               </span>
             </>
-          ) : null}
-          {this.state.loadTableNow ? (
-            <PositionsTable url={this.state.url} />
-          ) : null}
+          )}
+          {this.state.url != "" && (
+            <div>
+              {/* {console.warn("hello", "url:", this.state.url)} */}
+              <PositionsTable url={this.state.url} />
+            </div>
+          )}
+          {/* {console.log(
+            "goodbye",
+            "url:",
+            this.state.url
+          )} */}
         </div>
         {/* <div className="right-col">
           <img src={testGraph} alt="/" className="positions-graph" />
