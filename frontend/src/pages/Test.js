@@ -12,15 +12,45 @@ class Test extends React.Component {
   render() {
     return (
       <div>
-        <h1 onClick={() => this.onDropdownClick(1)}>TEST 1</h1>
-        <h1 onClick={() => this.onDropdownClick(2)}>TEST 2</h1>
+        <div className="dropdown">
+          <button
+            className="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+          >
+            Primary View Type
+          </button>
+          <div className="dropdown-menu dropdown-menu-right">
+            <span
+              className="dropdown-item"
+              onClick={() => this.onDropdownClick(1)}
+            >
+              By Date (Point-in-Time Snapshot)
+            </span>
+            <span
+              className="dropdown-item"
+              onClick={() => this.onDropdownClick(2)}
+            >
+              History by Stock (Time Series View)
+            </span>
+            <span
+              className="dropdown-item"
+              onClick={() => this.onDropdownClick(3)}
+            >
+              History by Industry (Time Series View)
+            </span>
+          </div>
+        </div>
         <hr />
         {this.state.positionViewType === 1 ? (
           <h1>OPTION 1</h1>
         ) : this.state.positionViewType === 2 ? (
           <h1>OPTION 2</h1>
+        ) : this.state.positionViewType === 3 ? (
+          <h1>OPTION 3</h1>
         ) : (
-          <h1>OTHER OPTION</h1>
+          <h1>CHOOSE AN OPTION FROM ABOVE</h1>
         )}
       </div>
     );
