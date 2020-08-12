@@ -1,16 +1,14 @@
 import React from "react";
+import axios from "axios";
+
 import PositionsTable from "../components/PositionsTable";
 // import testGraph from "../images/test-graph.png";
 
 class Positions extends React.Component {
   state = {
     primaryViewType: 0,
-    url: "",
-    start: "",
-    end: "",
-    loadTableNow: false,
-    currentTable: "",
-    lastUrl: "",
+    selectionMade: false,
+    tableData: [],
   };
 
   choosePrimaryVT(selection) {
@@ -19,21 +17,49 @@ class Positions extends React.Component {
     });
   }
 
-  chooseTableData(callType) {
+  getApiData(callType) {
+    this.setState({ selectionMade: true, tableData: [] });
+
     if (callType === "all") {
-      this.setState({ url: "http://localhost:8000/all_positions/" }, () => {
-        console.log("url: ", this.state.url);
-      });
-    } else if (callType === "current") {
-      this.setState(
-        {
-          url:
-            "http://localhost:8000/api/positions/filter/date/?start=2020-08-08&end=2020-08-11",
-        },
-        () => {
-          console.log("url: ", this.state.url);
-        }
-      );
+      axios
+        .get("http://localhost:8000/all_positions/", {
+          auth: {
+            username: "su",
+            password: "su",
+          },
+        })
+        .then((response) => {
+          this.setState({
+            tableData: response.data,
+          });
+          console.log("tabledata: ", this.state.tableData);
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("There was an error when retrieving the data.", error);
+        });
+    }
+    if (callType === "current") {
+      axios
+        .get(
+          "http://localhost:8000/api/positions/filter/date/?start=2020-08-08&end=2020-08-11",
+          {
+            auth: {
+              username: "su",
+              password: "su",
+            },
+          }
+        )
+        .then((response) => {
+          this.setState({
+            tableData: response.data,
+          });
+          console.log("tabledata: ", this.state.tableData);
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("There was an error when retrieving the data.", error);
+        });
     }
   }
 
@@ -127,26 +153,18 @@ class Positions extends React.Component {
           {/* EXPANDS FROM PRIMARY VIEW TYPE */}
           {this.state.primaryViewType === "by_date" && (
             <>
-              <span onClick={() => this.chooseTableData("all")}>
+              <span onClick={() => this.getApiData("all")}>
                 Show All Positions
               </span>
               <br />
-              <span onClick={() => this.chooseTableData("current")}>
+              <span onClick={() => this.getApiData("current")}>
                 Show Current Positions
               </span>
             </>
           )}
-          {this.state.url != "" && (
-            <div>
-              {/* {console.warn("hello", "url:", this.state.url)} */}
-              <PositionsTable url={this.state.url} />
-            </div>
+          {this.state.selectionMade && (
+            <PositionsTable data={this.state.tableData} />
           )}
-          {/* {console.log(
-            "goodbye",
-            "url:",
-            this.state.url
-          )} */}
         </div>
         {/* <div className="right-col">
           <img src={testGraph} alt="/" className="positions-graph" />
