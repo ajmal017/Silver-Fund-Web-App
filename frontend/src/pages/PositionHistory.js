@@ -5,6 +5,18 @@ import testGraph from "../images/test-graph.png";
 function PositionHistory() {
   const url = "http://localhost:8000/all_positions/";
 
+  function getDateToday() {
+    var today = new Date();
+    var date =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate();
+    console.log(date);
+    return date;
+  }
+
   return (
     <div className="pane-split-container">
       <div className="left-col">
@@ -68,7 +80,11 @@ function PositionHistory() {
             </div>
           </div>
         </div>
-        <PositionsTable url={url} />
+        <span className="dropdown-item" onClick={() => this.getDateToday()}>
+          Get Today's Date
+        </span>
+        {/* <PositionsTable url={url} /> */}
+        <PositionsTable end={"2020-08-12"} />
       </div>
       <div className="right-col">
         <img src={testGraph} alt="/" className="positions-graph" />

@@ -28,8 +28,41 @@ class PositionsTable extends React.Component {
       });
   };
 
+  // fetchWithParams = (start: 'today', end: 'today') => {
+  fetchWithParams = (end) => {
+    axios
+      .get(
+        "http://127.0.0.1:8000/api/positions/filter/date/",
+        {
+          params: {
+            start: "2020-08-10",
+            end: this.props.end,
+            // start: this.state.library,
+            // end: this.state.language,
+          },
+        },
+        {
+          auth: {
+            username: "su",
+            password: "su",
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          data: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("There was an error when retrieving the data.", error);
+      });
+  };
+
   componentDidMount() {
-    this.fetchTableDBData();
+    // this.fetchTableDBData();
+    this.fetchWithParams();
   }
 
   render() {
