@@ -20,45 +20,35 @@ class Positions extends React.Component {
   getApiData(callType) {
     this.setState({ selectionMade: true, tableData: [] });
 
+    axios.defaults.baseURL = "http://localhost:8000/";
+    axios.defaults.auth = {
+      username: "su",
+      password: "su",
+    };
+
     if (callType === "all") {
       axios
-        .get("http://localhost:8000/all_positions/", {
-          auth: {
-            username: "su",
-            password: "su",
-          },
-        })
+        .get("all_positions/")
         .then((response) => {
-          this.setState({
-            tableData: response.data,
-          });
-          console.log("tabledata: ", this.state.tableData);
+          this.setState({ tableData: response.data });
+          console.log("tableData: ", this.state.tableData);
         })
         .catch((error) => {
           console.log(error);
-          alert("There was an error when retrieving the data.", error);
+          alert("Error: Failed to load all positions table.", error);
         });
     }
+
     if (callType === "current") {
       axios
-        .get(
-          "http://localhost:8000/api/positions/filter/date/?start=2020-08-08&end=2020-08-11",
-          {
-            auth: {
-              username: "su",
-              password: "su",
-            },
-          }
-        )
+        .get("api/positions/filter/date/?start=2020-08-08&end=2020-08-11")
         .then((response) => {
-          this.setState({
-            tableData: response.data,
-          });
-          console.log("tabledata: ", this.state.tableData);
+          this.setState({ tableData: response.data });
+          console.log("tableData: ", this.state.tableData);
         })
         .catch((error) => {
           console.log(error);
-          alert("There was an error when retrieving the data.", error);
+          alert("Error: Failed to load current positions table.", error);
         });
     }
   }
@@ -162,7 +152,6 @@ class Positions extends React.Component {
             </>
           )}
           <hr />
-
           {this.state.selectionMade && (
             <PositionsTable data={this.state.tableData} />
           )}
