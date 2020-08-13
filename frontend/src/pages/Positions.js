@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 
 import PositionsTable from "../components/PositionsTable";
+import PositionsGraph from "../components/PositionsGraph";
 // import testGraph from "../images/test-graph.png";
 
 class Positions extends React.Component {
@@ -156,9 +157,9 @@ class Positions extends React.Component {
             <PositionsTable data={this.state.tableData} />
           )}
         </div>
-        {/* <div className="right-col">
-          <img src={testGraph} alt="/" className="positions-graph" />
-        </div> */}
+        <div className="right-col">
+          <PositionsGraph data={this.state.tableData}/>
+        </div>
       </div>
     );
   }
