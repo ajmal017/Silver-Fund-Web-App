@@ -3,7 +3,7 @@ import os
 
 PAPER_USERNAME = "byusf3215"
 PAPER_PASSWORD = "paper1234"
-GATEWAY_PATH = "./clientportal.beta.gw"
+GATEWAY_PATH = "./clientportal.beta.gw"  ### FIXME ###
 
 # Settings to get past Chrome local host privacy
 options = webdriver.ChromeOptions()
@@ -11,13 +11,14 @@ options.binary_location = "./chromium-latest-linux/run.sh"
 options.add_argument("--ignore-ssl-errors=yes")
 options.add_argument("--ignore-certificate-errors")
 
-# FIXME - Set path to driver
-# driver = webdriver.Chrome(executable_path=r'./chromium-latest-linux/run.sh', options=options)
-driver = webdriver.Chrome(executable_path=r"./chromedriver_linux", options=options)
+# Set path to driver
+driver = webdriver.Chrome(
+    executable_path=r"./chromedriver_linux", options=options
+)  ### FIXME ###
 
-# Start up IBKR server (FIXME - VERIFY THIS IS THE RIGHT COMMAND/PATH FOR LINUX)
-strt_cmd = [r"gnome-terminal", "--", r"bin/run.sh", r"root/conf.yaml"]
-process = subprocess.Popen(args=strt_cmd, cwd=GATEWAY_PATH)
+# Start up IBKR server (### FIXME ### - VERIFY THIS IS THE RIGHT COMMAND/PATH FOR LINUX)
+strt_cmd = [r"gnome-terminal", "--", r"bin/run.sh", r"root/conf.yaml"]  ### FIXME ###
+process = subprocess.Popen(args=strt_cmd, cwd=GATEWAY_PATH)  ### FIXME ###
 
 # Go to login page
 driver.get("https://localhost:5000")
