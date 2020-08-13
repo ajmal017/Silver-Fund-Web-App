@@ -15,8 +15,9 @@ function Intro() {
       </p>
       <a
         className="btn btn-dark"
-        href="https://marriottschool.byu.edu/mba/about/accelerated-learning/silver-fund/"
-        role="button"
+        href="https://www.thesilverfund.org/"
+        target="_blank"
+        rel="noopener noreferrer"
         id="learn-more-btn"
       >
         Learn More
