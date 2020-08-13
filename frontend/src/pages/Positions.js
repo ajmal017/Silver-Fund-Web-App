@@ -141,15 +141,28 @@ class Positions extends React.Component {
           {/* <span onClick={() => this.getDateToday()}>Get Today's Date</span> */}
           {/* EXPANDS FROM PRIMARY VIEW TYPE */}
           {this.state.primaryViewType === "by_date" && (
-            <>
-              <span onClick={() => this.getApiData("all")}>
+            <div>
+              <h5>Defaults</h5>
+              <label>
+                <input
+                  type="radio"
+                  className="defaults-radio"
+                  name="by-date-defaults"
+                  onClick={() => this.getApiData("all")}
+                />
                 Show All Positions
-              </span>
+              </label>
               <br />
-              <span onClick={() => this.getApiData("current")}>
+              <label>
+                <input
+                  type="radio"
+                  className="defaults-radio"
+                  name="by-date-defaults"
+                  onClick={() => this.getApiData("current")}
+                />
                 Show Current Positions
-              </span>
-            </>
+              </label>
+            </div>
           )}
           <hr />
           {this.state.selectionMade && (
