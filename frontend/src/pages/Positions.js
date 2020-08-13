@@ -17,6 +17,18 @@ class Positions extends React.Component {
     });
   }
 
+  getDateToday() {
+    var today = new Date();
+    var date =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate();
+    console.log(date);
+    return date;
+  }
+
   getApiData(callType) {
     this.setState({ selectionMade: true, tableData: [] });
 
@@ -30,6 +42,10 @@ class Positions extends React.Component {
       axios
         .get("all_positions/")
         .then((response) => {
+          if (response.data.length === 0) {
+            this.setState({ selectionMade: false });
+            alert("No positions exist.");
+          }
           this.setState({ tableData: response.data });
           console.log("tableData: ", this.state.tableData);
         })
@@ -41,8 +57,17 @@ class Positions extends React.Component {
 
     if (callType === "current") {
       axios
-        .get("api/positions/filter/date/?start=2020-08-08&end=2020-08-11")
+        .get("api/positions/filter/date/", {
+          params: {
+            start: this.getDateToday(),
+            end: this.getDateToday(),
+          },
+        })
         .then((response) => {
+          if (response.data.length === 0) {
+            this.setState({ selectionMade: false });
+            alert("No current positions exist.");
+          }
           this.setState({ tableData: response.data });
           console.log("tableData: ", this.state.tableData);
         })
@@ -51,18 +76,6 @@ class Positions extends React.Component {
           alert("Error: Failed to load current positions table.", error);
         });
     }
-  }
-
-  getDateToday() {
-    var today = new Date();
-    var date =
-      today.getFullYear() +
-      "-" +
-      (today.getMonth() + 1) +
-      "-" +
-      today.getDate();
-    console.log(date);
-    return date;
   }
 
   render() {
