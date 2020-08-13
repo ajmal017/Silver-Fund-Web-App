@@ -24,10 +24,10 @@ process = subprocess.Popen(args=strt_cmd, cwd=GATEWAY_PATH)  ### FIXME ###
 driver.get("https://localhost:5000")
 
 # Type in username and password
-username_textbox = driver.find_element_by_id(PAPER_USERNAME)
-username_textbox.send_keys(username)
-password_textbox = driver.find_element_by_id(PAPER_PASSWORD)
-password_textbox.send_keys(password)
+username_textbox = driver.find_element_by_id("user_name")
+username_textbox.send_keys(PAPER_USERNAME)
+password_textbox = driver.find_element_by_id("password")
+password_textbox.send_keys(PAPER_PASSWORD)
 
 # Click login button / submit
 login_button = driver.find_element_by_id("submitForm")
