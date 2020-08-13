@@ -70,7 +70,7 @@ class Positions extends React.Component {
       <div className="pane-split-container">
         <div className="left-col">
           <div className="pane-top">
-            <h3 className="pane-header">Position History</h3>
+            <h3 className="pane-header">Positions</h3>
             <div className="dropdown">
               <button
                 className="btn btn-secondary dropdown-toggle"
