@@ -25,8 +25,7 @@ function Header() {
             className="nav-link"
             target="_blank"
             rel="noopener noreferrer"
-            href="http://www.fixme.com/"
-            // FIXME - Change href to internal wiki/SharePoint site that has all documentation
+            href="https://byu.sharepoint.com/sites/silverfund-wiki"
           >
             Documentation
           </a>
