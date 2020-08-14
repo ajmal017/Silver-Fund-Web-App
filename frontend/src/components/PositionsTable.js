@@ -1,7 +1,7 @@
 import React from "react";
 import Spinner from "react-bootstrap/Spinner";
 
-function PosTableHooks(props) {
+function PositionsTable(props) {
   return (
     <div>
       {props.data.length > 0 ? (
@@ -46,4 +46,4 @@ function PosTableHooks(props) {
   );
 }
 
-export default PosTableHooks;
+export default PositionsTable;

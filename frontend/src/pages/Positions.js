@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import DateRanger from "../components/DateRanger";
-import PosTableHooks from "../components/PosTableHooks";
+import PositionsTable from "../components/PositionsTable";
 import { getDateToday } from "../components/Helpers";
 
 function Positions() {
@@ -151,7 +151,7 @@ function Positions() {
           </div>
         )}
         <hr />
-        {showTableNow && <PosTableHooks data={tableData} />}
+        {showTableNow && <PositionsTable data={tableData} />}
       </div>
       {/* <div className="right-col">
           INSERT SAM'S GRAPH COMPONENT HERE
