@@ -155,11 +155,13 @@ function Positions() {
                 Show Current Positions
               </label>
             </div>
-            <DateRanger
-              onStartChange={(value) => setStart(value)}
-              onEndChange={(value) => setEnd(value)}
-              onSubmit={() => getApiData("custom")}
-            />
+            <div className="custom-date-box float-right">
+              <DateRanger
+                onStartChange={(value) => setStart(value)}
+                onEndChange={(value) => setEnd(value)}
+                onSubmit={() => getApiData("custom")}
+              />
+            </div>
           </div>
         )}
         <hr />

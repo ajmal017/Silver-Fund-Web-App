@@ -2,7 +2,7 @@ import React from "react";
 
 function DateRanger(props) {
   return (
-    <div className="custom-date-box">
+    <>
       <h5>Custom Date Range</h5>
       <label className="date-label">
         Start Date:
@@ -28,7 +28,7 @@ function DateRanger(props) {
       >
         Show Positions in Date Range
       </button>
-    </div>
+    </>
   );
 }
 
