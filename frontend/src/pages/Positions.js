@@ -4,7 +4,6 @@ import axios from "axios";
 import DateRanger from "../components/DateRanger";
 import PositionsTable from "../components/PositionsTable";
 import PositionsGraph from "../components/PositionsGraph";
-
 import { getDateToday } from "../components/Helpers";
 
 function Positions() {
@@ -30,7 +29,6 @@ function Positions() {
       axios
         .get("all_positions/")
         .then((response) => {
-
           if (response.data.length === 0) {
             showTableNow(false);
             alert("No positions exist.");
@@ -205,7 +203,7 @@ function Positions() {
         {showTableNow && <PositionsTable data={tableData} />}
       </div>
       <div className="right-col">
-          <PositionsGraph data={tableData}/>
+        <PositionsGraph data={tableData} />
       </div>
     </div>
   );

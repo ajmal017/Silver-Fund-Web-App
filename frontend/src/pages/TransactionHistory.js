@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import DateRanger from "../components/DateRanger";
-
 import TransactionHistoryTable from "../components/TransactionHistoryTable";
+import { getDateToday } from "../components/Helpers";
 
 function TransactionHistory() {
   const [viewType, setViewType] = useState(0);
@@ -12,7 +12,7 @@ function TransactionHistory() {
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
 
-  function getApiData() {
+  function getApiData(callType) {
     setShowTableNow(true);
     setTableData([]);
 
@@ -22,20 +22,76 @@ function TransactionHistory() {
       password: "su",
     };
 
-    axios
-      .get("trades/")
-      .then((response) => {
-        if (response.data.length === 0) {
-          showTableNow(false);
-          alert("No transactions exist.");
-        }
-        setTableData(response.data);
-        console.log("tableData: ", tableData);
-      })
-      .catch((error) => {
-        console.log(error);
-        alert("Error: Failed to load all transaction table.", error);
-      });
+    if (callType === "all") {
+      axios
+        .get("trades/")
+        .then((response) => {
+          if (response.data.length === 0) {
+            showTableNow(false);
+            alert("No transactions exist.");
+          }
+          setTableData(response.data);
+          console.log("tableData: ", tableData);
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Error: Failed to load all transaction table.", error);
+        });
+    }
+
+    if (callType === "current") {
+      axios
+        .get("api/trades/filter/date/", {
+          params: {
+            start: getDateToday(),
+            end: getDateToday(),
+          },
+        })
+        .then((response) => {
+          if (response.data.length === 0) {
+            setShowTableNow(false);
+            alert("No current transactions exist.");
+          }
+          setTableData(response.data);
+
+          console.log("tableData: ", tableData);
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Error: Failed to load current transactions table.", error);
+        });
+    }
+
+    if (callType === "custom") {
+      console.log("start: ", start, " end: ", end);
+      if (start === "" || end === "") {
+        setShowTableNow(false);
+        return alert("Please select both a start date and end date.");
+      }
+
+      axios
+        .get("api/trades/filter/date/", {
+          params: {
+            start: start,
+            end: end,
+          },
+        })
+        .then((response) => {
+          if (response.data.length === 0) {
+            setShowTableNow(false);
+            alert("No transactions exist in that date range.");
+          }
+          setTableData(response.data);
+          console.log("tableData: ", tableData);
+        })
+        .catch((error) => {
+          console.log(error);
+          alert(
+            "Error: Failed to load transactions table for that date range.",
+            error
+          );
+        });
+    }
   }
 
   return (
