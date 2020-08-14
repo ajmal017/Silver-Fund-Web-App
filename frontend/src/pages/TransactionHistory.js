@@ -96,6 +96,7 @@ function TransactionHistory() {
         //   <span onClick={() => getApiData()}>Show All Pos</span>
         // </div>
       )}
+      <hr />
       {showTableNow && <TransactionHistoryTable data={tableData} />}
     </div>
   );
