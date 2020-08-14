@@ -1,8 +1,38 @@
-import React from "react";
-import PositionsTable from "../components/PositionsTable";
+import React, { useState } from "react";
+import axios from "axios";
+
+import TransactionHistoryTable from "../components/TransactionHistoryTable";
 
 function TransactionHistory() {
-  const url = "http://localhost:8000/all_positions/"; // FIXME
+  const [viewType, setViewType] = useState(0);
+  const [showTableNow, setShowTableNow] = useState(false);
+  const [tableData, setTableData] = useState([]);
+
+  function getApiData() {
+    setShowTableNow(true);
+    setTableData([]);
+
+    axios.defaults.baseURL = "http://localhost:8000/";
+    axios.defaults.auth = {
+      username: "su",
+      password: "su",
+    };
+
+    axios
+      .get("trades/")
+      .then((response) => {
+        if (response.data.length === 0) {
+          showTableNow(false);
+          alert("No transactions exist.");
+        }
+        setTableData(response.data);
+        console.log("tableData: ", tableData);
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Error: Failed to load all transaction table.", error);
+      });
+  }
 
   return (
     <div>
@@ -10,24 +40,28 @@ function TransactionHistory() {
         <h3 className="pane-header">Transaction History</h3>
         <div className="dropdown">
           <button
-            className="btn btn-secondary dropdown-toggle"
+            className="btn dropdown-toggle dropdown-btn"
             type="button"
-            id="dropdownMenuButton"
             data-toggle="dropdown"
           >
             View Type
           </button>
-          <div className="dropdown-menu dropdown-menu-right dropdown-menu-right">
-            <a className="dropdown-item" href="http://www.fixme.com/">
+          <div className="dropdown-menu dropdown-menu-right">
+            <span className="dropdown-item" onClick={() => setViewType(1)}>
               By Date (Point-in-Time Snapshot)
-            </a>
-            <a className="dropdown-item" href="http://www.fixme.com/">
+            </span>
+            <span className="dropdown-item" onClick={() => setViewType(2)}>
               History by Stock (Time Series View)
-            </a>
+            </span>
           </div>
         </div>
       </div>
-      <PositionsTable url={url} />
+      {viewType === 1 && (
+        <div>
+          <span onClick={() => getApiData()}>Show All Pos</span>
+        </div>
+      )}
+      {showTableNow && <TransactionHistoryTable data={tableData} />}
     </div>
   );
 }

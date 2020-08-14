@@ -43,19 +43,14 @@ function SigninBox() {
           />
         </div>
         {/* Sign In */}
-        <button type="submit" className="btn btn-dark" id="signin-btn">
+        <button type="submit" className="btn signin-btn">
           Sign In
         </button>
         <p className="forgot-password text-right">
           <a href="http://www.fixme.com/">Forgot password?</a>
         </p>
         <h5>Need an account?</h5>
-        <a
-          className="btn btn-secondary"
-          href="/signup/"
-          role="button"
-          id="signup-link-btn"
-        >
+        <a className="btn signup-link-btn" href="/signup/" role="button">
           Sign Up
         </a>
       </form>

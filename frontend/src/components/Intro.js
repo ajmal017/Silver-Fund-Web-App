@@ -14,10 +14,10 @@ function Intro() {
         analysis.
       </p>
       <a
-        className="btn btn-dark"
-        href="https://marriottschool.byu.edu/mba/about/accelerated-learning/silver-fund/"
-        role="button"
-        id="learn-more-btn"
+        className="btn learn-more-btn"
+        href="https://www.thesilverfund.org/"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         Learn More
       </a>
