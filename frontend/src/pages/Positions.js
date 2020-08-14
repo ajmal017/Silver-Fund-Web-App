@@ -10,7 +10,40 @@ class Positions extends React.Component {
     primaryViewType: 0,
     selectionMade: false,
     tableData: [],
+    chartData: []
   };
+
+  getChartData(){
+    // Ajax call here
+    this.setState({
+      chartData:{
+        labels:['FB', 'TSLA', 'LULU', 'AAPL', 'IBM'],
+        datasets: [
+          {
+            label: 'Precent',
+            data: [
+              30,
+              20,
+              30,
+              10,
+              30
+            ],
+            backgroundColor: [
+              'rgba(55,99,232,0.5)',
+              'rgba(55,99,232,0.5)',
+              'rgba(55,99,232,0.5)',
+              'rgba(55,99,232,0.5)',
+              'rgba(55,99,232,0.5)'
+            ]
+          }
+        ]
+      }
+    })
+  }
+
+  componentWillMount(){
+    this.getChartData();
+  }
 
   choosePrimaryVT(selection) {
     this.setState({ primaryViewType: selection }, () => {
@@ -158,7 +191,7 @@ class Positions extends React.Component {
           )}
         </div>
         <div className="right-col">
-          <PositionsGraph data={this.state.tableData}/>
+          <PositionsGraph chartData={this.state.chartData}/>
         </div>
       </div>
     );

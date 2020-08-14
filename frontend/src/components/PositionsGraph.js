@@ -1,32 +1,64 @@
-import React from "react";
-import Spinner from "react-bootstrap/Spinner";
+import React, {Component} from "react";
+import {Bar, Line, Pie, HorizontalBar} from 'react-chartjs-2';
 
-var myvar = "hi"
+class PositionsGraph extends Component{
 
-class PositionsGraph extends React.Component {
-
-
-  render() {
-    return (
-      <div>
-        <h1>{myvar}</h1>
-        <tbody>
-              {this.props.data.map((item, index) => {
-                return (
-                  <tr key={index}>
-                    <td key={item.asset_id}>{item.asset_id}</td>
-                    <td key={item.ticker}>{item.ticker}</td>
-                    <td key={item.num_of_shares}>{item.num_of_shares}</td>
-                    <td key={item.asset_type}>{item.asset_type}</td>
-                    <td key={item.price}>{item.price}</td>
-                    <td key={item.position_value}>{item.position_value}</td>
-                    <td key={item.date}>{item.date}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
+  constructor(props){
+    super(props);
+    this.state = {
+      chartData:props.chartData
+    }
+  }
+  render(){
+    return(
+      <div className="chart">
+        <HorizontalBar
+          data={this.state.chartData}
+          width={50}
+          height={50}
+          options={{
+              title:{
+                  display:true,
+                  text: 'Positions',
+                  fontsize: 25
+              }, 
+              legend:{
+                  display:false,
+                  position:'right',
+                  labels:{
+                      fontColor:'#000'
+                  }
+              }, 
+              layout:{
+                  padding:{
+                      left:50,
+                      right:0,
+                      bottom:0,
+                      top:0
+                  }
+              },
+              tooltips:{
+                  enabled:true,
+              },
+              scales: {
+                xAxes: [{
+                    ticks: {
+                    min: 0,
+                    max: 50
+                    },
+                    stacked: true,
+                    scaleLabel: {
+                    display: true,
+                    labelString: 'Precent of Portfolio',
+                    fontSize: 16
+                    }
+                }]
+            }
+          }}
+        />
       </div>
-    );
+
+    )
   }
 }
 
