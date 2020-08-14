@@ -127,7 +127,7 @@ function TransactionHistory() {
                 name="by-date-defaults"
                 onClick={() => getApiData("all")}
               />
-              Show All Transaction
+              Show All Transactions
             </label>
             <br />
             <label>
