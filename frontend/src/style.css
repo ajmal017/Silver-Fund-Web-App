@@ -74,11 +74,13 @@ footer {
 
 .btn {
   background-color: #002e5d;
+  color: #fff;
   font-size: 20px;
 }
 
 .btn:hover {
   background-color: black;
+  color: #fff;
 }
 
 /* HOMEPAGE CONTAINER */
@@ -114,7 +116,7 @@ footer {
   color: black;
 }
 
-#learn-more-btn {
+.learn-more-btn {
   width: 150px;
 }
 
@@ -139,27 +141,23 @@ a:hover {
   color: darkslategray;
 }
 
-#signin-btn,
-#signup-link-btn,
-#signup-btn {
+.signin-btn,
+.signup-link-btn,
+.signup-btn {
   width: 260px;
   font-weight: bold;
   letter-spacing: 1px;
   font-family: Helvetica;
 }
 
-#signin-btn:hover {
+.signin-btn:hover,
+.signup-link-btn:hover {
   background-color: #cfcfcf;
   color: black;
 }
 
-#signup-link-btn {
+.signup-link-btn {
   background-color: black;
-}
-
-#signup-link-btn:hover {
-  background-color: #cfcfcf;
-  color: black;
 }
 
 /* SIGNUP PAGE */
@@ -245,12 +243,32 @@ td {
 
 /* POSITIONS PAGE */
 
-.positions-graph {
-  width: 100%;
-  height: 100%;
+#bydate-dropdown {
+  display: inline-block;
 }
 
 .defaults-radio {
   margin-left: 15px;
   margin-right: 15px;
+}
+
+#custom-date-box {
+  width: 250px;
+}
+
+.date-label {
+  margin-left: 15px;
+  width: inherit;
+}
+
+#start-date,
+#end-date {
+  float: right;
+  width: 150px;
+}
+
+.daterange-btn {
+  width: inherit;
+  margin-left: 15px;
+  font-size: small;
 }

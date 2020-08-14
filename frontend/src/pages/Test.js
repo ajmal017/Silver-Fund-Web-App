@@ -14,9 +14,8 @@ class Test extends React.Component {
       <div>
         <div className="dropdown">
           <button
-            className="btn btn-secondary dropdown-toggle"
+            className="btn dropdown-toggle dropdown-btn"
             type="button"
-            id="dropdownMenuButton"
             data-toggle="dropdown"
           >
             Primary View Type

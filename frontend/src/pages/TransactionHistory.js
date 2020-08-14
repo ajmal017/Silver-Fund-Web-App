@@ -10,9 +10,9 @@ function TransactionHistory() {
         <h3 className="pane-header">Transaction History</h3>
         <div className="dropdown">
           <button
-            className="btn btn-secondary dropdown-toggle"
+            className="btn dropdown-toggle"
             type="button"
-            id="dropdownMenuButton"
+            id="dropdown-btn"
             data-toggle="dropdown"
           >
             View Type

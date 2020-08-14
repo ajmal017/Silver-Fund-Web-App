@@ -66,7 +66,7 @@ function Signup() {
           />
         </div>
         {/* Sign Up */}
-        <button type="submit" className="btn btn-dark" id="signup-btn">
+        <button type="submit" className="btn signup-btn">
           Sign Up
         </button>
       </form>

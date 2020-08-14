@@ -14,11 +14,10 @@ function Intro() {
         analysis.
       </p>
       <a
-        className="btn btn-dark"
+        className="btn learn-more-btn"
         href="https://www.thesilverfund.org/"
         target="_blank"
         rel="noopener noreferrer"
-        id="learn-more-btn"
       >
         Learn More
       </a>
