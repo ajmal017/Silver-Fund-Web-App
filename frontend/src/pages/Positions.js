@@ -118,7 +118,44 @@ function Positions() {
               </span>
             </div>
           </div>
+          <div className="dropdown">
+            <button
+              className="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+            >
+              Secondary View Type
+            </button>
+            <div className="dropdown-menu dropdown-menu-right">
+              <a className="dropdown-item" href="http://www.fixme.com/">
+                $ Positions by Stock
+              </a>
+              <a className="dropdown-item" href="http://www.fixme.com/">
+                % Positions by Stock
+              </a>
+              <a className="dropdown-item" href="http://www.fixme.com/">
+                $ Positions vs. Benchmark by Stock
+              </a>
+              <a className="dropdown-item" href="http://www.fixme.com/">
+                % Positions vs. Benchmark by Stock
+              </a>
+              <a className="dropdown-item" href="http://www.fixme.com/">
+                $ Positions by Industry
+              </a>
+              <a className="dropdown-item" href="http://www.fixme.com/">
+                % Positions by Industry
+              </a>
+              <a className="dropdown-item" href="http://www.fixme.com/">
+                $ Positions vs. Benchmark by Industry
+              </a>
+              <a className="dropdown-item" href="http://www.fixme.com/">
+                % Positions vs. Benchmark by Industry
+              </a>
+            </div>
+          </div>
         </div>
+
         {primaryVT === 1 && (
           <div id="bydate-dropdown">
             <div className="left-col">

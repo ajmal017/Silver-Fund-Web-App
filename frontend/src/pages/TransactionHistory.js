@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import DateRanger from "../components/DateRanger";
+
 import TransactionHistoryTable from "../components/TransactionHistoryTable";
 
 function TransactionHistory() {
   const [viewType, setViewType] = useState(0);
   const [showTableNow, setShowTableNow] = useState(false);
   const [tableData, setTableData] = useState([]);
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
 
   function getApiData() {
     setShowTableNow(true);
@@ -57,9 +61,40 @@ function TransactionHistory() {
         </div>
       </div>
       {viewType === 1 && (
-        <div>
-          <span onClick={() => getApiData()}>Show All Pos</span>
+        <div id="bydate-dropdown">
+          <div className="left-col">
+            <h5>Defaults</h5>
+            <label>
+              <input
+                type="radio"
+                className="defaults-radio"
+                name="by-date-defaults"
+                onClick={() => getApiData("all")}
+              />
+              Show All Transaction
+            </label>
+            <br />
+            <label>
+              <input
+                type="radio"
+                className="defaults-radio"
+                name="by-date-defaults"
+                onClick={() => getApiData("current")}
+              />
+              Show Current Transactions
+            </label>
+          </div>
+          <div className="custom-date-box float-right">
+            <DateRanger
+              onStartChange={(value) => setStart(value)}
+              onEndChange={(value) => setEnd(value)}
+              onSubmit={() => getApiData("custom")}
+            />
+          </div>
         </div>
+        // <div>
+        //   <span onClick={() => getApiData()}>Show All Pos</span>
+        // </div>
       )}
       {showTableNow && <TransactionHistoryTable data={tableData} />}
     </div>
