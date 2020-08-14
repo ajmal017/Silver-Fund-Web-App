@@ -3,18 +3,22 @@ import axios from "axios";
 
 import DateRanger from "../components/DateRanger";
 import PositionsTable from "../components/PositionsTable";
+import PositionsGraph from "../components/PositionsGraph";
+
 import { getDateToday } from "../components/Helpers";
 
 function Positions() {
   const [primaryVT, setPrimaryVT] = useState(0);
   const [showTableNow, setShowTableNow] = useState(false);
   const [tableData, setTableData] = useState([]);
+  const [tickerData, setTickerData] = useState([]);
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
 
   function getApiData(callType) {
     setShowTableNow(true);
     setTableData([]);
+    setTickerData([]);
 
     axios.defaults.baseURL = "http://localhost:8000/";
     axios.defaults.auth = {
@@ -26,11 +30,18 @@ function Positions() {
       axios
         .get("all_positions/")
         .then((response) => {
+
           if (response.data.length === 0) {
             showTableNow(false);
             alert("No positions exist.");
           }
           setTableData(response.data);
+          // response.data.map((item, index) => {
+          //   console.log("Asset_id", response.data[index].asset_id);
+          //   setTickerData(item.asset_id);
+          // });
+
+          console.log("TickerData", tickerData);
           console.log("tableData: ", tableData);
         })
         .catch((error) => {
@@ -53,6 +64,7 @@ function Positions() {
             alert("No current positions exist.");
           }
           setTableData(response.data);
+
           console.log("tableData: ", tableData);
         })
         .catch((error) => {
@@ -192,9 +204,9 @@ function Positions() {
         <hr />
         {showTableNow && <PositionsTable data={tableData} />}
       </div>
-      {/* <div className="right-col">
-          INSERT SAM'S GRAPH COMPONENT HERE
-        </div> */}
+      <div className="right-col">
+          <PositionsGraph data={tableData}/>
+      </div>
     </div>
   );
 }
