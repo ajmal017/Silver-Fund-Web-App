@@ -205,7 +205,7 @@ class Positions extends React.Component {
                   Show Current Positions
                 </label>
               </div>
-              <div className="right-col" id="custom-date-box">
+              <div className="right-col custom-date-box">
                 <h5>Custom</h5>
                 <label className="date-label">
                   Start Date:
