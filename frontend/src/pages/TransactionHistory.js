@@ -1,5 +1,5 @@
 import React from "react";
-import PositionsTable from "../components/PositionsTable";
+import PositionsTable from "../components/PositionsTableClass";
 
 function TransactionHistory() {
   const url = "http://localhost:8000/all_positions/"; // FIXME

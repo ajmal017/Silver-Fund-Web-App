@@ -1,7 +1,7 @@
 import React from "react";
 import Spinner from "react-bootstrap/Spinner";
 
-class PositionsTable extends React.Component {
+class PositionsTableClass extends React.Component {
   render() {
     return (
       <div>
@@ -48,4 +48,4 @@ class PositionsTable extends React.Component {
   }
 }
 
-export default PositionsTable;
+export default PositionsTableClass;

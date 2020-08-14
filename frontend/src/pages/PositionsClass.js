@@ -1,9 +1,9 @@
 import React from "react";
 import axios from "axios";
 
-import PositionsTable from "../components/PositionsTable";
+import PositionsTable from "../components/PositionsTableClass";
 
-class Positions extends React.Component {
+class PositionsClass extends React.Component {
   state = {
     primaryViewType: 0,
     showTableNow: false,
@@ -253,4 +253,4 @@ class Positions extends React.Component {
   }
 }
 
-export default Positions;
+export default PositionsClass;

@@ -1,59 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import DateRanger from "../components/DateRanger";
 
-class Test extends React.Component {
-  state = {
-    positionViewType: 0,
-  };
+function Test() {
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
+  const [ready, setReady] = useState(false);
 
-  onDropdownClick = (viewTypeNumber) => {
-    this.setState({ positionViewType: viewTypeNumber });
-  };
-
-  render() {
-    return (
-      <div>
-        <div className="dropdown">
-          <button
-            className="btn dropdown-toggle dropdown-btn"
-            type="button"
-            data-toggle="dropdown"
-          >
-            Primary View Type
-          </button>
-          <div className="dropdown-menu dropdown-menu-right">
-            <span
-              className="dropdown-item"
-              onClick={() => this.onDropdownClick(1)}
-            >
-              By Date (Point-in-Time Snapshot)
-            </span>
-            <span
-              className="dropdown-item"
-              onClick={() => this.onDropdownClick(2)}
-            >
-              History by Stock (Time Series View)
-            </span>
-            <span
-              className="dropdown-item"
-              onClick={() => this.onDropdownClick(3)}
-            >
-              History by Industry (Time Series View)
-            </span>
-          </div>
+  return (
+    <div>
+      <DateRanger
+        onStartChange={(value) => setStart(value)}
+        onEndChange={(value) => setEnd(value)}
+        onSubmit={(value) => setReady(value)}
+      />
+      <hr />
+      {ready && (
+        <div>
+          {start} {end}}
         </div>
-        <hr />
-        {this.state.positionViewType === 1 ? (
-          <h1>OPTION 1</h1>
-        ) : this.state.positionViewType === 2 ? (
-          <h1>OPTION 2</h1>
-        ) : this.state.positionViewType === 3 ? (
-          <h1>OPTION 3</h1>
-        ) : (
-          <h1>CHOOSE AN OPTION FROM ABOVE</h1>
-        )}
-      </div>
-    );
-  }
+      )}
+    </div>
+  );
 }
 
 export default Test;
