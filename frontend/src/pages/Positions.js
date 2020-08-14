@@ -5,47 +5,6 @@ import DateRanger from "../components/DateRanger";
 import PositionsTable from "../components/PositionsTable";
 import PositionsGraph from "../components/PositionsGraph";
 
-
-// import testGraph from "../images/test-graph.png";
-
-// class Positions extends React.Component {
-  // state = {
-  //   chartData: []
-  // };
-
-  // getChartData(){
-  //   // Ajax call here
-  //   this.setState({
-  //     chartData:{
-  //       labels:['FB', 'TSLA', 'LULU', 'AAPL', 'IBM'],
-  //       datasets: [
-  //         {
-  //           label: 'Precent',
-  //           data: [
-  //             30,
-  //             20,
-  //             30,
-  //             10,
-  //             30
-  //           ],
-  //           backgroundColor: [
-  //             'rgba(55,99,232,0.5)',
-  //             'rgba(55,99,232,0.5)',
-  //             'rgba(55,99,232,0.5)',
-  //             'rgba(55,99,232,0.5)',
-  //             'rgba(55,99,232,0.5)'
-  //           ]
-  //         }
-  //       ]
-  //     }
-  //   })
-  // }
-
-  // componentWillMount(){
-  //   this.getChartData();
-  // }
-
-
 import { getDateToday } from "../components/Helpers";
 
 function Positions() {
