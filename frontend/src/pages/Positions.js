@@ -9,20 +9,25 @@ import { getDateToday } from "../components/Helpers";
 function Positions() {
   const [primaryVT, setPrimaryVT] = useState(0);
   const [showTableNow, setShowTableNow] = useState(false);
+  const [showGraphNow, setShowGraphNow] = useState(false);
+
   const [tableData, setTableData] = useState([]);
   const [tickerData, setTickerData] = useState([]);
+  const [numHoldingsData, setNumHoldingsData] = useState([]);
+
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
 
   function getApiData(callType) {
     setShowTableNow(true);
+    setShowGraphNow(true);
     setTableData([]);
     setTickerData([]);
 
     axios.defaults.baseURL = "http://localhost:8000/";
     axios.defaults.auth = {
-      username: "su",
-      password: "su",
+      username: "admin",
+      password: "password",
     };
 
     if (callType === "all") {
@@ -31,16 +36,15 @@ function Positions() {
         .then((response) => {
           if (response.data.length === 0) {
             showTableNow(false);
+            showGraphNow(false);
             alert("No positions exist.");
           }
           setTableData(response.data);
-          // response.data.map((item, index) => {
-          //   console.log("Asset_id", response.data[index].asset_id);
-          //   setTickerData(item.asset_id);
-          // });
-
+          setTickerData(response.data.map(({ticker}) => ticker));
+          setNumHoldingsData(response.data.map(({num_of_shares}) => num_of_shares));
+          
           console.log("TickerData", tickerData);
-          console.log("tableData: ", tableData);
+           
         })
         .catch((error) => {
           console.log(error);
@@ -59,10 +63,14 @@ function Positions() {
         .then((response) => {
           if (response.data.length === 0) {
             setShowTableNow(false);
+            setShowGraphNow(false);
             alert("No current positions exist.");
           }
           setTableData(response.data);
+          setTickerData(response.data.map(({ticker}) => ticker));
+          setNumHoldingsData(response.data.map(({num_of_shares}) => num_of_shares));
 
+          console.log("TickerData", tickerData);
           console.log("tableData: ", tableData);
         })
         .catch((error) => {
@@ -75,6 +83,7 @@ function Positions() {
       console.log("start: ", start, " end: ", end);
       if (start === "" || end === "") {
         setShowTableNow(false);
+        setShowGraphNow(false);
         return alert("Please select both a start date and end date.");
       }
 
@@ -88,6 +97,7 @@ function Positions() {
         .then((response) => {
           if (response.data.length === 0) {
             setShowTableNow(false);
+            setShowGraphNow(false);
             alert("No positions exist in that date range.");
           }
           setTableData(response.data);
@@ -200,10 +210,12 @@ function Positions() {
           </div>
         )}
         <hr />
-        {showTableNow && <PositionsTable data={tableData} />}
+        {showTableNow && <PositionsTable tableData={tableData} />}
+       
+        
       </div>
-      <div className="right-col">
-        <PositionsGraph data={tableData} />
+      <div className="right-col chart" >
+      {showTableNow && <PositionsGraph tickerData={tickerData} numHoldingsData={numHoldingsData}/>}
       </div>
     </div>
   );
