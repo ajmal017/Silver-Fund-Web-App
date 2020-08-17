@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import DateRanger from "../components/DateRanger";
+import DateSingler from "../components/DateSingler";
 import PositionsTable from "../components/PositionsTable";
 import PositionsGraph from "../components/PositionsGraph";
 import { getDateToday } from "../components/Helpers";
@@ -130,10 +131,22 @@ function Positions() {
               Primary View Type
             </button>
             <div className="dropdown-menu dropdown-menu-right">
-              <span className="dropdown-item" onClick={() => setPrimaryVT(1)}>
-                By Date (Point-in-Time Snapshot)
+              <span
+                className="dropdown-item"
+                onClick={() => {
+                  getApiData("current");
+                  setPrimaryVT(1);
+                }}
+              >
+                Snapshot (Bar Chart View)
               </span>
-              <span className="dropdown-item" onClick={() => setPrimaryVT(2)}>
+              <span
+                className="dropdown-item"
+                onClick={() => {
+                  getApiData("all");
+                  setPrimaryVT(2);
+                }}
+              >
                 History by Stock (Time Series View)
               </span>
               <span className="dropdown-item" onClick={() => setPrimaryVT(3)}>
@@ -180,36 +193,23 @@ function Positions() {
         </div>
 
         {primaryVT === 1 && (
-          <div id="bydate-dropdown">
-            <div className="left-col">
-              <h5>Defaults</h5>
-              <label>
-                <input
-                  type="radio"
-                  className="defaults-radio"
-                  name="by-date-defaults"
-                  onClick={() => getApiData("all")}
-                />
-                Show All Positions
-              </label>
-              <br />
-              <label>
-                <input
-                  type="radio"
-                  className="defaults-radio"
-                  name="by-date-defaults"
-                  onClick={() => getApiData("current")}
-                />
-                Show Current Positions
-              </label>
-            </div>
-            <div className="custom-date-box float-right">
-              <DateRanger
-                onStartChange={(value) => setStart(value)}
-                onEndChange={(value) => setEnd(value)}
-                onSubmit={() => getApiData("custom")}
-              />
-            </div>
+          <div className="custom-date-box">
+            <DateSingler
+              onDateChange={(value) => {
+                setStart(value);
+                setEnd(value);
+              }}
+              onSubmit={() => getApiData("custom")}
+            />
+          </div>
+        )}
+        {primaryVT === 2 && (
+          <div className="custom-date-box">
+            <DateRanger
+              onStartChange={(value) => setStart(value)}
+              onEndChange={(value) => setEnd(value)}
+              onSubmit={() => getApiData("custom")}
+            />
           </div>
         )}
         <hr />

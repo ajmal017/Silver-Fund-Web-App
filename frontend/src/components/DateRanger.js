@@ -8,7 +8,7 @@ function DateRanger(props) {
         Start Date:
         <input
           type="date"
-          id="start-date"
+          className="date-input start-date"
           onChange={(event) => props.onStartChange(event.target.value)}
         />
       </label>
@@ -17,15 +17,12 @@ function DateRanger(props) {
         End Date:
         <input
           type="date"
-          id="end-date"
+          className="date-input end-date"
           onChange={(event) => props.onEndChange(event.target.value)}
         />
       </label>
       <br />
-      <button
-        className="btn daterange-btn"
-        onClick={() => props.onSubmit(true)}
-      >
+      <button className="btn date-btn" onClick={() => props.onSubmit()}>
         Show Positions in Date Range
       </button>
     </>
