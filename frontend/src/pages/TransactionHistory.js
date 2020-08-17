@@ -17,10 +17,10 @@ function TransactionHistory() {
     setTableData([]);
 
     axios.defaults.baseURL = "http://localhost:8000/";
-    axios.defaults.auth = {
-      username: "su",
-      password: "su",
-    };
+    // axios.defaults.auth = {
+    //   username: "su",
+    //   password: "su",
+    // };
 
     if (callType === "all") {
       axios

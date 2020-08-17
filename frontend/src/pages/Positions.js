@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import DateRanger from "../components/DateRanger";
+import DateSingler from "../components/DateSingler";
 import PositionsTable from "../components/PositionsTable";
 import PositionsGraph from "../components/PositionsGraph";
 import { getDateToday } from "../components/Helpers";
@@ -28,10 +29,10 @@ function Positions() {
     setTickerData([]);
 
     axios.defaults.baseURL = "http://localhost:8000/";
-    axios.defaults.auth = {
-      username: "admin",
-      password: "password",
-    };
+    // axios.defaults.auth = {
+    //   username: "su",
+    //   password: "su",
+    // };
 
     if (callType === "all") {
       axios
@@ -43,11 +44,12 @@ function Positions() {
             alert("No positions exist.");
           }
           setTableData(response.data);
-          setTickerData(response.data.map(({ticker}) => ticker));
-          setWeightsData(convertToPrecentage(response.data.map(({num_of_shares}) => num_of_shares)));
-          
+          setTickerData(response.data.map(({ ticker }) => ticker));
+          // setNumHoldingsData(
+          //   response.data.map(({ num_of_shares }) => num_of_shares)
+          // );
+
           console.log("TickerData", tickerData);
-           
         })
         .catch((error) => {
           console.log(error);
@@ -105,6 +107,9 @@ function Positions() {
             alert("No positions exist in that date range.");
           }
           setTableData(response.data);
+          setTickerData(response.data.map(({ticker}) => ticker));
+          setPositionsData(response.data.map(({position_value}) => position_value));
+          setWeightsData(convertToPrecentage(response.data.map(({position_value}) => position_value)));
           console.log("tableData: ", tableData);
         })
         .catch((error) => {
@@ -131,10 +136,22 @@ function Positions() {
               Primary View Type
             </button>
             <div className="dropdown-menu dropdown-menu-right">
-              <span className="dropdown-item" onClick={() => setPrimaryVT(1)}>
-                By Date (Point-in-Time Snapshot)
+              <span
+                className="dropdown-item"
+                onClick={() => {
+                  getApiData("current");
+                  setPrimaryVT(1);
+                }}
+              >
+                Snapshot (Bar Chart View)
               </span>
-              <span className="dropdown-item" onClick={() => setPrimaryVT(2)}>
+              <span
+                className="dropdown-item"
+                onClick={() => {
+                  getApiData("all");
+                  setPrimaryVT(2);
+                }}
+              >
                 History by Stock (Time Series View)
               </span>
               <span className="dropdown-item" onClick={() => setPrimaryVT(3)}>
@@ -181,42 +198,27 @@ function Positions() {
         </div>
 
         {primaryVT === 1 && (
-          <div id="bydate-dropdown">
-            <div className="left-col">
-              <h5>Defaults</h5>
-              <label>
-                <input
-                  type="radio"
-                  className="defaults-radio"
-                  name="by-date-defaults"
-                  onClick={() => getApiData("all")}
-                />
-                Show All Positions
-              </label>
-              <br />
-              <label>
-                <input
-                  type="radio"
-                  className="defaults-radio"
-                  name="by-date-defaults"
-                  onClick={() => getApiData("current")}
-                />
-                Show Current Positions
-              </label>
-            </div>
-            <div className="custom-date-box float-right">
-              <DateRanger
-                onStartChange={(value) => setStart(value)}
-                onEndChange={(value) => setEnd(value)}
-                onSubmit={() => getApiData("custom")}
-              />
-            </div>
+          <div className="custom-date-box">
+            <DateSingler
+              onDateChange={(value) => {
+                setStart(value);
+                setEnd(value);
+              }}
+              onSubmit={() => getApiData("custom")}
+            />
+          </div>
+        )}
+        {primaryVT === 2 && (
+          <div className="custom-date-box">
+            <DateRanger
+              onStartChange={(value) => setStart(value)}
+              onEndChange={(value) => setEnd(value)}
+              onSubmit={() => getApiData("custom")}
+            />
           </div>
         )}
         <hr />
         {showTableNow && <PositionsTable tableData={tableData} />}
-       
-        
       </div>
       <div className="right-col chart" >
       {showTableNow && (secondaryVT === 1) && <PositionsGraph tickerData={tickerData} valuesData={positionsData}/>}
