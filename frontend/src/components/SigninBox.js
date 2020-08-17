@@ -50,8 +50,12 @@ function SigninBox() {
           <a href="http://www.fixme.com/">Forgot password?</a>
         </p>
         <h5>Need an account?</h5>
-        <a className="btn signup-link-btn" href="/signup/" role="button">
-          Sign Up
+        <a
+          className="btn signup-link-btn"
+          href="mailto:silverfund@byu?subject=Account Creation Request" // FIXME - Add valid email address
+          role="button"
+        >
+          Contact Us
         </a>
       </form>
     </div>
