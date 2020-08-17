@@ -3,21 +3,27 @@ import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Positions from "./Positions";
 import TransactionHistory from "./TransactionHistory";
+import Dashboard from "./Dashboard";
 
 function Test() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <>
-      <Tabs defaultActiveKey="home">
-        <Tab eventKey="home" title="Home">
-          <h1>Welcome Home!</h1>
-        </Tab>
-        <Tab eventKey="profile" title="Positions">
-          <Positions />
-        </Tab>
-        <Tab eventKey="contact" title="Transaction History">
-          <TransactionHistory />
-        </Tab>
-      </Tabs>
+      {isLoggedIn && (
+        <Tabs defaultActiveKey="home">
+          <Tab eventKey="home" title="Home">
+            <Dashboard />
+          </Tab>
+          <Tab eventKey="profile" title="Positions">
+            <Positions />
+          </Tab>
+          <Tab eventKey="contact" title="Transaction History">
+            <TransactionHistory />
+          </Tab>
+        </Tabs>
+      )}
+      <button onClick={() => setIsLoggedIn(true)}>LOG ME IN</button>
     </>
   );
 }
