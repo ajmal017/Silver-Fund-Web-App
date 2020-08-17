@@ -83,10 +83,10 @@ WSGI_APPLICATION = "backend.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "silverfunddb",
+        "NAME": "sfdb",
         'USER': 'admin',
         'PASSWORD': 'password',
-        'HOST': 'silver-fund-test.csnkvct2ncz0.us-west-2.rds.amazonaws.com', 
+        'HOST': 'sftest.csnkvct2ncz0.us-west-2.rds.amazonaws.com', 
         'PORT': '3306',
     }
 }
