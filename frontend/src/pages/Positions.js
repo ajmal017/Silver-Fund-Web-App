@@ -5,15 +5,18 @@ import DateRanger from "../components/DateRanger";
 import PositionsTable from "../components/PositionsTable";
 import PositionsGraph from "../components/PositionsGraph";
 import { getDateToday } from "../components/Helpers";
+import { convertToPrecentage } from "../components/Helpers"
 
 function Positions() {
   const [primaryVT, setPrimaryVT] = useState(0);
+  const [secondaryVT, setSecondaryVT] = useState(1);
   const [showTableNow, setShowTableNow] = useState(false);
   const [showGraphNow, setShowGraphNow] = useState(false);
 
   const [tableData, setTableData] = useState([]);
   const [tickerData, setTickerData] = useState([]);
-  const [numHoldingsData, setNumHoldingsData] = useState([]);
+  const [weightsData, setWeightsData] = useState([]);
+  const [positionsData, setPositionsData] = useState([]);
 
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
@@ -41,7 +44,7 @@ function Positions() {
           }
           setTableData(response.data);
           setTickerData(response.data.map(({ticker}) => ticker));
-          setNumHoldingsData(response.data.map(({num_of_shares}) => num_of_shares));
+          setWeightsData(convertToPrecentage(response.data.map(({num_of_shares}) => num_of_shares)));
           
           console.log("TickerData", tickerData);
            
@@ -68,10 +71,11 @@ function Positions() {
           }
           setTableData(response.data);
           setTickerData(response.data.map(({ticker}) => ticker));
-          setNumHoldingsData(response.data.map(({num_of_shares}) => num_of_shares));
+          setPositionsData(response.data.map(({position_value}) => position_value));
+          setWeightsData(convertToPrecentage(response.data.map(({position_value}) => position_value)));
 
-          console.log("TickerData", tickerData);
-          console.log("tableData: ", tableData);
+          console.log("Tdata", positionsData);
+          // console.log("tableData: ", tableData);
         })
         .catch((error) => {
           console.log(error);
@@ -148,10 +152,10 @@ function Positions() {
               Secondary View Type
             </button>
             <div className="dropdown-menu dropdown-menu-right">
-              <a className="dropdown-item" href="http://www.fixme.com/">
+              <a className="dropdown-item" onClick={() => setSecondaryVT(1)}>
                 $ Positions by Stock
               </a>
-              <a className="dropdown-item" href="http://www.fixme.com/">
+              <a className="dropdown-item" onClick={() => setSecondaryVT(2)}>
                 % Positions by Stock
               </a>
               <a className="dropdown-item" href="http://www.fixme.com/">
@@ -215,7 +219,8 @@ function Positions() {
         
       </div>
       <div className="right-col chart" >
-      {showTableNow && <PositionsGraph tickerData={tickerData} numHoldingsData={numHoldingsData}/>}
+      {showTableNow && (secondaryVT === 1) && <PositionsGraph tickerData={tickerData} valuesData={positionsData}/>}
+      {showTableNow && (secondaryVT === 2) && <PositionsGraph tickerData={tickerData} valuesData={weightsData}/>}
       </div>
     </div>
   );

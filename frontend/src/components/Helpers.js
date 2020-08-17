@@ -10,3 +10,12 @@ export function getDateToday() {
   // return date;
   return new Date().toISOString().substring(0, 10);
 }
+
+export function convertToPrecentage(values){
+  const add = (a, b) =>
+  a + b
+
+  const sum = values.reduce(add);
+
+  return values.map(function(x) { return (100 * (x / sum)).toFixed(2); });
+}
