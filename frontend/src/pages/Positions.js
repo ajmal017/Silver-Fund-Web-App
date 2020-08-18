@@ -118,7 +118,7 @@ function Positions() {
   }
 
   return (
-    <div className="pane-split-container">
+    <div className="content pane-split-container">
       <div className="left-col">
         <div className="pane-top">
           <h3 className="pane-header">Positions</h3>

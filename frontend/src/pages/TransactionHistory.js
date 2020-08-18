@@ -95,7 +95,7 @@ function TransactionHistory() {
   }
 
   return (
-    <div>
+    <div className="content">
       <div className="pane-top">
         <h3 className="pane-header">Transaction History</h3>
         <div className="dropdown">

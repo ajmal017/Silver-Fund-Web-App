@@ -46,8 +46,10 @@ function SigninBox() {
         <button type="submit" className="btn signin-btn">
           Sign In
         </button>
-        <p className="forgot-password text-right">
-          <a href="http://www.fixme.com/">Forgot password?</a>
+        <p className="text-right">
+          <a className="forgot-password" href="http://www.fixme.com/">
+            Forgot password?
+          </a>
         </p>
         <h5>Need an account?</h5>
         <a

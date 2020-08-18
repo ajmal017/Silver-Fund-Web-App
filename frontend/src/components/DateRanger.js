@@ -3,7 +3,6 @@ import React from "react";
 function DateRanger(props) {
   return (
     <>
-      <h5>Custom Date Range</h5>
       <label className="date-label">
         Start Date:
         <input

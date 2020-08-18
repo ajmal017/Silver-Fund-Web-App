@@ -1,19 +1,21 @@
 import React from "react";
 import { Route } from "react-router-dom";
 
-import HomeSignin from "./pages/HomeSignin";
+import Panes from "./components/Panes";
+import Signin from "./pages/Signin";
 import Positions from "./pages/Positions";
 import TransactionHistory from "./pages/TransactionHistory";
 import Test from "./pages/Test";
 
 function Routes() {
   return (
-    <div className="content">
-      <Route exact path="/" component={HomeSignin} />
+    <>
+      <Route exact path="/" component={Panes} />
+      <Route exact path="/signin/" component={Signin} />
       <Route exact path="/positions/" component={Positions} />
       <Route exact path="/transactionhistory/" component={TransactionHistory} />
       <Route exact path="/test/" component={Test} />
-    </div>
+    </>
   );
 }
 

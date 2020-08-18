@@ -67,9 +67,13 @@ footer {
 
 .content {
   background-color: #cfcfcf;
-  min-height: 85vh;
+  min-height: 80vh;
   color: #002e5d;
-  /* padding: 3vw; */
+  padding: 3vw;
+}
+
+hr {
+  background-color: #002e5d;
 }
 
 .btn {
@@ -90,12 +94,13 @@ footer {
   flex-wrap: wrap-reverse;
   align-items: center;
   justify-content: center;
+  min-height: 85vh;
 }
 
 /* INTRO COMPONENT */
 
 .sf-intro {
-  margin: 5vw;
+  margin-right: 5vw;
   text-align: center;
   max-width: 650px;
 }
@@ -133,12 +138,21 @@ footer {
   text-align: center;
 }
 
+/* Pane Adjustments */
 a {
-  color: lightslategray;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+a:hover {
+  color: #002e5d;
+  background-color: rgba(207, 207, 207, 0.7);
 }
 
-a:hover {
-  color: darkslategray;
+.forgot-password {
+  color: slategray;
+}
+.forgot-password:hover {
+  background-color: transparent;
 }
 
 .signin-btn,
@@ -241,8 +255,6 @@ td {
   float: right;
 }
 
-/* POSITIONS PAGE */
-
 #bydate-dropdown {
   display: inline-block;
 }
@@ -275,4 +287,12 @@ td {
 
 h5 {
   padding-bottom: 10px;
+}
+
+/* MOBILE ADJUSTMENTS */
+
+@media (max-width: 600px) {
+  .sf-intro {
+    margin-right: 0px;
+  }
 }

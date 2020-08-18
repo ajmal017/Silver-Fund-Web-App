@@ -15,19 +15,12 @@ function Header() {
           />
         </h3>
         <nav className="nav nav-masthead justify-content-center">
+          {/* FIXME - Add logic so it isn't visible when user is signed in. */}
           <a className="nav-link active" href="/">
             Home
           </a>
-          <a className="nav-link" href="/signup/">
-            Sign Up
-          </a>
-          <a
-            className="nav-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://byu.sharepoint.com/sites/silverfund-wiki"
-          >
-            Documentation
+          <a className="nav-link" href="/signin/">
+            Sign Out
           </a>
         </nav>
       </header>
