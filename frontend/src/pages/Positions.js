@@ -209,7 +209,7 @@ export default function Positions() {
 
         {primaryVT === 1 && (
           <>
-            <div className="small-box d-inline-block">
+            <div className="small-box d-inline-block ml-4">
               <DateSingler
                 onDateChange={(value) => {
                   setStart(value);
@@ -224,14 +224,18 @@ export default function Positions() {
           </>
         )}
         {primaryVT === 2 && (
-          <div className="small-box ml-4">
-            <DateRanger
-              onStartChange={(value) => setStart(value)}
-              onEndChange={(value) => setEnd(value)}
-              onSubmit={() => getApiData("custom")}
-            />
-            <TickerSelector tableData={tableData} />
-          </div>
+          <>
+            <div className="small-box d-inline-block ml-4">
+              <DateRanger
+                onStartChange={(value) => setStart(value)}
+                onEndChange={(value) => setEnd(value)}
+                onSubmit={() => getApiData("custom")}
+              />
+            </div>
+            <div className="small-box d-inline-block ml-4">
+              <TickerSelector tableData={tableData} />
+            </div>
+          </>
         )}
         <hr />
         {showTableNow && <PositionsTable tableData={tableData} />}

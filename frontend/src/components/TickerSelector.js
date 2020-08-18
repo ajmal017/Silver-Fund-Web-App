@@ -11,6 +11,10 @@ export default function TickerSelector(props) {
   }));
   //console.log("tickerOptions: ", tickerOptions);
 
+  // function filterTableData() {
+  //   props.tableData;
+  // }
+
   return (
     <>
       {props.tableData && props.tableData.length > 0 ? (
@@ -31,9 +35,7 @@ export default function TickerSelector(props) {
           </button>
         </>
       ) : (
-        <>
-          <Select isDisabled placeholder="First select a valid date/range." />
-        </>
+        <Select isDisabled placeholder="Select date(s) before tickers." />
       )}
     </>
   );
