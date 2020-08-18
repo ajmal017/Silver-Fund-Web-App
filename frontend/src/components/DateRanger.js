@@ -1,6 +1,6 @@
 import React from "react";
 
-function DateRanger(props) {
+export default function DateRanger(props) {
   return (
     <>
       <label className="date-label">
@@ -27,5 +27,3 @@ function DateRanger(props) {
     </>
   );
 }
-
-export default DateRanger;

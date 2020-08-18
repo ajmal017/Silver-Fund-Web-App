@@ -5,7 +5,7 @@ import Dashboard from "../pages/Dashboard";
 import Positions from "../pages/Positions";
 import TransactionHistory from "../pages/TransactionHistory";
 
-function Panes() {
+export default function Panes() {
   return (
     <Tabs defaultActiveKey="dashboard">
       <Tab eventKey="dashboard" title="Dashboard">
@@ -20,5 +20,3 @@ function Panes() {
     </Tabs>
   );
 }
-
-export default Panes;

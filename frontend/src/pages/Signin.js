@@ -3,7 +3,7 @@ import React from "react";
 import Intro from "../components/Intro";
 import SigninBox from "../components/SigninBox";
 
-function Signin() {
+export default function Signin() {
   return (
     <div className="content home-container-intro-signin">
       <Intro />
@@ -11,5 +11,3 @@ function Signin() {
     </div>
   );
 }
-
-export default Signin;

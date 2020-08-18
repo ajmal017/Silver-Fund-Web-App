@@ -2,7 +2,7 @@ import React from "react";
 
 import tradingImg from "../images/trading-trans-white.png";
 
-function Intro() {
+export default function Intro() {
   return (
     <div className="sf-intro">
       <img src={tradingImg} alt="" className="trading-img" />
@@ -24,5 +24,3 @@ function Intro() {
     </div>
   );
 }
-
-export default Intro;

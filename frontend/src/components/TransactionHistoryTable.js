@@ -1,7 +1,7 @@
 import React from "react";
 import Spinner from "react-bootstrap/Spinner";
 
-function TransactionHistoryTable(props) {
+export default function TransactionHistoryTable(props) {
   return (
     <div>
       {props.data.length > 0 ? (
@@ -39,5 +39,3 @@ function TransactionHistoryTable(props) {
     </div>
   );
 }
-
-export default TransactionHistoryTable;

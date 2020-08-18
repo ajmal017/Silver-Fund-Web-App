@@ -3,7 +3,7 @@ import React from "react";
 import passwordIcon from "../images/lock.png";
 import usernameIcon from "../images/user.png";
 
-function Signup() {
+export default function Signup() {
   return (
     <div className="card" id="signup-box">
       <h4 className="card-title">Create Account</h4>
@@ -76,5 +76,3 @@ function Signup() {
     </div>
   );
 }
-
-export default Signup;

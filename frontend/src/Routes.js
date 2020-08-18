@@ -7,7 +7,7 @@ import Positions from "./pages/Positions";
 import TransactionHistory from "./pages/TransactionHistory";
 import Test from "./pages/Test";
 
-function Routes() {
+export default function Routes() {
   return (
     <>
       <Route exact path="/" component={Panes} />
@@ -18,5 +18,3 @@ function Routes() {
     </>
   );
 }
-
-export default Routes;

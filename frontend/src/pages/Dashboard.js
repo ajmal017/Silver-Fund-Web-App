@@ -1,6 +1,6 @@
 import React from "react";
 
-function Dashboard() {
+export default function Dashboard() {
   return (
     <div className="content">
       <h3>Welcome to the Dashboard for Silver Fund Web App!</h3>
@@ -19,5 +19,3 @@ function Dashboard() {
     </div>
   );
 }
-
-export default Dashboard;

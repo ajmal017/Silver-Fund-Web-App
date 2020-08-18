@@ -1,10 +1,10 @@
 import React from "react";
 import Spinner from "react-bootstrap/Spinner";
 
-function PositionsTable(props) {
+export default function PositionsTable(props) {
   return (
     <div>
-      {props.tableData.length > 0 ? (
+      {props.tableData && props.tableData.length > 0 ? (
         <table>
           <thead>
             <tr>
@@ -45,5 +45,3 @@ function PositionsTable(props) {
     </div>
   );
 }
-
-export default PositionsTable;

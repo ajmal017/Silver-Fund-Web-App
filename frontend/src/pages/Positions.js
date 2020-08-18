@@ -5,10 +5,11 @@ import DateRanger from "../components/DateRanger";
 import DateSingler from "../components/DateSingler";
 import PositionsTable from "../components/PositionsTable";
 import PositionsGraph from "../components/PositionsGraph";
+import TickerSelector from "../components/TickerSelector";
 import { getDateToday } from "../components/Helpers";
-import { convertToPrecentage } from "../components/Helpers"
+import { convertToPrecentage } from "../components/Helpers";
 
-function Positions() {
+export default function Positions() {
   const [primaryVT, setPrimaryVT] = useState(0);
   const [secondaryVT, setSecondaryVT] = useState(1);
   const [showTableNow, setShowTableNow] = useState(false);
@@ -45,7 +46,7 @@ function Positions() {
           }
           setTableData(response.data);
           setTickerData(response.data.map(({ ticker }) => ticker));
-          // setNumHoldingsData(
+          // setNumHoldingsData(s
           //   response.data.map(({ num_of_shares }) => num_of_shares)
           // );
 
@@ -53,7 +54,7 @@ function Positions() {
         })
         .catch((error) => {
           console.log(error);
-          alert("Error: Failed to load all positions table.", error);
+          alert("Error: Failed to load all positions.", error);
         });
     }
 
@@ -72,16 +73,22 @@ function Positions() {
             alert("No current positions exist.");
           }
           setTableData(response.data);
-          setTickerData(response.data.map(({ticker}) => ticker));
-          setPositionsData(response.data.map(({position_value}) => position_value));
-          setWeightsData(convertToPrecentage(response.data.map(({position_value}) => position_value)));
+          setTickerData(response.data.map(({ ticker }) => ticker));
+          setPositionsData(
+            response.data.map(({ position_value }) => position_value)
+          );
+          setWeightsData(
+            convertToPrecentage(
+              response.data.map(({ position_value }) => position_value)
+            )
+          );
 
           console.log("Tdata", positionsData);
           // console.log("tableData: ", tableData);
         })
         .catch((error) => {
           console.log(error);
-          alert("Error: Failed to load current positions table.", error);
+          alert("Error: Failed to load current positions.", error);
         });
     }
 
@@ -107,17 +114,20 @@ function Positions() {
             alert("No positions exist in that date range.");
           }
           setTableData(response.data);
-          setTickerData(response.data.map(({ticker}) => ticker));
-          setPositionsData(response.data.map(({position_value}) => position_value));
-          setWeightsData(convertToPrecentage(response.data.map(({position_value}) => position_value)));
+          setTickerData(response.data.map(({ ticker }) => ticker));
+          setPositionsData(
+            response.data.map(({ position_value }) => position_value)
+          );
+          setWeightsData(
+            convertToPrecentage(
+              response.data.map(({ position_value }) => position_value)
+            )
+          );
           console.log("tableData: ", tableData);
         })
         .catch((error) => {
           console.log(error);
-          alert(
-            "Error: Failed to load positions table for that date range.",
-            error
-          );
+          alert("Error: Failed to load positions for that date range.", error);
         });
     }
   }
@@ -169,63 +179,71 @@ function Positions() {
               Secondary View Type
             </button>
             <div className="dropdown-menu dropdown-menu-right">
-              <a className="dropdown-item" onClick={() => setSecondaryVT(1)}>
+              <span className="dropdown-item" onClick={() => setSecondaryVT(1)}>
                 $ Positions by Stock
-              </a>
-              <a className="dropdown-item" onClick={() => setSecondaryVT(2)}>
+              </span>
+              <span className="dropdown-item" onClick={() => setSecondaryVT(2)}>
                 % Positions by Stock
-              </a>
-              <a className="dropdown-item" href="http://www.fixme.com/">
+              </span>
+              <span className="dropdown-item" href="http://www.fixme.com/">
                 $ Positions vs. Benchmark by Stock
-              </a>
-              <a className="dropdown-item" href="http://www.fixme.com/">
+              </span>
+              <span className="dropdown-item" href="http://www.fixme.com/">
                 % Positions vs. Benchmark by Stock
-              </a>
-              <a className="dropdown-item" href="http://www.fixme.com/">
+              </span>
+              <span className="dropdown-item" href="http://www.fixme.com/">
                 $ Positions by Industry
-              </a>
-              <a className="dropdown-item" href="http://www.fixme.com/">
+              </span>
+              <span className="dropdown-item" href="http://www.fixme.com/">
                 % Positions by Industry
-              </a>
-              <a className="dropdown-item" href="http://www.fixme.com/">
+              </span>
+              <span className="dropdown-item" href="http://www.fixme.com/">
                 $ Positions vs. Benchmark by Industry
-              </a>
-              <a className="dropdown-item" href="http://www.fixme.com/">
+              </span>
+              <span className="dropdown-item" href="http://www.fixme.com/">
                 % Positions vs. Benchmark by Industry
-              </a>
+              </span>
             </div>
           </div>
         </div>
 
         {primaryVT === 1 && (
-          <div className="custom-date-box">
-            <DateSingler
-              onDateChange={(value) => {
-                setStart(value);
-                setEnd(value);
-              }}
-              onSubmit={() => getApiData("custom")}
-            />
-          </div>
+          <>
+            <div className="small-box d-inline-block">
+              <DateSingler
+                onDateChange={(value) => {
+                  setStart(value);
+                  setEnd(value);
+                }}
+                onSubmit={() => getApiData("custom")}
+              />
+            </div>
+            <div className="small-box d-inline-block ml-4">
+              <TickerSelector tableData={tableData} />
+            </div>
+          </>
         )}
         {primaryVT === 2 && (
-          <div className="custom-date-box">
+          <div className="small-box ml-4">
             <DateRanger
               onStartChange={(value) => setStart(value)}
               onEndChange={(value) => setEnd(value)}
               onSubmit={() => getApiData("custom")}
             />
+            <TickerSelector tableData={tableData} />
           </div>
         )}
         <hr />
         {showTableNow && <PositionsTable tableData={tableData} />}
       </div>
-      <div className="right-col chart" >
-      {showTableNow && (secondaryVT === 1) && <PositionsGraph tickerData={tickerData} valuesData={positionsData}/>}
-      {showTableNow && (secondaryVT === 2) && <PositionsGraph tickerData={tickerData} valuesData={weightsData}/>}
+      <div className="right-col chart">
+        {showTableNow && secondaryVT === 1 && (
+          <PositionsGraph tickerData={tickerData} valuesData={positionsData} />
+        )}
+        {showTableNow && secondaryVT === 2 && (
+          <PositionsGraph tickerData={tickerData} valuesData={weightsData} />
+        )}
       </div>
     </div>
   );
 }
-
-export default Positions;

@@ -264,12 +264,11 @@ td {
   margin-right: 15px;
 }
 
-.custom-date-box {
+.small-box {
   width: 250px;
 }
 
 .date-label {
-  margin-left: 15px;
   width: inherit;
 }
 
@@ -280,7 +279,6 @@ td {
 
 .date-btn {
   width: inherit;
-  margin-left: 15px;
   font-size: medium;
   margin-top: 10px;
 }

@@ -2,7 +2,7 @@ import React from "react";
 
 import sfLogo from "../images/sf-logo-notext.png";
 
-function Header() {
+export default function Header() {
   return (
     <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <header className="masthead mb-auto">
@@ -27,5 +27,3 @@ function Header() {
     </div>
   );
 }
-
-export default Header;

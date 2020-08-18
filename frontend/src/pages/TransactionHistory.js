@@ -5,7 +5,7 @@ import DateRanger from "../components/DateRanger";
 import TransactionHistoryTable from "../components/TransactionHistoryTable";
 import { getDateToday } from "../components/Helpers";
 
-function TransactionHistory() {
+export default function TransactionHistory() {
   const [viewType, setViewType] = useState(0);
   const [showTableNow, setShowTableNow] = useState(false);
   const [tableData, setTableData] = useState([]);
@@ -35,7 +35,7 @@ function TransactionHistory() {
         })
         .catch((error) => {
           console.log(error);
-          alert("Error: Failed to load all transaction table.", error);
+          alert("Error: Failed to load all transactions.", error);
         });
     }
 
@@ -58,7 +58,7 @@ function TransactionHistory() {
         })
         .catch((error) => {
           console.log(error);
-          alert("Error: Failed to load current transactions table.", error);
+          alert("Error: Failed to load current transactions.", error);
         });
     }
 
@@ -87,7 +87,7 @@ function TransactionHistory() {
         .catch((error) => {
           console.log(error);
           alert(
-            "Error: Failed to load transactions table for that date range.",
+            "Error: Failed to load transactions for that date range.",
             error
           );
         });
@@ -117,8 +117,8 @@ function TransactionHistory() {
         </div>
       </div>
       {viewType === 1 && (
-        <div id="bydate-dropdown">
-          <div className="left-col">
+        <>
+          <div className="small-box d-inline-block">
             <h5>Defaults</h5>
             <label>
               <input
@@ -140,22 +140,17 @@ function TransactionHistory() {
               Show Current Transactions
             </label>
           </div>
-          <div className="custom-date-box float-right">
+          <div className="small-box d-inline-block ml-4">
             <DateRanger
               onStartChange={(value) => setStart(value)}
               onEndChange={(value) => setEnd(value)}
               onSubmit={() => getApiData("custom")}
             />
           </div>
-        </div>
-        // <div>
-        //   <span onClick={() => getApiData()}>Show All Pos</span>
-        // </div>
+        </>
       )}
       <hr />
       {showTableNow && <TransactionHistoryTable data={tableData} />}
     </div>
   );
 }
-
-export default TransactionHistory;

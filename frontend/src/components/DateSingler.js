@@ -2,7 +2,7 @@ import React from "react";
 
 import { getDateToday } from "./Helpers";
 
-function DateSingler(props) {
+export default function DateSingler(props) {
   return (
     <>
       <label className="date-label">
@@ -22,5 +22,3 @@ function DateSingler(props) {
     </>
   );
 }
-
-export default DateSingler;

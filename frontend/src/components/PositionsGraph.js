@@ -1,11 +1,10 @@
-import React, { Component, useState } from "react";
-import { Bar, Line, Pie, HorizontalBar } from "react-chartjs-2";
+import React from "react"; // { Component, useState }
+import { HorizontalBar } from "react-chartjs-2"; // Bar, Line, Pie,
 import Spinner from "react-bootstrap/Spinner";
 
-function PositionsGraph(props) {
-  
+export default function PositionsGraph(props) {
   // console.log("ticker", props.data.map(({ticker}) => ticker))
-  console.log("sam", props.data)
+  console.log("sam", props.data);
   // const [chartData, setChartData] = useState({
   //   labels: props.data,
   //   datasets: [
@@ -24,33 +23,29 @@ function PositionsGraph(props) {
   // });
   return (
     <>
-      {props.tickerData.length > 0 ? (
+      {props.tickerData && props.tickerData.length > 0 ? (
         <HorizontalBar
-          data={
-            {
-              labels: props.tickerData,
-              datasets: [
-                {
-                  label: "Percent",
-                  data: props.valuesData,
-                  backgroundColor: [
-                    "rgba(55,99,232,0.5)",
-                    "rgba(55,99,232,0.5)",
-                    "rgba(55,99,232,0.5)",
-                    "rgba(55,99,232,0.5)",
-                    "rgba(55,99,232,0.5)",
-                  ],
-                  barPercentage: 0.5,
-                  borderWidth: 2,
-                  borderColor: '#000',
-                  hoverBorderWidth: 2,
-                  hoberBorderColor: '#000'
-
-                
-                },
-              ],
-            }
-          }
+          data={{
+            labels: props.tickerData,
+            datasets: [
+              {
+                label: "Percent",
+                data: props.valuesData,
+                backgroundColor: [
+                  "rgba(55,99,232,0.5)",
+                  "rgba(55,99,232,0.5)",
+                  "rgba(55,99,232,0.5)",
+                  "rgba(55,99,232,0.5)",
+                  "rgba(55,99,232,0.5)",
+                ],
+                barPercentage: 0.5,
+                borderWidth: 2,
+                borderColor: "#000",
+                hoverBorderWidth: 2,
+                hoberBorderColor: "#000",
+              },
+            ],
+          }}
           width={50}
           height={50}
           options={{
@@ -64,7 +59,7 @@ function PositionsGraph(props) {
               display: false,
               position: "right",
               labels: {
-                fontColor: "#000"
+                fontColor: "#000",
               },
             },
             layout: {
@@ -83,58 +78,56 @@ function PositionsGraph(props) {
                 {
                   ticks: {
                     min: 0,
-                    max: (Math.max(...props.valuesData) + 10),
-                    fontColor: '#000'
+                    max: Math.max(...props.valuesData) + 10,
+                    fontColor: "#000",
                   },
                   stacked: true,
                   scaleLabel: {
                     display: true,
                     labelString: "Percent of Portfolio",
                     fontSize: 20,
-                    fontColor: '#000'
+                    fontColor: "#000",
                   },
                 },
               ],
               yAxes: [
                 {
                   ticks: {
-                    fontColor: '#000',
+                    fontColor: "#000",
                     fontSize: 14,
                   },
-                }
-              ]
+                },
+              ],
             },
-              "animation": {
-                "duration": 1,
-              "onComplete": function() {
+            animation: {
+              duration: 1,
+              onComplete: function () {
                 var chartInstance = this.chart,
                   ctx = chartInstance.ctx;
 
-                ctx.textAlign = 'left';
-                ctx.textBaseline = 'bottom';
+                ctx.textAlign = "left";
+                ctx.textBaseline = "bottom";
 
-                this.data.datasets.forEach(function(dataset, i) {
+                this.data.datasets.forEach(function (dataset, i) {
                   var meta = chartInstance.controller.getDatasetMeta(i);
-                  meta.data.forEach(function(bar, index) {
+                  meta.data.forEach(function (bar, index) {
                     var data = dataset.data[index].toString(2) + "%";
                     ctx.fillText(data, bar._model.x + 5, bar._model.y);
                   });
                 });
-              }
+              },
             },
           }}
         />
-        ):(
-          <div>
+      ) : (
+        <div>
           <Spinner
             animation="border"
             variant="dark"
             className="loading-spinner"
           />
         </div>
-        )}
+      )}
     </>
   );
 }
-
-export default PositionsGraph;
