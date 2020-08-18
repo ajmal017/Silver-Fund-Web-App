@@ -131,8 +131,10 @@ def update_trades(request):
     
     for order in cur_trades:
         trade = Trade()
+        print(order)
         serializer = TradeSerializer(trade, data=order)
         if serializer.is_valid():
+            print("VALID")
             serializer.save()
     
     return Response(serializer.data)
