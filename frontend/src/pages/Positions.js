@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import PositionsSubPanes from "../components/Positions/PositionsSubPanes";
@@ -9,7 +9,6 @@ import TickerSelector from "../components/TickerSelector";
 import PositionsTable from "../components/Positions/PositionsTable";
 import PositionsGraph from "../components/Positions/PositionsGraph";
 import PositionsGVT from "../components/Positions/PositionsGVT";
-import { useEffect } from "react";
 
 export default function Positions() {
   const [subPane, setSubPane] = useState("snapshot");
@@ -131,9 +130,6 @@ export default function Positions() {
                   onSubmit={() => getApiData("custom")}
                 />
               </div>
-              <div className="small-box d-inline-block ml-4">
-                <TickerSelector tableData={tableData} />
-              </div>
             </>
           )}
           {subPane === "historybystock" && (
@@ -164,7 +160,7 @@ export default function Positions() {
               valuesData={tableData.map(({ position_value }) => position_value)}
               x_label={"Position Value (USD)"}
               tool_tip_label={"Value"}
-              precent={""}
+              percent={""}
               dollar={"$"}
               buffer={5000}
             />

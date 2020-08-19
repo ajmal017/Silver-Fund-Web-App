@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import DateRanger from "../components/DateRanger";
-import TickerSelector from "../components/TickerSelector";
 import THTable from "../components/TransactionHistory/THTable";
-import { getDateToday } from "../components/Helpers";
 
 export default function TransactionHistory() {
   const [showTableNow, setShowTableNow] = useState(false);
@@ -39,29 +37,6 @@ export default function TransactionHistory() {
         });
     }
 
-    if (callType === "current") {
-      axios
-        .get("api/trades/filter/date/", {
-          params: {
-            start: getDateToday(),
-            end: getDateToday(),
-          },
-        })
-        .then((response) => {
-          if (response.data.length === 0) {
-            setShowTableNow(false);
-            alert("No current transactions exist.");
-          }
-          setTableData(response.data);
-
-          console.log("tableData: ", tableData);
-        })
-        .catch((error) => {
-          console.log(error);
-          alert("Error: Failed to load current transactions.", error);
-        });
-    }
-
     if (callType === "custom") {
       console.log("start: ", start, " end: ", end);
       if (start === "" || end === "") {
@@ -72,8 +47,8 @@ export default function TransactionHistory() {
       axios
         .get("api/trades/filter/date/", {
           params: {
-            start: start,
-            end: end,
+            start: start + "@00:00:00",
+            end: end + "@23:59:59",
           },
         })
         .then((response) => {
@@ -94,24 +69,21 @@ export default function TransactionHistory() {
     }
   }
 
+  useEffect(() => {
+    getApiData("all");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="content">
-      {/* {viewType === 1 && ( */}
-      <>
-        <div className="small-box d-inline-block ml-4">
-          <DateRanger
-            itemType="Transactions"
-            onStartChange={(value) => setStart(value)}
-            onEndChange={(value) => setEnd(value)}
-            onSubmit={() => getApiData("custom")}
-          />
-        </div>
-        <div className="small-box d-inline-block ml-4">
-          <TickerSelector tableData={tableData} />
-        </div>
-        <span onClick={() => getApiData("all")}>ALL</span>
-      </>
-      {/* )} */}
+      <div className="small-box d-inline-block ml-4">
+        <DateRanger
+          itemType="Transactions"
+          onStartChange={(value) => setStart(value)}
+          onEndChange={(value) => setEnd(value)}
+          onSubmit={() => getApiData("custom")}
+        />
+      </div>
       <hr />
       {showTableNow && <THTable data={tableData} />}
     </div>

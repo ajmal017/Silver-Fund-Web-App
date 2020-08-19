@@ -97,7 +97,7 @@ export default function PositionsGraph(props) {
                     for (var key in dataset._meta) {
                       var model = dataset._meta[key].data[i]._model;
                       ctx.fillText(
-                        props.dollar + dataset.data[i] + props.precent,
+                        props.dollar + dataset.data[i] + props.percent,
                         model.x + 5,
                         model.y
                       );
