@@ -56,6 +56,7 @@ class TradeSerializer(serializers.ModelSerializer):
             "num_of_shares",
             "price",
             "tot_price",
+            "trade_status",
             "trade_time",
         ]
 

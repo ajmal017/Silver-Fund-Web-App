@@ -13,6 +13,8 @@ export function getDateToday() {
 export function convertToPercentage(values) {
   const add = (a, b) => a + b;
 
+  console.log("helper", values)
+
   const sum = values.reduce(add);
 
   return values.map(function (x) {

@@ -4,7 +4,7 @@ import Spinner from "react-bootstrap/Spinner";
 
 export default function PositionsGraph(props) {
   // console.log("ticker", props.data.map(({ticker}) => ticker))
-  console.log("sam", props.data);
+  // console.log("sam", props.valuesData);
   // const [chartData, setChartData] = useState({
   //   labels: props.data,
   //   datasets: [
@@ -29,15 +29,9 @@ export default function PositionsGraph(props) {
             labels: props.tickerData,
             datasets: [
               {
-                label: "Percent",
+                label: props.tool_tip_label,
                 data: props.valuesData,
-                backgroundColor: [
-                  "rgba(55,99,232,0.5)",
-                  "rgba(55,99,232,0.5)",
-                  "rgba(55,99,232,0.5)",
-                  "rgba(55,99,232,0.5)",
-                  "rgba(55,99,232,0.5)",
-                ],
+                backgroundColor: "rgba(55,99,232,0.5)",
                 barPercentage: 0.5,
                 borderWidth: 2,
                 borderColor: "#000",
@@ -78,13 +72,13 @@ export default function PositionsGraph(props) {
                 {
                   ticks: {
                     min: 0,
-                    max: Math.max(...props.valuesData) + 10,
+                    max: Math.round(Math.max(...props.valuesData) + 10),
                     fontColor: "#000",
                   },
                   stacked: true,
                   scaleLabel: {
                     display: true,
-                    labelString: "Percent of Portfolio",
+                    labelString: props.x_label,
                     fontSize: 20,
                     fontColor: "#000",
                   },
@@ -99,24 +93,24 @@ export default function PositionsGraph(props) {
                 },
               ],
             },
-            animation: {
-              duration: 1,
-              onComplete: function () {
-                var chartInstance = this.chart,
-                  ctx = chartInstance.ctx;
+            // animation: {
+            //   duration: 1,
+            //   onComplete: function () {
+            //     var chartInstance = this.chart,
+            //       ctx = chartInstance.ctx;
 
-                ctx.textAlign = "left";
-                ctx.textBaseline = "bottom";
+            //     ctx.textAlign = "left";
+            //     ctx.textBaseline = "bottom";
 
-                this.data.datasets.forEach(function (dataset, i) {
-                  var meta = chartInstance.controller.getDatasetMeta(i);
-                  meta.data.forEach(function (bar, index) {
-                    var data = dataset.data[index].toString(2) + "%";
-                    ctx.fillText(data, bar._model.x + 5, bar._model.y);
-                  });
-                });
-              },
-            },
+            //     this.data.datasets.forEach(function (dataset, i) {
+            //       var meta = chartInstance.controller.getDatasetMeta(i);
+            //       meta.data.forEach(function (bar, index) {
+            //         var data = dataset.data[index].toString(2) + "%";
+            //         ctx.fillText(data, bar._model.x + 5, bar._model.y);
+            //       });
+            //     });
+            //   },
+            // },
           }}
         />
       ) : (
