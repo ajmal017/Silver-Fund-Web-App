@@ -4,11 +4,12 @@ import Spinner from "react-bootstrap/Spinner";
 
 
 function FindMin(data) {
+  if(!data){return data}
   if(Math.min(...data) > 0) { return 0}
   else { return Math.round(Math.min(...data) - 10)}
 }
 
-export default function PositionsGraph(props) {
+export default function SnapShotChart(props) {
 
   return (
     <>
