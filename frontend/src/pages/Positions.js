@@ -16,6 +16,7 @@ export default function Positions() {
   const [subPane, setSubPane] = useState("snapshot");
   const [graphVT, setGraphVT] = useState(1);
   const [showTableNow, setShowTableNow] = useState(false);
+  const [showTimeSeries, setShowTimeSeries] = useState(false);
   const [tableData, setTableData] = useState([]);
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
@@ -87,8 +88,10 @@ export default function Positions() {
             alert("No positions exist in that date range.");
           }
           setTableData(response.data);
+          if(subPane==="historybystock") {setShowTimeSeries(true)}
           console.log("Tabel Data", tableData)
           console.log("DataSets", formatTimeSeries(tableData, start, end))
+
         })
         .catch((error) => {
           console.log(error);
@@ -103,6 +106,7 @@ export default function Positions() {
       setStart(today);
       setEnd(today);
       getApiData("current");
+      setShowTimeSeries(false);
     }
     if (newSubPane === "historybystock") {
       setStart("");
@@ -185,7 +189,7 @@ export default function Positions() {
               buffer={10}
             />
           )}
-          {showTableNow && subPane === "historybystock" &&(
+          {showTimeSeries && subPane === "historybystock" &&(
             <TimeSeriesChart
             data={formatTimeSeries(tableData, start, end)}
             />
