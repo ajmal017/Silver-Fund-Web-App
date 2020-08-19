@@ -52,7 +52,6 @@ export default function Positions() {
             start: getDateToday(),
             end: getDateToday(),
           },
-          // .get("current_positions/")
         })
         .then((response) => {
           if (response.data.length === 0) {

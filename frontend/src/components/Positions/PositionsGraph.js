@@ -2,14 +2,15 @@ import React from "react"; // { Component, useState }
 import { HorizontalBar } from "react-chartjs-2"; // Bar, Line, Pie,
 import Spinner from "react-bootstrap/Spinner";
 
-
 function FindMin(data) {
-  if(Math.min(...data) > 0) { return 0}
-  else { return Math.round(Math.min(...data) - 10)}
+  if (Math.min(...data) > 0) {
+    return 0;
+  } else {
+    return Math.round(Math.min(...data) - 10);
+  }
 }
 
 export default function PositionsGraph(props) {
-
   return (
     <>
       {props.tickerData && props.tickerData.length > 0 ? (
@@ -20,16 +21,16 @@ export default function PositionsGraph(props) {
               {
                 label: props.tool_tip_label,
                 data: props.valuesData,
-                backgroundColor: "#3F5F80",
+                backgroundColor: "#3f5f80",
                 barPercentage: 0.5,
                 borderWidth: 1,
-                borderColor: "#fff",
+                borderColor: "#ffffff",
                 hoverBackgroundColor: "#002e5d",
               },
             ],
           }}
           width={50}
-          height={50 + (props.tickerData.length/2)}
+          height={50 + props.tickerData.length / 2}
           options={{
             title: {
               display: true,
@@ -60,7 +61,9 @@ export default function PositionsGraph(props) {
                 {
                   ticks: {
                     min: FindMin(props.valuesData),
-                    max: Math.round(Math.max(...props.valuesData) + props.buffer),
+                    max: Math.round(
+                      Math.max(...props.valuesData) + props.buffer
+                    ),
                     fontColor: "#000",
                   },
                   stacked: true,
@@ -83,24 +86,26 @@ export default function PositionsGraph(props) {
             },
             animation: {
               onComplete: function () {
-                  var ctx = this.chart.ctx;
-                  // ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
-                  ctx.fillStyle = "black";
-                  // ctx.textAlign = 'center';
-                  // ctx.textBaseline = 'bottom';
-          
-                  this.data.datasets.forEach(function (dataset)
-                  {
-                      for (var i = 0; i < dataset.data.length; i++) {
-                          for(var key in dataset._meta)
-                          {
-                              var model = dataset._meta[key].data[i]._model;
-                              ctx.fillText(props.dollar + dataset.data[i] + props.precent, model.x + 5, model.y);
-                          }
-                      }
-                  });
-              }
-            }
+                var ctx = this.chart.ctx;
+                // ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
+                ctx.fillStyle = "#000000";
+                // ctx.textAlign = 'center';
+                // ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset) {
+                  for (var i = 0; i < dataset.data.length; i++) {
+                    for (var key in dataset._meta) {
+                      var model = dataset._meta[key].data[i]._model;
+                      ctx.fillText(
+                        props.dollar + dataset.data[i] + props.precent,
+                        model.x + 5,
+                        model.y
+                      );
+                    }
+                  }
+                });
+              },
+            },
           }}
         />
       ) : (
