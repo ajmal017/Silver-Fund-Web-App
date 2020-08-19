@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import PositionsSubPanes from "../components/Positions/PositionsSubPanes";
-import { getDateToday, convertToPercentage } from "../components/Helpers";
+import { getDateToday, convertToPercentage, formatTimeSeries } from "../components/Helpers";
 import DateSingler from "../components/DateSingler";
 import DateRanger from "../components/DateRanger";
 import TickerSelector from "../components/TickerSelector";
 import PositionsTable from "../components/Positions/PositionsTable";
-import PositionsGraph from "../components/Positions/PositionsGraph";
+import SnapShotChart from "../components/Positions/SnapShotChart";
+import TimeSeriesChart from "../components/Positions/TimeSeriesChart";
 import PositionsGVT from "../components/Positions/PositionsGVT";
 
 export default function Positions() {
@@ -85,6 +86,8 @@ export default function Positions() {
             alert("No positions exist in that date range.");
           }
           setTableData(response.data);
+          console.log("Tabel Data", tableData)
+          console.log("DataSets", formatTimeSeries(tableData, start, end))
         })
         .catch((error) => {
           console.log(error);
@@ -154,8 +157,8 @@ export default function Positions() {
           {subPane === "snapshot" && (
             <PositionsGVT onGraphVTChange={(value) => setGraphVT(value)} />
           )}
-          {showTableNow && graphVT === 1 && subPane === "snapshot" && (
-            <PositionsGraph
+          {showTableNow && graphVT === 1 && (subPane === "snapshot") && (
+            <SnapShotChart
               tickerData={tableData.map(({ ticker }) => ticker)}
               valuesData={tableData.map(({ position_value }) => position_value)}
               x_label={"Position Value (USD)"}
@@ -165,8 +168,8 @@ export default function Positions() {
               buffer={5000}
             />
           )}
-          {showTableNow && graphVT === 2 && subPane === "snapshot" && (
-            <PositionsGraph
+          {showTableNow && graphVT === 2 && (subPane === "snapshot") &&(
+            <SnapShotChart
               tickerData={tableData.map(({ ticker }) => ticker)}
               valuesData={convertToPercentage(
                 tableData.map(({ position_value }) => position_value)
@@ -176,6 +179,11 @@ export default function Positions() {
               precent={"%"}
               dollar={""}
               buffer={10}
+            />
+          )}
+          {showTableNow && subPane === "historybystock" &&(
+            <TimeSeriesChart
+            data={formatTimeSeries(tableData, start, end)}
             />
           )}
         </div>

@@ -3,14 +3,13 @@ import { HorizontalBar } from "react-chartjs-2"; // Bar, Line, Pie,
 import Spinner from "react-bootstrap/Spinner";
 
 function FindMin(data) {
-  if (Math.min(...data) > 0) {
-    return 0;
-  } else {
-    return Math.round(Math.min(...data) - 10);
-  }
+  if(!data){return data}
+  if(Math.min(...data) > 0) { return 0}
+  else { return Math.round(Math.min(...data) - 10)}
 }
 
-export default function PositionsGraph(props) {
+export default function SnapShotChart(props) {
+
   return (
     <>
       {props.tickerData && props.tickerData.length > 0 ? (
