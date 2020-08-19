@@ -4,6 +4,7 @@ import Tab from "react-bootstrap/Tab";
 import Home from "../../pages/Home";
 import Positions from "../../pages/Positions";
 import TransactionHistory from "../../pages/TransactionHistory";
+import RiskAnalytics from "../../pages/RiskAnalytics";
 
 export default function Panes() {
   return (
@@ -16,6 +17,9 @@ export default function Panes() {
       </Tab>
       <Tab eventKey="transactionhistory" title="Transaction History">
         <TransactionHistory />
+      </Tab>
+      <Tab eventKey="riskanalytics" title="Risk Analytics">
+        <RiskAnalytics />
       </Tab>
     </Tabs>
   );
