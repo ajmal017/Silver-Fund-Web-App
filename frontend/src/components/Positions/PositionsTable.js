@@ -23,7 +23,11 @@ export default function PositionsTable(props) {
                 <tr key={index}>
                   <td key={item.asset_id}>{item.asset_id}</td>
                   <td key={item.ticker}>{item.ticker}</td>
-                  <td key={item.num_of_shares}>{item.num_of_shares}</td>
+                  <td key={item.num_of_shares}>
+                    {item.num_of_shares
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  </td>
                   <td key={item.asset_type}>{item.asset_type}</td>
                   <td key={item.price}>
                     $
