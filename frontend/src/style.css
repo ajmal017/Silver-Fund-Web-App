@@ -163,6 +163,10 @@ a :hover {
   background-color: rgba(207, 207, 207, 0.3);
 }
 
+.sub-pane a {
+  font-size: medium;
+}
+
 .forgot-password {
   color: slategray;
 }
