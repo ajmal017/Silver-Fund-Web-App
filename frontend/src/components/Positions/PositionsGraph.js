@@ -31,12 +31,11 @@ export default function PositionsGraph(props) {
               {
                 label: props.tool_tip_label,
                 data: props.valuesData,
-                backgroundColor: "rgba(55,99,232,0.5)",
+                backgroundColor: "#3F5F80",
                 barPercentage: 0.5,
-                borderWidth: 2,
-                borderColor: "#000",
-                hoverBorderWidth: 2,
-                hoberBorderColor: "#000",
+                borderWidth: 1,
+                borderColor: "#fff",
+                hoverBackgroundColor: "#002e5d",
               },
             ],
           }}
