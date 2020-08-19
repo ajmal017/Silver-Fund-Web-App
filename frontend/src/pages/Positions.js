@@ -10,9 +10,10 @@ import PositionsTable from "../components/Positions/PositionsTable";
 import SnapShotChart from "../components/Positions/SnapShotChart";
 import TimeSeriesChart from "../components/Positions/TimeSeriesChart";
 import PositionsGVT from "../components/Positions/PositionsGVT";
+import { useEffect } from "react";
 
 export default function Positions() {
-  const [subPane, setSubPane] = useState("none");
+  const [subPane, setSubPane] = useState("snapshot");
   const [graphVT, setGraphVT] = useState(1);
   const [showTableNow, setShowTableNow] = useState(false);
   const [tableData, setTableData] = useState([]);
@@ -98,22 +99,29 @@ export default function Positions() {
 
   function onSubPaneSwitch(newSubPane) {
     if (newSubPane === "snapshot") {
+      const today = getDateToday();
+      setStart(today);
+      setEnd(today);
       getApiData("current");
     }
     if (newSubPane === "historybystock") {
+      setStart("");
+      setEnd("");
       getApiData("all");
     }
     setSubPane(newSubPane);
   }
+
+  useEffect(() => {
+    getApiData("current");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
       <PositionsSubPanes onSubPaneSwitch={onSubPaneSwitch} />
       <div className="content pane-split-container pt-4">
         <div className="left-col">
-          {subPane === "none" && (
-            <p>Select a positions view from above to begin.</p>
-          )}
           {subPane === "snapshot" && (
             <>
               <div className="small-box d-inline-block ml-4">
@@ -167,8 +175,10 @@ export default function Positions() {
           {showTableNow && graphVT === 2 && (subPane === "snapshot") &&(
             <SnapShotChart
               tickerData={tableData.map(({ ticker }) => ticker)}
-              valuesData={convertToPercentage(tableData.map(({ position_value }) => position_value))}
-              x_label={"Precent of Portfolio"}
+              valuesData={convertToPercentage(
+                tableData.map(({ position_value }) => position_value)
+              )}
+              x_label={"Percent of Portfolio"}
               tool_tip_label={"Percent"}
               precent={"%"}
               dollar={""}

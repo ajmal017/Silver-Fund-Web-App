@@ -6,7 +6,7 @@ export default function PositionsSubPanes(props) {
   return (
     <Tabs
       className="sub-pane"
-      defaultActiveKey="none"
+      defaultActiveKey="snapshot"
       activeKey={props.subPane}
       onSelect={props.onSubPaneSwitch}
     >
