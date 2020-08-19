@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import DateRanger from "../components/DateRanger";
-import TransactionHistoryTable from "../components/TransactionHistoryTable";
+import TransactionHistoryTable from "../components/TransactionHistory/TransactionHistoryTable";
 import { getDateToday } from "../components/Helpers";
 
 export default function TransactionHistory() {

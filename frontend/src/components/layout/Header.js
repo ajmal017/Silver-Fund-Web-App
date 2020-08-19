@@ -1,6 +1,6 @@
 import React from "react";
 
-import sfLogo from "../images/sf-logo-notext.png";
+import sfLogo from "../../images/sf-logo-notext.png";
 
 export default function Header() {
   return (

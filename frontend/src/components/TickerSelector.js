@@ -11,9 +11,13 @@ export default function TickerSelector(props) {
   }));
   //console.log("tickerOptions: ", tickerOptions);
 
-  // function filterTableData() {
-  //   props.tableData;
-  // }
+  function filterTableData() {
+    const filteredTableData = props.tableData.filter(
+      (item) => item === tickerFilter
+    );
+    console.log("filtered: ", filteredTableData);
+    props.onSubmit(filteredTableData);
+  }
 
   return (
     <>
@@ -30,7 +34,7 @@ export default function TickerSelector(props) {
             isMulti
             isSearchable
           />
-          <button className="btn date-btn" onClick={() => props.onSubmit()}>
+          <button className="btn date-btn" onClick={() => filterTableData()}>
             Filter by Ticker
           </button>
         </>

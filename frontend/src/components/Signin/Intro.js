@@ -1,6 +1,6 @@
 import React from "react";
 
-import tradingImg from "../images/trading-trans-white.png";
+import tradingImg from "../../images/trading-trans-white.png";
 
 export default function Intro() {
   return (

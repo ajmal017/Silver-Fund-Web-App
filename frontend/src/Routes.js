@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 
-import Panes from "./components/Panes";
+import Panes from "./components/layout/Panes";
 import Signin from "./pages/Signin";
 import Positions from "./pages/Positions";
 import TransactionHistory from "./pages/TransactionHistory";

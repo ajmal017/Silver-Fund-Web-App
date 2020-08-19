@@ -76,6 +76,13 @@ hr {
   background-color: #002e5d;
 }
 
+a {
+  color: slategray;
+}
+a :hover {
+  color: darkslategray;
+}
+
 .btn {
   background-color: #002e5d;
   color: #fff;
@@ -139,20 +146,28 @@ hr {
 }
 
 /* Pane Adjustments */
-a {
-  color: rgba(255, 255, 255, 0.5);
+.pane a,
+.sub-pane a {
+  color: rgba(255, 255, 255, 0.7);
   font-weight: 400;
+  font-size: large;
 }
-a:hover {
-  color: #002e5d;
-  background-color: rgba(207, 207, 207, 0.7);
+.pane a:hover,
+.sub-pane a:hover {
+  background-color: rgba(207, 207, 207, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* SubPane Adjustments */
+.sub-pane {
+  background-color: rgba(207, 207, 207, 0.3);
 }
 
 .forgot-password {
   color: slategray;
 }
 .forgot-password:hover {
-  background-color: transparent;
+  color: darkslategray;
 }
 
 .signin-btn,
@@ -207,21 +222,6 @@ a:hover {
   flex: 1;
   float: left;
   margin-right: 50px;
-}
-
-.pane-top {
-  display: flex;
-  padding-bottom: 15px;
-}
-
-.pane-header {
-  flex: 4.7;
-}
-
-.dropdown {
-  flex: 0.2;
-  padding: 2px;
-  padding-left: 20px;
 }
 
 .loading-spinner {
@@ -281,10 +281,6 @@ td {
   width: inherit;
   font-size: medium;
   margin-top: 10px;
-}
-
-h5 {
-  padding-bottom: 10px;
 }
 
 /* MOBILE ADJUSTMENTS */

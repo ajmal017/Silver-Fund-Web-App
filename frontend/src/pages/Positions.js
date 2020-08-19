@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import DateRanger from "../components/DateRanger";
+import PositionsSubPanes from "../components/Positions/PositionsSubPanes";
+import { getDateToday, convertToPercentage } from "../components/Helpers";
 import DateSingler from "../components/DateSingler";
-import PositionsTable from "../components/PositionsTable";
-import PositionsGraph from "../components/PositionsGraph";
+import DateRanger from "../components/DateRanger";
 import TickerSelector from "../components/TickerSelector";
-import { getDateToday } from "../components/Helpers";
-import { convertToPrecentage } from "../components/Helpers";
+import PositionsTable from "../components/Positions/PositionsTable";
+import PositionsGraph from "../components/Positions/PositionsGraph";
+import PositionsGVT from "../components/Positions/PositionsGVT";
 
 export default function Positions() {
-  const [primaryVT, setPrimaryVT] = useState(0);
-  const [secondaryVT, setSecondaryVT] = useState(1);
+  const [subPane, setSubPane] = useState("none");
+  const [graphVT, setGraphVT] = useState(1);
   const [showTableNow, setShowTableNow] = useState(false);
   const [showGraphNow, setShowGraphNow] = useState(false);
 
@@ -78,7 +79,7 @@ export default function Positions() {
             response.data.map(({ position_value }) => position_value)
           );
           setWeightsData(
-            convertToPrecentage(
+            convertToPercentage(
               response.data.map(({ position_value }) => position_value)
             )
           );
@@ -119,7 +120,7 @@ export default function Positions() {
             response.data.map(({ position_value }) => position_value)
           );
           setWeightsData(
-            convertToPrecentage(
+            convertToPercentage(
               response.data.map(({ position_value }) => position_value)
             )
           );
@@ -132,122 +133,72 @@ export default function Positions() {
     }
   }
 
-  return (
-    <div className="content pane-split-container">
-      <div className="left-col">
-        <div className="pane-top">
-          <h3 className="pane-header">Positions</h3>
-          <div className="dropdown">
-            <button
-              className="btn dropdown-toggle dropdown-btn"
-              type="button"
-              data-toggle="dropdown"
-            >
-              Primary View Type
-            </button>
-            <div className="dropdown-menu dropdown-menu-right">
-              <span
-                className="dropdown-item"
-                onClick={() => {
-                  getApiData("current");
-                  setPrimaryVT(1);
-                }}
-              >
-                Snapshot (Bar Chart View)
-              </span>
-              <span
-                className="dropdown-item"
-                onClick={() => {
-                  getApiData("all");
-                  setPrimaryVT(2);
-                }}
-              >
-                History by Stock (Time Series View)
-              </span>
-              <span className="dropdown-item" onClick={() => setPrimaryVT(3)}>
-                History by Industry (Time Series View)
-              </span>
-            </div>
-          </div>
-          <div className="dropdown">
-            <button
-              className="btn btn-secondary dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              data-toggle="dropdown"
-            >
-              Secondary View Type
-            </button>
-            <div className="dropdown-menu dropdown-menu-right">
-              <span className="dropdown-item" onClick={() => setSecondaryVT(1)}>
-                $ Positions by Stock
-              </span>
-              <span className="dropdown-item" onClick={() => setSecondaryVT(2)}>
-                % Positions by Stock
-              </span>
-              <span className="dropdown-item" href="http://www.fixme.com/">
-                $ Positions vs. Benchmark by Stock
-              </span>
-              <span className="dropdown-item" href="http://www.fixme.com/">
-                % Positions vs. Benchmark by Stock
-              </span>
-              <span className="dropdown-item" href="http://www.fixme.com/">
-                $ Positions by Industry
-              </span>
-              <span className="dropdown-item" href="http://www.fixme.com/">
-                % Positions by Industry
-              </span>
-              <span className="dropdown-item" href="http://www.fixme.com/">
-                $ Positions vs. Benchmark by Industry
-              </span>
-              <span className="dropdown-item" href="http://www.fixme.com/">
-                % Positions vs. Benchmark by Industry
-              </span>
-            </div>
-          </div>
-        </div>
+  function onSubPaneSwitch(newSubPane) {
+    if (newSubPane === "snapshot") {
+      getApiData("current");
+    }
+    if (newSubPane === "historybystock") {
+      getApiData("all");
+    }
+    setSubPane(newSubPane);
+  }
 
-        {primaryVT === 1 && (
-          <>
-            <div className="small-box d-inline-block ml-4">
-              <DateSingler
-                onDateChange={(value) => {
-                  setStart(value);
-                  setEnd(value);
-                }}
-                onSubmit={() => getApiData("custom")}
-              />
-            </div>
-            <div className="small-box d-inline-block ml-4">
-              <TickerSelector tableData={tableData} />
-            </div>
-          </>
-        )}
-        {primaryVT === 2 && (
-          <>
-            <div className="small-box d-inline-block ml-4">
-              <DateRanger
-                onStartChange={(value) => setStart(value)}
-                onEndChange={(value) => setEnd(value)}
-                onSubmit={() => getApiData("custom")}
-              />
-            </div>
-            <div className="small-box d-inline-block ml-4">
-              <TickerSelector tableData={tableData} />
-            </div>
-          </>
-        )}
-        <hr />
-        {showTableNow && <PositionsTable tableData={tableData} />}
+  return (
+    <>
+      <PositionsSubPanes onSubPaneSwitch={onSubPaneSwitch} />
+      <div className="content pane-split-container pt-4">
+        <div className="left-col">
+          {subPane === "none" && (
+            <p>Select a positions view from above to begin.</p>
+          )}
+          {subPane === "snapshot" && (
+            <>
+              <div className="small-box d-inline-block ml-4">
+                <DateSingler
+                  onDateChange={(value) => {
+                    setStart(value);
+                    setEnd(value);
+                  }}
+                  onSubmit={() => getApiData("custom")}
+                />
+              </div>
+              <div className="small-box d-inline-block ml-4">
+                <TickerSelector tableData={tableData} />
+              </div>
+            </>
+          )}
+          {subPane === "historybystock" && (
+            <>
+              <div className="small-box d-inline-block ml-4">
+                <DateRanger
+                  onStartChange={(value) => setStart(value)}
+                  onEndChange={(value) => setEnd(value)}
+                  onSubmit={() => getApiData("custom")}
+                />
+              </div>
+              <div className="small-box d-inline-block ml-4">
+                <TickerSelector tableData={tableData} />
+              </div>
+            </>
+          )}
+          <hr />
+          {showTableNow && <PositionsTable tableData={tableData} />}
+        </div>
+        <div className="right-col chart">
+          {subPane === "snapshot" && (
+            <PositionsGVT onGraphVTChange={(value) => setGraphVT(value)} />
+          )}
+          {showTableNow && graphVT === 1 && (
+            <PositionsGraph
+              tickerData={tickerData}
+              valuesData={positionsData}
+            />
+          )}
+          {showTableNow && graphVT === 2 && (
+            <PositionsGraph tickerData={tickerData} valuesData={weightsData} />
+          )}
+        </div>
       </div>
-      <div className="right-col chart">
-        {showTableNow && secondaryVT === 1 && (
-          <PositionsGraph tickerData={tickerData} valuesData={positionsData} />
-        )}
-        {showTableNow && secondaryVT === 2 && (
-          <PositionsGraph tickerData={tickerData} valuesData={weightsData} />
-        )}
-      </div>
-    </div>
+    </>
   );
 }

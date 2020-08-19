@@ -1,7 +1,7 @@
 import React from "react";
 
-import passwordIcon from "../images/lock.png";
-import usernameIcon from "../images/user.png";
+import passwordIcon from "../../images/lock.png";
+import usernameIcon from "../../images/user.png";
 
 export default function SigninBox() {
   return (
@@ -46,12 +46,13 @@ export default function SigninBox() {
         <button type="submit" className="btn signin-btn">
           Sign In
         </button>
-        <p className="text-right">
-          <a className="forgot-password" href="http://www.fixme.com/">
-            Forgot password?
-          </a>
-        </p>
-        <h5>Need an account?</h5>
+        <a
+          className="forgot-password float-right pt-1"
+          href="http://www.fixme.com/"
+        >
+          Forgot password?
+        </a>
+        <h5 className="pt-5">Need an account?</h5>
         <a
           className="btn signup-link-btn"
           href="mailto:silverfund@byu?subject=Account Creation Request" // FIXME - Add valid email address
