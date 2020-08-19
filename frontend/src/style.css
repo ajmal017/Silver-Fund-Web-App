@@ -163,6 +163,10 @@ a :hover {
   background-color: rgba(207, 207, 207, 0.3);
 }
 
+.sub-pane a {
+  font-size: medium;
+}
+
 .forgot-password {
   color: slategray;
 }
@@ -281,6 +285,18 @@ td {
   width: inherit;
   font-size: medium;
   margin-top: 10px;
+}
+
+.radio-box {
+  width: 180px;
+}
+
+.radio-input {
+  height: 30px;
+}
+
+.radio-label {
+  font-size: large;
 }
 
 /* MOBILE ADJUSTMENTS */

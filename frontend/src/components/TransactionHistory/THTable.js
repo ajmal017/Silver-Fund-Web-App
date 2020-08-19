@@ -24,9 +24,23 @@ export default function THTable(props) {
                   <td key={item.trade_id}>{item.trade_id}</td>
                   <td key={item.asset_id}>{item.asset_id}</td>
                   <td key={item.trade_type}>{item.trade_type}</td>
-                  <td key={item.num_of_shares}>{item.num_of_shares}</td>
-                  <td key={item.price}>{item.price}</td>
-                  <td key={item.tot_price}>{item.tot_price}</td>
+                  <td key={item.num_of_shares}>
+                    {item.num_of_shares
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  </td>
+                  <td key={item.price}>
+                    $
+                    {item.price
+                      .toFixed(2)
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  </td>
+                  <td key={item.tot_price}>
+                    $
+                    {item.tot_price
+                      .toFixed(2)
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  </td>
                   <td key={item.trade_time}>{item.trade_time}</td>
                 </tr>
               );
