@@ -22,7 +22,7 @@ export default function DateRanger(props) {
       </label>
       <br />
       <button className="btn date-btn" onClick={() => props.onSubmit()}>
-        Show Positions in Date Range
+        Show {props.itemType} in Date Range
       </button>
     </>
   );

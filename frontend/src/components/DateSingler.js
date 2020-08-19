@@ -17,7 +17,7 @@ export default function DateSingler(props) {
         />
       </label>
       <button className="btn date-btn" onClick={() => props.onSubmit()}>
-        Show Positions on Date
+        Show {props.itemType} on Date
       </button>
     </>
   );

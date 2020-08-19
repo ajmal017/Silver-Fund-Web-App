@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import DateRanger from "../components/DateRanger";
-import TransactionHistoryTable from "../components/TransactionHistory/TransactionHistoryTable";
+import TickerSelector from "../components/TickerSelector";
+import THTable from "../components/TransactionHistory/THTable";
 import { getDateToday } from "../components/Helpers";
 
 export default function TransactionHistory() {
-  const [viewType, setViewType] = useState(0);
   const [showTableNow, setShowTableNow] = useState(false);
   const [tableData, setTableData] = useState([]);
   const [start, setStart] = useState("");
@@ -96,61 +96,24 @@ export default function TransactionHistory() {
 
   return (
     <div className="content">
-      <div className="pane-top">
-        <h3 className="pane-header">Transaction History</h3>
-        <div className="dropdown">
-          <button
-            className="btn dropdown-toggle dropdown-btn"
-            type="button"
-            data-toggle="dropdown"
-          >
-            View Type
-          </button>
-          <div className="dropdown-menu dropdown-menu-right">
-            <span className="dropdown-item" onClick={() => setViewType(1)}>
-              By Date (Point-in-Time Snapshot)
-            </span>
-            <span className="dropdown-item" onClick={() => setViewType(2)}>
-              History by Stock (Time Series View)
-            </span>
-          </div>
+      {/* {viewType === 1 && ( */}
+      <>
+        <div className="small-box d-inline-block ml-4">
+          <DateRanger
+            itemType="Transactions"
+            onStartChange={(value) => setStart(value)}
+            onEndChange={(value) => setEnd(value)}
+            onSubmit={() => getApiData("custom")}
+          />
         </div>
-      </div>
-      {viewType === 1 && (
-        <>
-          <div className="small-box d-inline-block">
-            <h5>Defaults</h5>
-            <label>
-              <input
-                type="radio"
-                className="defaults-radio"
-                name="by-date-defaults"
-                onClick={() => getApiData("all")}
-              />
-              Show All Transactions
-            </label>
-            <br />
-            <label>
-              <input
-                type="radio"
-                className="defaults-radio"
-                name="by-date-defaults"
-                onClick={() => getApiData("current")}
-              />
-              Show Current Transactions
-            </label>
-          </div>
-          <div className="small-box d-inline-block ml-4">
-            <DateRanger
-              onStartChange={(value) => setStart(value)}
-              onEndChange={(value) => setEnd(value)}
-              onSubmit={() => getApiData("custom")}
-            />
-          </div>
-        </>
-      )}
+        <div className="small-box d-inline-block ml-4">
+          <TickerSelector tableData={tableData} />
+        </div>
+        <span onClick={() => getApiData("all")}>ALL</span>
+      </>
+      {/* )} */}
       <hr />
-      {showTableNow && <TransactionHistoryTable data={tableData} />}
+      {showTableNow && <THTable data={tableData} />}
     </div>
   );
 }

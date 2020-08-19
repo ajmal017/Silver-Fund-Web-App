@@ -1,7 +1,7 @@
 import React from "react";
 import Spinner from "react-bootstrap/Spinner";
 
-export default function TransactionHistoryTable(props) {
+export default function THTable(props) {
   return (
     <div>
       {props.data.length > 0 ? (
