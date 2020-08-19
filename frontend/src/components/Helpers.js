@@ -14,10 +14,12 @@ export function convertToPercentage(values) {
   const add = (a, b) => a + b;
 
   console.log("helper", values)
+  if(values.length === 0) {return values}
+  else {  
+    const sum = values.reduce(add);
 
-  const sum = values.reduce(add);
-
-  return values.map(function (x) {
-    return (100 * (x / sum)).toFixed(2);
-  });
+    return values.map(function (x) {
+      return (100 * (x / sum)).toFixed(2);
+    });
+  }
 }

@@ -73,7 +73,7 @@ def filter_positions_by_date(request):
     pos = (
         Position.objects.filter(date__range=(start_date, end_date))
         .values()
-        .order_by("-date")
+        .order_by("ticker")
     )
     return Response(list(pos))
 
