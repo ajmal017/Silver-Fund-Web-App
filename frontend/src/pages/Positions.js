@@ -155,6 +155,7 @@ export default function Positions() {
             <>
               <div className="small-box d-inline-block ml-4">
                 <DateSingler
+                  itemType="Positions"
                   onDateChange={(value) => {
                     setStart(value);
                     setEnd(value);
@@ -171,6 +172,7 @@ export default function Positions() {
             <>
               <div className="small-box d-inline-block ml-4">
                 <DateRanger
+                  itemType="Positions"
                   onStartChange={(value) => setStart(value)}
                   onEndChange={(value) => setEnd(value)}
                   onSubmit={() => getApiData("custom")}

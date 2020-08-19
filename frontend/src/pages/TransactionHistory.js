@@ -100,6 +100,7 @@ export default function TransactionHistory() {
       <>
         <div className="small-box d-inline-block ml-4">
           <DateRanger
+            itemType="Transactions"
             onStartChange={(value) => setStart(value)}
             onEndChange={(value) => setEnd(value)}
             onSubmit={() => getApiData("custom")}
@@ -108,6 +109,7 @@ export default function TransactionHistory() {
         <div className="small-box d-inline-block ml-4">
           <TickerSelector tableData={tableData} />
         </div>
+        <span onClick={() => getApiData("all")}>ALL</span>
       </>
       {/* )} */}
       <hr />
