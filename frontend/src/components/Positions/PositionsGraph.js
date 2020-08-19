@@ -30,7 +30,7 @@ export default function PositionsGraph(props) {
             ],
           }}
           width={50}
-          height={50}
+          height={50 + (props.tickerData.length/2)}
           options={{
             title: {
               display: true,

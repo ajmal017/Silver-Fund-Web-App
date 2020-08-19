@@ -150,7 +150,7 @@ export default function Positions() {
           {subPane === "snapshot" && (
             <PositionsGVT onGraphVTChange={(value) => setGraphVT(value)} />
           )}
-          {showTableNow && graphVT === 1 && (
+          {showTableNow && graphVT === 1 && (subPane === "snapshot") && (
             <PositionsGraph
               tickerData={tableData.map(({ ticker }) => ticker)}
               valuesData={tableData.map(({ position_value }) => position_value)}
@@ -161,7 +161,7 @@ export default function Positions() {
               buffer={5000}
             />
           )}
-          {showTableNow && graphVT === 2 && (
+          {showTableNow && graphVT === 2 && (subPane === "snapshot") &&(
             <PositionsGraph
               tickerData={tableData.map(({ ticker }) => ticker)}
               valuesData={convertToPercentage(tableData.map(({ position_value }) => position_value))}

@@ -11,12 +11,12 @@ export function getDateToday() {
 }
 
 export function convertToPercentage(values) {
-  const add = (a, b) => a + b;
+  const add_abs = (a, b) => Math.abs(a) + Math.abs(b);
 
   console.log("helper", values)
   if(values.length === 0) {return values}
   else {  
-    const sum = values.reduce(add);
+    const sum = values.reduce(add_abs);
 
     return values.map(function (x) {
       return (100 * (x / sum)).toFixed(2);

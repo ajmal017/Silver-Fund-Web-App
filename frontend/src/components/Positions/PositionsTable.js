@@ -25,8 +25,8 @@ export default function PositionsTable(props) {
                   <td key={item.ticker}>{item.ticker}</td>
                   <td key={item.num_of_shares}>{item.num_of_shares}</td>
                   <td key={item.asset_type}>{item.asset_type}</td>
-                  <td key={item.price}>{item.price}</td>
-                  <td key={item.position_value}>{item.position_value}</td>
+                  <td key={item.price}> ${(item.price).toFixed(2)}</td>
+                  <td key={item.position_value}>${(item.position_value).toFixed(2)}</td>
                   <td key={item.date}>{item.date}</td>
                 </tr>
               );
