@@ -242,10 +242,19 @@ export default function Positions() {
       </div>
       <div className="right-col chart">
         {showTableNow && secondaryVT === 1 && (
-          <PositionsGraph tickerData={tickerData} valuesData={positionsData} />
+          <PositionsGraph 
+          tickerData={tableData.map(({ ticker }) => ticker)} 
+          valuesData={tableData.map(({ position_value }) => position_value)}
+          x_label={"Position Value (USD)"}
+          tool_tip_label= {"Value"}
+           />
         )}
         {showTableNow && secondaryVT === 2 && (
-          <PositionsGraph tickerData={tickerData} valuesData={weightsData} />
+          <PositionsGraph 
+          tickerData={tableData.map(({ ticker }) => ticker)} 
+          valuesData={convertToPrecentage(tableData.map(({ position_value }) => position_value))} 
+          x_label={"Precent of Portfolio"}
+          tool_tip_label= {"Precent"}/>
         )}
       </div>
     </div>
