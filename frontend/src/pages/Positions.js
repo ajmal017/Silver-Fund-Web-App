@@ -197,10 +197,6 @@ export default function Positions() {
           </>
         )}
       </div>
-      {showTableNow && subPane === "historybystock" && (
-        <TimeSeriesChart data={formatTimeSeries(tableData, start, end)} />
-      )}{" "}
-      */}
     </>
   );
 }

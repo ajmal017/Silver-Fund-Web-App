@@ -252,6 +252,8 @@ th {
 
 td {
   background-color: #ffffff;
+  text-align: right;
+  padding-right: 1em;
 }
 
 .right-col {

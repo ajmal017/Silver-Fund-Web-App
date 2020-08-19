@@ -10,7 +10,7 @@ export default function PositionsTable(props) {
             <tr>
               <th>Asset ID</th>
               <th>Ticker</th>
-              <th>Number of Shares</th>
+              <th># of Shares</th>
               <th>Position Type</th>
               <th>Price</th>
               <th>Position Value</th>
