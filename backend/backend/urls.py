@@ -6,9 +6,6 @@ from django.contrib import admin
 router = routers.DefaultRouter()
 router.register(r"users", views.UserViewSet)
 router.register(r"all_positions", views.AllPositions, basename="AllPositions")
-router.register(
-    r"current_positions", views.CurrentPositions, basename="CurrentPositions"
-)
 router.register(r"trades", views.TradeViewSet)
 router.register(r"assets", views.AssetViewSet)
 

@@ -30,18 +30,7 @@ class AllPositions(viewsets.ModelViewSet):
     API endpoint that allows groups to be viewed or edited.
     """
 
-    queryset = Position.objects.order_by("-date")
-    serializer_class = PositionSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-
-
-class CurrentPositions(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-
-    current_date = datetime.date.today()
-    queryset = Position.objects.filter(date=current_date)
+    queryset = Position.objects.order_by("-date", "ticker")
     serializer_class = PositionSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
@@ -51,7 +40,7 @@ class TradeViewSet(viewsets.ModelViewSet):
     API endpoint that allows groups to be viewed or edited.
     """
 
-    queryset = Trade.objects.order_by("-trade_time")  # TESTME
+    queryset = Trade.objects.order_by("-trade_time", "asset_id")
     serializer_class = TradeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
@@ -61,7 +50,7 @@ class AssetViewSet(viewsets.ModelViewSet):
     API endpoint that allows groups to be viewed or edited.
     """
 
-    queryset = Asset.objects.order_by("-valid_date")  # TESTME
+    queryset = Asset.objects.order_by("-valid_date", "ticker")  # TESTME
     serializer_class = AssetSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
@@ -73,7 +62,7 @@ def filter_positions_by_date(request):
     pos = (
         Position.objects.filter(date__range=(start_date, end_date))
         .values()
-        .order_by("-date")
+        .order_by("-date", "ticker")
     )
     return Response(list(pos))
 
@@ -85,7 +74,7 @@ def filter_trades_by_date(request):
     pos = (
         Trade.objects.filter(trade_time__range=(start_date, end_date))
         .values()
-        .order_by("-trade_time")
+        .order_by("-trade_time", "asset_id")
     )
     return Response(list(pos))
 
