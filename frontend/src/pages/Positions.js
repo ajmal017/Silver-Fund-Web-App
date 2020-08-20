@@ -27,6 +27,7 @@ export default function Positions() {
 
   function getApiData() {
     setShowTable(true);
+    setShowTimeSeries(true);
     setTableData([]);
 
     axios.defaults.baseURL = "http://localhost:8000/";
