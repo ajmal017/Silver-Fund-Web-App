@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import PositionsSubPanes from "../components/Positions/PositionsSubPanes";
-import { getDateToday, convertToPercentage, formatTimeSeries } from "../components/Helpers";
+import {
+  getDateToday,
+  convertToPercentage,
+  formatTimeSeries,
+} from "../components/Helpers";
 import DateSingler from "../components/DateSingler";
 import DateRanger from "../components/DateRanger";
 import TickerSelector from "../components/TickerSelector";
@@ -88,10 +92,11 @@ export default function Positions() {
             alert("No positions exist in that date range.");
           }
           setTableData(response.data);
-          if(subPane==="historybystock") {setShowTimeSeries(true)}
-          console.log("Tabel Data", tableData)
-          console.log("DataSets", formatTimeSeries(tableData, start, end))
-
+          if (subPane === "historybystock") {
+            setShowTimeSeries(true);
+          }
+          console.log("Tabel Data", tableData);
+          console.log("DataSets", formatTimeSeries(tableData, start, end));
         })
         .catch((error) => {
           console.log(error);
@@ -124,10 +129,10 @@ export default function Positions() {
   return (
     <>
       <PositionsSubPanes onSubPaneSwitch={onSubPaneSwitch} />
-      <div className="content pane-split-container pt-4">
-        <div className="left-col">
-          {subPane === "snapshot" && (
-            <>
+      <div className="content pt-4">
+        {subPane === "snapshot" && (
+          <div className="pane-split-container">
+            <div className="left-col">
               <div className="small-box d-inline-block ml-4">
                 <DateSingler
                   itemType="Positions"
@@ -141,60 +146,60 @@ export default function Positions() {
               <div className="small-box d-inline-block ml-4">
                 <TickerSelector tableData={tableData} />
               </div>
-            </>
-          )}
-          {subPane === "historybystock" && (
-            <>
-              <div className="small-box d-inline-block ml-4">
-                <DateRanger
-                  itemType="Positions"
-                  onStartChange={(value) => setStart(value)}
-                  onEndChange={(value) => setEnd(value)}
-                  onSubmit={() => getApiData("custom")}
+              <hr />
+              {showTableNow && <PositionsTable tableData={tableData} />}
+            </div>
+            <div className="right-col">
+              <PositionsGVT onGraphVTChange={(value) => setGraphVT(value)} />
+              {showTableNow && graphVT === 1 && (
+                <SnapShotChart
+                  tickerData={tableData.map(({ ticker }) => ticker)}
+                  valuesData={tableData.map(
+                    ({ position_value }) => position_value
+                  )}
+                  x_label={"Position Value (USD)"}
+                  tool_tip_label={"Value"}
+                  percent={""}
+                  dollar={"$"}
+                  buffer={5000}
                 />
-              </div>
-              <div className="small-box d-inline-block ml-4">
-                <TickerSelector tableData={tableData} />
-              </div>
-            </>
-          )}
-          <hr />
-          {showTableNow && <PositionsTable tableData={tableData} />}
-        </div>
-        <div className="right-col chart">
-          {subPane === "snapshot" && (
-            <PositionsGVT onGraphVTChange={(value) => setGraphVT(value)} />
-          )}
-          {showTableNow && graphVT === 1 && (subPane === "snapshot") && (
-            <SnapShotChart
-              tickerData={tableData.map(({ ticker }) => ticker)}
-              valuesData={tableData.map(({ position_value }) => position_value)}
-              x_label={"Position Value (USD)"}
-              tool_tip_label={"Value"}
-              precent={""}
-              dollar={"$"}
-              buffer={5000}
-            />
-          )}
-          {showTableNow && graphVT === 2 && (subPane === "snapshot") &&(
-            <SnapShotChart
-              tickerData={tableData.map(({ ticker }) => ticker)}
-              valuesData={convertToPercentage(
-                tableData.map(({ position_value }) => position_value)
               )}
-              x_label={"Percent of Portfolio"}
-              tool_tip_label={"Percent"}
-              precent={"%"}
-              dollar={""}
-              buffer={10}
-            />
-          )}
-          {showTimeSeries && subPane === "historybystock" &&(
-            <TimeSeriesChart
-            data={formatTimeSeries(tableData, start, end)}
-            />
-          )}
-        </div>
+              {showTableNow && graphVT === 2 && (
+                <SnapShotChart
+                  tickerData={tableData.map(({ ticker }) => ticker)}
+                  valuesData={convertToPercentage(
+                    tableData.map(({ position_value }) => position_value)
+                  )}
+                  x_label={"Percent of Portfolio"}
+                  tool_tip_label={"Percent"}
+                  percent={"%"}
+                  dollar={""}
+                  buffer={10}
+                />
+              )}
+            </div>
+          </div>
+        )}
+        {subPane === "historybystock" && (
+          <>
+            <div className="small-box d-inline-block ml-4">
+              <DateRanger
+                itemType="Positions"
+                onStartChange={(value) => setStart(value)}
+                onEndChange={(value) => setEnd(value)}
+                onSubmit={() => getApiData("custom")}
+              />
+            </div>
+            <div className="small-box d-inline-block ml-4">
+              <TickerSelector tableData={tableData} />
+            </div>
+            <hr />
+            {showTimeSeries && (
+              <TimeSeriesChart data={formatTimeSeries(tableData, start, end)} />
+            )}
+            {showTableNow && <PositionsTable tableData={tableData} />}
+          </>
+        )}
       </div>
     </>
   );
