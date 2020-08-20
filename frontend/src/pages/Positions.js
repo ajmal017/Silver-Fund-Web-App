@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import PositionsSubPanes from "../components/Positions/PositionsSubPanes";
-import { getDateToday, convertToPercentage, formatTimeSeries } from "../components/Helpers";
+import {
+  getDateToday,
+  convertToPercentage,
+  formatTimeSeries,
+} from "../components/Helpers";
 import DateSingler from "../components/DateSingler";
 import DateRanger from "../components/DateRanger";
 import TickerSelector from "../components/TickerSelector";
@@ -15,7 +19,7 @@ import { useEffect } from "react";
 export default function Positions() {
   const [subPane, setSubPane] = useState("snapshot");
   const [graphVT, setGraphVT] = useState(1);
-  const [showTableNow, setShowTableNow] = useState(false);
+  const [showTable, setShowTable] = useState(false);
   const [showTimeSeries, setShowTimeSeries] = useState(false);
   const [tableData, setTableData] = useState([]);
   const [start, setStart] = useState("");
@@ -26,7 +30,7 @@ export default function Positions() {
   }
 
   function getApiData(callType) {
-    setShowTableNow(true);
+    setShowTable(true);
     setTableData([]);
 
     axios.defaults.baseURL = "http://localhost:8000/";
@@ -40,7 +44,7 @@ export default function Positions() {
         .get("all_positions/")
         .then((response) => {
           if (response.data.length === 0) {
-            showTableNow(false);
+            showTable(false);
             alert("No positions exist.");
           }
           setTableData(response.data);
@@ -61,7 +65,7 @@ export default function Positions() {
         })
         .then((response) => {
           if (response.data.length === 0) {
-            setShowTableNow(false);
+            setShowTable(false);
             alert("No current positions exist.");
           }
           setTableData(response.data);
@@ -75,7 +79,7 @@ export default function Positions() {
     if (callType === "custom") {
       console.log("start: ", start, " end: ", end);
       if (start === "" || end === "") {
-        setShowTableNow(false);
+        setShowTable(false);
         return alert("Please select both a start date and end date.");
       }
 
@@ -88,14 +92,12 @@ export default function Positions() {
         })
         .then((response) => {
           if (response.data.length === 0) {
-            setShowTableNow(false);
+            setShowTable(false);
             alert("No positions exist in that date range.");
           }
           setTableData(response.data);
-          if(subPane==="historybystock") {setShowTimeSeries(true)}
-          console.log("Tabel Data", tableData)
-          console.log("DataSets", formatTimeSeries(tableData, start, end))
-
+          console.log("Table Data", tableData);
+          console.log("DataSets", formatTimeSeries(tableData, start, end));
         })
         .catch((error) => {
           console.log(error);
@@ -113,9 +115,10 @@ export default function Positions() {
       setShowTimeSeries(false);
     }
     if (newSubPane === "historybystock") {
-      setStart("");
-      setEnd("");
+      setStart("2020-08-13");
+      setEnd("2020-08-20");
       getApiData("all");
+      setShowTimeSeries(true);
     }
     setSubPane(newSubPane);
   }
@@ -128,10 +131,10 @@ export default function Positions() {
   return (
     <>
       <PositionsSubPanes onSubPaneSwitch={onSubPaneSwitch} />
-      <div className="content pane-split-container pt-4">
-        <div className="left-col">
-          {subPane === "snapshot" && (
-            <>
+      <div className="content pt-4">
+        {subPane === "snapshot" && (
+          <div className="pane-split-container">
+            <div className="left-col">
               <div className="small-box d-inline-block ml-4">
                 <DateSingler
                   itemType="Positions"
@@ -150,60 +153,61 @@ export default function Positions() {
                   }} 
                 />)}
               </div>
-            </>
-          )}
-          {subPane === "historybystock" && (
-            <>
-              <div className="small-box d-inline-block ml-4">
-                <DateRanger
-                  itemType="Positions"
-                  onStartChange={(value) => setStart(value)}
-                  onEndChange={(value) => setEnd(value)}
-                  onSubmit={() => getApiData("custom")}
+              <hr />
+              {showTable && <PositionsTable tableData={tableData} />}
+            </div>
+            <div className="right-col">
+              <PositionsGVT onGraphVTChange={(value) => setGraphVT(value)} />
+              {showTable && graphVT === 1 && (
+                <SnapShotChart
+                  tickerData={tableData.map(({ ticker }) => ticker)}
+                  valuesData={tableData.map(
+                    ({ position_value }) => position_value
+                  )}
+                  x_label={"Position Value (USD)"}
+                  tool_tip_label={"Value"}
+                  percent={""}
+                  dollar={"$"}
+                  buffer={5000}
                 />
-              </div>
-              <div className="small-box d-inline-block ml-4">
-                <TickerSelector tableData={tableData} />
-              </div>
-            </>
-          )}
-          <hr />
-          {showTableNow && <PositionsTable tableData={tableData} />}
-        </div>
-        <div className="right-col chart">
-          {subPane === "snapshot" && (
-            <PositionsGVT onGraphVTChange={(value) => setGraphVT(value)} />
-          )}
-          {showTableNow && graphVT === 1 && (subPane === "snapshot") && (
-            <SnapShotChart
-              tickerData={tableData.map(({ ticker }) => ticker)}
-              valuesData={tableData.map(({ position_value }) => position_value)}
-              x_label={"Position Value (USD)"}
-              tool_tip_label={"Value"}
-              precent={""}
-              dollar={"$"}
-              buffer={5000}
-            />
-          )}
-          {showTableNow && graphVT === 2 && (subPane === "snapshot") &&(
-            <SnapShotChart
-              tickerData={tableData.map(({ ticker }) => ticker)}
-              valuesData={convertToPercentage(
-                tableData.map(({ position_value }) => position_value)
               )}
-              x_label={"Percent of Portfolio"}
-              tool_tip_label={"Percent"}
-              precent={"%"}
-              dollar={""}
-              buffer={10}
-            />
-          )}
-          {showTimeSeries && subPane === "historybystock" &&(
-            <TimeSeriesChart
-            data={formatTimeSeries(tableData, start, end)}
-            />
-          )}
-        </div>
+              {showTable && graphVT === 2 && (
+                <SnapShotChart
+                  tickerData={tableData.map(({ ticker }) => ticker)}
+                  valuesData={convertToPercentage(
+                    tableData.map(({ position_value }) => position_value)
+                  )}
+                  x_label={"Percent of Portfolio"}
+                  tool_tip_label={"Percent"}
+                  percent={"%"}
+                  dollar={""}
+                  buffer={10}
+                />
+              )}
+            </div>
+          </div>
+        )}
+        {subPane === "historybystock" && (
+          <>
+            <div className="small-box d-inline-block ml-4">
+              <DateRanger
+                itemType="Positions"
+                onStartChange={(value) => setStart(value)}
+                onEndChange={(value) => setEnd(value)}
+                onSubmit={() => getApiData("custom")}
+              />
+            </div>
+            <div className="small-box d-inline-block ml-4">
+              <TickerSelector tableData={tableData} />
+            </div>
+            <hr />
+            {showTimeSeries && (
+              <TimeSeriesChart data={formatTimeSeries(tableData, start, end)} />
+            )}
+            <br />
+            {showTable && <PositionsTable tableData={tableData} />}
+          </>
+        )}
       </div>
     </>
   );
