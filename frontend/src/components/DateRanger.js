@@ -1,5 +1,7 @@
 import React from "react";
 
+import { getDateStr } from "./Helpers";
+
 export default function DateRanger(props) {
   return (
     <>
@@ -8,6 +10,8 @@ export default function DateRanger(props) {
         <input
           type="date"
           className="date-input start-date"
+          value={props.start}
+          max={getDateStr(0)}
           onChange={(event) => props.onStartChange(event.target.value)}
         />
       </label>
@@ -17,13 +21,17 @@ export default function DateRanger(props) {
         <input
           type="date"
           className="date-input end-date"
+          value={props.end}
+          max={getDateStr(0)}
           onChange={(event) => props.onEndChange(event.target.value)}
         />
       </label>
-      <br />
-      <button className="btn date-btn" onClick={() => props.onSubmit()}>
-        Show {props.itemType} in Date Range
-      </button>
+      {props.start > props.end && (
+        <p style={{ color: "red" }}>
+          Warning: <br />
+          Start date isn't before end date.
+        </p>
+      )}
     </>
   );
 }

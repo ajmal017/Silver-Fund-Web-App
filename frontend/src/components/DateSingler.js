@@ -1,24 +1,22 @@
 import React from "react";
 
-import { getDateToday } from "./Helpers";
+import { getDateStr } from "./Helpers";
 
 export default function DateSingler(props) {
   return (
     <>
-      <label className="date-label">
-        Date in Time:
+      <label style={{ width: "200px" }}>
+        Date:
         <input
           type="date"
           className="date-input one-date"
-          defaultValue={getDateToday()}
+          value={props.date}
+          max={getDateStr(0)}
           onChange={(event) => {
             props.onDateChange(event.target.value);
           }}
         />
       </label>
-      <button className="btn date-btn" onClick={() => props.onSubmit()}>
-        Show {props.itemType} on Date
-      </button>
     </>
   );
 }

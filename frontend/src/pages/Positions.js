@@ -3,7 +3,7 @@ import axios from "axios";
 
 import PositionsSubPanes from "../components/Positions/PositionsSubPanes";
 import {
-  getDateToday,
+  getDateStr,
   convertToPercentage,
   formatTimeSeries,
 } from "../components/Helpers";
@@ -22,107 +22,73 @@ export default function Positions() {
   const [showTable, setShowTable] = useState(false);
   const [showTimeSeries, setShowTimeSeries] = useState(false);
   const [tableData, setTableData] = useState([]);
-  const [start, setStart] = useState("");
-  const [end, setEnd] = useState("");
+  const [start, setStart] = useState(getDateStr(-1));
+  const [end, setEnd] = useState(getDateStr(-1));
 
-  function getApiData(callType) {
+  function getApiData() {
     setShowTable(true);
     setTableData([]);
 
     axios.defaults.baseURL = "http://localhost:8000/";
+    // FIXME - Update credentials once auth is working.
     // axios.defaults.auth = {
     //   username: "su",
     //   password: "su",
     // };
 
-    if (callType === "all") {
-      axios
-        .get("all_positions/")
-        .then((response) => {
-          if (response.data.length === 0) {
-            showTable(false);
-            alert("No positions exist.");
-          }
-          setTableData(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-          alert("Error: Failed to load all positions.", error);
-        });
+    console.log("start: ", start, " end: ", end);
+    if (end < start) {
+      setShowTable(false);
+      setShowTimeSeries(false);
+      return;
     }
 
-    if (callType === "current") {
-      axios
-        .get("api/positions/filter/date/", {
-          params: {
-            start: getDateToday(),
-            end: getDateToday(),
-          },
-        })
-        .then((response) => {
-          if (response.data.length === 0) {
-            setShowTable(false);
-            alert("No current positions exist.");
-          }
-          setTableData(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-          alert("Error: Failed to load current positions.", error);
-        });
-    }
-
-    if (callType === "custom") {
-      console.log("start: ", start, " end: ", end);
-      if (start === "" || end === "") {
-        setShowTable(false);
-        return alert("Please select both a start date and end date.");
-      }
-
-      axios
-        .get("api/positions/filter/date/", {
-          params: {
-            start: start,
-            end: end,
-          },
-        })
-        .then((response) => {
-          if (response.data.length === 0) {
-            setShowTable(false);
-            alert("No positions exist in that date range.");
-          }
-          setTableData(response.data);
-          console.log("Table Data", tableData);
-          console.log("DataSets", formatTimeSeries(tableData, start, end));
-        })
-        .catch((error) => {
-          console.log(error);
-          alert("Error: Failed to load positions for that date range.", error);
-        });
-    }
+    axios
+      .get("api/positions/filter/date/", {
+        params: {
+          start: start,
+          end: end,
+        },
+      })
+      .then((response) => {
+        if (response.data.length === 0) {
+          setShowTable(false);
+          alert(
+            "No positions exist on the date(s) selected.  Try a different selection."
+          );
+        }
+        setTableData(response.data);
+        console.log("Table Data: ", tableData);
+        console.log("DataSets: ", formatTimeSeries(tableData, start, end));
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Error: Failed to load positions data.", error);
+      });
   }
 
   function onSubPaneSwitch(newSubPane) {
     if (newSubPane === "snapshot") {
-      const today = getDateToday();
-      setStart(today);
-      setEnd(today);
-      getApiData("current");
+      const yesterday = getDateStr(-1);
+      setStart(yesterday);
+      setEnd(yesterday);
       setShowTimeSeries(false);
     }
     if (newSubPane === "historybystock") {
-      setStart("2020-08-13");
-      setEnd("2020-08-20");
-      getApiData("all");
+      const weekFromYesterday = getDateStr(-8);
+      setStart(weekFromYesterday);
+      const yesterday = getDateStr(-1);
+      setEnd(yesterday);
       setShowTimeSeries(true);
     }
     setSubPane(newSubPane);
   }
 
+  /* Calls the API to fetch data at first, whenever start or end date change. */
   useEffect(() => {
-    getApiData("current");
+    getApiData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [start, end]);
 
   return (
     <>
@@ -134,15 +100,12 @@ export default function Positions() {
               <div className="small-box d-inline-block ml-4">
                 <DateSingler
                   itemType="Positions"
+                  date={start}
                   onDateChange={(value) => {
                     setStart(value);
                     setEnd(value);
                   }}
-                  onSubmit={() => getApiData("custom")}
                 />
-              </div>
-              <div className="small-box d-inline-block ml-4">
-                <TickerSelector tableData={tableData} />
               </div>
               <hr />
               {showTable && <PositionsTable tableData={tableData} />}
@@ -183,9 +146,10 @@ export default function Positions() {
             <div className="small-box d-inline-block ml-4">
               <DateRanger
                 itemType="Positions"
+                start={start}
+                end={end}
                 onStartChange={(value) => setStart(value)}
                 onEndChange={(value) => setEnd(value)}
-                onSubmit={() => getApiData("custom")}
               />
             </div>
             <div className="small-box d-inline-block ml-4">
