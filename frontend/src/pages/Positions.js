@@ -148,9 +148,13 @@ export default function Positions() {
               <div className="small-box d-inline-block ml-4">
                 {subPane === "historybystock" && (<TickerSelector 
                   tableData={tableData} 
-                  onTableChange={(value) => {
-                    setTableData(value);
-                  }} 
+                  onSubmit={() => 
+                    console.log("CALLED")
+                  } 
+                  // onSubmit={(value) => {
+                  //   setTableData(value);
+                  
+                  // }} 
                 />)}
               </div>
               <hr />
@@ -201,9 +205,14 @@ export default function Positions() {
               <TickerSelector tableData={tableData} />
             </div>
             <hr />
+            <div style={{backgroundColor: '#FFFF'}}>
             {showTimeSeries && (
-              <TimeSeriesChart data={formatTimeSeries(tableData, start, end)} />
+              <TimeSeriesChart 
+               
+               data={formatTimeSeries(tableData, start, end)} />
             )}
+            </div>
+            
             <br />
             {showTable && <PositionsTable tableData={tableData} />}
           </>

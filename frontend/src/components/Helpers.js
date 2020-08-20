@@ -82,10 +82,11 @@ export function formatTimeSeries(tableData, startDate, StopDate) {
   var j;
   for(i=0; i < tickers.length; i++)
   {
+    let color = getColor(i);
     var asset = {};
     asset.label = tickers[i];
-    asset.backgroundColor = getColor(i)
-    asset.borderColor = getColor(i)
+    asset.backgroundColor = color;
+    asset.borderColor = color;
     asset.data = [];
     for(j = 0; j <labels.length; j++)
     {

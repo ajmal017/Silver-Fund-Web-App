@@ -11,7 +11,7 @@ export default function TimeSeriesChart(props) {
           datasets: props.data[1],
         }}
         width={50}
-        height={50}
+        height={25}
         options={{
           responsive: true,
           title: {
@@ -19,6 +19,7 @@ export default function TimeSeriesChart(props) {
             text: "",
           },
           tooltips: {
+            multiKeyBackground: "#000",
             mode: "index",
             intersect: false,
           },
