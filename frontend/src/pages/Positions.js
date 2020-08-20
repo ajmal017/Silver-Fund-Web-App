@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import PositionsSubPanes from "../components/Positions/PositionsSubPanes";
@@ -14,7 +14,6 @@ import PositionsTable from "../components/Positions/PositionsTable";
 import SnapShotChart from "../components/Positions/SnapShotChart";
 import TimeSeriesChart from "../components/Positions/TimeSeriesChart";
 import PositionsGVT from "../components/Positions/PositionsGVT";
-import { useEffect } from "react";
 
 export default function Positions() {
   const [subPane, setSubPane] = useState("snapshot");
@@ -146,7 +145,6 @@ export default function Positions() {
           <>
             <div className="small-box d-inline-block ml-4">
               <DateRanger
-                itemType="Positions"
                 start={start}
                 end={end}
                 onStartChange={(value) => setStart(value)}

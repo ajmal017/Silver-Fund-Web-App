@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function PositionsGraphVT(props) {
+export default function RAThroughTimeGVT(props) {
   return (
     <div className="dropdown float-right">
       <button
@@ -16,49 +16,31 @@ export default function PositionsGraphVT(props) {
           className="dropdown-item"
           onClick={() => props.onGraphVTChange(1)}
         >
-          $ Positions by Stock
+          Ex-Ante vs. Realized Porfolio Risk
         </span>
         <span
           className="dropdown-item"
           onClick={() => props.onGraphVTChange(2)}
         >
-          % Positions by Stock
+          Ex-Ante vs. Realized Porfolio Benchmark Beta
         </span>
         <span
           className="dropdown-item"
           onClick={() => props.onGraphVTChange(3)}
         >
-          $ Positions vs. Benchmark by Stock
+          Portfolio Exposures to Style Factors 1 Through K
         </span>
         <span
           className="dropdown-item"
           onClick={() => props.onGraphVTChange(4)}
         >
-          % Positions vs. Benchmark by Stock
+          Ex-Ante vs. Realized Risk by Stock(s)
         </span>
         <span
           className="dropdown-item"
           onClick={() => props.onGraphVTChange(5)}
         >
-          $ Positions by Industry
-        </span>
-        <span
-          className="dropdown-item"
-          onClick={() => props.onGraphVTChange(6)}
-        >
-          % Positions by Industry
-        </span>
-        <span
-          className="dropdown-item"
-          onClick={() => props.onGraphVTChange(7)}
-        >
-          $ Positions vs. Benchmark by Industry
-        </span>
-        <span
-          className="dropdown-item"
-          onClick={() => props.onGraphVTChange(8)}
-        >
-          % Positions vs. Benchmark by Industry
+          Stock(s) Exposures to Style Factors 1 Through K
         </span>
       </div>
     </div>

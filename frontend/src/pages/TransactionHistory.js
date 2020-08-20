@@ -61,7 +61,6 @@ export default function TransactionHistory() {
     <div className="content">
       <div className="small-box d-inline-block ml-4">
         <DateRanger
-          itemType="Transactions"
           start={start}
           end={end}
           onStartChange={(value) => setStart(value)}

@@ -228,6 +228,11 @@ a :hover {
   margin-right: 50px;
 }
 
+.right-col {
+  flex: 1;
+  float: right;
+}
+
 .loading-spinner {
   margin-top: 5%;
   margin-left: 50%;
@@ -252,11 +257,6 @@ th {
 
 td {
   background-color: #ffffff;
-}
-
-.right-col {
-  flex: 1;
-  float: right;
 }
 
 #bydate-dropdown {
