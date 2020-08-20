@@ -9,14 +9,18 @@ export default function TickerSelector(props) {
     value: item.ticker,
     label: item.ticker,
   }));
-  //console.log("tickerOptions: ", tickerOptions);
 
   function filterTableData() {
-    const filteredTableData = props.tableData.filter(
-      (item) => item === tickerFilter
-    );
-    console.log("filtered: ", filteredTableData);
-    props.onSubmit(filteredTableData);
+    const tickers = tickerFilter.map(({ value }) => value)
+    var newData = []
+    var i;
+    for(i = 0; i < tickers.length; ++i)
+    {
+      var filterData =  props.tableData.filter(function(item) {return ((item.ticker === tickers[i]))});
+      newData.push.apply(newData, filterData);
+    }
+    console.log("filtered: ", newData);
+    return newData;
   }
 
   return (
@@ -34,7 +38,12 @@ export default function TickerSelector(props) {
             isMulti
             isSearchable
           />
-          <button className="btn date-btn" onClick={() => filterTableData()}>
+          {/* <button className="btn date-btn" onClick={() => props.onSubmit(filterTableData())}> */}
+          <button className="btn date-btn" onClick={() =>{
+            let newData = filterTableData();
+            console.log(newData);
+            console.log(props.tableData)
+          }}>
             Filter by Ticker
           </button>
         </>

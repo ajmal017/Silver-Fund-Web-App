@@ -156,9 +156,14 @@ export default function Positions() {
               <TickerSelector tableData={tableData} />
             </div>
             <hr />
-            {showTimeSeries && (
-              <TimeSeriesChart data={formatTimeSeries(tableData, start, end)} />
-            )}
+            <div style={{ backgroundColor: "#FFFF" }}>
+              {showTimeSeries && (
+                <TimeSeriesChart
+                  data={formatTimeSeries(tableData, start, end)}
+                />
+              )}
+            </div>
+
             <br />
             {showTable && <PositionsTable tableData={tableData} />}
           </>

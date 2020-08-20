@@ -1,31 +1,5 @@
 import moment from "moment";
-import { useImperativeHandle } from "react";
-
-// export function getDateYesterday() {
-//   const today = new Date();
-//   const yesterday = new Date(today);
-
-//   yesterday.setDate(yesterday.getDate() - 1);
-
-//   var date =
-//     yesterday.getFullYear() +
-//     "-" +
-//     ("0" + (yesterday.getMonth() + 1)).slice(-2) +
-//     "-" +
-//     ("0" + yesterday.getDate()).slice(-2);
-//   return date;
-// }
-
-// export function getDateToday() {
-//   const today = new Date();
-//   var date =
-//     today.getFullYear() +
-//     "-" +
-//     ("0" + (today.getMonth() + 1)).slice(-2) +
-//     "-" +
-//     ("0" + today.getDate()).slice(-2);
-//   return date;
-//}
+// import { useImperativeHandle } from "react";
 
 /* 
 Input: An integer (positive or negative) that represents how many days away a specific day is from today (ex: yesterday = -1)
@@ -57,9 +31,33 @@ function getDates(startDate, stopDate) {
 }
 
 function getColor(value) {
-  var colors = ["#FFFFFF", "#3F5F80", "#002E5D", "#000000"];
-  var index = value % colors.length;
-  return colors[index];
+  const hBase = Math.random();
+  const newH = Math.floor(hBase * 360);
+  const newL = Math.floor(Math.random() * 16) + 75;
+  let r, g, b;
+  let h = hBase;
+  let l = 1;
+  let s = newL * 0.01;
+  const rd = (a) => {
+    return Math.floor(Math.max(Math.min(a * 256, 255), 0));
+  };
+  const hueToRGB = (m, n, o) => {
+    if (o < 0) o += 1;
+    if (o > 1) o -= 1;
+    if (o < 1 / 6) return m + (n - m) * 6 * o;
+    if (o < 1 / 2) return n;
+    if (o < 2 / 3) return m + (n - m) * (2 / 3 - o) * 6;
+    return m;
+  };
+  const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+  const p = 2 * l - q;
+
+  r = hueToRGB(p, q, h + 1 / 3);
+  g = hueToRGB(p, q, h);
+  b = hueToRGB(p, q, h - 1 / 3);
+
+  var color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+  return color;
 }
 
 export function convertToPercentage(values) {
@@ -90,10 +88,11 @@ export function formatTimeSeries(tableData, startDate, StopDate) {
   var i;
   var j;
   for (i = 0; i < tickers.length; i++) {
+    let color = getColor(i);
     var asset = {};
     asset.label = tickers[i];
-    asset.backgroundColor = getColor(i);
-    asset.borderColor = getColor(i);
+    asset.backgroundColor = color;
+    asset.borderColor = color;
     asset.data = [];
     for (j = 0; j < labels.length; j++) {
       var value = tableData.filter(function (item) {
