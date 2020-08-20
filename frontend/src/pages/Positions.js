@@ -156,6 +156,7 @@ export default function Positions() {
             <div className="small-box d-inline-block ml-4">
               <TickerSelector tableData={tableData} />
             </div>
+            <PositionsGVT onGraphVTChange={(value) => setGraphVT(value)} />
             <hr />
             <div style={{ backgroundColor: "#FFFF" }}>
               {showTimeSeries && (
