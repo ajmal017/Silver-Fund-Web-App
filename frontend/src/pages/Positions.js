@@ -19,14 +19,14 @@ import { useEffect } from "react";
 export default function Positions() {
   const [subPane, setSubPane] = useState("snapshot");
   const [graphVT, setGraphVT] = useState(1);
-  const [showTableNow, setShowTableNow] = useState(false);
+  const [showTable, setShowTable] = useState(false);
   const [showTimeSeries, setShowTimeSeries] = useState(false);
   const [tableData, setTableData] = useState([]);
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
 
   function getApiData(callType) {
-    setShowTableNow(true);
+    setShowTable(true);
     setTableData([]);
 
     axios.defaults.baseURL = "http://localhost:8000/";
@@ -40,7 +40,7 @@ export default function Positions() {
         .get("all_positions/")
         .then((response) => {
           if (response.data.length === 0) {
-            showTableNow(false);
+            showTable(false);
             alert("No positions exist.");
           }
           setTableData(response.data);
@@ -61,7 +61,7 @@ export default function Positions() {
         })
         .then((response) => {
           if (response.data.length === 0) {
-            setShowTableNow(false);
+            setShowTable(false);
             alert("No current positions exist.");
           }
           setTableData(response.data);
@@ -75,7 +75,7 @@ export default function Positions() {
     if (callType === "custom") {
       console.log("start: ", start, " end: ", end);
       if (start === "" || end === "") {
-        setShowTableNow(false);
+        setShowTable(false);
         return alert("Please select both a start date and end date.");
       }
 
@@ -88,14 +88,11 @@ export default function Positions() {
         })
         .then((response) => {
           if (response.data.length === 0) {
-            setShowTableNow(false);
+            setShowTable(false);
             alert("No positions exist in that date range.");
           }
           setTableData(response.data);
-          if (subPane === "historybystock") {
-            setShowTimeSeries(true);
-          }
-          console.log("Tabel Data", tableData);
+          console.log("Table Data", tableData);
           console.log("DataSets", formatTimeSeries(tableData, start, end));
         })
         .catch((error) => {
@@ -114,9 +111,10 @@ export default function Positions() {
       setShowTimeSeries(false);
     }
     if (newSubPane === "historybystock") {
-      setStart("");
-      setEnd("");
+      setStart("2020-08-13");
+      setEnd("2020-08-20");
       getApiData("all");
+      setShowTimeSeries(true);
     }
     setSubPane(newSubPane);
   }
@@ -147,11 +145,11 @@ export default function Positions() {
                 <TickerSelector tableData={tableData} />
               </div>
               <hr />
-              {showTableNow && <PositionsTable tableData={tableData} />}
+              {showTable && <PositionsTable tableData={tableData} />}
             </div>
             <div className="right-col">
               <PositionsGVT onGraphVTChange={(value) => setGraphVT(value)} />
-              {showTableNow && graphVT === 1 && (
+              {showTable && graphVT === 1 && (
                 <SnapShotChart
                   tickerData={tableData.map(({ ticker }) => ticker)}
                   valuesData={tableData.map(
@@ -164,7 +162,7 @@ export default function Positions() {
                   buffer={5000}
                 />
               )}
-              {showTableNow && graphVT === 2 && (
+              {showTable && graphVT === 2 && (
                 <SnapShotChart
                   tickerData={tableData.map(({ ticker }) => ticker)}
                   valuesData={convertToPercentage(
@@ -197,7 +195,8 @@ export default function Positions() {
             {showTimeSeries && (
               <TimeSeriesChart data={formatTimeSeries(tableData, start, end)} />
             )}
-            {showTableNow && <PositionsTable tableData={tableData} />}
+            <br />
+            {showTable && <PositionsTable tableData={tableData} />}
           </>
         )}
       </div>

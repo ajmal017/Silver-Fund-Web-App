@@ -5,13 +5,13 @@ import DateRanger from "../components/DateRanger";
 import THTable from "../components/TransactionHistory/THTable";
 
 export default function TransactionHistory() {
-  const [showTableNow, setShowTableNow] = useState(false);
+  const [showTable, setShowTable] = useState(false);
   const [tableData, setTableData] = useState([]);
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
 
   function getApiData(callType) {
-    setShowTableNow(true);
+    setShowTable(true);
     setTableData([]);
 
     axios.defaults.baseURL = "http://localhost:8000/";
@@ -25,7 +25,7 @@ export default function TransactionHistory() {
         .get("trades/")
         .then((response) => {
           if (response.data.length === 0) {
-            showTableNow(false);
+            showTable(false);
             alert("No transactions exist.");
           }
           setTableData(response.data);
@@ -40,7 +40,7 @@ export default function TransactionHistory() {
     if (callType === "custom") {
       console.log("start: ", start, " end: ", end);
       if (start === "" || end === "") {
-        setShowTableNow(false);
+        setShowTable(false);
         return alert("Please select both a start date and end date.");
       }
 
@@ -53,7 +53,7 @@ export default function TransactionHistory() {
         })
         .then((response) => {
           if (response.data.length === 0) {
-            setShowTableNow(false);
+            setShowTable(false);
             alert("No transactions exist in that date range.");
           }
           setTableData(response.data);
@@ -85,7 +85,7 @@ export default function TransactionHistory() {
         />
       </div>
       <hr />
-      {showTableNow && <THTable data={tableData} />}
+      {showTable && <THTable data={tableData} />}
     </div>
   );
 }
