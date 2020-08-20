@@ -15,8 +15,24 @@ export default function RiskAnalytics() {
       <RASubPanes onSubPaneSwitch={onSubPaneSwitch} />
       <div className="content">
         <RiskVTRadio />
-        <h1>Risk Analytics pane here</h1>
-        {subPane && <h1>{subPane}</h1>}
+        {subPane === "current" ? (
+          <div>
+            <h1>fix</h1>
+            <p>{subPane}</p>
+          </div>
+        ) : subPane === "throughtime" ? (
+          <div>
+            <h1>fix</h1>
+            <p>{subPane}</p>
+          </div>
+        ) : (
+          subPane === "whatif" && (
+            <div>
+              <h1>fix</h1>
+              <p>{subPane}</p>
+            </div>
+          )
+        )}
       </div>
     </>
   );
