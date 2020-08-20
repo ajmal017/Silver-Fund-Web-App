@@ -96,7 +96,7 @@ export default function SnapShotChart(props) {
                     for (var key in dataset._meta) {
                       var model = dataset._meta[key].data[i]._model;
                       ctx.fillText(
-                        props.dollar + dataset.data[i] + props.percent,
+                        props.dollar + dataset.data[i] + props.precent,
                         model.x + 5,
                         model.y
                       );

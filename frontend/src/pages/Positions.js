@@ -21,6 +21,10 @@ export default function Positions() {
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
 
+  function updateTableData(newData){
+    setTableData(newData)
+  }
+
   function getApiData(callType) {
     setShowTableNow(true);
     setTableData([]);
@@ -139,7 +143,7 @@ export default function Positions() {
                 />
               </div>
               <div className="small-box d-inline-block ml-4">
-                <TickerSelector tableData={tableData} />
+                {subPane === "historybystock" && (<TickerSelector tableData={tableData} onChange={updateTableData} />)}
               </div>
             </>
           )}
