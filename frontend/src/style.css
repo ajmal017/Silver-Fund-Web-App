@@ -8,8 +8,8 @@ body {
 
 /* HEADER */
 
-.masthead-brand {
-  margin-bottom: 0;
+.masthead {
+  height: 30px;
 }
 
 .nav-masthead .nav-link {
