@@ -38,7 +38,7 @@ export default function TickerSelector(props) {
             isMulti
             isSearchable
           />
-          <button className="btn date-btn" onClick={() => props.onChange(filterTableData())}>
+          <button className="btn date-btn" onClick={(data) => props.onTableChange(filterTableData())}>
             Filter by Ticker
           </button>
         </>

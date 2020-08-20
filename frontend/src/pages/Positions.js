@@ -143,7 +143,12 @@ export default function Positions() {
                 />
               </div>
               <div className="small-box d-inline-block ml-4">
-                {subPane === "historybystock" && (<TickerSelector tableData={tableData} onChange={updateTableData} />)}
+                {subPane === "historybystock" && (<TickerSelector 
+                  tableData={tableData} 
+                  onTableChange={(value) => {
+                    setTableData(value);
+                  }} 
+                />)}
               </div>
             </>
           )}
