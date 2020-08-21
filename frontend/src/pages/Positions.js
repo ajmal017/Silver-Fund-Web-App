@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import PositionsSubPanes from "../components/Positions/PositionsSubPanes";
 import {
   getDateStr,
   convertToPercentage,
   formatTimeSeries,
 } from "../components/Helpers";
+import PositionsSubPanes from "../components/Positions/PositionsSubPanes";
+import ErrorMsg from "../components/ErrorMsg";
 import DateSingler from "../components/DateSingler";
 import DateRanger from "../components/DateRanger";
 import TickerSelector from "../components/TickerSelector";
@@ -17,22 +18,25 @@ import PositionsGVT from "../components/Positions/PositionsGVT";
 
 export default function Positions() {
   const [subPane, setSubPane] = useState("snapshot");
+  const [errorMsg, setErrorMsg] = useState(null);
   const [graphVT, setGraphVT] = useState(1);
-  const [showTable, setShowTable] = useState(false);
-  const [showTimeSeries, setShowTimeSeries] = useState(false);
-  const [apiData, setApiData] = useState([]);
   const [start, setStart] = useState(getDateStr(-1));
   const [end, setEnd] = useState(getDateStr(-1));
+  const [apiData, setApiData] = useState([]);
+  const [showTable, setShowTable] = useState(false);
+  const [showTimeSeries, setShowTimeSeries] = useState(false);
 
   function getApiData() {
     setShowTable(true);
     setShowTimeSeries(true);
     setApiData([]);
+    setErrorMsg(null);
 
     console.log("start: ", start, " end: ", end);
     if (end < start) {
       setShowTable(false);
       setShowTimeSeries(false);
+      setErrorMsg("Warning: Start date isn't before end date.");
       return;
     }
 
@@ -53,17 +57,20 @@ export default function Positions() {
       .then((response) => {
         if (response.data.length === 0) {
           setShowTable(false);
-          alert(
+          setShowTimeSeries(false);
+          setErrorMsg(
             "No positions exist on the date(s) selected.  Try a different selection."
           );
         }
         setApiData(response.data);
-        console.log("Table Data: ", apiData);
+        console.log("apiData: ", apiData);
         console.log("DataSets: ", formatTimeSeries(apiData, start, end));
       })
       .catch((error) => {
         console.log(error);
-        alert("Error: Failed to load positions data.", error);
+        setShowTable(false);
+        setShowTimeSeries(false);
+        setErrorMsg("Uh oh! Failed to load positions data.  (" + error + ")");
       });
   }
 
@@ -93,6 +100,7 @@ export default function Positions() {
   return (
     <>
       <PositionsSubPanes onSubPaneSwitch={onSubPaneSwitch} />
+      <ErrorMsg errorMsg={errorMsg} />
       <div className="content pt-4">
         {subPane === "snapshot" && (
           <div className="pane-split-container">

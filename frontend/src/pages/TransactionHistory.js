@@ -1,23 +1,27 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import ErrorMsg from "../components/ErrorMsg";
 import DateRanger from "../components/DateRanger";
 import THTable from "../components/TransactionHistory/THTable";
 import { getDateStr } from "../components/Helpers";
 
 export default function TransactionHistory() {
-  const [showTable, setShowTable] = useState(false);
-  const [apiData, setApiData] = useState([]);
+  const [errorMsg, setErrorMsg] = useState(null);
   const [start, setStart] = useState("2020-01-01");
   const [end, setEnd] = useState(getDateStr(-1));
+  const [apiData, setApiData] = useState([]);
+  const [showTable, setShowTable] = useState(false);
 
   function getApiData() {
     setShowTable(true);
     setApiData([]);
+    setErrorMsg(null);
 
     console.log("start: ", start, " end: ", end);
     if (end < start) {
       setShowTable(false);
+      setErrorMsg("Warning: Start date isn't before end date.");
       return;
     }
 
@@ -38,7 +42,7 @@ export default function TransactionHistory() {
       .then((response) => {
         if (response.data.length === 0) {
           setShowTable(false);
-          alert(
+          setErrorMsg(
             "No transactions exist on the date(s) selected.  Try a different selection."
           );
         }
@@ -47,7 +51,10 @@ export default function TransactionHistory() {
       })
       .catch((error) => {
         console.log(error);
-        alert("Error: Failed to load transactions data.", error);
+        setShowTable(false);
+        setErrorMsg(
+          "Uh oh! Failed to load transactions data.  (" + error + ")"
+        );
       });
   }
 
@@ -58,17 +65,20 @@ export default function TransactionHistory() {
   }, [start, end]);
 
   return (
-    <div className="content">
-      <div className="small-box d-inline-block ml-4">
-        <DateRanger
-          start={start}
-          end={end}
-          onStartChange={(value) => setStart(value)}
-          onEndChange={(value) => setEnd(value)}
-        />
+    <>
+      <ErrorMsg errorMsg={errorMsg} />
+      <div className="content">
+        <div className="small-box d-inline-block ml-4">
+          <DateRanger
+            start={start}
+            end={end}
+            onStartChange={(value) => setStart(value)}
+            onEndChange={(value) => setEnd(value)}
+          />
+        </div>
+        <hr />
+        {showTable && <THTable data={apiData} />}
       </div>
-      <hr />
-      {showTable && <THTable data={apiData} />}
-    </div>
+    </>
   );
 }

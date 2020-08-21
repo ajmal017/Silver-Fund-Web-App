@@ -26,12 +26,6 @@ export default function DateRanger(props) {
           onChange={(event) => props.onEndChange(event.target.value)}
         />
       </label>
-      {props.start > props.end && (
-        <p style={{ color: "red" }}>
-          Warning: <br />
-          Start date isn't before end date.
-        </p>
-      )}
     </>
   );
 }
