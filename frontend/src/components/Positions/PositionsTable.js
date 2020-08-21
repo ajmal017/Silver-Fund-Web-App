@@ -2,6 +2,8 @@ import React from "react";
 import Spinner from "react-bootstrap/Spinner";
 import uuid from "react-uuid";
 
+import { addThousandsComma, makeMoneyFormat } from "../Helpers";
+
 export default function PositionsTable(props) {
   return (
     <div>
@@ -24,24 +26,10 @@ export default function PositionsTable(props) {
                 <tr key={uuid()}>
                   <td key={uuid()}>{item.asset_id}</td>
                   <td key={uuid()}>{item.ticker}</td>
-                  <td key={uuid()}>
-                    {item.num_of_shares
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                  </td>
+                  <td key={uuid()}>{addThousandsComma(item.num_of_shares)}</td>
                   <td key={uuid()}>{item.asset_type}</td>
-                  <td key={uuid()}>
-                    $
-                    {item.price
-                      .toFixed(2)
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                  </td>
-                  <td key={uuid()}>
-                    $
-                    {item.position_value
-                      .toFixed(2)
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                  </td>
+                  <td key={uuid()}>{makeMoneyFormat(item.price)}</td>
+                  <td key={uuid()}>{makeMoneyFormat(item.position_value)}</td>
                   <td key={uuid()}>{item.date}</td>
                 </tr>
               );

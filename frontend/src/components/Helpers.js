@@ -19,6 +19,14 @@ export function getDateStr(daysAway) {
   return newDateStr;
 }
 
+export function addThousandsComma(value) {
+  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+export function makeMoneyFormat(value) {
+  return "$" + value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function getDates(startDate, endDate) {
   var dateArray = [];
   var currentDate = moment(startDate);
