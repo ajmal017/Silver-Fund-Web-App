@@ -1,5 +1,6 @@
 import React from "react";
 import Spinner from "react-bootstrap/Spinner";
+import uuid from "react-uuid";
 
 export default function PositionsTable(props) {
   return (
@@ -18,30 +19,30 @@ export default function PositionsTable(props) {
             </tr>
           </thead>
           <tbody>
-            {props.apiData.map((item, index) => {
+            {props.apiData.map((item) => {
               return (
-                <tr key={index}>
-                  <td key={item.asset_id}>{item.asset_id}</td>
-                  <td key={item.ticker}>{item.ticker}</td>
-                  <td key={item.num_of_shares}>
+                <tr key={uuid()}>
+                  <td key={uuid()}>{item.asset_id}</td>
+                  <td key={uuid()}>{item.ticker}</td>
+                  <td key={uuid()}>
                     {item.num_of_shares
                       .toString()
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </td>
-                  <td key={item.asset_type}>{item.asset_type}</td>
-                  <td key={item.price}>
+                  <td key={uuid()}>{item.asset_type}</td>
+                  <td key={uuid()}>
                     $
                     {item.price
                       .toFixed(2)
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </td>
-                  <td key={item.position_value}>
+                  <td key={uuid()}>
                     $
                     {item.position_value
                       .toFixed(2)
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </td>
-                  <td key={item.date}>{item.date}</td>
+                  <td key={uuid()}>{item.date}</td>
                 </tr>
               );
             })}
