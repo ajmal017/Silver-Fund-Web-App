@@ -15,7 +15,6 @@ export default function DateRanger(props) {
           onChange={(event) => props.onStartChange(event.target.value)}
         />
       </label>
-      <br />
       <label className="date-label">
         End Date:
         <input

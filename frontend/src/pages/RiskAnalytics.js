@@ -31,6 +31,7 @@ export default function RiskAnalytics() {
           <>
             <RACurrentGVT onGraphVTChange={(value) => setGraphVT(value)} />
             <RiskVTRadio />
+            <hr />
             <div className="pane-split-container">
               <img
                 src={currentTable}
@@ -48,22 +49,30 @@ export default function RiskAnalytics() {
           </>
         ) : subPane === "throughtime" ? (
           <>
-            <RAThroughTimeGVT onGraphVTChange={(value) => setGraphVT(value)} />
-            <RiskVTRadio />
-            {/* FIXME - Pass props for start and end date */}
-            <DateRanger />
+            <div className="d-inline-block">
+              <RiskVTRadio />
+            </div>
+            <div className="small-box d-inline-block ml-4">
+              <DateRanger />
+            </div>
             <div className="small-box d-inline-block ml-4">
               {/* FIXME - Pass through data to ticker selector*/}
               {/* <TickerSelector apiData={} /> */}
               <img src={searchBox} alt="" style={{ width: "inherit" }} />
             </div>
+            <div className="d-inline-block float-right">
+              <RAThroughTimeGVT
+                onGraphVTChange={(value) => setGraphVT(value)}
+              />
+            </div>
+            <hr />
             <img src={throughTimePlot} alt="" style={{ width: "90%" }} />
           </>
         ) : (
           subPane === "whatif" && (
             <>
+              <RiskVTRadio />
               <div className="pane-split-container">
-                <RiskVTRadio />
                 <img
                   src={whatifTable}
                   alt=""
@@ -76,6 +85,8 @@ export default function RiskAnalytics() {
                     {/* <TickerSelector apiData={} /> */}
                     <img src={searchBox} alt="" style={{ width: "inherit" }} />
                   </div>
+                  <br />
+                  <br />
                   <img src={weightChanger} alt="" style={{ width: "500px" }} />
                 </div>
               </div>
