@@ -11,9 +11,12 @@ body {
 .masthead {
   height: 30px;
 }
+.nav-masthead {
+  margin-top: -5px;
+}
 
 .nav-masthead .nav-link {
-  padding: 0.25rem 0;
+  padding: 0.15rem 0;
   font-size: large;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.5);
@@ -67,7 +70,7 @@ footer {
 
 .content {
   background-color: #cfcfcf;
-  min-height: 80vh;
+  min-height: 81vh;
   color: #002e5d;
   padding: 3vw;
 }
@@ -101,7 +104,7 @@ a :hover {
   flex-wrap: wrap-reverse;
   align-items: center;
   justify-content: center;
-  min-height: 85vh;
+  min-height: 86vh;
 }
 
 /* INTRO COMPONENT */
@@ -297,6 +300,20 @@ td {
 
 .radio-label {
   font-size: large;
+}
+
+/* WIDE TABLET ADJUSTMENTS */
+
+@media (max-width: 1430px) {
+  .home-logo {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .masthead {
+    height: 65px;
+  }
 }
 
 /* MOBILE ADJUSTMENTS */
