@@ -20,14 +20,14 @@ export default function Positions() {
   const [graphVT, setGraphVT] = useState(1);
   const [showTable, setShowTable] = useState(false);
   const [showTimeSeries, setShowTimeSeries] = useState(false);
-  const [tableData, setTableData] = useState([]);
+  const [apiData, setApiData] = useState([]);
   const [start, setStart] = useState(getDateStr(-1));
   const [end, setEnd] = useState(getDateStr(-1));
 
   function getApiData() {
     setShowTable(true);
     setShowTimeSeries(true);
-    setTableData([]);
+    setApiData([]);
 
     console.log("start: ", start, " end: ", end);
     if (end < start) {
@@ -57,9 +57,9 @@ export default function Positions() {
             "No positions exist on the date(s) selected.  Try a different selection."
           );
         }
-        setTableData(response.data);
-        console.log("Table Data: ", tableData);
-        console.log("DataSets: ", formatTimeSeries(tableData, start, end));
+        setApiData(response.data);
+        console.log("Table Data: ", apiData);
+        console.log("DataSets: ", formatTimeSeries(apiData, start, end));
       })
       .catch((error) => {
         console.log(error);
@@ -108,14 +108,14 @@ export default function Positions() {
                 />
               </div>
               <hr />
-              {showTable && <PositionsTable tableData={tableData} />}
+              {showTable && <PositionsTable apiData={apiData} />}
             </div>
             <div className="right-col">
               <PositionsGVT onGraphVTChange={(value) => setGraphVT(value)} />
               {showTable && graphVT === 1 && (
                 <SnapShotChart
-                  tickerData={tableData.map(({ ticker }) => ticker)}
-                  valuesData={tableData.map(
+                  tickerData={apiData.map(({ ticker }) => ticker)}
+                  valuesData={apiData.map(
                     ({ position_value }) => position_value
                   )}
                   x_label={"Position Value (USD)"}
@@ -127,9 +127,9 @@ export default function Positions() {
               )}
               {showTable && graphVT === 2 && (
                 <SnapShotChart
-                  tickerData={tableData.map(({ ticker }) => ticker)}
+                  tickerData={apiData.map(({ ticker }) => ticker)}
                   valuesData={convertToPercentage(
-                    tableData.map(({ position_value }) => position_value)
+                    apiData.map(({ position_value }) => position_value)
                   )}
                   x_label={"Percent of Portfolio"}
                   tool_tip_label={"Percent"}
@@ -152,20 +152,18 @@ export default function Positions() {
               />
             </div>
             <div className="small-box d-inline-block ml-4">
-              <TickerSelector tableData={tableData} />
+              <TickerSelector apiData={apiData} />
             </div>
             <PositionsGVT onGraphVTChange={(value) => setGraphVT(value)} />
             <hr />
             <div style={{ backgroundColor: "#FFFF" }}>
               {showTimeSeries && (
-                <TimeSeriesChart
-                  data={formatTimeSeries(tableData, start, end)}
-                />
+                <TimeSeriesChart data={formatTimeSeries(apiData, start, end)} />
               )}
             </div>
 
             <br />
-            {showTable && <PositionsTable tableData={tableData} />}
+            {showTable && <PositionsTable apiData={apiData} />}
           </>
         )}
       </div>

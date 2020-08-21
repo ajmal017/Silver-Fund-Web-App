@@ -7,13 +7,13 @@ import { getDateStr } from "../components/Helpers";
 
 export default function TransactionHistory() {
   const [showTable, setShowTable] = useState(false);
-  const [tableData, setTableData] = useState([]);
+  const [apiData, setApiData] = useState([]);
   const [start, setStart] = useState("2020-01-01");
   const [end, setEnd] = useState(getDateStr(-1));
 
   function getApiData() {
     setShowTable(true);
-    setTableData([]);
+    setApiData([]);
 
     console.log("start: ", start, " end: ", end);
     if (end < start) {
@@ -42,8 +42,8 @@ export default function TransactionHistory() {
             "No transactions exist on the date(s) selected.  Try a different selection."
           );
         }
-        setTableData(response.data);
-        console.log("tableData: ", tableData);
+        setApiData(response.data);
+        console.log("apiData: ", apiData);
       })
       .catch((error) => {
         console.log(error);
@@ -68,7 +68,7 @@ export default function TransactionHistory() {
         />
       </div>
       <hr />
-      {showTable && <THTable data={tableData} />}
+      {showTable && <THTable data={apiData} />}
     </div>
   );
 }

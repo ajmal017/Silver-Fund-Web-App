@@ -4,7 +4,7 @@ import Spinner from "react-bootstrap/Spinner";
 export default function PositionsTable(props) {
   return (
     <div>
-      {props.tableData && props.tableData.length > 0 ? (
+      {props.apiData && props.apiData.length > 0 ? (
         <table>
           <thead>
             <tr>
@@ -18,7 +18,7 @@ export default function PositionsTable(props) {
             </tr>
           </thead>
           <tbody>
-            {props.tableData.map((item, index) => {
+            {props.apiData.map((item, index) => {
               return (
                 <tr key={index}>
                   <td key={item.asset_id}>{item.asset_id}</td>

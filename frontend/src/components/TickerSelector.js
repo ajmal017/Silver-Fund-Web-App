@@ -5,18 +5,19 @@ import makeAnimated from "react-select/animated";
 export default function TickerSelector(props) {
   const [tickerFilter, setTickerFilter] = useState([]);
 
-  const tickerOptions = props.tableData.map((item) => ({
+  const tickerOptions = props.apiData.map((item) => ({
     value: item.ticker,
     label: item.ticker,
   }));
 
-  function filterTableData() {
-    const tickers = tickerFilter.map(({ value }) => value)
-    var newData = []
+  function filterapiData() {
+    const tickers = tickerFilter.map(({ value }) => value);
+    var newData = [];
     var i;
-    for(i = 0; i < tickers.length; ++i)
-    {
-      var filterData =  props.tableData.filter(function(item) {return ((item.ticker === tickers[i]))});
+    for (i = 0; i < tickers.length; ++i) {
+      var filterData = props.apiData.filter(function (item) {
+        return item.ticker === tickers[i];
+      });
       newData.push.apply(newData, filterData);
     }
     console.log("filtered: ", newData);
@@ -25,7 +26,7 @@ export default function TickerSelector(props) {
 
   return (
     <>
-      {props.tableData && props.tableData.length > 0 ? (
+      {props.apiData && props.apiData.length > 0 ? (
         <>
           <Select
             components={makeAnimated()}
@@ -38,12 +39,15 @@ export default function TickerSelector(props) {
             isMulti
             isSearchable
           />
-          {/* <button className="btn date-btn" onClick={() => props.onSubmit(filterTableData())}> */}
-          <button className="btn date-btn" onClick={() =>{
-            let newData = filterTableData();
-            console.log(newData);
-            console.log(props.tableData)
-          }}>
+          {/* <button className="btn date-btn" onClick={() => props.onSubmit(filterapiData())}> */}
+          <button
+            className="btn date-btn"
+            onClick={() => {
+              let newData = filterapiData();
+              console.log(newData);
+              console.log(props.apiData);
+            }}
+          >
             Filter by Ticker
           </button>
         </>

@@ -54,7 +54,7 @@ export default function RiskAnalytics() {
             <DateRanger />
             <div className="small-box d-inline-block ml-4">
               {/* FIXME - Pass through data to ticker selector*/}
-              {/* <TickerSelector tableData={} /> */}
+              {/* <TickerSelector apiData={} /> */}
               <img src={searchBox} alt="" style={{ width: "inherit" }} />
             </div>
             <img src={throughTimePlot} alt="" style={{ width: "90%" }} />
@@ -73,7 +73,7 @@ export default function RiskAnalytics() {
                 <div className="right-col">
                   <div className="small-box d-inline-block ml-4">
                     {/* FIXME - Pass through data to ticker selector*/}
-                    {/* <TickerSelector tableData={} /> */}
+                    {/* <TickerSelector apiData={} /> */}
                     <img src={searchBox} alt="" style={{ width: "inherit" }} />
                   </div>
                   <img src={weightChanger} alt="" style={{ width: "500px" }} />

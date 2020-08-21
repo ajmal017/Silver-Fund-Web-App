@@ -75,13 +75,13 @@ export function convertToPercentage(values) {
   }
 }
 
-export function formatTimeSeries(tableData, startDate, stopDate) {
+export function formatTimeSeries(apiData, startDate, stopDate) {
   var tickers = [];
   var labels = [];
   var datasets = [];
   var timeSeriesData = [];
 
-  tickers = tableData.map(({ ticker }) => ticker);
+  tickers = apiData.map(({ ticker }) => ticker);
   tickers = [...new Set(tickers)];
   labels = getDates(startDate, stopDate);
 
@@ -95,7 +95,7 @@ export function formatTimeSeries(tableData, startDate, stopDate) {
     asset.borderColor = color;
     asset.data = [];
     for (j = 0; j < labels.length; j++) {
-      var value = tableData.filter(function (item) {
+      var value = apiData.filter(function (item) {
         return item.ticker === tickers[i] && item.date === labels[j];
       });
       if (value.length === 0) {
