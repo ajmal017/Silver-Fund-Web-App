@@ -9,6 +9,7 @@ export default function PositionsSubPanes(props) {
       defaultActiveKey="snapshot"
       activeKey={props.subPane}
       onSelect={props.onSubPaneSwitch}
+      transition={false}
     >
       <Tab eventKey="snapshot" title="Snapshot (Bar Chart View)"></Tab>
       <Tab

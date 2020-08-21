@@ -8,7 +8,7 @@ import RiskAnalytics from "../../pages/RiskAnalytics";
 
 export default function Panes() {
   return (
-    <Tabs className="pane" defaultActiveKey="home">
+    <Tabs className="pane" defaultActiveKey="home" transition={false}>
       <Tab eventKey="home" title="Home">
         <Home />
       </Tab>
