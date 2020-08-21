@@ -29,19 +29,19 @@ export default function Positions() {
     setShowTimeSeries(true);
     setTableData([]);
 
-    axios.defaults.baseURL = "http://localhost:8000/";
-    // FIXME - Update credentials once auth is working.
-    // axios.defaults.auth = {
-    //   username: "su",
-    //   password: "su",
-    // };
-
     console.log("start: ", start, " end: ", end);
     if (end < start) {
       setShowTable(false);
       setShowTimeSeries(false);
       return;
     }
+
+    axios.defaults.baseURL = "http://localhost:8000/";
+    // FIXME - Update credentials once auth is working.
+    // axios.defaults.auth = {
+    //   username: "su",
+    //   password: "su",
+    // };
 
     axios
       .get("api/positions/filter/date/", {

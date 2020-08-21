@@ -75,7 +75,7 @@ export function convertToPercentage(values) {
   }
 }
 
-export function formatTimeSeries(tableData, startDate, StopDate) {
+export function formatTimeSeries(tableData, startDate, stopDate) {
   var tickers = [];
   var labels = [];
   var datasets = [];
@@ -83,7 +83,7 @@ export function formatTimeSeries(tableData, startDate, StopDate) {
 
   tickers = tableData.map(({ ticker }) => ticker);
   tickers = [...new Set(tickers)];
-  labels = getDates(startDate, StopDate);
+  labels = getDates(startDate, stopDate);
 
   var i;
   var j;
