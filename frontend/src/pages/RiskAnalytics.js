@@ -5,7 +5,7 @@ import RiskVTRadio from "../components/RiskAnalytics/RiskVTRadio";
 import RACurrentGVT from "../components/RiskAnalytics/RACurrentGVT";
 import RAThroughTimeGVT from "../components/RiskAnalytics/RAThroughTimeGVT";
 import DateRanger from "../components/DateRanger";
-import TickerSelector from "../components/TickerSelector";
+// import TickerSelector from "../components/TickerSelector";
 
 // Delete all below once actual data is working.
 import currentTable from "../components/RiskAnalytics/tempPics/current-table.png";
