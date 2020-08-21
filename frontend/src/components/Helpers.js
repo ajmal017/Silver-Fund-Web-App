@@ -19,10 +19,10 @@ export function getDateStr(daysAway) {
   return newDateStr;
 }
 
-function getDates(startDate, stopDate) {
+function getDates(startDate, endDate) {
   var dateArray = [];
   var currentDate = moment(startDate);
-  var stopDate = moment(stopDate);
+  var stopDate = moment(endDate);
   while (currentDate <= stopDate) {
     dateArray.push(moment(currentDate).format("YYYY-MM-DD"));
     currentDate = moment(currentDate).add(1, "days");
@@ -31,30 +31,30 @@ function getDates(startDate, stopDate) {
 }
 
 function getColor(value) {
-  const hBase = Math.random();
-  const newH = Math.floor(hBase * 360);
-  const newL = Math.floor(Math.random() * 16) + 75;
-  let r, g, b;
-  let h = hBase;
-  let l = 1;
-  let s = newL * 0.01;
-  const rd = (a) => {
-    return Math.floor(Math.max(Math.min(a * 256, 255), 0));
-  };
-  const hueToRGB = (m, n, o) => {
-    if (o < 0) o += 1;
-    if (o > 1) o -= 1;
-    if (o < 1 / 6) return m + (n - m) * 6 * o;
-    if (o < 1 / 2) return n;
-    if (o < 2 / 3) return m + (n - m) * (2 / 3 - o) * 6;
-    return m;
-  };
-  const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-  const p = 2 * l - q;
+  // const hBase = Math.random();
+  //const newH = Math.floor(hBase * 360);
+  // const newL = Math.floor(Math.random() * 16) + 75;
+  // let r, g, b;
+  // let h = hBase;
+  // let l = 1;
+  // let s = newL * 0.01;
+  // const rd = (a) => {
+  //   return Math.floor(Math.max(Math.min(a * 256, 255), 0));
+  // };
+  // const hueToRGB = (m, n, o) => {
+  //   if (o < 0) o += 1;
+  //   if (o > 1) o -= 1;
+  //   if (o < 1 / 6) return m + (n - m) * 6 * o;
+  //   if (o < 1 / 2) return n;
+  //   if (o < 2 / 3) return m + (n - m) * (2 / 3 - o) * 6;
+  //   return m;
+  // };
+  // const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+  // const p = 2 * l - q;
 
-  r = hueToRGB(p, q, h + 1 / 3);
-  g = hueToRGB(p, q, h);
-  b = hueToRGB(p, q, h - 1 / 3);
+  // r = hueToRGB(p, q, h + 1 / 3);
+  // g = hueToRGB(p, q, h);
+  // b = hueToRGB(p, q, h - 1 / 3);
 
   var color = "#" + Math.floor(Math.random() * 16777215).toString(16);
   return color;
