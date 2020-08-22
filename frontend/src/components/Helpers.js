@@ -18,6 +18,22 @@ export function getDateStr(daysAway) {
     ("0" + newDate.getDate()).slice(-2);
   return newDateStr;
 }
+/*
+Return back a "YYYY-MM-DD" string (ex: "2020-01-01:") that is 3 months since yesterday.
+*/
+export function getDateStr3MonthsBack() {
+  const newDate = new Date();
+  newDate.setMonth(newDate.getMonth() - 3);
+  newDate.setDate(newDate.getDate() - 1);
+
+  const newDateStr =
+    newDate.getFullYear() +
+    "-" +
+    ("0" + (newDate.getMonth() + 1)).slice(-2) +
+    "-" +
+    ("0" + newDate.getDate()).slice(-2);
+  return newDateStr;
+}
 
 export function addThousandsComma(value) {
   return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

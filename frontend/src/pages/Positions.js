@@ -3,6 +3,7 @@ import axios from "axios";
 
 import {
   getDateStr,
+  getDateStr3MonthsBack,
   convertToPercentage,
   formatTimeSeries,
 } from "../components/Helpers";
@@ -82,8 +83,8 @@ export default function Positions() {
       setShowTimeSeries(false);
     }
     if (newSubPane === "historybystock") {
-      const weekFromYesterday = getDateStr(-8);
-      setStart(weekFromYesterday);
+      const threeMonthsAgo = getDateStr3MonthsBack();
+      setStart(threeMonthsAgo);
       const yesterday = getDateStr(-1);
       setEnd(yesterday);
       setShowTimeSeries(true);
