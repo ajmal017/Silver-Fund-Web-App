@@ -29,7 +29,7 @@ export default function SnapShotChart(props) {
             ],
           }}
           width={50}
-          height={50 + props.tickerData.length / 2}
+          height={35 + props.tickerData.length / 4}
           options={{
             title: {
               display: true,
