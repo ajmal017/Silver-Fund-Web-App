@@ -99,7 +99,8 @@ export function convertToPercentage(values) {
   }
 }
 
-export function formatTimeSeries(apiData, startDate, stopDate) {
+export function formatTimeSeries(apiData, startDate, stopDate, weight) {
+  const add_abs = (a, b) => Math.abs(a) + Math.abs(b);
   var tickers = [];
   var labels = [];
   var datasets = [];
@@ -108,6 +109,27 @@ export function formatTimeSeries(apiData, startDate, stopDate) {
   tickers = apiData.map(({ ticker }) => ticker);
   tickers = [...new Set(tickers)];
   labels = getDates(startDate, stopDate);
+
+  //We fill our weights with one in case we want the $ value of each position
+  var weights = [];
+  var k;
+  var curr;
+
+  //If we want portfolio weights
+  if(weight === true) {
+    for(k = 0; k < labels.length; ++k) {
+      var curr = apiData.filter(function (item) { return item.date === labels[k];});
+      curr = curr.map(({ position_value }) => position_value)
+      if (curr.length === 0) {
+        weights.push(1);
+      } else {
+        weights.push(curr.reduce(add_abs));
+      }
+    }
+  }
+  else {
+    weights = Array(labels.length).fill(1);
+  }
 
   var i;
   var j;
@@ -125,7 +147,7 @@ export function formatTimeSeries(apiData, startDate, stopDate) {
       if (value.length === 0) {
         asset.data.push(0);
       } else {
-        asset.data.push(value[0].position_value);
+        asset.data.push((value[0].position_value)/weights[j]);
       }
     }
     asset.fill = false;

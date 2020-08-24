@@ -166,8 +166,11 @@ export default function Positions() {
             <PositionsGVT onGraphVTChange={(value) => setGraphVT(value)} />
             <hr />
             <div style={{ backgroundColor: "#FFFF" }}>
-              {showTimeSeries && (
-                <TimeSeriesChart data={formatTimeSeries(apiData, start, end)} />
+              {showTimeSeries && graphVT === 1 &&(
+                <TimeSeriesChart data={formatTimeSeries(apiData, start, end, false)} />
+              )}
+              {showTimeSeries && graphVT === 2 &&(
+                <TimeSeriesChart data={formatTimeSeries(apiData, start, end, true)} />
               )}
             </div>
 
