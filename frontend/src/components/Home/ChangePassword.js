@@ -21,6 +21,13 @@ export default function ChangePassword(props) {
       return;
     }
 
+    if (newPwd.length < 8) {
+      props.setChangePwdError(
+        "New password must be at least 8 characters long."
+      );
+      return;
+    }
+
     axios.defaults.baseURL = "http://localhost:8000/";
     axios.defaults.auth = {
       username: props.username,
@@ -89,6 +96,7 @@ export default function ChangePassword(props) {
         <input
           type="password"
           className="form-control"
+          minLength="8"
           placeholder="Enter new password"
           value={newPwd}
           onChange={(event) => setNewPwd(event.target.value)}
