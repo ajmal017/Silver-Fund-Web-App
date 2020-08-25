@@ -41,6 +41,7 @@ export default function TickerSelector(props) {
           />
           {/* <button className="btn date-btn" onClick={() => props.onSubmit(filterapiData())}> */}
           <button
+            type="button"
             className="btn date-btn"
             onClick={() => {
               let newData = filterApiData();

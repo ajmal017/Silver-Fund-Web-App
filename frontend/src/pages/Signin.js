@@ -13,7 +13,7 @@ export default function Signin(props) {
         fillUsername={props.fillUsername}
         password={props.password}
         fillPassword={props.fillPassword}
-        submitPress={props.submitPress}
+        signinPress={props.signinPress}
       />
     </div>
   );

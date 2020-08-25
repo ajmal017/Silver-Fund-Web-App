@@ -1,7 +1,7 @@
 import React from "react";
 
-import passwordIcon from "../../images/lock.png";
 import usernameIcon from "../../images/user.png";
+import passwordIcon from "../../images/lock.png";
 
 export default function SigninBox(props) {
   return (
@@ -22,7 +22,6 @@ export default function SigninBox(props) {
             type="text"
             className="form-control"
             placeholder="Enter username"
-            id="username-field"
             value={props.username}
             onChange={props.fillUsername}
           />
@@ -41,15 +40,18 @@ export default function SigninBox(props) {
             type="password"
             className="form-control"
             placeholder="Enter password"
-            id="password-field"
             value={props.password}
             onChange={props.fillPassword}
           />
         </div>
         {/* Sign In */}
-        <btn className="btn signin-btn" onClick={props.submitPress}>
+        <button
+          type="button"
+          className="btn signin-btn"
+          onClick={props.signinPress}
+        >
           Sign In
-        </btn>
+        </button>
         <a
           className="forgot-password float-right pt-1"
           href="http://www.fixme.com/"

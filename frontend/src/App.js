@@ -21,7 +21,8 @@ export default function App() {
   }
   const [token, setToken] = useLocalState(null);
 
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useLocalState("");
+  // const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   // const [token, setToken] = useState(null);
   const [loginError, setLoginError] = useState(null);
@@ -41,7 +42,7 @@ export default function App() {
 
     axios.defaults.baseURL = "http://localhost:8000/";
     axios
-      .post("login/", {
+      .post("api/login/", {
         username: username,
         password: password,
       })
@@ -52,17 +53,19 @@ export default function App() {
       .catch((error) => {
         console.log(error);
         setLoginError(
-          "Uh oh!  No user was found with those credentials.  (" + error + ")"
+          "Uh oh!  Invalid credentials.  Try again. (" + error + ")"
         );
+        setUsername("");
+        setPassword("");
       });
-
-    setUsername("");
-    setPassword("");
   }
 
   function signOut() {
     setToken(null);
     localStorage.clear();
+    setUsername("");
+    setPassword("");
+    window.location.reload(true);
   }
 
   function fillUsername(event) {
@@ -77,7 +80,7 @@ export default function App() {
     <>
       <Header token={token} signOut={() => signOut()} />
       {token ? (
-        <Panes />
+        <Panes username={username} password={password} />
       ) : (
         <>
           <ErrorMsg errorMsg={loginError} />
@@ -86,7 +89,7 @@ export default function App() {
             password={password}
             fillUsername={fillUsername}
             fillPassword={fillPassword}
-            submitPress={() => signIn()}
+            signinPress={() => signIn()}
           />
         </>
       )}

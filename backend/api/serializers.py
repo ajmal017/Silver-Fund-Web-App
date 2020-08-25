@@ -19,6 +19,16 @@ class UserSerializer(serializers.ModelSerializer):
         ]
 
 
+class ChangePasswordSerializer(serializers.Serializer):
+    model = User
+
+    """
+    Serializer for password change endpoint.
+    """
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)
+
+
 class PositionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Position

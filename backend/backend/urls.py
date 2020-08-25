@@ -24,6 +24,7 @@ urlpatterns = [
     path("api/ibaccount/cashbalance/", views.get_cashbalance),
     path("api/update/positions/", views.update_positions),
     path("api/update/trades/", views.update_trades),
-    path("login/", obtain_auth_token),
+    path("api/login/", obtain_auth_token),
+    path("api/change-password/", views.ChangePasswordView.as_view(),),
 ]
 

@@ -4,9 +4,8 @@ export default function RAThroughTimeGVT(props) {
   return (
     <div className="dropdown float-right">
       <button
-        className="btn btn-secondary dropdown-toggle"
         type="button"
-        id="dropdownMenuButton"
+        className="btn btn-secondary dropdown-toggle"
         data-toggle="dropdown"
       >
         Graph View Type

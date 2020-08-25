@@ -6,11 +6,11 @@ import Positions from "../../pages/Positions";
 import TransactionHistory from "../../pages/TransactionHistory";
 import RiskAnalytics from "../../pages/RiskAnalytics";
 
-export default function Panes() {
+export default function Panes(props) {
   return (
     <Tabs className="pane" defaultActiveKey="home" transition={false}>
       <Tab eventKey="home" title="Home">
-        <Home />
+        <Home username={props.username} password={props.password} />
       </Tab>
       <Tab eventKey="positions" title="Positions">
         <Positions />

@@ -31,9 +31,13 @@ export default function Header(props) {
         </h3>
         <nav className="nav float-right">
           {props.token && (
-            <btn className="btn signout-btn" onClick={props.signOut}>
+            <button
+              type="button"
+              className="btn signout-btn"
+              onClick={props.signOut}
+            >
               Sign Out
-            </btn>
+            </button>
           )}
         </nav>
       </header>
