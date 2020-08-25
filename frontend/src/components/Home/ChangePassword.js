@@ -40,8 +40,6 @@ export default function ChangePassword(props) {
         new_password: newPwd,
       })
       .then((response) => {
-        // console.log("Token: ", response.data.token);
-        // setToken(response.data.token);
         console.log(response, response.data);
         props.setChangePwdSuccess(
           "Success!  Make sure to sign in with your new password in the future."
