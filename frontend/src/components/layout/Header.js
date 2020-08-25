@@ -6,7 +6,7 @@ import byuLogoText from "../../images/byu-logo-text.png";
 export default function Header(props) {
   return (
     <div
-      className="d-flex w-100 p-2 mx-auto flex-column"
+      className="d-flex w-100 p-2 pt-3 mx-auto flex-column"
       style={{ maxWidth: "60em" }}
     >
       <header>

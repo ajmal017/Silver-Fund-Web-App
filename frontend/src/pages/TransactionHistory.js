@@ -26,12 +26,6 @@ export default function TransactionHistory() {
     }
 
     axios.defaults.baseURL = "http://localhost:8000/";
-    // FIXME - Update credentials once auth is working.
-    // axios.defaults.auth = {
-    //   username: "su",
-    //   password: "su",
-    // };
-
     axios
       .get("api/trades/filter/date/", {
         params: {
