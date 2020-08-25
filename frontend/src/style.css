@@ -6,51 +6,6 @@ body {
   color: #ffffff;
 }
 
-/* HEADER */
-
-.masthead {
-  height: 30px;
-}
-.nav-masthead {
-  margin-top: -5px;
-}
-
-.nav-masthead .nav-link {
-  padding: 0.15rem 0;
-  font-size: large;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.5);
-  background-color: transparent;
-  border-bottom: 0.25rem solid transparent;
-}
-
-.nav-masthead .nav-link:hover,
-.nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, 0.25);
-}
-
-.nav-masthead .nav-link + .nav-link {
-  margin-left: 1rem;
-}
-
-.nav-masthead .active {
-  color: #ffffff;
-  border-bottom-color: #ffffff;
-}
-
-@media (min-width: 48em) {
-  .masthead-brand {
-    float: left;
-  }
-  .nav-masthead {
-    float: right;
-  }
-}
-
-.cover-container {
-  max-width: 60em;
-}
-
 /* FOOTER */
 
 footer {
@@ -95,6 +50,19 @@ a :hover {
 .btn:hover {
   background-color: #000000;
   color: #ffffff;
+}
+
+.signout-btn {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.signout-btn:hover {
+  background-color: #cfcfcf;
+  color: #002e5d;
 }
 
 /* HOMEPAGE CONTAINER */
@@ -321,5 +289,16 @@ td {
 @media (max-width: 600px) {
   .sf-intro {
     margin-right: 0px;
+  }
+
+  #sf-alpha {
+    display: none;
+  }
+}
+
+/* SMALL MOBILE ADJUSTMENTS  */
+@media (max-width: 375px) {
+  #byu-text {
+    display: none;
   }
 }

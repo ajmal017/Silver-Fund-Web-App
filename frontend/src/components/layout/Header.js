@@ -3,11 +3,14 @@ import React from "react";
 import sfLogo from "../../images/sf-logo.png";
 import byuLogoText from "../../images/byu-logo-text.png";
 
-export default function Header() {
+export default function Header(props) {
   return (
-    <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header className="masthead mb-auto">
-        <h3 className="masthead-brand">
+    <div
+      className="d-flex w-100 p-2 mx-auto flex-column"
+      style={{ maxWidth: "60em" }}
+    >
+      <header>
+        <h3 className="float-left">
           <img
             src={byuLogoText}
             alt=""
@@ -16,22 +19,22 @@ export default function Header() {
               paddingBottom: "6px",
               paddingRight: "8px",
             }}
+            id="byu-text"
           />
           Silver Fund
           <img
             src={sfLogo}
             alt=""
             style={{ height: "25px", paddingLeft: "20px", marginTop: "-7px" }}
+            id="sf-alpha"
           />
         </h3>
-        <nav className="nav nav-masthead justify-content-center">
-          {/* FIXME - Add logic so it isn't visible when user is signed in. */}
-          <a className="nav-link active" href="/">
-            Home
-          </a>
-          <a className="nav-link" href="/signin/">
-            Sign Out
-          </a>
+        <nav className="nav float-right">
+          {props.token && (
+            <btn className="btn signout-btn" onClick={props.signOut}>
+              Sign Out
+            </btn>
+          )}
         </nav>
       </header>
     </div>

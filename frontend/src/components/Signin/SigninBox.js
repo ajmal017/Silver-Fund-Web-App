@@ -3,7 +3,7 @@ import React from "react";
 import passwordIcon from "../../images/lock.png";
 import usernameIcon from "../../images/user.png";
 
-export default function SigninBox() {
+export default function SigninBox(props) {
   return (
     <div className="card" id="signin-box">
       <h3 className="card-title">Welcome Back!</h3>
@@ -23,6 +23,8 @@ export default function SigninBox() {
             className="form-control"
             placeholder="Enter username"
             id="username-field"
+            value={props.username}
+            onChange={props.fillUsername}
           />
         </div>
         {/* PASSWORD */}
@@ -40,12 +42,14 @@ export default function SigninBox() {
             className="form-control"
             placeholder="Enter password"
             id="password-field"
+            value={props.password}
+            onChange={props.fillPassword}
           />
         </div>
         {/* Sign In */}
-        <button type="submit" className="btn signin-btn">
+        <btn className="btn signin-btn" onClick={props.submitPress}>
           Sign In
-        </button>
+        </btn>
         <a
           className="forgot-password float-right pt-1"
           href="http://www.fixme.com/"
@@ -56,7 +60,6 @@ export default function SigninBox() {
         <a
           className="btn signup-link-btn"
           href="mailto:silverfund@byu?subject=Account Creation Request" // FIXME - Add valid email address
-          role="button"
         >
           Contact Us
         </a>

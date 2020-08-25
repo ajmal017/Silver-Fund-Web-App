@@ -5,15 +5,22 @@ from django.db import models
 from django.utils import timezone
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["url", "username", "email"]
+        fields = [
+            "url",
+            "username",
+            "password",
+            "first_name",
+            "last_name",
+            "email",
+            "is_staff",
+        ]
 
 
 class PositionSerializer(serializers.ModelSerializer):
     class Meta:
-        # date = models.DateField(default=timezone.now)
         model = Position
         fields = [
             "asset_id",
@@ -28,7 +35,6 @@ class PositionSerializer(serializers.ModelSerializer):
 
 class PositionUpdateSerializer(serializers.ModelSerializer):
     class Meta:
-        # date = models.DateField(default=timezone.now)
         model = Position
         fields = [
             "asset_id",
