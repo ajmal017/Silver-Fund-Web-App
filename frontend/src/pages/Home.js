@@ -73,9 +73,6 @@ export default function Home(props) {
           >
             Documentation
           </a>
-          {/* <br />
-          <br />
-          <br /> */}
           <div
             className="mt-5"
             style={{
