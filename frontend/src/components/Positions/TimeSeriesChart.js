@@ -1,5 +1,6 @@
 import React from "react"; // { Component, useState }
 import { Line } from "react-chartjs-2"; // Bar, Line, Pie,
+import { addThousandsComma} from "../Helpers";
 // import Spinner from "react-bootstrap/Spinner";
 
 export default function TimeSeriesChart(props) {
@@ -41,6 +42,28 @@ export default function TimeSeriesChart(props) {
                 display: true,
                 labelString: "Value",
               },
+            },
+          },
+          animation: {
+            onComplete: function () {
+              var ctx = this.chart.ctx;
+              // ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
+              ctx.fillStyle = "#000000";
+              ctx.textAlign = 'right';
+              // ctx.textBaseline = 'bottom';
+
+              this.data.datasets.forEach(function (dataset) {
+                for (var i = 0; i < dataset.data.length; i++) {
+                  for (var key in dataset._meta) {
+                    var model = dataset._meta[key].data[i]._model;
+                    ctx.fillText(
+                      props.dollar + addThousandsComma(dataset.data[i]) + props.percent,
+                      model.x  - 5,
+                      model.y
+                    );
+                  }
+                }
+              });
             },
           },
         }}

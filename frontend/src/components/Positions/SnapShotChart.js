@@ -1,6 +1,7 @@
 import React from "react"; // { Component, useState }
 import { HorizontalBar } from "react-chartjs-2"; // Bar, Line, Pie,
 import Spinner from "react-bootstrap/Spinner";
+import { addThousandsComma} from "../Helpers";
 
 function FindMin(data) {
   if(!data){return data}
@@ -96,7 +97,7 @@ export default function SnapShotChart(props) {
                     for (var key in dataset._meta) {
                       var model = dataset._meta[key].data[i]._model;
                       ctx.fillText(
-                        props.dollar + dataset.data[i] + props.percent,
+                        props.dollar + addThousandsComma(dataset.data[i]) + props.percent,
                         model.x + 5,
                         model.y
                       );

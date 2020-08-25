@@ -54,34 +54,18 @@ function getDates(startDate, endDate) {
   return dateArray;
 }
 
-function getColor(value) {
-  // const hBase = Math.random();
-  //const newH = Math.floor(hBase * 360);
-  // const newL = Math.floor(Math.random() * 16) + 75;
-  // let r, g, b;
-  // let h = hBase;
-  // let l = 1;
-  // let s = newL * 0.01;
-  // const rd = (a) => {
-  //   return Math.floor(Math.max(Math.min(a * 256, 255), 0));
-  // };
-  // const hueToRGB = (m, n, o) => {
-  //   if (o < 0) o += 1;
-  //   if (o > 1) o -= 1;
-  //   if (o < 1 / 6) return m + (n - m) * 6 * o;
-  //   if (o < 1 / 2) return n;
-  //   if (o < 2 / 3) return m + (n - m) * (2 / 3 - o) * 6;
-  //   return m;
-  // };
-  // const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-  // const p = 2 * l - q;
-
-  // r = hueToRGB(p, q, h + 1 / 3);
-  // g = hueToRGB(p, q, h);
-  // b = hueToRGB(p, q, h - 1 / 3);
-
-  var color = "#" + Math.floor(Math.random() * 16777215).toString(16);
-  return color;
+function getColor(str) {
+  var hash = 0;
+  for (var i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  var colour = '#';
+  for (var i = 0; i < 3; i++) {
+    var value = (hash >> (i * 8)) & 0xFF;
+    colour += ('00' + value.toString(16)).substr(-2);
+  }
+  return colour;
+  // var color = "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
 
 export function convertToPercentage(values) {
@@ -130,11 +114,10 @@ export function formatTimeSeries(apiData, startDate, stopDate, weight) {
   else {
     weights = Array(labels.length).fill(1);
   }
-
   var i;
   var j;
   for (i = 0; i < tickers.length; i++) {
-    let color = getColor(i);
+    let color = getColor(tickers[i]);
     var asset = {};
     asset.label = tickers[i];
     asset.backgroundColor = color;
@@ -147,15 +130,13 @@ export function formatTimeSeries(apiData, startDate, stopDate, weight) {
       if (value.length === 0) {
         asset.data.push(0);
       } else {
-        asset.data.push((value[0].position_value)/weights[j]);
+        asset.data.push((100 * (value[0].position_value)/weights[j]).toFixed(2));
       }
     }
     asset.fill = false;
     datasets.push(asset);
   }
-
   timeSeriesData.push(labels);
   timeSeriesData.push(datasets);
-
   return timeSeriesData;
 }
