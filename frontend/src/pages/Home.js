@@ -16,18 +16,19 @@ export default function Home(props) {
       <div className="content">
         <div className="left-col">
           <h3>{props.username}, Welcome to the Silver Fund Web App!</h3>
-          <p className="intro-info">
-            Click the tabs above to navigate between panes. <br />
-            See the buttons with links below to learn more about how to use the
-            app.
-          </p>
           <a
-            className="btn"
+            className="btn m-4 home-btn"
             href="https://byu.sharepoint.com/sites/silverfund-wiki"
             target="_blank"
             rel="noopener noreferrer"
           >
             Documentation
+          </a>
+          <a
+            className="btn m-4 contactus-btn home-btn"
+            href="mailto:silverfund@byu?subject=Question about Web App" // FIXME - Add valid email address
+          >
+            Contact Us
           </a>
           <ChangePassword
             username={props.username}

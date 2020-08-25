@@ -1,27 +1,8 @@
-/* OVERALL STRUCTURE */
-
 html,
 body {
   background-color: #002e5d;
   color: #ffffff;
 }
-
-/* FOOTER */
-
-footer {
-  text-align: center;
-  color: rgba(255, 255, 255, 0.5);
-  height: 50px;
-  padding-top: 15px;
-}
-
-/*
-*
-*     CONTENT
-*
-*/
-
-/* CONSTISTENT CONTENT */
 
 .content {
   background-color: #cfcfcf;
@@ -30,8 +11,23 @@ footer {
   padding: 3vw;
 }
 
+.site-title {
+  font-family: Roboto, Helvetica, Arial;
+}
+
+footer {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  height: 50px;
+  padding-top: 15px;
+}
+
 hr {
   background-color: #002e5d;
+}
+
+p {
+  font-family: sans-serif;
 }
 
 a {
@@ -45,6 +41,11 @@ a :hover {
   background-color: #002e5d;
   color: #ffffff;
   font-size: 20px;
+  font-variant: small-caps;
+  /* font-style: italic; */
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  font-weight: 400;
 }
 
 .btn:hover {
@@ -55,6 +56,7 @@ a :hover {
 .signout-btn {
   background-color: #ffffff;
   color: #000000;
+  font-weight: bold;
   padding: 2px;
   padding-left: 10px;
   padding-right: 10px;
@@ -145,23 +147,19 @@ a :hover {
   color: darkslategray;
 }
 
-.signin-btn,
-.signup-link-btn,
-.signup-btn {
-  width: 260px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  font-family: Helvetica;
-}
-
 .signin-btn:hover,
-.signup-link-btn:hover {
+.contactus-btn:hover {
   background-color: #cfcfcf;
   color: #000000;
 }
 
-.signup-link-btn {
+.contactus-btn {
   background-color: #000000;
+}
+
+.home-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
 }
 
 /* SIGNUP PAGE */

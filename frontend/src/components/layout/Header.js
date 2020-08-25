@@ -10,7 +10,7 @@ export default function Header(props) {
       style={{ maxWidth: "60em" }}
     >
       <header>
-        <h3 className="float-left">
+        <h3 className="site-title float-left">
           <img
             src={byuLogoText}
             alt=""

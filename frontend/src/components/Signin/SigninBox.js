@@ -47,7 +47,7 @@ export default function SigninBox(props) {
         {/* Sign In */}
         <button
           type="button"
-          className="btn signin-btn"
+          className="btn signin-btn w-100"
           onClick={props.signinPress}
         >
           Sign In
@@ -60,7 +60,7 @@ export default function SigninBox(props) {
         </a>
         <h5 className="pt-5">Need an account?</h5>
         <a
-          className="btn signup-link-btn"
+          className="btn contactus-btn w-100"
           href="mailto:silverfund@byu?subject=Account Creation Request" // FIXME - Add valid email address
         >
           Contact Us
