@@ -10,7 +10,7 @@ export default function TickerSelector(props) {
     label: item.ticker,
   }));
 
-  function filterapiData() {
+  function filterApiData() {
     const tickers = tickerFilter.map(({ value }) => value);
     var newData = [];
     var i;
@@ -43,8 +43,8 @@ export default function TickerSelector(props) {
           <button
             className="btn date-btn"
             onClick={() => {
-              let newData = filterapiData();
-              props.onSubmit(newData)
+              let newData = filterApiData();
+              props.onSubmit(newData);
             }}
           >
             Filter by Ticker
