@@ -26,7 +26,7 @@ export default function Home(props) {
           </a>
           <a
             className="btn m-4 contactus-btn home-btn"
-            href="mailto:silverfund@byu?subject=Question about Web App" // FIXME - Add valid email address
+            href="mailto:silverfund@byu.edu?subject=Question about Web App" // FIXME - Add valid email address
           >
             Contact Us
           </a>

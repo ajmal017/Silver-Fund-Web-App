@@ -52,16 +52,11 @@ export default function SigninBox(props) {
         >
           Sign In
         </button>
-        <a
-          className="forgot-password float-right pt-1"
-          href="http://www.fixme.com/"
-        >
-          Forgot password?
-        </a>
-        <h5 className="pt-5">Need an account?</h5>
+        <h5 className="pt-4">Need an account?</h5>
+        <p>Or simply can't sign in?</p>
         <a
           className="btn contactus-btn w-100"
-          href="mailto:silverfund@byu?subject=Account Creation Request" // FIXME - Add valid email address
+          href="mailto:silverfundsupport@byu.edu" // FIXME - Add valid email address
         >
           Contact Us
         </a>
