@@ -1,18 +1,17 @@
 import datetime
-from django.shortcuts import render
+
 from django.contrib.auth.models import User
-from django.http import HttpResponse
-from rest_framework import viewsets
-from rest_framework import permissions
-from api.serializers import *
-from api.models import Position, Trade, Asset
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render
+from rest_framework import generics, permissions, status, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from django.http import JsonResponse
 
+from api.ibgateway_manager.services.accounts_service import IBAccountsService
 from api.ibgateway_manager.services.positions_service import IBPositionsService
 from api.ibgateway_manager.services.trades_service import IBTradesService
-from api.ibgateway_manager.services.accounts_service import IBAccountsService
+from api.models import Asset, Position, Trade
+from api.serializers import *
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -23,11 +22,6 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by("-date_joined")
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
-
-
-from rest_framework import status
-from rest_framework import generics
-from api.serializers import ChangePasswordSerializer
 
 
 class ChangePasswordView(generics.UpdateAPIView):
@@ -183,4 +177,3 @@ def update_trades(request):
             serializer.save()
 
     return Response(serializer.data)
-
