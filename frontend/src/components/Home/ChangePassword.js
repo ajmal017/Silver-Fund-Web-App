@@ -21,6 +21,14 @@ export default function ChangePassword(props) {
       return;
     }
 
+    if (newPwd === oldPwd) {
+      props.setChangePwdError(
+        "The new password entered is already set as your password."
+      );
+      setNewPwd("");
+      return;
+    }
+
     if (newPwd.length < 8) {
       props.setChangePwdError(
         "New password must be at least 8 characters long."
@@ -95,8 +103,8 @@ export default function ChangePassword(props) {
         <input
           type="password"
           className="form-control"
-          minLength="8"
           placeholder="Enter new password"
+          maxLength="50"
           value={newPwd}
           onChange={(event) => setNewPwd(event.target.value)}
         />
@@ -105,6 +113,7 @@ export default function ChangePassword(props) {
         className="btn"
         style={{ width: "100%" }}
         onClick={() => changePassword()}
+        disabled={(!oldPwd, !newPwd)}
       >
         Change Password
       </button>
