@@ -24,8 +24,13 @@ export default function Positions() {
   const [start, setStart] = useState(getDateStr(-1));
   const [end, setEnd] = useState(getDateStr(-1));
   const [apiData, setApiData] = useState([]);
+  const [currData, setCurrData] = useState([]);
   const [showTable, setShowTable] = useState(false);
   const [showTimeSeries, setShowTimeSeries] = useState(false);
+
+  function updateFilterData(newValue) {
+    setCurrData(newValue);
+  }
 
   function getApiData() {
     setShowTable(true);
@@ -64,6 +69,7 @@ export default function Positions() {
           );
         }
         setApiData(response.data);
+        setCurrData(response.data)
         console.log("apiData: ", apiData);
         console.log("DataSets: ", formatTimeSeries(apiData, start, end));
       })
@@ -161,18 +167,21 @@ export default function Positions() {
               />
             </div>
             <div className="small-box d-inline-block ml-4">
-              <TickerSelector apiData={apiData} />
+              <TickerSelector apiData={apiData} onSubmit={updateFilterData} />
             </div>
             <PositionsGVT onGraphVTChange={(value) => setGraphVT(value)} />
             <hr />
             <div style={{ backgroundColor: "#FFFF" }}>
-              {showTimeSeries && (
-                <TimeSeriesChart data={formatTimeSeries(apiData, start, end)} />
+              {showTimeSeries && graphVT === 1 &&(
+                <TimeSeriesChart data={formatTimeSeries(currData, start, end, false)} percent={""} dollar={"$"}/>
+              )}
+              {showTimeSeries && graphVT === 2 &&(
+                <TimeSeriesChart data={formatTimeSeries(currData, start, end, true)} percent={"%"} dollar={""}/>
               )}
             </div>
 
             <br />
-            {showTable && <PositionsTable apiData={apiData} />}
+            {showTable && <PositionsTable apiData={currData} />}
           </>
         )}
       </div>

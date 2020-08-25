@@ -44,8 +44,7 @@ export default function TickerSelector(props) {
             className="btn date-btn"
             onClick={() => {
               let newData = filterapiData();
-              console.log(newData);
-              console.log(props.apiData);
+              props.onSubmit(newData)
             }}
           >
             Filter by Ticker
