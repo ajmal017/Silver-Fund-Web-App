@@ -9,7 +9,7 @@ admin.site.unregister(User)
 admin.site.site_header = "Admin - Silver Fund"
 admin.site.site_title = "Silver Fund"
 
-
+# username - BYU Net ID
 class UserAdmin(BaseUserAdmin):
     list_display = (
         "username",
@@ -27,7 +27,6 @@ class UserAdmin(BaseUserAdmin):
         "password",
         "is_staff",
     )
-    prepopulated_fields = {"username": ("first_name", "last_name")}
     add_fieldsets = (
         (
             None,
