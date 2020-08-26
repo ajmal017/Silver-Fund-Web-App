@@ -5,12 +5,14 @@ import ErrorMsg from "../components/ErrorMsg";
 import DateRanger from "../components/DateRanger";
 import THTable from "../components/TransactionHistory/THTable";
 import { getDateStr } from "../components/Helpers";
+import TickerSelector from "../components/TickerSelector";
 
 export default function TransactionHistory() {
   const [errorMsg, setErrorMsg] = useState(null);
   const [start, setStart] = useState("2020-01-01");
   const [end, setEnd] = useState(getDateStr(-1));
   const [apiData, setApiData] = useState([]);
+  const [currData, setCurrData] = useState([]);
   const [showTable, setShowTable] = useState(false);
 
   function getApiData() {
@@ -68,6 +70,12 @@ export default function TransactionHistory() {
             end={end}
             onStartChange={(value) => setStart(value)}
             onEndChange={(value) => setEnd(value)}
+          />
+        </div>
+        <div className="small-box d-inline-block ml-4">
+          <TickerSelector
+            apiData={apiData}
+            onSubmit={(newValue) => setCurrData(newValue)}
           />
         </div>
         <hr />

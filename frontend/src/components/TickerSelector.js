@@ -56,6 +56,8 @@ export default function TickerSelector(props) {
             isMulti
             isSearchable
           />
+
+          
           {/* <button className="btn date-btn" onClick={() => props.onSubmit(filterapiData())}> */}
           {/* <button
             type="button"
