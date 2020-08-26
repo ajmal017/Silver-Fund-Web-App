@@ -11,19 +11,9 @@ export default function ChangePassword(props) {
     props.setChangePwdError(null);
     props.setChangePwdSuccess(null);
 
-    if (oldPwd === "") {
-      props.setChangePwdError("Old password is blank.");
-      return;
-    }
-
-    if (newPwd === "") {
-      props.setChangePwdError("New password is blank.");
-      return;
-    }
-
     if (newPwd === oldPwd) {
       props.setChangePwdError(
-        "The new password entered is already set as your password."
+        "New password cannot be the same as old password."
       );
       setNewPwd("");
       return;
