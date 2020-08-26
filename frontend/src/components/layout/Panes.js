@@ -5,7 +5,8 @@ import Home from "../../pages/Home";
 import Positions from "../../pages/Positions";
 import TradeHistory from "../../pages/TradeHistory";
 import RiskAnalytics from "../../pages/RiskAnalytics";
-import Portfolio from "../../pages/Portfolio";
+import Performance from "../../pages/Performance";
+import PortfolioConstruction from "../../pages/PortfolioConstruction";
 
 export default function Panes(props) {
   return (
@@ -22,8 +23,11 @@ export default function Panes(props) {
       <Tab eventKey="riskanalytics" title="Risk Analytics">
         <RiskAnalytics />
       </Tab>
-      <Tab eventKey="portfolio" title="Portfolio">
-        <Portfolio />
+      <Tab eventKey="performance" title="Performance">
+        <Performance />
+      </Tab>
+      <Tab eventKey="portfolioconstruction" title="Portfolio Construction">
+        <PortfolioConstruction />
       </Tab>
     </Tabs>
   );
