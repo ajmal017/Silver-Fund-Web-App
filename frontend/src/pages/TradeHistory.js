@@ -3,11 +3,11 @@ import axios from "axios";
 
 import ErrorMsg from "../components/ErrorMsg";
 import DateRanger from "../components/DateRanger";
-import THTable from "../components/TransactionHistory/THTable";
+import THTable from "../components/TradeHistory/THTable";
 import { getDateStr } from "../components/Helpers";
 import TickerSelector from "../components/TickerSelector";
 
-export default function TransactionHistory() {
+export default function TradeHistory() {
   const [errorMsg, setErrorMsg] = useState(null);
   const [start, setStart] = useState("2020-01-01");
   const [end, setEnd] = useState(getDateStr(-1));
@@ -39,7 +39,7 @@ export default function TransactionHistory() {
         if (response.data.length === 0) {
           setShowTable(false);
           setErrorMsg(
-            "No transactions exist on the date(s) selected.  Try a different selection."
+            "No trades exist on the date(s) selected.  Try a different selection."
           );
         }
         setApiData(response.data);
@@ -48,9 +48,7 @@ export default function TransactionHistory() {
       .catch((error) => {
         console.log(error);
         setShowTable(false);
-        setErrorMsg(
-          "Uh oh! Failed to load transactions data.  (" + error + ")"
-        );
+        setErrorMsg("Uh oh! Failed to load trades data.  (" + error + ")");
       });
   }
 

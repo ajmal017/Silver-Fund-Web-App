@@ -3,7 +3,7 @@ import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Home from "../../pages/Home";
 import Positions from "../../pages/Positions";
-import TransactionHistory from "../../pages/TransactionHistory";
+import TradeHistory from "../../pages/TradeHistory";
 import RiskAnalytics from "../../pages/RiskAnalytics";
 import Portfolio from "../../pages/Portfolio";
 
@@ -16,8 +16,8 @@ export default function Panes(props) {
       <Tab eventKey="positions" title="Positions">
         <Positions />
       </Tab>
-      <Tab eventKey="transactionhistory" title="Transaction History">
-        <TransactionHistory />
+      <Tab eventKey="tradehistory" title="Trade History">
+        <TradeHistory />
       </Tab>
       <Tab eventKey="riskanalytics" title="Risk Analytics">
         <RiskAnalytics />
