@@ -27,6 +27,7 @@ class UserAdmin(BaseUserAdmin):
         "password",
         "is_staff",
     )
+    prepopulated_fields = {"username": ("first_name", "last_name")}
     add_fieldsets = (
         (
             None,

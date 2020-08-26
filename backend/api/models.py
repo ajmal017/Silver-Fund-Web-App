@@ -38,8 +38,12 @@ class Trade(models.Model):
     num_of_shares = models.IntegerField(verbose_name="asset_id", null=True, blank=True)
     price = models.FloatField(verbose_name="price", null=True, blank=True)
     tot_price = models.FloatField(verbose_name="tot_price", null=True, blank=True)
-    trade_status = models.CharField(verbose_name="status", max_length=40, null=True, blank=True)
-    trade_time = models.CharField(verbose_name="date time", max_length=40, null=True, blank=True)
+    trade_status = models.CharField(
+        verbose_name="status", max_length=40, null=True, blank=True
+    )
+    trade_time = models.CharField(
+        verbose_name="date time", max_length=40, null=True, blank=True
+    )
 
     def __str__(self):
         return self.trade_id
