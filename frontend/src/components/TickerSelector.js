@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import Select from "react-select";
+import React, { useState, useEffect } from "react";
+import Select, { components } from "react-select";
 import makeAnimated from "react-select/animated";
 
 export default function TickerSelector(props) {
-  const [tickerFilter, setTickerFilter] = useState([]);
+  const [tickerFilter, setTickerFilter] = useState([])
+  var tickerOptions = props.apiData.map(({ ticker }) => ticker);
+  tickerOptions = [...new Set(tickerOptions)];
 
-  const tickerOptions = props.apiData.map((item) => ({
-    value: item.ticker,
-    label: item.ticker,
+  tickerOptions = tickerOptions.map((item) => ({
+    value: item,
+    label: item,
   }));
 
   function filterApiData() {
@@ -20,9 +22,23 @@ export default function TickerSelector(props) {
       });
       newData.push.apply(newData, filterData);
     }
-    console.log("filtered: ", newData);
-    return newData;
+    
+    if(newData.length != 0){
+      console.log("filtered: ", newData);
+      props.onSubmit(newData)
+      return newData;
+    }
+    else{
+      console.log("filtered: ", props.apiData);
+      props.onSubmit(props.apiData)
+      return props.apiData;
+    }
+    
   }
+
+  useEffect(() => {
+    filterApiData();
+  }, [tickerFilter]);
 
   return (
     <>
@@ -31,6 +47,7 @@ export default function TickerSelector(props) {
           <Select
             components={makeAnimated()}
             options={tickerOptions}
+            clearValue={() => {console.log("CLEAR")}}
             noOptionsMessage={() =>
               "No tickers exist in that range, or all have been selected."
             }
@@ -40,16 +57,16 @@ export default function TickerSelector(props) {
             isSearchable
           />
           {/* <button className="btn date-btn" onClick={() => props.onSubmit(filterapiData())}> */}
-          <button
+          {/* <button
             type="button"
             className="btn date-btn"
-            onClick={() => {
-              let newData = filterApiData();
-              props.onSubmit(newData);
-            }}
+            // onClick={() => {
+            //   let newData = filterApiData();
+            //   props.onSubmit(newData);
+            // }}
           >
             Filter by Ticker
-          </button>
+          </button> */}
         </>
       ) : (
         <Select isDisabled placeholder="Select date(s) before tickers." />
