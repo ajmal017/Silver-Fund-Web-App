@@ -1,12 +1,13 @@
+import "./style.css";
+
 import React, { useState } from "react";
 import axios from "axios";
 
-import Header from "./components/layout/Header";
-import Panes from "./components/layout/Panes";
-import ErrorMsg from "./components/ErrorMsg";
-import Signin from "./pages/Signin";
-import Footer from "./components/layout/Footer";
-import "./style.css";
+import Header from "./layout/Header";
+import Panes from "./layout/Panes";
+import ErrorMsg from "./pages/components/ErrorMsg";
+import Signin from "./pages/Signin/Signin";
+import Footer from "./layout/Footer";
 
 export default function App() {
   function useLocalState(localItem) {
