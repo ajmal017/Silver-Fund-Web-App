@@ -10,6 +10,7 @@ admin.site.site_header = "Admin - Silver Fund"
 admin.site.site_title = "Silver Fund"
 
 # username - BYU Net ID
+# password - BYU Net ID
 class UserAdmin(BaseUserAdmin):
     list_display = (
         "username",
