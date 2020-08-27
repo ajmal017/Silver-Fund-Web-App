@@ -76,7 +76,9 @@ export default function Positions() {
         console.log(error);
         setShowTable(false);
         setShowTimeSeries(false);
-        setErrorMsg("Uh oh! Failed to load positions data.  (" + error + ")");
+        setErrorMsg(
+          "Uh oh! Something went wrong on our end (failed to load positions data).  If this error persists, contact support."
+        );
       });
   }
 

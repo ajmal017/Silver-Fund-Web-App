@@ -42,10 +42,13 @@ export default function ChangePassword(props) {
         props.setChangePwdSuccess(
           "Success!  Make sure to sign in with your new password in the future."
         );
+        props.updatePassword(newPwd);
       })
       .catch((error) => {
         console.log(error);
-        props.setChangePwdError("Uh oh!  Try again.  (" + error + ")");
+        props.setChangePwdError(
+          "Uh oh! Failed to changed password.  Refresh and try again.  If this error persists, contact support."
+        );
       });
 
     setOldPwd("");

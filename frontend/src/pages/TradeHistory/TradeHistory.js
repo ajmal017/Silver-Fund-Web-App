@@ -55,7 +55,9 @@ export default function TradeHistory() {
       .catch((error) => {
         console.log(error);
         setShowTable(false);
-        setErrorMsg("Uh oh! Failed to load trades data.  (" + error + ")");
+        setErrorMsg(
+          "Uh oh! Something went wrong on our end (failed to load trades data).  If this error persists, contact support."
+        );
       });
   }
 

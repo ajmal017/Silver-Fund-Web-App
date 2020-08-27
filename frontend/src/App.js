@@ -54,7 +54,7 @@ export default function App() {
       .catch((error) => {
         console.log(error);
         setLoginError(
-          "Uh oh!  Invalid credentials.  Try again. (" + error + ")"
+          "Oops!  Invalid credentials.  Try again.  If you can't remember your credentials or keep seeing this, contact support."
         );
         setUsername("");
         setPassword("");
@@ -66,7 +66,7 @@ export default function App() {
     localStorage.clear();
     setUsername("");
     setPassword("");
-    window.location.reload(true);
+    // window.location.reload(true);
   }
 
   function fillUsername(event) {
@@ -81,7 +81,11 @@ export default function App() {
     <>
       <Header token={token} signOut={() => signOut()} />
       {token ? (
-        <Panes username={username} password={password} />
+        <Panes
+          username={username}
+          password={password}
+          updatePassword={(newPassword) => setPassword(newPassword)}
+        />
       ) : (
         <>
           <ErrorMsg errorMsg={loginError} />

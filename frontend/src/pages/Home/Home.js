@@ -33,6 +33,7 @@ export default function Home(props) {
           <ChangePassword
             username={props.username}
             password={props.password}
+            updatePassword={props.updatePassword}
             setChangePwdError={(value) => setErrorMsg(value)}
             setChangePwdSuccess={(value) => setSuccessMsg(value)}
           />
