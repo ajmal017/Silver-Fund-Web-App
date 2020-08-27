@@ -2,10 +2,9 @@ import React, { useState } from "react";
 
 import DateRanger from "../components/DateRanger";
 // import TickerSelector from "../components/TickerSelector";
+import GraphViewType from "../components/GraphViewType";
 import RASubPanes from "./components/RASubPanes";
 import RiskVTRadio from "./components/RiskVTRadio";
-import RACurrentGVT from "./components/RACurrentGVT";
-import RAThroughTimeGVT from "./components/RAThroughTimeGVT";
 // Delete all below once actual data is working.
 import currentTable from "./components/current-table.png";
 import currentPlot from "./components/current-plot.png";
@@ -16,7 +15,21 @@ import weightChanger from "./components/weight-changer.png";
 
 export default function RiskAnalytics() {
   const [subPane, setSubPane] = useState("current");
-  const [graphVT, setGraphVT] = useState(1);
+  const [graphVT, setGraphVT] = useState(0);
+
+  const currentGVTOptions = [
+    { value: 0, label: "Bar Chart of All Style Exposures" },
+    { value: 1, label: "Bar Chart for Top 10 Stocks by Risk" },
+    { value: 2, label: "Bar Chart for Top 10 Industries by Risk" },
+  ];
+
+  const throughtimeGVTOptions = [
+    { value: 0, label: "Ex-Ante vs. Realized Porfolio Risk" },
+    { value: 1, label: "Ex-Ante vs. Realized Porfolio Benchmark Beta" },
+    { value: 2, label: "Portfolio Exposures to Style Factors 1 Through K" },
+    { value: 3, label: "Ex-Ante vs. Realized Risk by Stock(s)" },
+    { value: 4, label: "Stock(s) Exposures to Style Factors 1 Through K" },
+  ];
 
   function onSubPaneSwitch(newSubPane) {
     setSubPane(newSubPane);
@@ -28,7 +41,10 @@ export default function RiskAnalytics() {
       <div className="content">
         {subPane === "current" ? (
           <>
-            <RACurrentGVT onGraphVTChange={(value) => setGraphVT(value)} />
+            <GraphViewType
+              dropdownOptions={currentGVTOptions}
+              onSelection={(index) => setGraphVT(index.value)}
+            />
             <RiskVTRadio />
             <hr />
             <div className="pane-split-container">
@@ -60,8 +76,9 @@ export default function RiskAnalytics() {
               <img src={searchBox} alt="" style={{ width: "inherit" }} />
             </div>
             <div className="d-inline-block float-right">
-              <RAThroughTimeGVT
-                onGraphVTChange={(value) => setGraphVT(value)}
+              <GraphViewType
+                dropdownOptions={throughtimeGVTOptions}
+                onSelection={(index) => setGraphVT(index.value)}
               />
             </div>
             <hr />

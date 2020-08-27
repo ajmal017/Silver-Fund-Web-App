@@ -2,7 +2,6 @@ html,
 body {
   background-color: #002e5d;
   color: #ffffff;
-  /* font-family: Roboto, Helvetica, Arial; */
 }
 
 .content {
@@ -10,6 +9,7 @@ body {
   min-height: 81vh;
   color: #002e5d;
   padding: 3vw;
+  padding-top: 2vw;
 }
 
 .site-title {
@@ -90,7 +90,6 @@ a :hover {
 /* INTRO COMPONENT */
 
 .sf-intro {
-  /* margin-right: 5vw; */
   text-align: center;
   max-width: 650px;
 }
@@ -219,10 +218,11 @@ td {
   width: 240px;
 }
 
-.date-label {
-  width: inherit;
+.input-label {
+  float: left;
   font-size: medium;
   font-weight: 500;
+  padding-top: 2px;
 }
 
 .date-input {
@@ -244,7 +244,7 @@ td {
 
 /* WIDE TABLET ADJUSTMENTS */
 
-@media (max-width: 1250px) {
+@media (max-width: 1260px) {
   .home-logo {
     display: none;
   }

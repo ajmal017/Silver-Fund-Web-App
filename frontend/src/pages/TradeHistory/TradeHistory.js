@@ -15,12 +15,12 @@ export default function TradeHistory() {
   const [currData, setCurrData] = useState([]);
   const [showTable, setShowTable] = useState(false);
 
-  function addTickers(values){
+  function addTickers(values) {
     var i;
-    for(i = 0; i < values.length; ++i) {
-      values[i].ticker = values[i].asset_id
+    for (i = 0; i < values.length; ++i) {
+      values[i].ticker = values[i].asset_id;
     }
-    return(values)
+    return values;
   }
 
   function getApiData() {
@@ -50,7 +50,7 @@ export default function TradeHistory() {
           );
         }
         setApiData(response.data);
-        setCurrData(response.data)
+        setCurrData(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -69,7 +69,7 @@ export default function TradeHistory() {
     <>
       <ErrorMsg errorMsg={errorMsg} />
       <div className="content">
-        <div className="small-box d-inline-block ml-4">
+        <div className="d-inline-block">
           <DateRanger
             start={start}
             end={end}

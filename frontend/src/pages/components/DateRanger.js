@@ -4,7 +4,7 @@ import { getDateStr } from "../../helpers";
 
 export default function DateRanger(props) {
   return (
-    <div style={{ width: "250px", height: "79px" }} className="m-2">
+    <div style={{ width: "250px", height: "79px" }} className="m-1">
       <label className="input-label">Start Date: </label>
       <input
         type="date"
