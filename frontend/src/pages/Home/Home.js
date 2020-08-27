@@ -37,7 +37,12 @@ export default function Home(props) {
             setChangePwdSuccess={(value) => setSuccessMsg(value)}
           />
         </div>
-        <img src={sfLogo} className="home-logo w-50" alt="" />
+        <img
+          src={sfLogo}
+          className="home-logo"
+          style={{ height: "500px", marginLeft: "80px", marginTop: "40px" }}
+          alt=""
+        />
       </div>
     </>
   );
