@@ -64,7 +64,7 @@ function getColor(str) {
     color += ("00" + value.toString(16)).substr(-2);
   }
   return color;
-  // var color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+  // const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
 
 export function convertToPercentage(values) {
@@ -84,23 +84,22 @@ export function convertToPercentage(values) {
 
 export function formatTimeSeries(apiData, startDate, stopDate, weight) {
   const add_abs = (a, b) => Math.abs(a) + Math.abs(b);
-  var tickers = [];
-  var labels = [];
-  var datasets = [];
-  var timeSeriesData = [];
+  let tickers = [];
+  let labels = [];
+  let datasets = [];
+  let timeSeriesData = [];
 
   tickers = apiData.map(({ ticker }) => ticker);
   tickers = [...new Set(tickers)];
   labels = getDates(startDate, stopDate);
 
-  //We fill our weights with one in case we want the $ value of each position
-  var weights = [];
-  var k;
-  var curr;
+  // We fill our weights with one in case we want the $ value of each position
+  let weights = [];
+  let curr;
 
-  //If we want portfolio weights
+  // If we want portfolio weights
   if (weight === true) {
-    for (k = 0; k < labels.length; ++k) {
+    for (let k = 0; k < labels.length; ++k) {
       curr = apiData.filter(function (item) {
         return item.date === labels[k];
       });
@@ -114,17 +113,16 @@ export function formatTimeSeries(apiData, startDate, stopDate, weight) {
   } else {
     weights = Array(labels.length).fill(1);
   }
-  var i;
-  var j;
-  for (i = 0; i < tickers.length; i++) {
+
+  for (let i = 0; i < tickers.length; i++) {
     let color = getColor(tickers[i]);
-    var asset = {};
+    let asset = {};
     asset.label = tickers[i];
     asset.backgroundColor = color;
     asset.borderColor = color;
     asset.data = [];
-    for (j = 0; j < labels.length; j++) {
-      var value = apiData.filter(function (item) {
+    for (let j = 0; j < labels.length; j++) {
+      let value = apiData.filter(function (item) {
         return item.ticker === tickers[i] && item.date === labels[j];
       });
       if (value.length === 0) {
