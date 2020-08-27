@@ -4,7 +4,7 @@ import makeAnimated from "react-select/animated";
 
 export default function TickerSelector(props) {
   const [tickerFilter, setTickerFilter] = useState([]);
-  var tickerOptions = props.apiData.map(({ ticker }) => ticker);
+  let tickerOptions = props.apiData.map(({ ticker }) => ticker);
   tickerOptions = [...new Set(tickerOptions)];
 
   tickerOptions = tickerOptions.map((item) => ({
@@ -12,16 +12,15 @@ export default function TickerSelector(props) {
     label: item,
   }));
 
-function filterApiData() {
-    if(!tickerFilter){
+  function filterApiData() {
+    if (!tickerFilter) {
       props.onSubmit(props.apiData);
-      return(props.apiData)
+      return props.apiData;
     }
     const tickers = tickerFilter.map(({ value }) => value);
-    var newData = [];
-    var i;
-    for (i = 0; i < tickers.length; ++i) {
-      var filterData = props.apiData.filter(function (item) {
+    let newData = [];
+    for (let i = 0; i < tickers.length; ++i) {
+      const filterData = props.apiData.filter(function (item) {
         return item.ticker === tickers[i];
       });
       newData.push.apply(newData, filterData);
@@ -38,6 +37,7 @@ function filterApiData() {
 
   useEffect(() => {
     filterApiData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tickerFilter]);
 
   return (
