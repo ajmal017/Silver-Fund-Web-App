@@ -42,8 +42,8 @@ export default function TickerSelector(props) {
 
   return (
     <>
-      {props.apiData && props.apiData.length > 0 ? (
-        <>
+      {/* {props.apiData && props.apiData.length > 0 ? (
+        <div className="ml-4">
           <Select
             components={makeAnimated()}
             options={tickerOptions}
@@ -53,10 +53,12 @@ export default function TickerSelector(props) {
             isMulti
             isSearchable
           />
-        </>
-      ) : (
+        </div>
+      ) : ( */}
+      <div>
         <Select isDisabled placeholder="Select date(s) first." />
-      )}
+      </div>
+      {/* )} */}
     </>
   );
 }

@@ -164,7 +164,7 @@ export default function Positions() {
         )}
         {subPane === "historybystock" && (
           <>
-            <div className="small-box d-inline-block ml-4">
+            <div className="d-inline-block">
               <DateRanger
                 start={start}
                 end={end}
@@ -172,7 +172,7 @@ export default function Positions() {
                 onEndChange={(value) => setEnd(value)}
               />
             </div>
-            <div className="small-box d-inline-block ml-4">
+            <div className="d-inline-block">
               <TickerSelector
                 apiData={apiData}
                 onSubmit={(newValue) => setFilterData(newValue)}
@@ -183,7 +183,7 @@ export default function Positions() {
               onSelection={(index) => setGraphVT(index.value)}
             />
             <hr />
-            <div style={{ backgroundColor: "#FFFF" }}>
+            <div style={{ backgroundColor: "#ffffff" }}>
               {showTimeSeries && graphVT === 0 && (
                 <TimeSeriesChart
                   data={formatTimeSeries(filterData, start, end, false)}

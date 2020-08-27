@@ -19,102 +19,112 @@ export default function SnapShotChart(props) {
   return (
     <>
       {props.tickerData && props.tickerData.length > 0 ? (
-        <HorizontalBar
-          data={{
-            labels: props.tickerData,
-            datasets: [
-              {
-                label: props.tool_tip_label,
-                data: props.valuesData,
-                backgroundColor: "#3f5f80",
-                barPercentage: 0.5,
-                borderWidth: 1,
-                borderColor: "#ffffff",
-                hoverBackgroundColor: "#002e5d",
-              },
-            ],
+        <div
+          style={{
+            backgroundColor: "#f2f2f2",
+            paddingRight: "20px",
+            border: "5px solid #cfcfcf",
+            outline: "3px solid #002e5d",
           }}
-          width={50}
-          height={30 + props.tickerData.length / 8}
-          options={{
-            title: {
-              display: true,
-              // text: "Positions",
-              fontsize: 40,
-              fontColor: "#000",
-            },
-            legend: {
-              display: false,
-              position: "right",
-              labels: {
-                fontColor: "#000",
-              },
-            },
-            layout: {
-              padding: {
-                left: 50,
-                right: 0,
-                bottom: 0,
-                top: 0,
-              },
-            },
-            tooltips: {
-              enabled: true,
-            },
-            scales: {
-              xAxes: [
+          className="m-2"
+        >
+          <HorizontalBar
+            data={{
+              labels: props.tickerData,
+              datasets: [
                 {
-                  ticks: {
-                    min: FindMin(props.valuesData),
-                    max: Math.round(
-                      Math.max(...props.valuesData) + props.buffer
-                    ),
-                    fontColor: "#000",
-                  },
-                  stacked: true,
-                  scaleLabel: {
-                    display: true,
-                    labelString: props.x_label,
-                    fontSize: 20,
-                    fontColor: "#000",
-                  },
+                  label: props.tool_tip_label,
+                  data: props.valuesData,
+                  backgroundColor: "#3f5f80",
+                  barPercentage: 0.5,
+                  borderWidth: 1,
+                  borderColor: "#ffffff",
+                  hoverBackgroundColor: "#002e5d",
                 },
               ],
-              yAxes: [
-                {
-                  ticks: {
-                    fontColor: "#000",
-                    fontSize: 14,
-                  },
+            }}
+            width={50}
+            height={30 + props.tickerData.length / 8}
+            options={{
+              title: {
+                display: true,
+                // text: "Positions",
+                fontsize: 40,
+                fontColor: "#000000",
+              },
+              legend: {
+                display: false,
+                position: "right",
+                labels: {
+                  fontColor: "#000000",
                 },
-              ],
-            },
-            animation: {
-              onComplete: function () {
-                var ctx = this.chart.ctx;
-                // ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
-                ctx.fillStyle = "#000000";
-                // ctx.textAlign = 'center';
-                // ctx.textBaseline = 'bottom';
+              },
+              layout: {
+                padding: {
+                  left: 50,
+                  right: 0,
+                  bottom: 0,
+                  top: 0,
+                },
+              },
+              tooltips: {
+                enabled: true,
+              },
+              scales: {
+                xAxes: [
+                  {
+                    ticks: {
+                      min: FindMin(props.valuesData),
+                      max: Math.round(
+                        Math.max(...props.valuesData) + props.buffer
+                      ),
+                      fontColor: "#000000",
+                    },
+                    stacked: true,
+                    scaleLabel: {
+                      display: true,
+                      labelString: props.x_label,
+                      fontSize: 20,
+                      fontColor: "#000000",
+                    },
+                  },
+                ],
+                yAxes: [
+                  {
+                    ticks: {
+                      fontColor: "#000000",
+                      fontSize: 14,
+                    },
+                  },
+                ],
+              },
+              animation: {
+                onComplete: function () {
+                  var ctx = this.chart.ctx;
+                  // ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
+                  ctx.fillStyle = "#000000";
+                  // ctx.textAlign = 'center';
+                  // ctx.textBaseline = 'bottom';
 
-                this.data.datasets.forEach(function (dataset) {
-                  for (var i = 0; i < dataset.data.length; i++) {
-                    for (var key in dataset._meta) {
-                      var model = dataset._meta[key].data[i]._model;
-                      ctx.fillText(
-                        props.dollar +
-                          addThousandsComma(dataset.data[i]) +
-                          props.percent,
-                        model.x + 5,
-                        model.y
-                      );
+                  this.data.datasets.forEach(function (dataset) {
+                    for (var i = 0; i < dataset.data.length; i++) {
+                      for (var key in dataset._meta) {
+                        var model = dataset._meta[key].data[i]._model;
+                        ctx.fillText(
+                          props.dollar +
+                            addThousandsComma(dataset.data[i]) +
+                            props.percent,
+                          model.x + 5,
+                          model.y
+                        );
+                      }
                     }
-                  }
-                });
+                  });
+                },
               },
-            },
-          }}
-        />
+            }}
+          />
+        </div>
       ) : (
         <div>
           <Spinner

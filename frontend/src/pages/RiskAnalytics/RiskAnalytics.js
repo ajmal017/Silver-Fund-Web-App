@@ -67,7 +67,7 @@ export default function RiskAnalytics() {
             <div className="d-inline-block">
               <RiskVTRadio />
             </div>
-            <div className="small-box d-inline-block ml-4">
+            <div className="d-inline-block ml-4">
               <DateRanger />
             </div>
             <div className="small-box d-inline-block ml-4">
