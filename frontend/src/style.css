@@ -54,6 +54,7 @@ a :hover {
 .signout-btn {
   background-color: #ffffff;
   color: #000000;
+  font-weight: 500;
 }
 
 .signout-btn:hover {
@@ -215,11 +216,13 @@ td {
 }
 
 .small-box {
-  width: 250px;
+  width: 240px;
 }
 
 .date-label {
   width: inherit;
+  font-size: medium;
+  font-weight: 500;
 }
 
 .date-input {

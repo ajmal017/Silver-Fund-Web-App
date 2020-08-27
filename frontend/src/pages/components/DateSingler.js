@@ -5,7 +5,7 @@ import { getDateStr } from "../../helpers";
 export default function DateSingler(props) {
   return (
     <>
-      <label style={{ width: "200px" }}>
+      <label className="date-label" style={{ width: "200px" }}>
         Date:
         <input
           type="date"
