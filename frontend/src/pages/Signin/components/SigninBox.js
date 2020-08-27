@@ -5,7 +5,7 @@ import passwordIcon from "../../../images/lock.png";
 
 export default function SigninBox(props) {
   return (
-    <div className="card" id="signin-box">
+    <div className="card signin-box">
       <h3 className="card-title">Welcome Back!</h3>
       <form>
         {/* Username */}

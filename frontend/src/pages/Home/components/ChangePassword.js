@@ -60,7 +60,7 @@ export default function ChangePassword(props) {
       }}
     >
       <h5>Change Your Password</h5>
-      <p>
+      <p style={{ color: "#000000" }}>
         Make sure to secure your account by changing your password from the
         default one you first received.
       </p>

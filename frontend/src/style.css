@@ -2,6 +2,7 @@ html,
 body {
   background-color: #002e5d;
   color: #ffffff;
+  /* font-family: Roboto, Helvetica, Arial; */
 }
 
 .content {
@@ -41,11 +42,8 @@ a :hover {
   background-color: #002e5d;
   color: #ffffff;
   font-size: 20px;
-  font-variant: small-caps;
-  /* font-style: italic; */
-  letter-spacing: 1px;
-  font-family: sans-serif;
-  font-weight: 400;
+  letter-spacing: 0.4px;
+  font-weight: 500;
 }
 
 .btn:hover {
@@ -56,15 +54,26 @@ a :hover {
 .signout-btn {
   background-color: #ffffff;
   color: #000000;
-  font-weight: bold;
-  padding: 2px;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .signout-btn:hover {
   background-color: #cfcfcf;
   color: #002e5d;
+}
+
+.signin-btn:hover,
+.contactus-btn:hover {
+  background-color: #cfcfcf;
+  color: #000000;
+}
+
+.contactus-btn {
+  background-color: #000000;
+}
+
+.home-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
 }
 
 /* HOMEPAGE CONTAINER */
@@ -80,18 +89,9 @@ a :hover {
 /* INTRO COMPONENT */
 
 .sf-intro {
-  margin-right: 5vw;
+  /* margin-right: 5vw; */
   text-align: center;
   max-width: 650px;
-}
-
-.trading-img {
-  width: 30vh;
-  padding-top: 20px;
-}
-
-.intro-name {
-  color: #002e5d;
 }
 
 .intro-info {
@@ -107,10 +107,12 @@ a :hover {
 
 /* SIGNIN BOX COMPONENT */
 
-#signin-box {
+.signin-box {
   color: #000000;
   width: 300px;
   padding: 20px;
+  margin-left: 4vw;
+  margin-right: 4vw;
 }
 
 .card-title {
@@ -135,31 +137,8 @@ a :hover {
 .sub-pane {
   background-color: rgba(207, 207, 207, 0.3);
 }
-
 .sub-pane a {
   font-size: medium;
-}
-
-.forgot-password {
-  color: slategray;
-}
-.forgot-password:hover {
-  color: darkslategray;
-}
-
-.signin-btn:hover,
-.contactus-btn:hover {
-  background-color: #cfcfcf;
-  color: #000000;
-}
-
-.contactus-btn {
-  background-color: #000000;
-}
-
-.home-btn:hover {
-  background-color: #ffffff;
-  color: #000000;
 }
 
 /* SIGNUP PAGE */

@@ -33,7 +33,7 @@ export default function Header(props) {
           {props.token && (
             <button
               type="button"
-              className="btn signout-btn"
+              className="btn signout-btn py-1"
               onClick={props.signOut}
             >
               Sign Out
