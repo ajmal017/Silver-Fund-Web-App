@@ -12,7 +12,11 @@ export default function TickerSelector(props) {
     label: item,
   }));
 
-  function filterApiData() {
+function filterApiData() {
+    if(!tickerFilter){
+      props.onSubmit(props.apiData);
+      return(props.apiData)
+    }
     const tickers = tickerFilter.map(({ value }) => value);
     var newData = [];
     var i;
@@ -23,7 +27,7 @@ export default function TickerSelector(props) {
       newData.push.apply(newData, filterData);
     }
 
-    if (newData.length != 0) {
+    if (newData.length !== 0) {
       console.log("filtered: ", newData);
       props.onSubmit(newData);
       return newData;
@@ -54,18 +58,6 @@ export default function TickerSelector(props) {
             isMulti
             isSearchable
           />
-
-          {/* <button className="btn date-btn" onClick={() => props.onSubmit(filterapiData())}> */}
-          {/* <button
-            type="button"
-            className="btn date-btn"
-            // onClick={() => {
-            //   let newData = filterApiData();
-            //   props.onSubmit(newData);
-            // }}
-          >
-            Filter by Ticker
-          </button> */}
         </>
       ) : (
         <Select isDisabled placeholder="Select date(s) before tickers." />

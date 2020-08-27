@@ -59,7 +59,7 @@ function getColor(str) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash);
   }
   var colour = "#";
-  for (var i = 0; i < 3; i++) {
+  for (i = 0; i < 3; i++) {
     var value = (hash >> (i * 8)) & 0xff;
     colour += ("00" + value.toString(16)).substr(-2);
   }
@@ -101,7 +101,7 @@ export function formatTimeSeries(apiData, startDate, stopDate, weight) {
   //If we want portfolio weights
   if (weight === true) {
     for (k = 0; k < labels.length; ++k) {
-      var curr = apiData.filter(function (item) {
+      curr = apiData.filter(function (item) {
         return item.date === labels[k];
       });
       curr = curr.map(({ position_value }) => position_value);

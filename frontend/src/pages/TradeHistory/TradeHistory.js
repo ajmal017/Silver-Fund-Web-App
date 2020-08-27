@@ -15,6 +15,14 @@ export default function TradeHistory() {
   const [currData, setCurrData] = useState([]);
   const [showTable, setShowTable] = useState(false);
 
+  function addTickers(values){
+    var i;
+    for(i = 0; i < values.length; ++i) {
+      values[i].ticker = values[i].asset_id
+    }
+    return(values)
+  }
+
   function getApiData() {
     setShowTable(true);
     setApiData([]);
@@ -43,6 +51,7 @@ export default function TradeHistory() {
           );
         }
         setApiData(response.data);
+        setCurrData(response.data)
         console.log("apiData: ", apiData);
       })
       .catch((error) => {
@@ -72,12 +81,12 @@ export default function TradeHistory() {
         </div>
         <div className="small-box d-inline-block ml-4">
           <TickerSelector
-            apiData={apiData}
+            apiData={addTickers(apiData)}
             onSubmit={(newValue) => setCurrData(newValue)}
           />
         </div>
         <hr />
-        {showTable && <THTable data={apiData} />}
+        {showTable && <THTable data={currData} />}
       </div>
     </>
   );

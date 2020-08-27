@@ -24,7 +24,7 @@ export default function Positions() {
   const [start, setStart] = useState(getDateStr(-1));
   const [end, setEnd] = useState(getDateStr(-1));
   const [apiData, setApiData] = useState([]);
-  const [currData, setCurrData] = useState([]);
+  const [filterData, setFilterData] = useState([]);
   const [showTable, setShowTable] = useState(false);
   const [showTimeSeries, setShowTimeSeries] = useState(false);
 
@@ -59,7 +59,7 @@ export default function Positions() {
           );
         }
         setApiData(response.data);
-        setCurrData(response.data);
+        setFilterData(response.data);
         console.log("apiData: ", apiData);
         console.log("DataSets: ", formatTimeSeries(apiData, start, end));
       })
@@ -159,7 +159,7 @@ export default function Positions() {
             <div className="small-box d-inline-block ml-4">
               <TickerSelector
                 apiData={apiData}
-                onSubmit={(newValue) => setCurrData(newValue)}
+                onSubmit={(newValue) => setFilterData(newValue)}
               />
             </div>
             <PositionsGVT onGraphVTChange={(value) => setGraphVT(value)} />
@@ -167,14 +167,14 @@ export default function Positions() {
             <div style={{ backgroundColor: "#FFFF" }}>
               {showTimeSeries && graphVT === 1 && (
                 <TimeSeriesChart
-                  data={formatTimeSeries(currData, start, end, false)}
+                  data={formatTimeSeries(filterData, start, end, false)}
                   percent={""}
                   dollar={"$"}
                 />
               )}
               {showTimeSeries && graphVT === 2 && (
                 <TimeSeriesChart
-                  data={formatTimeSeries(currData, start, end, true)}
+                  data={formatTimeSeries(filterData, start, end, true)}
                   percent={"%"}
                   dollar={""}
                 />
@@ -182,7 +182,7 @@ export default function Positions() {
             </div>
 
             <br />
-            {showTable && <PositionsTable apiData={currData} />}
+            {showTable && <PositionsTable apiData={filterData} />}
           </>
         )}
       </div>
