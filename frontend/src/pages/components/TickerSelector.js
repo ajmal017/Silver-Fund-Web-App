@@ -12,10 +12,10 @@ export default function TickerSelector(props) {
     label: item,
   }));
 
-function filterApiData() {
-    if(!tickerFilter){
+  function filterApiData() {
+    if (!tickerFilter) {
       props.onSubmit(props.apiData);
-      return(props.apiData)
+      return props.apiData;
     }
     const tickers = tickerFilter.map(({ value }) => value);
     var newData = [];
@@ -40,6 +40,7 @@ function filterApiData() {
 
   useEffect(() => {
     filterApiData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tickerFilter]);
 
   return (
