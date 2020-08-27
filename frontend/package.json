@@ -1,6 +1,6 @@
 {
   "name": "sf-react-web-app",
-  “homepage”:”http://47fund.byu.edu”
+  "homepage":"http://47fund.byu.edu",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
