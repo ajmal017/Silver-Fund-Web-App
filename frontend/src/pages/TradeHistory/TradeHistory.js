@@ -28,7 +28,6 @@ export default function TradeHistory() {
     setApiData([]);
     setErrorMsg(null);
 
-    console.log("start: ", start, " end: ", end);
     if (end < start) {
       setShowTable(false);
       setErrorMsg("Warning: Start date isn't before end date.");
@@ -52,7 +51,6 @@ export default function TradeHistory() {
         }
         setApiData(response.data);
         setCurrData(response.data)
-        console.log("apiData: ", apiData);
       })
       .catch((error) => {
         console.log(error);

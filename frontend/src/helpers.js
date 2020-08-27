@@ -70,7 +70,6 @@ function getColor(str) {
 export function convertToPercentage(values) {
   const add_abs = (a, b) => Math.abs(a) + Math.abs(b);
 
-  console.log("helper", values);
   if (values.length === 0) {
     return values;
   } else {
