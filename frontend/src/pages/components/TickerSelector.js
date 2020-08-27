@@ -28,11 +28,9 @@ function filterApiData() {
     }
 
     if (newData.length !== 0) {
-      console.log("filtered: ", newData);
       props.onSubmit(newData);
       return newData;
     } else {
-      console.log("filtered: ", props.apiData);
       props.onSubmit(props.apiData);
       return props.apiData;
     }
@@ -49,9 +47,6 @@ function filterApiData() {
           <Select
             components={makeAnimated()}
             options={tickerOptions}
-            clearValue={() => {
-              console.log("CLEAR");
-            }}
             noOptionsMessage={() => "All tickers have been selected."}
             placeholder="Select Tickers To View ..."
             onChange={setTickerFilter}

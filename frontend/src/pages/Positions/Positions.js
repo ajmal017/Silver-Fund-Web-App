@@ -34,7 +34,6 @@ export default function Positions() {
     setApiData([]);
     setErrorMsg(null);
 
-    console.log("start: ", start, " end: ", end);
     if (end < start) {
       setShowTable(false);
       setShowTimeSeries(false);
@@ -60,8 +59,6 @@ export default function Positions() {
         }
         setApiData(response.data);
         setFilterData(response.data);
-        console.log("apiData: ", apiData);
-        console.log("DataSets: ", formatTimeSeries(apiData, start, end));
       })
       .catch((error) => {
         console.log(error);

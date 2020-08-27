@@ -70,7 +70,6 @@ function getColor(str) {
 export function convertToPercentage(values) {
   const add_abs = (a, b) => Math.abs(a) + Math.abs(b);
 
-  console.log("helper", values);
   if (values.length === 0) {
     return values;
   } else {
@@ -96,7 +95,7 @@ export function formatTimeSeries(apiData, startDate, stopDate, weight) {
   //We fill our weights with one in case we want the $ value of each position
   var weights = [];
   var k;
-  var curr;
+  let curr = [];
 
   //If we want portfolio weights
   if (weight === true) {
@@ -114,16 +113,15 @@ export function formatTimeSeries(apiData, startDate, stopDate, weight) {
   } else {
     weights = Array(labels.length).fill(1);
   }
-  var i;
-  var j;
-  for (i = 0; i < tickers.length; i++) {
+
+  for (let i = 0; i < tickers.length; i++) {
     let color = getColor(tickers[i]);
     var asset = {};
     asset.label = tickers[i];
     asset.backgroundColor = color;
     asset.borderColor = color;
     asset.data = [];
-    for (j = 0; j < labels.length; j++) {
+    for (let j = 0; j < labels.length; j++) {
       var value = apiData.filter(function (item) {
         return item.ticker === tickers[i] && item.date === labels[j];
       });
