@@ -26,6 +26,8 @@ export default function SnapShotChart(props) {
             paddingBottom: "10px",
             border: "3px solid #002e5d",
             outline: "2px solid #ffffff",
+            border: "5px solid #cfcfcf",
+            outline: "4px solid #ffffff",
           }}
           className="m-2"
         >
@@ -47,7 +49,6 @@ export default function SnapShotChart(props) {
             options={{
               title: {
                 display: true,
-                // text: "Positions",
                 fontsize: 40,
                 fontColor: "#000000",
               },
