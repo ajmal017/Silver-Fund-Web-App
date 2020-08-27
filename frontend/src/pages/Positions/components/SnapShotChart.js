@@ -23,8 +23,9 @@ export default function SnapShotChart(props) {
           style={{
             backgroundColor: "#f2f2f2",
             paddingRight: "35px",
-            border: "5px solid #cfcfcf",
-            outline: "4px solid #ffffff",
+            paddingBottom: "10px",
+            border: "3px solid #002e5d",
+            outline: "2px solid #ffffff",
           }}
           className="m-2"
         >
@@ -37,14 +38,12 @@ export default function SnapShotChart(props) {
                   data: props.valuesData,
                   backgroundColor: "#3f5f80",
                   barPercentage: 0.5,
-                  borderWidth: 1,
-                  borderColor: "#ffffff",
                   hoverBackgroundColor: "#002e5d",
                 },
               ],
             }}
             width={50}
-            height={30 + props.tickerData.length / 8}
+            height={30 + props.tickerData.length / 4}
             options={{
               title: {
                 display: true,
