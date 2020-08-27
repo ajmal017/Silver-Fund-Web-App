@@ -5,7 +5,12 @@ import { addThousandsComma } from "../../../helpers";
 
 export default function TimeSeriesChart(props) {
   return (
-    <>
+    <div
+      style={{
+        padding: "40px",
+        border: "4px solid #cfcfcf",
+      }}
+    >
       <Line
         data={{
           labels: props.data[0],
@@ -70,6 +75,6 @@ export default function TimeSeriesChart(props) {
           },
         }}
       />
-    </>
+    </div>
   );
 }

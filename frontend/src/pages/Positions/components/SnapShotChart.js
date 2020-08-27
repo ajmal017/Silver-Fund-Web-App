@@ -22,9 +22,9 @@ export default function SnapShotChart(props) {
         <div
           style={{
             backgroundColor: "#f2f2f2",
-            paddingRight: "20px",
+            paddingRight: "35px",
             border: "5px solid #cfcfcf",
-            outline: "3px solid #002e5d",
+            outline: "4px solid #ffffff",
           }}
           className="m-2"
         >
