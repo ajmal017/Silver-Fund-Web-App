@@ -1,5 +1,5 @@
 import React from "react";
-import Select from "react-select";
+// import Select from "react-select";
 
 export default function PositionsGraphVT(props) {
   return (
