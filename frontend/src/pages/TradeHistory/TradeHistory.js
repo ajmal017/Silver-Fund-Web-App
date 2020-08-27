@@ -77,7 +77,7 @@ export default function TradeHistory() {
             onEndChange={(value) => setEnd(value)}
           />
         </div>
-        <div className="small-box d-inline-block ml-4">
+        <div className="ticker-selector d-inline-block ml-4">
           <TickerSelector
             apiData={addTickers(apiData)}
             onSubmit={(newValue) => setCurrData(newValue)}

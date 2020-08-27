@@ -172,7 +172,7 @@ export default function Positions() {
                 onEndChange={(value) => setEnd(value)}
               />
             </div>
-            <div className="d-inline-block">
+            <div className="ticker-selector d-inline-block ml-4">
               <TickerSelector
                 apiData={apiData}
                 onSubmit={(newValue) => setFilterData(newValue)}

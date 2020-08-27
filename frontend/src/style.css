@@ -242,6 +242,10 @@ td {
   font-size: large;
 }
 
+.ticker-selector {
+  width: 270px;
+}
+
 /* WIDE TABLET ADJUSTMENTS */
 
 @media (max-width: 1260px) {
