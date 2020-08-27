@@ -43,9 +43,9 @@ export function makeMoneyFormat(value) {
 }
 
 function getDates(startDate, endDate) {
-  var dateArray = [];
-  var currentDate = moment(startDate);
-  var stopDate = moment(endDate);
+  let dateArray = [];
+  let currentDate = moment(startDate);
+  const stopDate = moment(endDate);
   while (currentDate <= stopDate) {
     dateArray.push(moment(currentDate).format("YYYY-MM-DD"));
     currentDate = moment(currentDate).add(1, "days");
@@ -54,16 +54,16 @@ function getDates(startDate, endDate) {
 }
 
 function getColor(str) {
-  var hash = 0;
-  for (var i = 0; i < str.length; i++) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash);
   }
-  var colour = "#";
-  for (i = 0; i < 3; i++) {
-    var value = (hash >> (i * 8)) & 0xff;
-    colour += ("00" + value.toString(16)).substr(-2);
+  let color = "#";
+  for (let i = 0; i < 3; i++) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += ("00" + value.toString(16)).substr(-2);
   }
-  return colour;
+  return color;
   // var color = "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
 
