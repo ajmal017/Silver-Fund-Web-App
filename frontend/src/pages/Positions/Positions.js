@@ -114,6 +114,7 @@ export default function Positions() {
               </div>
               <hr />
               {showTable && <PositionsTable apiData={apiData} />}
+              <br />
             </div>
             <div className="right-col">
               <PositionsGVT onGraphVTChange={(value) => setGraphVT(value)} />
