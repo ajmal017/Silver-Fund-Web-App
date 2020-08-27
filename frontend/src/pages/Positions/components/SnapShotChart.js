@@ -24,8 +24,6 @@ export default function SnapShotChart(props) {
             backgroundColor: "#f2f2f2",
             paddingRight: "35px",
             paddingBottom: "10px",
-            border: "3px solid #002e5d",
-            outline: "2px solid #ffffff",
             border: "5px solid #cfcfcf",
             outline: "4px solid #ffffff",
           }}
