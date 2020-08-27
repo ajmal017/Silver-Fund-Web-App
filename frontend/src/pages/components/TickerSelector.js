@@ -53,14 +53,14 @@ export default function TickerSelector(props) {
               console.log("CLEAR");
             }}
             noOptionsMessage={() => "All tickers have been selected."}
-            placeholder="Select Tickers To View ..."
+            placeholder="Filter by Ticker"
             onChange={setTickerFilter}
             isMulti
             isSearchable
           />
         </>
       ) : (
-        <Select isDisabled placeholder="Select date(s) before tickers." />
+        <Select isDisabled placeholder="Select date(s) first." />
       )}
     </>
   );
