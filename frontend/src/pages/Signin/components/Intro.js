@@ -14,7 +14,7 @@ export default function Intro() {
         analysis.
       </p>
       <a
-        className="btn learn-more-btn"
+        className="btn px-4"
         href="https://www.thesilverfund.org/"
         target="_blank"
         rel="noopener noreferrer"
