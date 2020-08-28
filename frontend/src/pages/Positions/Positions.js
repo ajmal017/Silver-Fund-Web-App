@@ -32,12 +32,12 @@ export default function Positions() {
     { value: 0, label: "$ Positions by Stock" },
     { value: 1, label: "% Positions by Stock" },
     // FIXME - Add these back once we're able to implement them.
-    // { value: 2, label: "$ Positions vs. Benchmark by Stock" },
-    // { value: 3, label: "% Positions vs. Benchmark by Stock" },
-    // { value: 4, label: "$ Positions by Industry" },
-    // { value: 5, label: "% Positions by Industry" },
-    // { value: 6, label: "$ Positions vs. Benchmark by Industry" },
-    // { value: 7, label: "% Positions vs. Benchmark by Industry" },
+    { value: 2, label: "$ Positions vs. Benchmark by Stock" },
+    { value: 3, label: "% Positions vs. Benchmark by Stock" },
+    { value: 4, label: "$ Positions by Industry" },
+    { value: 5, label: "% Positions by Industry" },
+    { value: 6, label: "$ Positions vs. Benchmark by Industry" },
+    { value: 7, label: "% Positions vs. Benchmark by Industry" },
   ];
 
   function getApiData() {

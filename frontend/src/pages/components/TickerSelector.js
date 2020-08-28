@@ -12,6 +12,17 @@ export default function TickerSelector(props) {
     label: item,
   }));
 
+  function customTheme(theme) {
+    return {
+      ...theme,
+      colors: {
+        ...theme.colors,
+        primary25: "#cfcfcf",
+        primary: "#002e5d",
+      },
+    };
+  }
+
   function filterApiData() {
     if (!tickerFilter) {
       props.onSubmit(props.apiData);
@@ -45,6 +56,7 @@ export default function TickerSelector(props) {
       {props.apiData && props.apiData.length > 0 ? (
         <>
           <Select
+            theme={customTheme}
             components={makeAnimated()}
             options={tickerOptions}
             noOptionsMessage={() => "All tickers have been selected."}
@@ -55,9 +67,7 @@ export default function TickerSelector(props) {
           />
         </>
       ) : (
-        <div>
-          <Select isDisabled placeholder="Select date(s) first." />
-        </div>
+        <Select isDisabled placeholder="Select date(s) first." />
       )}
     </>
   );
