@@ -188,14 +188,14 @@ export default function Positions() {
             <div style={{ backgroundColor: "#ffffff" }}>
               {showTimeSeries && graphVT === 0 && (
                 <TimeSeriesChart
-                  data={formatTimeSeries(filterData, start, end, false)}
+                  data={formatTimeSeries(filterData, apiData, start, end, false)}
                   percent={""}
                   dollar={"$"}
                 />
               )}
               {showTimeSeries && graphVT === 1 && (
                 <TimeSeriesChart
-                  data={formatTimeSeries(filterData, start, end, true)}
+                  data={formatTimeSeries(filterData, apiData, start, end, true)}
                   percent={"%"}
                   dollar={""}
                 />
