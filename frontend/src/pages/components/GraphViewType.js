@@ -27,6 +27,7 @@ export default function GraphViewType(props) {
           options={props.dropdownOptions}
           defaultValue={props.dropdownOptions[0]}
           onChange={props.onSelection}
+          maxMenuHeight="8"
         />
       </div>
     </div>
