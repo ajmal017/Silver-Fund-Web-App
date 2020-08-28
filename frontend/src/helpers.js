@@ -53,18 +53,14 @@ function getDates(startDate, endDate) {
   return dateArray;
 }
 
-function getColor(str) {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  let color = "#";
-  for (let i = 0; i < 3; i++) {
-    const value = (hash >> (i * 8)) & 0xff;
-    color += ("00" + value.toString(16)).substr(-2);
-  }
-  return color;
-  // const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+function getPrimColor(colorNum, colors) {
+  if (colors < 1) colors = 1; 
+  return "hsl(" + (colorNum * (360 / colors) % 360) + ",90%,70%)";
+}
+
+function getSecondColor(colorNum, colors) {
+  if (colors < 1) colors = 1; 
+  return "hsl(" + (colorNum * (360 / colors) % 360) + ",85%,40%)";
 }
 
 export function convertToPercentage(values) {
@@ -81,22 +77,25 @@ export function convertToPercentage(values) {
   }
 }
 
-export function formatTimeSeries(apiData, startDate, stopDate, weight) {
+export function formatTimeSeries(filterData, apiData, startDate, stopDate, weight) {
   const add_abs = (a, b) => Math.abs(a) + Math.abs(b);
-  let tickers = [];
+  let filteredTickers = [];
+  let allTickers = [];
   let labels = [];
   let datasets = [];
   let timeSeriesData = [];
 
-  tickers = apiData.map(({ ticker }) => ticker);
-  tickers = [...new Set(tickers)];
+  filteredTickers = filterData.map(({ ticker }) => ticker);
+  filteredTickers = [...new Set(filteredTickers)];
+  allTickers = apiData.map(({ ticker }) => ticker);
+  allTickers = [...new Set(allTickers)];
   labels = getDates(startDate, stopDate);
 
   // We fill our weights with one in case we want the $ value of each position
   let weights = [];
   let curr;
 
-  // If we want portfolio weights
+  // If we want portfolio weightsc
   if (weight === true) {
     for (let k = 0; k < labels.length; ++k) {
       curr = apiData.filter(function (item) {
@@ -113,16 +112,17 @@ export function formatTimeSeries(apiData, startDate, stopDate, weight) {
     weights = Array(labels.length).fill(1);
   }
 
-  for (let i = 0; i < tickers.length; i++) {
-    let color = getColor(tickers[i]);
+  for (let i = 0; i < filteredTickers.length; i++) {
+    let primcolor = getPrimColor(allTickers.indexOf(filteredTickers[i]), allTickers.length);
+    let seccolor = getSecondColor(allTickers.indexOf(filteredTickers[i]), allTickers.length);
     let asset = {};
-    asset.label = tickers[i];
-    asset.backgroundColor = color;
-    asset.borderColor = color;
+    asset.label = filteredTickers[i];
+    asset.backgroundColor = seccolor;
+    asset.borderColor = primcolor;
     asset.data = [];
     for (let j = 0; j < labels.length; j++) {
       let value = apiData.filter(function (item) {
-        return item.ticker === tickers[i] && item.date === labels[j];
+        return item.ticker === filteredTickers[i] && item.date === labels[j];
       });
       if (value.length === 0) {
         asset.data.push(0);
@@ -137,5 +137,6 @@ export function formatTimeSeries(apiData, startDate, stopDate, weight) {
   }
   timeSeriesData.push(labels);
   timeSeriesData.push(datasets);
+  console.log("SeriesData", timeSeriesData)
   return timeSeriesData;
 }
