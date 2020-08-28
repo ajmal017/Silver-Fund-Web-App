@@ -9,8 +9,9 @@ admin.site.unregister(User)
 admin.site.site_header = "Admin - Silver Fund"
 admin.site.site_title = "Silver Fund"
 
+
 # username - BYU Net ID
-# password - BYU Net ID
+# password - Personal email username (everything before the '@') - temporary password until they change it
 class UserAdmin(BaseUserAdmin):
     list_display = (
         "username",
@@ -18,6 +19,8 @@ class UserAdmin(BaseUserAdmin):
         "last_name",
         "email",
         "is_staff",
+        "date_joined",
+        "is_active",
     )
     fieldsets = ()
     fields = (
@@ -27,6 +30,7 @@ class UserAdmin(BaseUserAdmin):
         "email",
         "password",
         "is_staff",
+        "is_active",
     )
     add_fieldsets = (
         (
@@ -41,6 +45,7 @@ class UserAdmin(BaseUserAdmin):
                     "password1",
                     "password2",
                     "is_staff",
+                    "is_active",
                 ),
             },
         ),

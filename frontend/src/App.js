@@ -66,7 +66,7 @@ export default function App() {
     localStorage.clear();
     setUsername("");
     setPassword("");
-    // window.location.reload(true);
+    window.location.reload(true);
   }
 
   function fillUsername(event) {
@@ -81,11 +81,7 @@ export default function App() {
     <>
       <Header token={token} signOut={() => signOut()} />
       {token ? (
-        <Panes
-          username={username}
-          password={password}
-          updatePassword={(newPassword) => setPassword(newPassword)}
-        />
+        <Panes username={username} password={password} />
       ) : (
         <>
           <ErrorMsg errorMsg={loginError} />

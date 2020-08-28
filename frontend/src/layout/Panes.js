@@ -13,11 +13,7 @@ export default function Panes(props) {
   return (
     <Tabs className="pane" defaultActiveKey="home" transition={false}>
       <Tab eventKey="home" title="Home">
-        <Home
-          username={props.username}
-          password={props.password}
-          updatePassword={props.updatePassword}
-        />
+        <Home username={props.username} password={props.password} />
       </Tab>
       <Tab eventKey="positions" title="Positions">
         <Positions />

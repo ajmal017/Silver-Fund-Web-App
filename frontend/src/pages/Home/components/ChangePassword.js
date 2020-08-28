@@ -6,6 +6,8 @@ import passwordIcon from "../../../images/lock.png";
 export default function ChangePassword(props) {
   const [oldPwd, setOldPwd] = useState("");
   const [newPwd, setNewPwd] = useState("");
+  const [newPwdConfirm, setNewPwdConfirm] = useState("");
+  const [canChangePwd, setCanChangePwd] = useState(true);
 
   function changePassword() {
     props.setChangePwdError(null);
@@ -16,6 +18,7 @@ export default function ChangePassword(props) {
         "New password cannot be the same as old password."
       );
       setNewPwd("");
+      setNewPwdConfirm("");
       return;
     }
 
@@ -24,6 +27,16 @@ export default function ChangePassword(props) {
         "New password must be at least 8 characters long."
       );
       setNewPwd("");
+      setNewPwdConfirm("");
+      return;
+    }
+
+    if (newPwd !== newPwdConfirm) {
+      props.setChangePwdError(
+        "You did not re-enter the new password correctly.  Try again."
+      );
+      setNewPwd("");
+      setNewPwdConfirm("");
       return;
     }
 
@@ -42,7 +55,7 @@ export default function ChangePassword(props) {
         props.setChangePwdSuccess(
           "Success!  Make sure to sign in with your new password in the future."
         );
-        props.updatePassword(newPwd);
+        setCanChangePwd(false);
       })
       .catch((error) => {
         console.log(error);
@@ -53,6 +66,7 @@ export default function ChangePassword(props) {
 
     setOldPwd("");
     setNewPwd("");
+    setNewPwdConfirm("");
   }
 
   return (
@@ -63,53 +77,70 @@ export default function ChangePassword(props) {
       }}
     >
       <h5>Change Your Password</h5>
-      <p style={{ color: "#000000" }}>
-        Make sure to secure your account by changing your password from the
-        default one you first received.
-      </p>
-      <div className="input-group mb-3">
-        <div className="input-group-prepend">
-          <img
-            className="input-group-text"
-            src={passwordIcon}
-            alt=""
-            style={{ width: "50px" }}
-          />
-        </div>
-        <input
-          type="password"
-          className="form-control"
-          placeholder="Enter old password"
-          value={oldPwd}
-          onChange={(event) => setOldPwd(event.target.value)}
-        />
-      </div>
-      <div className="input-group mb-3">
-        <div className="input-group-prepend">
-          <img
-            className="input-group-text"
-            src={passwordIcon}
-            alt=""
-            style={{ width: "50px" }}
-          />
-        </div>
-        <input
-          type="password"
-          className="form-control"
-          placeholder="Enter new password"
-          maxLength="50"
-          value={newPwd}
-          onChange={(event) => setNewPwd(event.target.value)}
-        />
-      </div>
-      <button
-        className="btn"
-        style={{ width: "100%" }}
-        onClick={() => changePassword()}
-        disabled={(!oldPwd, !newPwd)}
-      >
-        Change Password
-      </button>
+      {canChangePwd ? (
+        <>
+          <p style={{ color: "#000000" }}>
+            Make sure to secure your account by changing your password from the
+            default one you first received.
+          </p>
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <img
+                className="input-group-text"
+                src={passwordIcon}
+                alt=""
+                style={{ width: "50px" }}
+              />
+            </div>
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Enter old password"
+              value={oldPwd}
+              onChange={(event) => setOldPwd(event.target.value)}
+            />
+          </div>
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <img
+                className="input-group-text"
+                src={passwordIcon}
+                alt=""
+                style={{ width: "50px" }}
+              />
+            </div>
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Enter new password"
+              maxLength="50"
+              value={newPwd}
+              onChange={(event) => setNewPwd(event.target.value)}
+            />
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Re-enter new password"
+              maxLength="50"
+              value={newPwdConfirm}
+              onChange={(event) => setNewPwdConfirm(event.target.value)}
+            />
+          </div>
+          <button
+            className="btn"
+            style={{ width: "100%" }}
+            onClick={() => changePassword()}
+            disabled={(!oldPwd, !newPwd)}
+          >
+            Change Password
+          </button>
+        </>
+      ) : (
+        <p style={{ color: "#000000" }}>
+          You must sign out and sign back in with your new password before you
+          can change it again.
+        </p>
+      )}
     </div>
   );
 }
