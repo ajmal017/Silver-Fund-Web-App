@@ -64,12 +64,13 @@ function getSecondColor(colorNum, colors) {
 }
 
 export function convertToPercentage(values) {
-  const add_abs = (a, b) => Math.abs(a) + Math.abs(b);
+  const add_abs = (a, b) => a + b;
 
   if (values.length === 0) {
     return values;
   } else {
     const sum = values.reduce(add_abs);
+    console.log("SUM", sum)
 
     return values.map(function (x) {
       return (100 * (x / sum)).toFixed(2);
