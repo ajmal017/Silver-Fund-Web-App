@@ -66,7 +66,7 @@ export default function App() {
     localStorage.clear();
     setUsername("");
     setPassword("");
-    // window.location.reload(true);
+    window.location.reload(true);
   }
 
   function fillUsername(event) {
