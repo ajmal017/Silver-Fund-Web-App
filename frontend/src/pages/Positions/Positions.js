@@ -87,6 +87,7 @@ export default function Positions() {
       const yesterday = getDateStr(-1);
       setStart(yesterday);
       setEnd(yesterday);
+      setGraphVT(0)
       setShowTimeSeries(false);
     }
     if (newSubPane === "historybystock") {
@@ -94,6 +95,7 @@ export default function Positions() {
       setStart(threeMonthsAgo);
       const yesterday = getDateStr(-1);
       setEnd(yesterday);
+      setGraphVT(0)
       setShowTimeSeries(true);
     }
     setSubPane(newSubPane);

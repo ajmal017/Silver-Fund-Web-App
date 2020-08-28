@@ -43,12 +43,22 @@ export default function SnapShotChart(props) {
               ],
             }}
             width={50}
-            height={30 + props.tickerData.length / 4}
+            height={50}
             options={{
               title: {
                 display: true,
                 fontsize: 40,
                 fontColor: "#000000",
+              },
+              tooltips: {
+                multiKeyBackground: "#000",
+                mode: "index",
+                intersect: false,
+                callbacks: {
+                  label: function(tooltipItems, data) {
+                      return props.dollar + tooltipItems.xLabel.toString() + props.percent;
+                  }
+                }
               },
               legend: {
                 display: false,
@@ -65,18 +75,20 @@ export default function SnapShotChart(props) {
                   top: 0,
                 },
               },
-              tooltips: {
-                enabled: true,
-              },
               scales: {
                 xAxes: [
                   {
+                    // ticks: {
+                    //   min: FindMin(props.valuesData),
+                    //   max: Math.round(
+                    //     Math.max(...props.valuesData) + props.buffer
+                    //   ),
+                    //   fontColor: "#000000",
+                    // },
                     ticks: {
-                      min: FindMin(props.valuesData),
-                      max: Math.round(
-                        Math.max(...props.valuesData) + props.buffer
-                      ),
-                      fontColor: "#000000",
+                      callback: function(value, index, values) {
+                          return props.dollar + value + props.percent;
+                      }
                     },
                     stacked: true,
                     scaleLabel: {
@@ -96,30 +108,33 @@ export default function SnapShotChart(props) {
                   },
                 ],
               },
-              animation: {
-                onComplete: function () {
-                  var ctx = this.chart.ctx;
-                  // ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
-                  ctx.fillStyle = "#000000";
-                  // ctx.textAlign = 'center';
-                  // ctx.textBaseline = 'bottom';
+              // animation: {
+              //   onComplete: function () {
+              //     var ctx = this.chart.ctx;
+              //     // ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
+              //     ctx.fillStyle = "#000000";
+              //     // ctx.textAlign = 'center';
+              //     // ctx.textBaseline = 'bottom';
 
-                  this.data.datasets.forEach(function (dataset) {
-                    for (var i = 0; i < dataset.data.length; i++) {
-                      for (var key in dataset._meta) {
-                        var model = dataset._meta[key].data[i]._model;
-                        ctx.fillText(
-                          props.dollar +
-                            addThousandsComma(dataset.data[i]) +
-                            props.percent,
-                          model.x + 5,
-                          model.y
-                        );
-                      }
-                    }
-                  });
-                },
-              },
+              //     this.data.datasets.forEach(function (dataset) {
+              //       for (var i = 0; i < dataset.data.length; i++) {
+              //         for (var key in dataset._meta) {
+              //           var model = dataset._meta[key].data[i]._model;
+              //           let buffer = 0;
+              //           if(dataset.data[i]> 0){buffer = 5}
+              //           else{buffer = -20}
+              //           ctx.fillText(
+              //             props.dollar +
+              //               addThousandsComma(dataset.data[i]) +
+              //               props.percent,
+              //             model.x + buffer,
+              //             model.y
+              //           );
+              //         }
+              //       }
+              //     });
+              //   },
+              // },
             }}
           />
         </div>
