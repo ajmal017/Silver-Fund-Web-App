@@ -1,6 +1,6 @@
 import React from "react";
 
-import sfLogo from "../images/sf-logo.png";
+import sfLogo from "../images/sf-logo-white.png";
 import byuLogoText from "../images/byu-logo-text.png";
 
 export default function Header(props) {

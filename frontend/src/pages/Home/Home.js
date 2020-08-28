@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import sfLogo from "../../images/sf-logo.png";
+import sfLogo from "../../images/sf-logo-white.png";
 import ErrorMsg from "../components/ErrorMsg";
 import SuccessMsg from "../components/SuccessMsg";
 import ChangePassword from "./components/ChangePassword";
