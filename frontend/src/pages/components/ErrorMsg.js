@@ -7,8 +7,8 @@ export default function ErrorMsg(props) {
         <div
           style={{
             backgroundColor: "#e53935",
-            textIndent: "20px",
-            height: "25px",
+            paddingLeft: "20px",
+            minHeight: "25px",
           }}
         >
           {props.errorMsg}

@@ -7,8 +7,8 @@ export default function SuccessMsg(props) {
         <div
           style={{
             backgroundColor: "#0fb56d",
-            textIndent: "20px",
-            height: "25px",
+            paddingLeft: "20px",
+            minHeight: "25px",
           }}
         >
           {props.successMsg}
