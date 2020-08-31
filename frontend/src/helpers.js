@@ -114,8 +114,10 @@ export function formatTimeSeries(filterData, apiData, startDate, stopDate, weigh
   }
 
   for (let i = 0; i < filteredTickers.length; i++) {
-    let primcolor = getPrimColor(allTickers.indexOf(filteredTickers[i]), allTickers.length);
-    let seccolor = getSecondColor(allTickers.indexOf(filteredTickers[i]), allTickers.length);
+    // let primcolor = getPrimColor(allTickers.indexOf(filteredTickers[i]), allTickers.length);
+    // let seccolor = getSecondColor(allTickers.indexOf(filteredTickers[i]), allTickers.length);
+    let primcolor = getPrimColor(i, filteredTickers.length);
+    let seccolor = getSecondColor(i, filteredTickers.length);
     let asset = {};
     asset.label = filteredTickers[i];
     asset.backgroundColor = seccolor;

@@ -64,7 +64,7 @@ DATABASES = {
         "NAME": "sfdb",
         "USER": "admin",
         "PASSWORD": "password",
-        "HOST": "sftest.csnkvct2ncz0.us-west-2.rds.amazonaws.com",
+        "HOST": "database-1.csnkvct2ncz0.us-west-2.rds.amazonaws.com",
         "PORT": "3306",
     }
 }

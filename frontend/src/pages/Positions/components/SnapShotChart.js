@@ -56,7 +56,7 @@ export default function SnapShotChart(props) {
                 intersect: false,
                 callbacks: {
                   label: function(tooltipItems, data) {
-                      return props.dollar + tooltipItems.xLabel.toString() + props.percent;
+                      return props.dollar + addThousandsComma(tooltipItems.xLabel) + props.percent;
                   }
                 }
               },

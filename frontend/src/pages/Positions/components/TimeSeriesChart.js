@@ -33,7 +33,7 @@ export default function TimeSeriesChart(props) {
               intersect: false,
               callbacks: {
                 label: function(tooltipItems, data) {
-                    return props.dollar + tooltipItems.yLabel.toString() + props.percent;
+                    return props.dollar + addThousandsComma(tooltipItems.yLabel) + props.percent;
                 }
               }
             },
