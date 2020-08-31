@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import { getDateStr } from "../../helpers";
+import { getDateStr, apiBackendUrl } from "../../helpers";
 import ErrorMsg from "../components/ErrorMsg";
 import DateRanger from "../components/DateRanger";
 import TickerSelector from "../components/TickerSelector";
@@ -34,7 +34,7 @@ export default function TradeHistory() {
       return;
     }
 
-    axios.defaults.baseURL = "http://localhost:8000/";
+    axios.defaults.baseURL = apiBackendUrl;
     axios
       .get("api/trades/filter/date/", {
         params: {

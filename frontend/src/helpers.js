@@ -1,5 +1,8 @@
 import moment from "moment";
 
+/* URL for AWS Backend -- for all api calls */
+export const apiBackendUrl = "http://54.184.215.7:8000/";
+
 /* 
 Input: An integer (positive or negative) that represents how many days away a specific day is from today (ex: yesterday = -1)
 Output: A "YYYY-MM-DD" date string (ex: "2020-01-01")
@@ -54,13 +57,13 @@ function getDates(startDate, endDate) {
 }
 
 function getPrimColor(colorNum, colors) {
-  if (colors < 1) colors = 1; 
-  return "hsl(" + (colorNum * (360 / colors) % 360) + ",90%,70%)";
+  if (colors < 1) colors = 1;
+  return "hsl(" + ((colorNum * (360 / colors)) % 360) + ",90%,70%)";
 }
 
 function getSecondColor(colorNum, colors) {
-  if (colors < 1) colors = 1; 
-  return "hsl(" + (colorNum * (360 / colors) % 360) + ",85%,40%)";
+  if (colors < 1) colors = 1;
+  return "hsl(" + ((colorNum * (360 / colors)) % 360) + ",85%,40%)";
 }
 
 export function convertToPercentage(values) {
@@ -70,7 +73,7 @@ export function convertToPercentage(values) {
     return values;
   } else {
     const sum = values.reduce(add_abs);
-    console.log("SUM", sum)
+    console.log("SUM", sum);
 
     return values.map(function (x) {
       return (100 * (x / sum)).toFixed(2);
@@ -78,7 +81,13 @@ export function convertToPercentage(values) {
   }
 }
 
-export function formatTimeSeries(filterData, apiData, startDate, stopDate, weight) {
+export function formatTimeSeries(
+  filterData,
+  apiData,
+  startDate,
+  stopDate,
+  weight
+) {
   const add_abs = (a, b) => Math.abs(a) + Math.abs(b);
   let filteredTickers = [];
   let allTickers = [];
@@ -140,6 +149,6 @@ export function formatTimeSeries(filterData, apiData, startDate, stopDate, weigh
   }
   timeSeriesData.push(labels);
   timeSeriesData.push(datasets);
-  console.log("SeriesData", timeSeriesData)
+  console.log("SeriesData", timeSeriesData);
   return timeSeriesData;
 }

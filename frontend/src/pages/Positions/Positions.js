@@ -6,6 +6,7 @@ import {
   getDateStr3MonthsBack,
   convertToPercentage,
   formatTimeSeries,
+  apiBackendUrl,
 } from "../../helpers";
 import ErrorMsg from "../components/ErrorMsg";
 import TickerSelector from "../components/TickerSelector";
@@ -53,7 +54,7 @@ export default function Positions() {
       return;
     }
 
-    axios.defaults.baseURL = "http://localhost:8000/";
+    axios.defaults.baseURL = apiBackendUrl;
     axios
       .get("api/positions/filter/date/", {
         params: {
@@ -87,7 +88,7 @@ export default function Positions() {
       const yesterday = getDateStr(-1);
       setStart(yesterday);
       setEnd(yesterday);
-      setGraphVT(0)
+      setGraphVT(0);
       setShowTimeSeries(false);
     }
     if (newSubPane === "historybystock") {
@@ -95,7 +96,7 @@ export default function Positions() {
       setStart(threeMonthsAgo);
       const yesterday = getDateStr(-1);
       setEnd(yesterday);
-      setGraphVT(0)
+      setGraphVT(0);
       setShowTimeSeries(true);
     }
     setSubPane(newSubPane);
@@ -190,7 +191,13 @@ export default function Positions() {
             <div style={{ backgroundColor: "#ffffff" }}>
               {showTimeSeries && graphVT === 0 && (
                 <TimeSeriesChart
-                  data={formatTimeSeries(filterData, apiData, start, end, false)}
+                  data={formatTimeSeries(
+                    filterData,
+                    apiData,
+                    start,
+                    end,
+                    false
+                  )}
                   percent={""}
                   dollar={"$"}
                 />

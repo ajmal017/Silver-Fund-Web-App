@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import { apiBackendUrl } from "../../../helpers";
 import passwordIcon from "../../../images/lock.png";
 
 export default function ChangePassword(props) {
@@ -40,7 +41,7 @@ export default function ChangePassword(props) {
       return;
     }
 
-    axios.defaults.baseURL = "http://localhost:8000/";
+    axios.defaults.baseURL = apiBackendUrl;
     axios.defaults.auth = {
       username: props.username,
       password: props.password,
