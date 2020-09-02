@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 
+import { customTheme } from "../../constants";
+
 export default function TickerSelector(props) {
   const [tickerFilter, setTickerFilter] = useState([]);
   let tickerOptions = props.apiData.map(({ ticker }) => ticker);
@@ -11,17 +13,6 @@ export default function TickerSelector(props) {
     value: item,
     label: item,
   }));
-
-  function customTheme(theme) {
-    return {
-      ...theme,
-      colors: {
-        ...theme.colors,
-        primary25: "#cfcfcf",
-        primary: "#002e5d",
-      },
-    };
-  }
 
   function filterApiData() {
     if (!tickerFilter) {

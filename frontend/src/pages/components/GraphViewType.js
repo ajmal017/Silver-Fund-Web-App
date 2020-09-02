@@ -1,18 +1,9 @@
 import React from "react";
 import Select from "react-select";
 
-export default function GraphViewType(props) {
-  function customTheme(theme) {
-    return {
-      ...theme,
-      colors: {
-        ...theme.colors,
-        primary25: "#cfcfcf",
-        primary: "#002e5d",
-      },
-    };
-  }
+import { customTheme } from "../../constants";
 
+export default function GraphViewType(props) {
   return (
     <div style={{ width: "440px" }} className="m-1 float-right">
       <label className="input-label pt-2">Graph View Type:</label>

@@ -66,3 +66,15 @@ export const tradeHistoryTableCols = [
     accessor: "trade_time",
   },
 ];
+
+/* Custom theme for React Select */
+export function customTheme(theme) {
+  return {
+    ...theme,
+    colors: {
+      ...theme.colors,
+      primary25: "#cfcfcf",
+      primary: "#002e5d",
+    },
+  };
+}
