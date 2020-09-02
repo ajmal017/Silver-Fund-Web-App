@@ -2,7 +2,7 @@ import React from "react";
 import { useTable, useSortBy } from "react-table";
 import Spinner from "react-bootstrap/Spinner";
 
-import { addThousandsComma, makeMoneyFormat } from "../../../helpers";
+// import { addThousandsComma, makeMoneyFormat } from "../../../helpers";
 import downArrow from "../../../images/down-arrow.png";
 import upArrow from "../../../images/up-arrow.png";
 
@@ -37,7 +37,7 @@ export const columns = [
   },
 ];
 
-export default function TestTable(props) {
+export default function SortableTable(props) {
   const {
     getTableProps,
     getTableBodyProps,
@@ -68,11 +68,13 @@ export default function TestTable(props) {
                           <img
                             src={downArrow}
                             style={{ width: "20px", paddingLeft: "5px" }}
+                            alt=""
                           />
                         ) : (
                           <img
                             src={upArrow}
                             style={{ width: "20px", paddingLeft: "5px" }}
+                            alt=""
                           />
                         )
                       ) : null}
