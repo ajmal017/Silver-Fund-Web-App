@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import { apiBackendUrl, positionsTableCols } from "../../constants";
 import {
   getDateStr,
   getDateStr3MonthsBack,
   convertToPercentage,
   formatTimeSeries,
-  apiBackendUrl,
 } from "../../helpers";
 import ErrorMsg from "../components/ErrorMsg";
 import TickerSelector from "../components/TickerSelector";
@@ -14,8 +14,7 @@ import DateSingler from "../components/DateSingler";
 import DateRanger from "../components/DateRanger";
 import GraphViewType from "../components/GraphViewType";
 import PositionsSubPanes from "./components/PositionsSubPanes";
-import PositionsTable from "./components/TestTable";
-// import PositionsTable from "./components/PositionsTable";
+import SortableTable from "../components/SortableTable";
 import SnapShotChart from "./components/SnapShotChart";
 import TimeSeriesChart from "./components/TimeSeriesChart";
 
@@ -134,7 +133,12 @@ export default function Positions() {
             <hr />
             <div className="pane-split-container">
               <div className="left-col">
-                {showTable && <PositionsTable apiData={apiData} />}
+                {showTable && (
+                  <SortableTable
+                    apiData={apiData}
+                    tableColumns={positionsTableCols}
+                  />
+                )}
                 <br />
               </div>
               <div className="right-col">
@@ -213,7 +217,12 @@ export default function Positions() {
             </div>
 
             <br />
-            {showTable && <PositionsTable apiData={filterData} />}
+            {showTable && (
+              <SortableTable
+                apiData={filterData}
+                tableColumns={positionsTableCols}
+              />
+            )}
           </>
         )}
       </div>

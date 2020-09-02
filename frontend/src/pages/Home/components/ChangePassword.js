@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import { apiBackendUrl } from "../../../helpers";
+import { apiBackendUrl } from "../../../constants";
 import passwordIcon from "../../../images/lock.png";
 
 export default function ChangePassword(props) {

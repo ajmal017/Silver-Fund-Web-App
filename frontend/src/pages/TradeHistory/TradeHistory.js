@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import { getDateStr, apiBackendUrl } from "../../helpers";
+import { apiBackendUrl } from "../../constants";
+import { getDateStr } from "../../helpers";
 import ErrorMsg from "../components/ErrorMsg";
 import DateRanger from "../components/DateRanger";
 import TickerSelector from "../components/TickerSelector";

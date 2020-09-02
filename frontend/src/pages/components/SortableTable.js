@@ -3,39 +3,8 @@ import { useTable, useSortBy } from "react-table";
 import Spinner from "react-bootstrap/Spinner";
 
 // import { addThousandsComma, makeMoneyFormat } from "../../../helpers";
-import downArrow from "../../../images/down-arrow.png";
-import upArrow from "../../../images/up-arrow.png";
-
-export const columns = [
-  {
-    Header: "Asset ID",
-    accessor: "asset_id",
-  },
-  {
-    Header: "Ticker",
-    accessor: "ticker",
-  },
-  {
-    Header: "# of Shares",
-    accessor: "num_of_shares",
-  },
-  {
-    Header: "Type",
-    accessor: "asset_type",
-  },
-  {
-    Header: "Price",
-    accessor: "price",
-  },
-  {
-    Header: "Value",
-    accessor: "position_value",
-  },
-  {
-    Header: "Date",
-    accessor: "date",
-  },
-];
+import downArrow from "../../images/down-arrow.png";
+import upArrow from "../../images/up-arrow.png";
 
 export default function SortableTable(props) {
   const {
@@ -46,7 +15,7 @@ export default function SortableTable(props) {
     prepareRow,
   } = useTable(
     {
-      columns,
+      columns: props.tableColumns,
       data: props.apiData,
     },
     useSortBy

@@ -3,7 +3,7 @@ import "./style.css";
 import React, { useState } from "react";
 import axios from "axios";
 
-import { apiBackendUrl } from "./helpers";
+import { apiBackendUrl } from "./constants";
 import Header from "./layout/Header";
 import Panes from "./layout/Panes";
 import ErrorMsg from "./pages/components/ErrorMsg";

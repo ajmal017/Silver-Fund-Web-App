@@ -1,8 +1,5 @@
 import moment from "moment";
 
-/* URL for AWS Backend -- for all api calls */
-export const apiBackendUrl = "http://54.184.215.7:8000/";
-
 /* 
 Input: An integer (positive or negative) that represents how many days away a specific day is from today (ex: yesterday = -1)
 Output: A "YYYY-MM-DD" date string (ex: "2020-01-01")
