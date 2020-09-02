@@ -14,7 +14,8 @@ import DateSingler from "../components/DateSingler";
 import DateRanger from "../components/DateRanger";
 import GraphViewType from "../components/GraphViewType";
 import PositionsSubPanes from "./components/PositionsSubPanes";
-import PositionsTable from "./components/PositionsTable";
+import PositionsTable from "./components/TestTable";
+// import PositionsTable from "./components/PositionsTable";
 import SnapShotChart from "./components/SnapShotChart";
 import TimeSeriesChart from "./components/TimeSeriesChart";
 

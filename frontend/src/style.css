@@ -10,6 +10,7 @@ body {
   color: #002e5d;
   padding: 3vw;
   padding-top: 2vw;
+  width: inherit;
 }
 
 .site-title {
@@ -193,6 +194,7 @@ td {
   border: 4px solid #cfcfcf;
   padding: 5px;
   text-align: right;
+  padding-left: 1em;
   padding-right: 1em;
 }
 
